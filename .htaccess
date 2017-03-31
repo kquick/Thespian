@@ -1,1 +1,1 @@
-Redirect / http://thespian-py.com/doc/index.html
+Redirect /index.html http://thespian-py.com/doc/index.html
