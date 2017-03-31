@@ -4,10 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Thespian In-Depth Introduction</title>
-<!-- 2017-03-20 Mon 17:11 -->
+<!-- 2017-03-30 Thu 23:07 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Kevin Quick &lt;kquick@godaddy.com&gt;" />
+<meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center; }
@@ -101,7 +101,6 @@
 <script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
 <link href="thespian.css" rel="stylesheet" type="text/css"/>
-<base href="http://thespianpy.com/in_depth.html">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -249,7 +248,7 @@ in-depth introduction to writing Actor-based applications
 GoDaddy uses the <a href="http://python.org">Python language</a> for many of it's internal systems and
 has developed an Actor library for Python called <b>Thespian</b> to support
 this highly-scalable architecture.  GoDaddy has open-sourced the
-<a href="http://github.com/kquick/Thespian">Thespian library</a> itself to share it with the community and allow
+<a href="http://thespianpy.com">Thespian library</a> itself to share it with the community and allow
 others to leverage the Actor Model architecture for Python.
 </p>
 </div>
@@ -1805,7 +1804,7 @@ is started on that system that uses the associated code.
 
 <p>
 As indicated previously, GoDaddy is using a distributed Actor
-environment that spans over 5,000 active systems.  This presents a
+environment that spans over 9,500 active systems.  This presents a
 challenge when deploying new code into the environment.  A
 conventional deployment using yum repositories or Spacewalk will take
 a considerable amount of time to individually update all of these
@@ -1939,10 +1938,10 @@ The sources loaded remain loaded until unloaded via a call to
 <div class="outline-text-2" id="text-h:058d8939-b973-4270-975b-3afd9c607176">
 
 <p>
-Thespian comes with a command-line application called the
-<code>thespianShell.py</code> which can be used to interact with existing Actor
-Systems.  This is especially handy to use with persistent Actor
-Systems to obtain information and perform manual testing.
+Thespian comes with a command-line application shell which can be used
+to interact with existing Actor Systems.  This is especially handy to
+use with persistent Actor Systems to obtain information and perform
+manual testing.
 </p>
 </div>
 
@@ -1965,7 +1964,7 @@ to leave the shell.
 </p>
 
 <pre class="example">
-$ thespianShell.py
+$ python -m thespian.shell
 thespian&gt; start multiprocTCPBase
 Starting multiprocTCPBase ActorSystem
 thespian&gt; exit
@@ -1979,7 +1978,7 @@ $
 <div class="outline-text-3" id="text-h:092b8ae6-ec6c-4729-9505-8dbd32284d02">
 
 <p>
-The thespianShell provides special handling for Actor Addresses.
+The thespian shell provides special handling for Actor Addresses.
 Rather than being required to type the full Actor Address each time,
 the shell provides the <code>address</code> command which can be used to
 "register" an Actor Address.  Each registered address is assigned an
@@ -1989,7 +1988,7 @@ address.
 </p>
 
 <pre class="example">
-$ thespianShell.py
+$ python -m thespian.shell
 thespian&gt; start multiprocTCPBase
 Starting multiprocTCPBase ActorSystem
 thespian&gt; address localhost 1900
@@ -2011,7 +2010,7 @@ another TestActor and return the address of that Actor.
 </p>
 
 <pre class="example">
-$ thespianShell.py
+$ python -m thespian.shell
 thespian&gt; start multiprocTCPBase
 Starting multiprocTCPBase ActorSystem
 thespian&gt; create_testActor
@@ -2120,8 +2119,8 @@ cloud-based applications.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Kevin Quick &lt;kquick@godaddy.com&gt;</p>
-<p class="date">Created: 2017-03-20 Mon 17:11</p>
+<p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
+<p class="date">Created: 2017-03-30 Thu 23:07</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

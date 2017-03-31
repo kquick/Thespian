@@ -2,7 +2,7 @@
 	       [HTTP://THESPIANPY.COM] DEVELOPER'S NOTES
 
 
-		    Kevin Quick <kquick@godaddy.com>
+		     Kevin Quick <quick@sparq.org>
 	      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -35,7 +35,7 @@ Table of Contents
 ────────────────
 
   Source code for Thespian is available at
-  [https://github.com/godaddy/Thespian] under the MIT license.
+  [https://github.com/kquick/Thespian] under the MIT license.
 
 
 1.2 Documentation
@@ -65,7 +65,7 @@ Table of Contents
   Any issues should be posted via the [main Thespian github page].
 
 
-  [main Thespian github page] https://github.com/godaddy/Thespian
+  [main Thespian github page] https://github.com/kquick/Thespian
 
 
 1.4 Contributions
@@ -138,7 +138,7 @@ Table of Contents
 
 
   [here in the Using Thespian guide]
-  http://godaddy.github.io/Thespian/doc/using.html#outline-container-sec-8
+  http://thespianpy.com/doc/using.html#h:2a5fa63d-e6eb-43b9-bea8-47223b27544e
 
 
 2.4 Running Tests

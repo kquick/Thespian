@@ -2,7 +2,7 @@
 	      [HTTP://THESPIANPY.COM] ACTORS USER'S GUIDE
 
 
-		    Kevin Quick <kquick@godaddy.com>
+		     Kevin Quick <quick@sparq.org>
 	     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
