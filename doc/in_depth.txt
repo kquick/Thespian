@@ -37,7 +37,8 @@ Table of Contents
 5 Conclusion
 
 
-
+#KWQ: fix hotlink targets/javascript on real version (artifact of using
+ the Cname redirect??)
 
 
 1 Background

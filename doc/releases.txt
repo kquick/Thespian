@@ -11,6 +11,7 @@ Table of Contents
 
 3.x
 .. 3.7
+..... 3.7.3 <2017-05-02 Tue>
 ..... 3.7.2 <2017-03-29 Wed>
 ..... 3.7.1 <2017-03-29 Wed>
 ..... 3.7.0 <2017-03-19 Sun>
@@ -88,6 +89,25 @@ not change the API.
 
 3.7
 ───
+
+3.7.3 <2017-05-02 Tue>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Protection against malformed trailing input for TCP transport.
+
+  ‣ Properly daemonize background thread used for MultiprocQueueBase to
+    allow normal shutdown and cleanup.
+
+  ‣ Enabled Travis CI testing (thanks to David Asabina!).
+
+  ‣ Updates for shift of development to
+    [https://github.com/kquick/Thespian].
+
+  ‣ Miscellaneous test updates to address test-centric instabilities,
+    including avoiding the use of ephemeral ports for test admin ports
+    to avoid collisions, auto-kill of orphaned actors, and renaming test
+    actors for distinction.
+
 
 3.7.2 <2017-03-29 Wed>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
