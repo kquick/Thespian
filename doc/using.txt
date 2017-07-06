@@ -303,7 +303,7 @@ Table of Contents
 
   Using an Actor system like Thespian tends to be a transformative
   experience in code generation.  Aspects which were previously
-  difficult to work with– multi-processing, concurrency, inter-process
+  difficult to work withH- multi-processing, concurrency, inter-process
   communications and networking, scalability, fault tolerance and
   recovery, … — all of these are handled by the Actor System itself,
   allowing the Actors to focus on the primary needs of the application
