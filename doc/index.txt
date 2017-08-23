@@ -1,7 +1,6 @@
 		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 		 [HTTP://THESPIANPY.COM] PYTHON ACTORS
 
-
 		     Kevin Quick <quick@sparq.org>
 		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -83,14 +82,11 @@ Table of Contents
   removed from the environment dynamically.
 
 
-  [Actor Model] http://wikipedia.org/wiki/Actor_model
+[Actor Model] http://wikipedia.org/wiki/Actor_model
 
 
 2 Quick Start
 ═════════════
-
-
-
 
 2.1 Simple Installation
 ───────────────────────
@@ -225,16 +221,13 @@ Table of Contents
   utilization document.
 
 
-  [Thespian In-Depth Introduction] http://thespianpy.com/doc/in_depth
+[Thespian In-Depth Introduction] http://thespianpy.com/doc/in_depth
 
-  [Using Thespian] http://thespian.py/doc/using
+[Using Thespian] http://thespian.py/doc/using
 
 
 3 Documentation
 ═══════════════
-
-
-
 
 3.1 Thespian Documentation
 ──────────────────────────
@@ -249,37 +242,37 @@ Table of Contents
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-  [TXT] file:using.txt
+[TXT] file:using.txt
 
-  [PDF] file:using.pdf
+[PDF] file:using.pdf
 
-  [HTML] file:using.html
+[HTML] file:using.html
 
-  [Using Thespian] file:using.html
+[Using Thespian] file:using.html
 
-  [TXT] file:developer.txt
+[TXT] file:developer.txt
 
-  [PDF] file:developer.pdf
+[PDF] file:developer.pdf
 
-  [HTML] file:developer.html
+[HTML] file:developer.html
 
-  [Thespian Developer's Notes] file:developer.html
+[Thespian Developer's Notes] file:developer.html
 
-  [TXT] file:releases.txt
+[TXT] file:releases.txt
 
-  [PDF] file:releases.pdf
+[PDF] file:releases.pdf
 
-  [HTML] file:releases.org
+[HTML] file:releases.org
 
-  [Thespian Release Notes] file:releases.org
+[Thespian Release Notes] file:releases.org
 
-  [TXT] file:in_depth.txt
+[TXT] file:in_depth.txt
 
-  [PDF] file:in_depth.pdf
+[PDF] file:in_depth.pdf
 
-  [HTML] file:in_depth.html
+[HTML] file:in_depth.html
 
-  [In Depth Introduction to Thespian] file:in_depth.html
+[In Depth Introduction to Thespian] file:in_depth.html
 
 
 3.2 Background and Related Efforts
@@ -300,17 +293,17 @@ Table of Contents
   please let us know of others that should be listed here.
 
 
-  [Actor Model] http://wikipedia.org/wiki/Actor_model
+[Actor Model] http://wikipedia.org/wiki/Actor_model
 
-  [Carl Hewitt, Eric Meijer, and Clemens Szyperski discussing the Actor
-  Model]
-  https://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-Model-everything-you-wanted-to-know-but-were-afraid-to-ask
+[Carl Hewitt, Eric Meijer, and Clemens Szyperski discussing the Actor
+Model]
+https://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-Model-everything-you-wanted-to-know-but-were-afraid-to-ask
 
-  [Akka] http://akka.io
+[Akka] http://akka.io
 
-  [Akka.NET] http://getakka.net/
+[Akka.NET] http://getakka.net/
 
-  [Erlang] http://www.erlang.org
+[Erlang] http://www.erlang.org
 
 
 3.3 Unrelated Efforts
@@ -358,7 +351,7 @@ Table of Contents
   ‣ Report a Bug: [https://github.com/kquick/Thespian/issues]
 
 
-  [Thespian Developer's Notes] file:developer.org
+[Thespian Developer's Notes] file:developer.org
 
 
 6 News
@@ -371,8 +364,7 @@ Table of Contents
   [Thespian Release Notes].
 
 
-  [Thespian Release Notes] file:releases.org
-
+[Thespian Release Notes] file:releases.org
 
 6.1 Blogs and Success Stories
 ─────────────────────────────
@@ -384,8 +376,8 @@ Table of Contents
   here, please contact one of the project administrators.
 
 
-  [GoDaddy blog article introducing Thespian, 2015 Aug]
-  http://engineering.godaddy.com/why-godaddy-built-an-actor-system-library
+[GoDaddy blog article introducing Thespian, 2015 Aug]
+http://engineering.godaddy.com/why-godaddy-built-an-actor-system-library
 
-  [Article comparing Actors to Python asyncio/await, 2016 Feb]
-  file:blog/async_blog_2016Feb/async_2016Feb.org
+[Article comparing Actors to Python asyncio/await, 2016 Feb]
+file:blog/async_blog_2016Feb/async_2016Feb.org
