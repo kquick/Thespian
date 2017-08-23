@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Thespian Developer's Notes</title>
-<!-- 2017-07-05 Wed 21:43 -->
+<!-- 2017-08-22 Tue 22:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thespian Developer's Notes</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -58,15 +65,14 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -176,15 +182,14 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-hH-851aafed-d085-49ed-b189-3bfd90a8e573" class="outline-2">
-<h2 id="hH-851aafed-d085-49ed-b189-3bfd90a8e573"><a id="sec-1" name="sec-1"></a><span class="section-number-2">1</span> Source</h2>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="hH-851aafed-d085-49ed-b189-3bfd90a8e573"><a id="orgheadline5"></a><span class="section-number-2">1</span> Source</h2>
 <div class="outline-text-2" id="text-hH-851aafed-d085-49ed-b189-3bfd90a8e573">
 </div>
 
-<div id="outline-container-hH-273880cf-f38b-40bd-8ea0-95d03d668b29" class="outline-3">
-<h3 id="hH-273880cf-f38b-40bd-8ea0-95d03d668b29"><a id="sec-1-1" name="sec-1-1"></a><span class="section-number-3">1.1</span> Availability</h3>
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="hH-273880cf-f38b-40bd-8ea0-95d03d668b29"><a id="orgheadline1"></a><span class="section-number-3">1.1</span> Availability</h3>
 <div class="outline-text-3" id="text-hH-273880cf-f38b-40bd-8ea0-95d03d668b29">
-
 <p>
 Source code for Thespian is available at
 <a href="https://github.com/kquick/Thespian">https://github.com/kquick/Thespian</a> under the MIT license.
@@ -192,10 +197,9 @@ Source code for Thespian is available at
 </div>
 </div>
 
-<div id="outline-container-hH-9ebe8005-1460-4634-bead-237826702ea2" class="outline-3">
-<h3 id="hH-9ebe8005-1460-4634-bead-237826702ea2"><a id="sec-1-2" name="sec-1-2"></a><span class="section-number-3">1.2</span> Documentation</h3>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="hH-9ebe8005-1460-4634-bead-237826702ea2"><a id="orgheadline2"></a><span class="section-number-3">1.2</span> Documentation</h3>
 <div class="outline-text-3" id="text-hH-9ebe8005-1460-4634-bead-237826702ea2">
-
 <p>
 Thespian documentation is maintained in the source tree under the
 <code>doc/</code> directory.  Documentation is written in Emacs orgmode,
@@ -221,20 +225,18 @@ $ bash doc/gen_html.sh doc/using.org
 </div>
 </div>
 
-<div id="outline-container-hH-e9695953-86ef-420c-a33a-4a0db2455a04" class="outline-3">
-<h3 id="hH-e9695953-86ef-420c-a33a-4a0db2455a04"><a id="sec-1-3" name="sec-1-3"></a><span class="section-number-3">1.3</span> Issues</h3>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="hH-e9695953-86ef-420c-a33a-4a0db2455a04"><a id="orgheadline3"></a><span class="section-number-3">1.3</span> Issues</h3>
 <div class="outline-text-3" id="text-hH-e9695953-86ef-420c-a33a-4a0db2455a04">
-
 <p>
 Any issues should be posted via the <a href="https://github.com/kquick/Thespian">main Thespian github page</a>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-hH-a0f114cf-cfc2-4ae6-a852-a4db84986f57" class="outline-3">
-<h3 id="hH-a0f114cf-cfc2-4ae6-a852-a4db84986f57"><a id="sec-1-4" name="sec-1-4"></a><span class="section-number-3">1.4</span> Contributions</h3>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="hH-a0f114cf-cfc2-4ae6-a852-a4db84986f57"><a id="orgheadline4"></a><span class="section-number-3">1.4</span> Contributions</h3>
 <div class="outline-text-3" id="text-hH-a0f114cf-cfc2-4ae6-a852-a4db84986f57">
-
 <p>
 Contributions (both source and documentation) should be in the
 form of pull requests.  Contributions will not be accepted until
@@ -248,15 +250,14 @@ to sign the agreement when you make your contribution.
 </div>
 </div>
 
-<div id="outline-container-hH-701a67c8-8882-49ff-928c-14ae0b663cbf" class="outline-2">
-<h2 id="hH-701a67c8-8882-49ff-928c-14ae0b663cbf"><a id="sec-2" name="sec-2"></a><span class="section-number-2">2</span> Testing</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="hH-701a67c8-8882-49ff-928c-14ae0b663cbf"><a id="orgheadline11"></a><span class="section-number-2">2</span> Testing</h2>
 <div class="outline-text-2" id="text-hH-701a67c8-8882-49ff-928c-14ae0b663cbf">
 </div>
 
-<div id="outline-container-hH-1c7bb213-1e22-455e-b767-c9a6a1a5cd68" class="outline-3">
-<h3 id="hH-1c7bb213-1e22-455e-b767-c9a6a1a5cd68"><a id="sec-2-1" name="sec-2-1"></a><span class="section-number-3">2.1</span> Approach</h3>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="hH-1c7bb213-1e22-455e-b767-c9a6a1a5cd68"><a id="orgheadline6"></a><span class="section-number-3">2.1</span> Approach</h3>
 <div class="outline-text-3" id="text-hH-1c7bb213-1e22-455e-b767-c9a6a1a5cd68">
-
 <p>
 While there are some Thespian tests that use mocking to reduce the
 effects of external elements, the main focus of Thespian testing is
@@ -274,10 +275,9 @@ systembases are tested on the same set of tests.
 </div>
 </div>
 
-<div id="outline-container-hH-f099ef66-5ab1-45d7-a700-b065f885ca75" class="outline-3">
-<h3 id="hH-f099ef66-5ab1-45d7-a700-b065f885ca75"><a id="sec-2-2" name="sec-2-2"></a><span class="section-number-3">2.2</span> Test Duration</h3>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="hH-f099ef66-5ab1-45d7-a700-b065f885ca75"><a id="orgheadline7"></a><span class="section-number-3">2.2</span> Test Duration</h3>
 <div class="outline-text-3" id="text-hH-f099ef66-5ab1-45d7-a700-b065f885ca75">
-
 <p>
 Because of the approach above running the tests can take some time.
 Test can even can hang if there is bad code or if system resources
@@ -298,10 +298,9 @@ As of Thespian 3.7.0, the full test suite duration is approximately
 </div>
 </div>
 
-<div id="outline-container-hH-1dfd22a5-0c88-4d8e-8e0d-5383a503678a" class="outline-3">
-<h3 id="hH-1dfd22a5-0c88-4d8e-8e0d-5383a503678a"><a id="sec-2-3" name="sec-2-3"></a><span class="section-number-3">2.3</span> Testing System Bases</h3>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="hH-1dfd22a5-0c88-4d8e-8e0d-5383a503678a"><a id="orgheadline8"></a><span class="section-number-3">2.3</span> Testing System Bases</h3>
 <div class="outline-text-3" id="text-hH-1dfd22a5-0c88-4d8e-8e0d-5383a503678a">
-
 <p>
 Because all systembases are tested, it is necessary to accomodate
 the differences between those system bases.  For most Actors, there
@@ -321,10 +320,9 @@ this in the Running Tests section below.
 </div>
 </div>
 
-<div id="outline-container-hH-a992a85a-623f-47c8-a810-deefcb82a521" class="outline-3">
-<h3 id="hH-a992a85a-623f-47c8-a810-deefcb82a521"><a id="sec-2-4" name="sec-2-4"></a><span class="section-number-3">2.4</span> Running Tests</h3>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="hH-a992a85a-623f-47c8-a810-deefcb82a521"><a id="orgheadline9"></a><span class="section-number-3">2.4</span> Running Tests</h3>
 <div class="outline-text-3" id="text-hH-a992a85a-623f-47c8-a810-deefcb82a521">
-
 <p>
 Tests are written to fairly conventional Python unittest standards
 without relying on plugins.  Tests are normally run via the pytest
@@ -354,25 +352,27 @@ methods from the <code>thespian/test/__init__.py</code> file:
 </p>
 
 <dl class="org-dl">
-<dt> unstable_test </dt><dd>     Specifies that the test is unstable for the specified base and
+<dt>unstable_test</dt><dd><p>
+     Specifies that the test is unstable for the specified base and
 should be skipped. The features tested may usually work, but are
 not reliably supported by the underlying base (e.g. the UDP
 transport does not provide delivery guarantees, so hi-traffic
 tests are marked with <code>unstable_test("multiprocUDPBase")</code>
+</p>
 
 <pre class="example">
 unstable_test(asys, basename[, ...])
-</pre>
-</dd>
+</pre></dd>
 
-<dt> actor_system_unsupported </dt><dd>     Specifies that the functionality being tested is not supported by
+<dt>actor_system_unsupported</dt><dd><p>
+     Specifies that the functionality being tested is not supported by
 this particular system base and the test should be skipped for
 the indicated base(s).
+</p>
 
 <pre class="example">
 actor_system_unsupported(asys, basename [,...])
-</pre>
-</dd>
+</pre></dd>
 </dl>
 
 
@@ -400,10 +400,9 @@ $ py.test -k Func
 </div>
 </div>
 
-<div id="outline-container-hH-bf031295-256d-471e-922a-808a77c3fbec" class="outline-3">
-<h3 id="hH-bf031295-256d-471e-922a-808a77c3fbec"><a id="sec-2-5" name="sec-2-5"></a><span class="section-number-3">2.5</span> Writing Tests</h3>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="hH-bf031295-256d-471e-922a-808a77c3fbec"><a id="orgheadline10"></a><span class="section-number-3">2.5</span> Writing Tests</h3>
 <div class="outline-text-3" id="text-hH-bf031295-256d-471e-922a-808a77c3fbec">
-
 <p>
 When writing tests for Thespian, there is an <code>asys</code> fixture for pytest
 that provides an initialized ActorSystem for each system base.
@@ -416,8 +415,7 @@ run the test once for each system base type.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2017-07-05 Wed 21:43</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2017-08-22 Tue 22:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

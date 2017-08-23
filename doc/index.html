@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Thespian Python Actors</title>
-<!-- 2017-07-05 Wed 21:43 -->
+<!-- 2017-08-22 Tue 22:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thespian Python Actors</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -58,15 +65,14 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -183,11 +189,10 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-hH-5976a936-5f5a-43d9-a5e8-c00cd07d5c13" class="outline-2">
-<h2 id="hH-5976a936-5f5a-43d9-a5e8-c00cd07d5c13"><a id="sec-1" name="sec-1"></a><span class="section-number-2">1</span> Home</h2>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="hH-5976a936-5f5a-43d9-a5e8-c00cd07d5c13"><a id="orgheadline1"></a><span class="section-number-2">1</span> Home</h2>
 <div class="outline-text-2" id="text-hH-5976a936-5f5a-43d9-a5e8-c00cd07d5c13">
-
-<div class="center">
+<div class="org-center">
 <p>
 <span class="bannerheader">Introducing: Thespian</span>
 </p>
@@ -206,40 +211,35 @@ System provided by the Thespian library.
 </p>
 
 <dl class="org-dl">
-<dt> Concurrent </dt><dd>All Actors run independently within the Actor
+<dt>Concurrent</dt><dd>All Actors run independently within the Actor
 System.  The Actor System may run the Actors as
 threads, processes, or even sequential operations
 within the current process&#x2014;all with no change to
-the Actors themselves.
-</dd>
+the Actors themselves.</dd>
 
-<dt> Distributed </dt><dd>Actors run independently&#x2026;anywhere.  Multiple
+<dt>Distributed</dt><dd>Actors run independently&#x2026;anywhere.  Multiple
 servers can each be running Thespian and an Actor
 can be run on any of these systems&#x2014;all with no
 change to the Actors themselves.  Thespian handles
 the communication between the Actors and the
 management process of distributing the Actors
-across the systems.
-</dd>
+across the systems.</dd>
 
-<dt> Location Independent </dt><dd>Because Actors run independently anywhere,
+<dt>Location Independent</dt><dd>Because Actors run independently anywhere,
 they run independently of their actual location.  A distributed
 Actor application may have part of it running on a local
 server, part running on a server in Amsterdam, and part running
 on a server in Singapore&#x2026; or not, with no change or awareness
-of this by the Actors themselves.
-</dd>
+of this by the Actors themselves.</dd>
 
-<dt> Fault Tolerant </dt><dd>Individual Actors can fail and be
+<dt>Fault Tolerant</dt><dd>Individual Actors can fail and be
 restarted&#x2014;automatically&#x2014;without impact to
-the rest of the system.
-</dd>
+the rest of the system.</dd>
 
-<dt> Scalable </dt><dd>The number of Actors in the system can be dynamically
+<dt>Scalable</dt><dd>The number of Actors in the system can be dynamically
 extended based on factors such as work volume, and
 systems added to the Distributed Actor System
-environment are automatically utilized.
-</dd>
+environment are automatically utilized.</dd>
 </dl>
 
 <p>
@@ -259,15 +259,14 @@ removed from the environment dynamically.
 </div>
 </div>
 
-<div id="outline-container-hH-8fe30933-b8dd-4ac8-a11b-046ed9afe72f" class="outline-2">
-<h2 id="hH-8fe30933-b8dd-4ac8-a11b-046ed9afe72f"><a id="sec-2" name="sec-2"></a><span class="section-number-2">2</span> Quick Start</h2>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="hH-8fe30933-b8dd-4ac8-a11b-046ed9afe72f"><a id="orgheadline7"></a><span class="section-number-2">2</span> Quick Start</h2>
 <div class="outline-text-2" id="text-hH-8fe30933-b8dd-4ac8-a11b-046ed9afe72f">
 </div>
 
-<div id="outline-container-hH-facafcab-1f42-4b4b-b287-1b7ef8f5bdf7" class="outline-3">
-<h3 id="hH-facafcab-1f42-4b4b-b287-1b7ef8f5bdf7"><a id="sec-2-1" name="sec-2-1"></a><span class="section-number-3">2.1</span> Simple Installation</h3>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="hH-facafcab-1f42-4b4b-b287-1b7ef8f5bdf7"><a id="orgheadline2"></a><span class="section-number-3">2.1</span> Simple Installation</h3>
 <div class="outline-text-3" id="text-hH-facafcab-1f42-4b4b-b287-1b7ef8f5bdf7">
-
 <p>
 Install the Thespian library on your local host system using pip:
 </p>
@@ -278,10 +277,9 @@ $ pip install thespian
 </div>
 </div>
 
-<div id="outline-container-hH-c49119ce-dd01-4348-9c2f-df7ecf0e071a" class="outline-3">
-<h3 id="hH-c49119ce-dd01-4348-9c2f-df7ecf0e071a"><a id="sec-2-2" name="sec-2-2"></a><span class="section-number-3">2.2</span> Starting a Thespian Instance</h3>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="hH-c49119ce-dd01-4348-9c2f-df7ecf0e071a"><a id="orgheadline3"></a><span class="section-number-3">2.2</span> Starting a Thespian Instance</h3>
 <div class="outline-text-3" id="text-hH-c49119ce-dd01-4348-9c2f-df7ecf0e071a">
-
 <p>
 Start a default Thespian Actor System on the current host system:
 </p>
@@ -294,17 +292,16 @@ $ python
 </div>
 </div>
 
-<div id="outline-container-hH-ff97e697-52e8-48e5-8682-86a4f90c750b" class="outline-3">
-<h3 id="hH-ff97e697-52e8-48e5-8682-86a4f90c750b"><a id="sec-2-3" name="sec-2-3"></a><span class="section-number-3">2.3</span> Hello World</h3>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="hH-ff97e697-52e8-48e5-8682-86a4f90c750b"><a id="orgheadline4"></a><span class="section-number-3">2.3</span> Hello World</h3>
 <div class="outline-text-3" id="text-hH-ff97e697-52e8-48e5-8682-86a4f90c750b">
-
 <p>
 A Hello World example:
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-python" id="helloActor.py"><span class="linenr"> 1: </span>from thespian.actors import *
+<pre class="src src-python" id="orgsrcblock1"><span class="linenr"> 1: </span>from thespian.actors import *
 <span class="linenr"> 2: </span>
 <span class="linenr"> 3: </span>class Hello(Actor):
 <span class="linenr"> 4: </span>    def receiveMessage(self, message, sender):
@@ -331,10 +328,9 @@ $
 </div>
 </div>
 
-<div id="outline-container-hH-30ec58b2-0daa-4700-be9d-c24925b965d3" class="outline-3">
-<h3 id="hH-30ec58b2-0daa-4700-be9d-c24925b965d3"><a id="sec-2-4" name="sec-2-4"></a><span class="section-number-3">2.4</span> Hello World Redux</h3>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="hH-30ec58b2-0daa-4700-be9d-c24925b965d3"><a id="orgheadline5"></a><span class="section-number-3">2.4</span> Hello World Redux</h3>
 <div class="outline-text-3" id="text-hH-30ec58b2-0daa-4700-be9d-c24925b965d3">
-
 <p>
 It's easy to extend the Hello World example to include multiple actors
 which communicate with each other.  This example shows a number of
@@ -342,20 +338,16 @@ additional details:
 </p>
 <ul class="org-ul">
 <li>the messages exchanged between the Actors can be anything that can
-be pickled.
-</li>
-<li>Actors can create other Actors dynamically
-</li>
-<li>Actor Addresses can be passed around
-</li>
+be pickled.</li>
+<li>Actors can create other Actors dynamically</li>
+<li>Actor Addresses can be passed around</li>
 <li>Actors remain until they are removed by sending them an
-<code>ActorExitRequest()</code>
-</li>
+<code>ActorExitRequest()</code></li>
 </ul>
 
 <div class="org-src-container">
 
-<pre class="src src-python" id="helloActor2.py"><span class="linenr"> 1: </span>from thespian.actors import *
+<pre class="src src-python" id="orgsrcblock2"><span class="linenr"> 1: </span>from thespian.actors import *
 <span class="linenr"> 2: </span>
 <span class="linenr"> 3: </span>import sys
 <span class="linenr"> 4: </span>
@@ -423,10 +415,9 @@ Please see the examples section for more information.
 </div>
 
 
-<div id="outline-container-hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321" class="outline-3">
-<h3 id="hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321"><a id="sec-2-5" name="sec-2-5"></a><span class="section-number-3">2.5</span> What Next?</h3>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321"><a id="orgheadline6"></a><span class="section-number-3">2.5</span> What Next?</h3>
 <div class="outline-text-3" id="text-hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321">
-
 <p>
 This has just been a very simple introduction to using Thespian.  A
 more detailed introduction can be found in the <a href="http://thespianpy.com/doc/in_depth">Thespian In-Depth
@@ -437,62 +428,61 @@ utilization document.
 </div>
 </div>
 
-<div id="outline-container-hH-e8dd9cdc-1a23-4f11-9d4b-017a12b07593" class="outline-2">
-<h2 id="hH-e8dd9cdc-1a23-4f11-9d4b-017a12b07593"><a id="sec-3" name="sec-3"></a><span class="section-number-2">3</span> Documentation</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="hH-e8dd9cdc-1a23-4f11-9d4b-017a12b07593"><a id="orgheadline11"></a><span class="section-number-2">3</span> Documentation</h2>
 <div class="outline-text-2" id="text-hH-e8dd9cdc-1a23-4f11-9d4b-017a12b07593">
 </div>
 
-<div id="outline-container-hH-24e6d4e0-21c2-4731-868a-2f5617a69c21" class="outline-3">
-<h3 id="hH-24e6d4e0-21c2-4731-868a-2f5617a69c21"><a id="sec-3-1" name="sec-3-1"></a><span class="section-number-3">3.1</span> Thespian Documentation</h3>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="hH-24e6d4e0-21c2-4731-868a-2f5617a69c21"><a id="orgheadline8"></a><span class="section-number-3">3.1</span> Thespian Documentation</h3>
 <div class="outline-text-3" id="text-hH-24e6d4e0-21c2-4731-868a-2f5617a69c21">
-
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">TXT</th>
-<th scope="col" class="left">PDF</th>
-<th scope="col" class="left">HTML</th>
-<th scope="col" class="left">Description</th>
+<th scope="col" class="org-left">TXT</th>
+<th scope="col" class="org-left">PDF</th>
+<th scope="col" class="org-left">HTML</th>
+<th scope="col" class="org-left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left"><a href="using.txt">TXT</a></td>
-<td class="left"><a href="using.pdf">PDF</a></td>
-<td class="left"><a href="using.html">HTML</a></td>
-<td class="left"><a href="using.html">Using Thespian</a> is the main documentation reference for developers  writing and implementing Actor-based applications with Thespian.</td>
+<td class="org-left"><a href="using.txt">TXT</a></td>
+<td class="org-left"><a href="using.pdf">PDF</a></td>
+<td class="org-left"><a href="using.html">HTML</a></td>
+<td class="org-left"><a href="using.html">Using Thespian</a> is the main documentation reference for developers  writing and implementing Actor-based applications with Thespian.</td>
 </tr>
 
 <tr>
-<td class="left"><a href="developer.txt">TXT</a></td>
-<td class="left"><a href="developer.pdf">PDF</a></td>
-<td class="left"><a href="developer.html">HTML</a></td>
-<td class="left"><a href="developer.html">Thespian Developer's Notes</a> provides documentation for developers working on Thespian itself.</td>
+<td class="org-left"><a href="developer.txt">TXT</a></td>
+<td class="org-left"><a href="developer.pdf">PDF</a></td>
+<td class="org-left"><a href="developer.html">HTML</a></td>
+<td class="org-left"><a href="developer.html">Thespian Developer's Notes</a> provides documentation for developers working on Thespian itself.</td>
 </tr>
 
 <tr>
-<td class="left"><a href="releases.txt">TXT</a></td>
-<td class="left"><a href="releases.pdf">PDF</a></td>
-<td class="left"><a href="releases.html">HTML</a></td>
-<td class="left">Release History is maintained in the <a href="releases.html">Thespian Release Notes</a>.</td>
+<td class="org-left"><a href="releases.txt">TXT</a></td>
+<td class="org-left"><a href="releases.pdf">PDF</a></td>
+<td class="org-left"><a href="releases.html">HTML</a></td>
+<td class="org-left">Release History is maintained in the <a href="releases.html">Thespian Release Notes</a>.</td>
 </tr>
 
 <tr>
-<td class="left"><a href="in_depth.txt">TXT</a></td>
-<td class="left"><a href="in_depth.pdf">PDF</a></td>
-<td class="left"><a href="in_depth.html">HTML</a></td>
-<td class="left">An <a href="in_depth.html">In Depth Introduction to Thespian</a>.</td>
+<td class="org-left"><a href="in_depth.txt">TXT</a></td>
+<td class="org-left"><a href="in_depth.pdf">PDF</a></td>
+<td class="org-left"><a href="in_depth.html">HTML</a></td>
+<td class="org-left">An <a href="in_depth.html">In Depth Introduction to Thespian</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -500,25 +490,18 @@ utilization document.
 </div>
 
 
-<div id="outline-container-hH-a7419fe2-bdaa-486f-a514-e921fb819e73" class="outline-3">
-<h3 id="hH-a7419fe2-bdaa-486f-a514-e921fb819e73"><a id="sec-3-2" name="sec-3-2"></a><span class="section-number-3">3.2</span> Background and Related Efforts</h3>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="hH-a7419fe2-bdaa-486f-a514-e921fb819e73"><a id="orgheadline9"></a><span class="section-number-3">3.2</span> Background and Related Efforts</h3>
 <div class="outline-text-3" id="text-hH-a7419fe2-bdaa-486f-a514-e921fb819e73">
-
 <ul class="org-ul">
-<li>The <a href="http://wikipedia.org/wiki/Actor_model">Actor Model</a> at Wikipedia
-</li>
-<li>A video with <a href="https://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-Model-everything-you-wanted-to-know-but-were-afraid-to-ask">Carl Hewitt, Eric Meijer, and Clemens Szyperski discussing the Actor Model</a>
-</li>
-<li><a href="http://c2.com/cgi/wiki?ActorsModel">http://c2.com/cgi/wiki?ActorsModel</a>
-</li>
+<li>The <a href="http://wikipedia.org/wiki/Actor_model">Actor Model</a> at Wikipedia</li>
+<li>A video with <a href="https://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-Model-everything-you-wanted-to-know-but-were-afraid-to-ask">Carl Hewitt, Eric Meijer, and Clemens Szyperski discussing the Actor Model</a></li>
+<li><a href="http://c2.com/cgi/wiki?ActorsModel">http://c2.com/cgi/wiki?ActorsModel</a></li>
 <li><a href="http://akka.io">Akka</a> is a popular Actor Library for Java and Scala; it is roughly
-the equivalent to Thespian for those languages.
-</li>
-<li><a href="http://getakka.net/">Akka.NET</a> is an implementation of Akka for the .NET and Mono environments making it useable for C# and F# applications.
-</li>
+the equivalent to Thespian for those languages.</li>
+<li><a href="http://getakka.net/">Akka.NET</a> is an implementation of Akka for the .NET and Mono environments making it useable for C# and F# applications.</li>
 <li>The <a href="http://www.erlang.org">Erlang</a> language has Actor support built-in (see
-<a href="http://www.erlang.org/doc/getting_started/conc_prog.html">http://www.erlang.org/doc/getting_started/conc_prog.html</a>).
-</li>
+<a href="http://www.erlang.org/doc/getting_started/conc_prog.html">http://www.erlang.org/doc/getting_started/conc_prog.html</a>).</li>
 </ul>
 
 <p>
@@ -528,10 +511,9 @@ but please let us know of others that should be listed here.
 </div>
 </div>
 
-<div id="outline-container-hH-2c16d670-b74b-4a64-ac23-e0d96111f9f4" class="outline-3">
-<h3 id="hH-2c16d670-b74b-4a64-ac23-e0d96111f9f4"><a id="sec-3-3" name="sec-3-3"></a><span class="section-number-3">3.3</span> Unrelated Efforts</h3>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="hH-2c16d670-b74b-4a64-ac23-e0d96111f9f4"><a id="orgheadline10"></a><span class="section-number-3">3.3</span> Unrelated Efforts</h3>
 <div class="outline-text-3" id="text-hH-2c16d670-b74b-4a64-ac23-e0d96111f9f4">
-
 <p>
 The following projects or sites are completely unrelated to this
 site, despite apparent similarities in naming or purpose.  These
@@ -541,18 +523,16 @@ to provide clarification on this point and avoid confusion.
 </p>
 
 <ul class="org-ul">
-<li><a href="http://pythonhackers.com/p/DrewEaster/thespian">http://pythonhackers.com/p/DrewEaster/thespian</a>
-</li>
+<li><a href="http://pythonhackers.com/p/DrewEaster/thespian">http://pythonhackers.com/p/DrewEaster/thespian</a></li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-hH-6f80868a-124a-47b8-a47d-07477dfe88f0" class="outline-2">
-<h2 id="hH-6f80868a-124a-47b8-a47d-07477dfe88f0"><a id="sec-4" name="sec-4"></a><span class="section-number-2">4</span> Download</h2>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="hH-6f80868a-124a-47b8-a47d-07477dfe88f0"><a id="orgheadline12"></a><span class="section-number-2">4</span> Download</h2>
 <div class="outline-text-2" id="text-hH-6f80868a-124a-47b8-a47d-07477dfe88f0">
-
 <p>
 The recommended way to obtain Thespian is by using <code>pip</code> to download
 the latest copy from PyPi:
@@ -579,10 +559,9 @@ Thespian may also be provided by your system's packaging tools
 </div>
 </div>
 
-<div id="outline-container-hH-5d7ec411-a58f-41fa-b05e-c0cec23cfc85" class="outline-2">
-<h2 id="hH-5d7ec411-a58f-41fa-b05e-c0cec23cfc85"><a id="sec-5" name="sec-5"></a><span class="section-number-2">5</span> Contribute</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="hH-5d7ec411-a58f-41fa-b05e-c0cec23cfc85"><a id="orgheadline13"></a><span class="section-number-2">5</span> Contribute</h2>
 <div class="outline-text-2" id="text-hH-5d7ec411-a58f-41fa-b05e-c0cec23cfc85">
-
 <p>
 Contributions to and involvement in Thespian development itself is
 welcomed.  The <a href="developer.html">Thespian Developer's Notes</a> document provides more
@@ -590,23 +569,18 @@ details on how to get involved.
 </p>
 
 <ul class="org-ul">
-<li>Source Code: <a href="https://github.com/kquick/Thespian">https://github.com/kquick/Thespian</a>
-</li>
-<li>Mailing List: thespianpy@googlegroups.com
-</li>
-<li>Report a Bug: <a href="https://github.com/kquick/Thespian/issues">https://github.com/kquick/Thespian/issues</a>
-</li>
+<li>Source Code: <a href="https://github.com/kquick/Thespian">https://github.com/kquick/Thespian</a></li>
+<li>Mailing List: thespianpy@googlegroups.com</li>
+<li>Report a Bug: <a href="https://github.com/kquick/Thespian/issues">https://github.com/kquick/Thespian/issues</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-hH-84836e30-faed-40bf-b6ae-7db014bae376" class="outline-2">
-<h2 id="hH-84836e30-faed-40bf-b6ae-7db014bae376"><a id="sec-6" name="sec-6"></a><span class="section-number-2">6</span> News</h2>
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="hH-84836e30-faed-40bf-b6ae-7db014bae376"><a id="orgheadline15"></a><span class="section-number-2">6</span> News</h2>
 <div class="outline-text-2" id="text-hH-84836e30-faed-40bf-b6ae-7db014bae376">
-
 <dl class="org-dl">
-<dt> 2015-08-31 </dt><dd>Thespian Publicly Released
-</dd>
+<dt>2015-08-31</dt><dd>Thespian Publicly Released</dd>
 </dl>
 
 
@@ -616,15 +590,12 @@ the <a href="releases.html">Thespian Release Notes</a>.
 </p>
 </div>
 
-<div id="outline-container-hH-4c48cbe8-d23b-45e8-a29f-991776c234a2" class="outline-3">
-<h3 id="hH-4c48cbe8-d23b-45e8-a29f-991776c234a2"><a id="sec-6-1" name="sec-6-1"></a><span class="section-number-3">6.1</span> Blogs and Success Stories</h3>
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="hH-4c48cbe8-d23b-45e8-a29f-991776c234a2"><a id="orgheadline14"></a><span class="section-number-3">6.1</span> Blogs and Success Stories</h3>
 <div class="outline-text-3" id="text-hH-4c48cbe8-d23b-45e8-a29f-991776c234a2">
-
 <ul class="org-ul">
-<li><a href="http://engineering.godaddy.com/why-godaddy-built-an-actor-system-library">GoDaddy blog article introducing Thespian, 2015 Aug</a>
-</li>
-<li><a href="blog/async_blog_2016Feb/async_2016Feb.html">Article comparing Actors to Python asyncio/await, 2016 Feb</a>
-</li>
+<li><a href="http://engineering.godaddy.com/why-godaddy-built-an-actor-system-library">GoDaddy blog article introducing Thespian, 2015 Aug</a></li>
+<li><a href="blog/async_blog_2016Feb/async_2016Feb.html">Article comparing Actors to Python asyncio/await, 2016 Feb</a></li>
 </ul>
 
 <p>
@@ -637,8 +608,7 @@ published here, please contact one of the project administrators.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2017-07-05 Wed 21:43</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2017-08-22 Tue 22:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
