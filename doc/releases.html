@@ -3,30 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-08-22 Tue 23:33 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thespian Release Notes</title>
+<!-- 2017-10-22 Sun 23:45 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+  .title  { text-align: center; }
   .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
+  .done   { color: green; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -65,14 +58,15 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara { display: inline; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -161,123 +155,124 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline34">3.x</a>
+<li><a href="#sec-1">3.x</a>
 <ul>
-<li><a href="#orgheadline2">3.8</a>
+<li><a href="#sec-1-1">3.8</a>
 <ul>
-<li><a href="#orgheadline1">3.8.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></a></li>
+<li><a href="#sec-1-1-1">3.8.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-22 Sun&gt;</span></span></a></li>
+<li><a href="#sec-1-1-2">3.8.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">3.7</a>
+<li><a href="#sec-1-2">3.7</a>
 <ul>
-<li><a href="#orgheadline3">3.7.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-02 Tue&gt;</span></span></a></li>
-<li><a href="#orgheadline4">3.7.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></a></li>
-<li><a href="#orgheadline5">3.7.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></a></li>
-<li><a href="#orgheadline6">3.7.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-19 Sun&gt;</span></span></a></li>
+<li><a href="#sec-1-2-1">3.7.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-02 Tue&gt;</span></span></a></li>
+<li><a href="#sec-1-2-2">3.7.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></a></li>
+<li><a href="#sec-1-2-3">3.7.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></a></li>
+<li><a href="#sec-1-2-4">3.7.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-19 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline12">3.6</a>
+<li><a href="#sec-1-3">3.6</a>
 <ul>
-<li><a href="#orgheadline8">3.6.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></a></li>
-<li><a href="#orgheadline9">3.6.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-19 Sun&gt;</span></span></a></li>
-<li><a href="#orgheadline10">3.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-18 Wed&gt;</span></span></a></li>
-<li><a href="#orgheadline11">3.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-02 Mon&gt;</span></span></a></li>
+<li><a href="#sec-1-3-1">3.6.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1-3-2">3.6.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-19 Sun&gt;</span></span></a></li>
+<li><a href="#sec-1-3-3">3.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-18 Wed&gt;</span></span></a></li>
+<li><a href="#sec-1-3-4">3.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-02 Mon&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">3.5</a>
+<li><a href="#sec-1-4">3.5</a>
 <ul>
-<li><a href="#orgheadline13">3.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 Mon&gt;</span></span></a></li>
-<li><a href="#orgheadline14">3.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 Thu&gt;</span></span></a></li>
-<li><a href="#orgheadline15">3.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-04 Sun&gt;</span></span></a></li>
+<li><a href="#sec-1-4-1">3.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 Mon&gt;</span></span></a></li>
+<li><a href="#sec-1-4-2">3.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1-4-3">3.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-04 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">3.4</a>
+<li><a href="#sec-1-5">3.4</a>
 <ul>
-<li><a href="#orgheadline17">3.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-07 Mon&gt;</span></span></a></li>
+<li><a href="#sec-1-5-1">3.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-07 Mon&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline20">3.3</a>
+<li><a href="#sec-1-6">3.3</a>
 <ul>
-<li><a href="#orgheadline19">3.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1-6-1">3.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline24">3.2</a>
+<li><a href="#sec-1-7">3.2</a>
 <ul>
-<li><a href="#orgheadline21">3.2.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></a></li>
-<li><a href="#orgheadline22">3.2.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
-<li><a href="#orgheadline23">3.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1-7-1">3.2.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1-7-2">3.2.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1-7-3">3.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline27">3.1</a>
+<li><a href="#sec-1-8">3.1</a>
 <ul>
-<li><a href="#orgheadline25">3.1.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
-<li><a href="#orgheadline26">3.1.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-29 Mon&gt;</span></span></a></li>
+<li><a href="#sec-1-8-1">3.1.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1-8-2">3.1.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-29 Mon&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline33">3.0</a>
+<li><a href="#sec-1-9">3.0</a>
 <ul>
-<li><a href="#orgheadline28">3.0.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-12 Fri&gt;</span></span></a></li>
-<li><a href="#orgheadline29">3.0.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-11 Thu&gt;</span></span></a></li>
-<li><a href="#orgheadline30">3.0.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-29 Fri&gt;</span></span></a></li>
-<li><a href="#orgheadline31">3.0.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-26 Tue&gt;</span></span></a></li>
-<li><a href="#orgheadline32">3.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-04 Mon&gt;</span></span></a></li>
+<li><a href="#sec-1-9-1">3.0.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-12 Fri&gt;</span></span></a></li>
+<li><a href="#sec-1-9-2">3.0.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-11 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1-9-3">3.0.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-29 Fri&gt;</span></span></a></li>
+<li><a href="#sec-1-9-4">3.0.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-26 Tue&gt;</span></span></a></li>
+<li><a href="#sec-1-9-5">3.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-04 Mon&gt;</span></span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline65">2.x</a>
+<li><a href="#sec-2">2.x</a>
 <ul>
-<li><a href="#orgheadline37">2.6</a>
+<li><a href="#sec-2-1">2.6</a>
 <ul>
-<li><a href="#orgheadline35">2.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-20 Fri&gt;</span></span></a></li>
-<li><a href="#orgheadline36">2.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-18 Wed&gt;</span></span></a></li>
+<li><a href="#sec-2-1-1">2.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-20 Fri&gt;</span></span></a></li>
+<li><a href="#sec-2-1-2">2.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-18 Wed&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline49">2.5</a>
+<li><a href="#sec-2-2">2.5</a>
 <ul>
-<li><a href="#orgheadline38">2.5.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-03 Tue&gt;</span></span></a></li>
-<li><a href="#orgheadline39">2.5.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></a></li>
-<li><a href="#orgheadline40">2.5.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></a></li>
-<li><a href="#orgheadline41">2.5.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-14 Mon&gt;</span></span></a></li>
-<li><a href="#orgheadline42">2.5.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-11 Thu&gt;</span></span></a></li>
-<li><a href="#orgheadline43">2.5.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-05 Fri&gt;</span></span></a></li>
-<li><a href="#orgheadline44">2.5.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-01 Mon&gt;</span></span></a></li>
-<li><a href="#orgheadline45">2.5.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-28 Thu&gt;</span></span></a></li>
-<li><a href="#orgheadline46">2.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed&gt;</span></span></a></li>
-<li><a href="#orgheadline47">2.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
-<li><a href="#orgheadline48">2.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
+<li><a href="#sec-2-2-1">2.5.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-03 Mon&gt;</span></span></a></li>
+<li><a href="#sec-2-2-2">2.5.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></a></li>
+<li><a href="#sec-2-2-3">2.5.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></a></li>
+<li><a href="#sec-2-2-4">2.5.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-14 Mon&gt;</span></span></a></li>
+<li><a href="#sec-2-2-5">2.5.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-11 Thu&gt;</span></span></a></li>
+<li><a href="#sec-2-2-6">2.5.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-05 Fri&gt;</span></span></a></li>
+<li><a href="#sec-2-2-7">2.5.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-01 Mon&gt;</span></span></a></li>
+<li><a href="#sec-2-2-8">2.5.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-28 Thu&gt;</span></span></a></li>
+<li><a href="#sec-2-2-9">2.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed&gt;</span></span></a></li>
+<li><a href="#sec-2-2-10">2.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
+<li><a href="#sec-2-2-11">2.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline55">2.4</a>
+<li><a href="#sec-2-3">2.4</a>
 <ul>
-<li><a href="#orgheadline50">2.4.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
-<li><a href="#orgheadline51">2.4.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-18 Wed&gt;</span></span></a></li>
-<li><a href="#orgheadline52">2.4.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-26 Mon&gt;</span></span></a></li>
-<li><a href="#orgheadline53">2.4.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-20 Tue&gt;</span></span></a></li>
-<li><a href="#orgheadline54">2.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-18 Sun&gt;</span></span></a></li>
+<li><a href="#sec-2-3-1">2.4.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
+<li><a href="#sec-2-3-2">2.4.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-18 Wed&gt;</span></span></a></li>
+<li><a href="#sec-2-3-3">2.4.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-26 Mon&gt;</span></span></a></li>
+<li><a href="#sec-2-3-4">2.4.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-20 Mon&gt;</span></span></a></li>
+<li><a href="#sec-2-3-5">2.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-18 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline57">2.3</a>
+<li><a href="#sec-2-4">2.3</a>
 <ul>
-<li><a href="#orgheadline56">2.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt;</span></span></a></li>
+<li><a href="#sec-2-4-1">2.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline59">2.2</a>
+<li><a href="#sec-2-5">2.2</a>
 <ul>
-<li><a href="#orgheadline58">2.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></a></li>
+<li><a href="#sec-2-5-1">2.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline63">2.1</a>
+<li><a href="#sec-2-6">2.1</a>
 <ul>
-<li><a href="#orgheadline60">2.1.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></a></li>
-<li><a href="#orgheadline61">2.1.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-20 Sun&gt;</span></span></a></li>
-<li><a href="#orgheadline62">2.1.4 Initial Public Release <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-31 Mon&gt;</span></span></a></li>
+<li><a href="#sec-2-6-1">2.1.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></a></li>
+<li><a href="#sec-2-6-2">2.1.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-20 Sun&gt;</span></span></a></li>
+<li><a href="#sec-2-6-3">2.1.4 Initial Public Release <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-31 Mon&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline64">2.0</a></li>
+<li><a href="#sec-2-7">2.0</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline66">1.x</a></li>
+<li><a href="#sec-3">1.x</a></li>
 </ul>
 </div>
 </div>
@@ -288,20 +283,49 @@ added functionality that is backwards compatible, and bugfix changes
 do not change the API.
 </p>
 
-<div id="outline-container-orgheadline34" class="outline-2">
-<h2 id="orgheadline34">3.x</h2>
-<div class="outline-text-2" id="text-orgheadline34">
-</div><div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2">3.8</h3>
-<div class="outline-text-3" id="text-orgheadline2">
-</div><div id="outline-container-orgheadline1" class="outline-4">
-<h4 id="orgheadline1">3.8.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline1">
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">3.x</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">3.8</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">3.8.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-22 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
-<li><p>
-The Actor <code>__init__()</code> can now specify <code>capabilities</code> and
+<li>Fix startup of loaded-source Actors on Windows: use string
+classname since Windows spawn does not inherit modified
+sys.modules at the time that the startup arguments (which
+include the child class) are deserialized.
+</li>
+
+<li>Update httpserver to use msvcrt.getch() instead of
+signal.pause() under Windows (thanks to Thomas Christian for
+this contribution).
+</li>
+
+<li>Update multi_system act examples to add <span class="underline"><span class="underline">main</span></span> wrappers to
+primary scripts to improve Windows support (thanks to Thomas
+Christian for this contribution).
+</li>
+
+<li>Adds thread synchronization protection to wakeupAfter() Actor
+method in case the Actor is multi-threaded.
+</li>
+
+<li>Internal modification of time sampling to allow consistent
+sampling for logic evaluation.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">3.8.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>The Actor <code>__init__()</code> can now specify <code>capabilities</code> and
 <code>requirements</code> arguments. 
-</p>
 
 <div class="org-src-container">
 
@@ -316,94 +340,105 @@ The Actor <code>__init__()</code> can now specify <code>capabilities</code> and
 <p>
 If specified, these will receive the corresponding ActorSystem
 values at the time of the creation of that Actor.
-</p></li>
+</p>
+</li>
 
-<li><p>
-Added an optional payload to <code>self.wakeupAfter()</code> calls.  The
+<li>Added an optional payload to <code>self.wakeupAfter()</code> calls.  The
 payload will be returned to the Actor in the subsequent
 <code>WakeupMessage</code> and can be used for whatever the Actor needs,
 including to differentiate between different wakeups.   
-</p>
 
 <p>
 Thanks to Daniel Mitterdorfer for contributing this enhancement!
-</p></li>
+</p>
+</li>
 
 <li>Update <code>@requireCapability</code> decorator to look for truthy values
-when no explicit value is supplied.  Fixes <a href="https://github.com/kquick/Thespian/issues/5">Issue #5</a>.</li>
+when no explicit value is supplied.  Fixes <a href="https://github.com/kquick/Thespian/issues/5">Issue #5</a>.
+</li>
 
 <li>Fixed race conditions for situations where multi-threaded actors
 could encounter an internal Thespian error when multiple threads
-were sending and the main thread was receiving at the same time.</li>
+were sending and the main thread was receiving at the same time.
+</li>
 
 <li>Added pytest dependency for tox specification (thanks
-to Daniel Mitterdorfer).</li>
+to Daniel Mitterdorfer).
+</li>
 
-<li>The tox-based testing will now test the TCP transports as well.</li>
+<li>The tox-based testing will now test the TCP transports as well.
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7">3.7</h3>
-<div class="outline-text-3" id="text-orgheadline7">
-</div><div id="outline-container-orgheadline3" class="outline-4">
-<h4 id="orgheadline3">3.7.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-02 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline3">
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">3.7</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1">3.7.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-02 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
-<li>Protection against malformed trailing input for TCP transport.</li>
+<li>Protection against malformed trailing input for TCP transport.
+</li>
 
 <li>Properly daemonize background thread used for MultiprocQueueBase
-to allow normal shutdown and cleanup.</li>
+to allow normal shutdown and cleanup.
+</li>
 
-<li>Enabled Travis CI testing (thanks to David Asabina!).</li>
+<li>Enabled Travis CI testing (thanks to David Asabina!).
+</li>
 
-<li>Updates for shift of development to <a href="https://github.com/kquick/Thespian">https://github.com/kquick/Thespian</a>.</li>
+<li>Updates for shift of development to <a href="https://github.com/kquick/Thespian">https://github.com/kquick/Thespian</a>.
+</li>
 
 <li>Miscellaneous test updates to address test-centric instabilities,
 including avoiding the use of ephemeral ports for test admin ports
 to avoid collisions, auto-kill of orphaned actors, and renaming
-test actors for distinction.</li>
+test actors for distinction.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-4">
-<h4 id="orgheadline4">3.7.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline4">
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2">3.7.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-2-2">
 <ul class="org-ul">
 <li>Removed setup.py and doc references to previously removed
-thespianShell, which is replaced by <code>python -m thespian.shell</code>.</li>
+thespianShell, which is replaced by <code>python -m thespian.shell</code>.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-4">
-<h4 id="orgheadline5">3.7.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline5">
+<div id="outline-container-sec-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3">3.7.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-2-3">
 <ul class="org-ul">
 <li>Better internal detection of director reponses to avoid exceptions
-on unexpected messages.</li>
+on unexpected messages.
+</li>
 
-<li>Hold messages sent to Admin until Admin is fully initialized.</li>
+<li>Hold messages sent to Admin until Admin is fully initialized.
+</li>
 
-<li>Close <b>all</b> sockets to a lost remote system.</li>
+<li>Close <b>all</b> sockets to a lost remote system.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6">3.7.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-19 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline6">
+<div id="outline-container-sec-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4">3.7.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-19 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-2-4">
 <ul class="org-ul">
-<li><p>
-The major enhancement in this release is the
+<li>The major enhancement in this release is the
 <code>ActorSystem.private()</code> method, which can be used by external
 applications to get a unique endpoint for communicating with
 actors.  This is especially helpful for multi-threaded external
 applications (<a href="https://github.com/godaddy/Thespian/issues/35">Issue 35</a>).
-</p>
 
 <p>
 Note that this is not fully supported for the MultiprocQueueBase
@@ -414,326 +449,407 @@ unresolved corner cases at this time.
 <p>
 See <a href="http://thespianpy.com/doc/using#actorsystem.private">the description of the private method in the Using Thespian
 document</a> for more details.
-</p></li>
+</p>
+</li>
 
 <li>Fixes a bug where internal transmit events were not completed
-properly and blocked subsequent transmits.</li>
+properly and blocked subsequent transmits.
+</li>
 
 <li>Cleaner ActorSystem shutdown, driven by responses rather than
-timed, recursive transport runs.</li>
+timed, recursive transport runs.
+</li>
 
-<li>Fixed amount of time reported in <code>ActorSystem.tell()</code> timeouts.</li>
+<li>Fixed amount of time reported in <code>ActorSystem.tell()</code> timeouts.
+</li>
 
 <li>Retry TCP transmits immediately on slot availability instead of
-waiting a delay period.</li>
+waiting a delay period.
+</li>
 
 <li>Fixed bugs in ReceiveBuffer when additional unexpected data is
-received.</li>
+received.
+</li>
 
-<li>Consolidated on using ExpirationTimer and removed ExpiryTime.</li>
+<li>Consolidated on using ExpirationTimer and removed ExpiryTime.
+</li>
 
-<li>Fixed statistics report of any transmits pending address resolution.</li>
+<li>Fixed statistics report of any transmits pending address resolution.
+</li>
 
 <li>Write logdirector exceptions to thesp and fix logdirector's
-exception recurrence detection.</li>
+exception recurrence detection.
+</li>
 
-<li>Ensure convention registration timer is always refreshed if expired.</li>
+<li>Ensure convention registration timer is always refreshed if expired.
+</li>
 
-<li>Upgrade UDP transport <code>select()</code> error log message to critical level.</li>
+<li>Upgrade UDP transport <code>select()</code> error log message to critical level.
+</li>
 
 <li>Internally updated transport run method return values for more
-explicit exit information.</li>
+explicit exit information.
+</li>
 
-<li>Internal refactoring, cleanup, and updates.</li>
+<li>Internal refactoring, cleanup, and updates.
+</li>
 
-<li>Stable documentation hyperlink targets (based on <a href="https://writequit.org/articles/emacs-org-mode-generate-ids.html">Lee Hinman's article</a>).</li>
+<li>Stable documentation hyperlink targets (based on <a href="https://writequit.org/articles/emacs-org-mode-generate-ids.html">Lee Hinman's article</a>).
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12">3.6</h3>
-<div class="outline-text-3" id="text-orgheadline12">
-</div><div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8">3.6.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline8">
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">3.6</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">3.6.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>Revert changes causing a regression in 3.6.2 wherein messages are
-dropped or not delivered (<a href="https://github.com/godaddy/Thespian/issues/37">Issue 37</a>).</li>
+dropped or not delivered (<a href="https://github.com/godaddy/Thespian/issues/37">Issue 37</a>).
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9">3.6.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-19 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline9">
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">3.6.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-19 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>Use cPickle when running under older python versions for improved
-performance (<a href="https://github.com/godaddy/Thespian/issues/34">Issue 34</a>).</li>
+performance (<a href="https://github.com/godaddy/Thespian/issues/34">Issue 34</a>).
+</li>
 
 <li>Update director bootstart for systemd to add "Want
 network-online.target" as well as "After network-online.target" to
-express dependency as well as ordering.</li>
+express dependency as well as ordering.
+</li>
 
-<li>Ensure address equality comparisons are commutative.</li>
+<li>Ensure address equality comparisons are commutative.
+</li>
 
 <li>Explicitly close transports on shutdown to avoid resource cleanup
-issues.</li>
+issues.
+</li>
 
 <li>Fixed bug where convention notifications for remotes that had only
-pre-registered could be delivered upon registration.</li>
+pre-registered could be delivered upon registration.
+</li>
 
 <li>Refactor external interface to use individual operation tracking
-instead of globals.</li>
+instead of globals.
+</li>
 
 <li>Improved detection of shutdown and associated cleanup status and
-completion.</li>
+completion.
+</li>
 
 <li>Fix actor failure tests for more intentional testing of various
-actor failure modes.</li>
+actor failure modes.
+</li>
 
 <li>Misc internal cleanups to Queue transport; fixes for timeouts and
-dead target handling.</li>
+dead target handling.
+</li>
 
 <li>Misc internal cleanups in UDP transport; fix handling of child
-management interrupts and signals from exited children.</li>
+management interrupts and signals from exited children.
+</li>
 
-<li>Misc test cleanups.</li>
+<li>Misc test cleanups.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-4">
-<h4 id="orgheadline10">3.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-18 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline10">
+<div id="outline-container-sec-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3">3.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-18 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-3-3">
 <ul class="org-ul">
 <li>Updated Director to not require root permissions for writing log
-files when no log files need to be written.</li>
+files when no log files need to be written.
+</li>
 
 <li>Update Director bootstart location for systemd to use a more
-common location (adds support for Debian/Ubuntu).</li>
+common location (adds support for Debian/Ubuntu).
+</li>
 
-<li>Fix Director Python2.6 and Mac launchd compatibility.</li>
+<li>Fix Director Python2.6 and Mac launchd compatibility.
+</li>
 
 <li>Allow specification of format encoding for Director gensrc to
-override default.</li>
+override default.
+</li>
 
 <li>Added the ActorAddressLogFilter to the Director to allow logging
 format specifications to show the actorAddress field even if it is
-not originally present in the log message.</li>
+not originally present in the log message.
+</li>
 
 <li>Fix from kwadl for ActorSystem initialization under Windows with
-Python 2.7 (<a href="https://github.com/godaddy/Thespian/issues/32">Issue 32</a>).</li>
+Python 2.7 (<a href="https://github.com/godaddy/Thespian/issues/32">Issue 32</a>).
+</li>
 
-<li>Fix for arguments on logger restart conditions.</li>
+<li>Fix for arguments on logger restart conditions.
+</li>
 
 <li>Make inter-convention hysteresis more careful about detecting
-duplicate packets.</li>
+duplicate packets.
+</li>
 
 <li>Logging updates, including reduction of severity to improve
-signal-to-noise ratio for actual errors.</li>
+signal-to-noise ratio for actual errors.
+</li>
 
 <li>Show local instance number for ActorAddresses even when actual
-translation is shown.</li>
+translation is shown.
+</li>
 
 <li>Fix for transmit queue to ensure messages are not stuck on the
-queue if address updates are performed post-queueing.</li>
+queue if address updates are performed post-queueing.
+</li>
 
-<li>Update setup in tests to ensure proper socket closure for re-use.</li>
+<li>Update setup in tests to ensure proper socket closure for re-use.
+</li>
 
-<li>Improved status output for pending transmits.</li>
+<li>Improved status output for pending transmits.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-4">
-<h4 id="orgheadline11">3.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-02 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline11">
+<div id="outline-container-sec-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4">3.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-02 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-3-4">
 <ul class="org-ul">
 <li>Enhancements
 
 <ul class="org-ul">
 <li>Added the thespian director to help manage loading and managing
 sources.  See the <code>thespian/director.py</code> file for more
-information, or <code>$ python -m thespian.director</code> for cli help.</li>
+information, or <code>$ python -m thespian.director</code> for cli help.
+</li>
 
 <li>Added <code>thespian.transient</code> import with <code>@transient</code> and
 <code>@transient_idle</code> decorators.  See <code>thespian/transient.py</code> for
-more information.</li>
+more information.
+</li>
 
 <li>Added the rsasig.py helper source (used by the director) to
 perform signature validation of sources on systems where a full
-encryption/SSL library may not be installed or available.</li>
+encryption/SSL library may not be installed or available.
+</li>
 
 <li>Internal improvements to the ExpirationTimer and ExpiryTimer
 implementation to reduce overhead for better performance (thanks
-to Daniel Mitterdorfer).</li>
+to Daniel Mitterdorfer).
+</li>
 
 <li>A Source Authority can now actively reject a loaded source by
 responding with a None value for the validated results.
 Previously the Source Authority could only passively reject the
 source by doing nothing, which did not provide feedback to
-waiting elements about the disposition of the load attempt.</li>
+waiting elements about the disposition of the load attempt.
+</li>
 
 <li>When displaying Actor Addresses, the final value is shown (if
 known); previously these always output as "LocalAddr" even if
-the final address was known.</li>
+the final address was known.
+</li>
 
-<li>Added a failure reason to the InvalidActorSpecification exception.</li>
+<li>Added a failure reason to the InvalidActorSpecification exception.
+</li>
 
-<li>More logging on Actor System startup and shutdown.</li>
+<li>More logging on Actor System startup and shutdown.
+</li>
 
 <li>Transports that may re-use addresses (e.g. TCP ports) do not
 need to declare an Actor Address as permanently dead-lettered in
-case of re-use.</li>
-</ul></li>
+case of re-use.
+</li>
+</ul>
+</li>
 
 <li>Bugs
 
 <ul class="org-ul">
-<li>Ensure that loaded source information specified by an Actor is preserved.</li>
+<li>Ensure that loaded source information specified by an Actor is preserved.
+</li>
 
 <li>Fixed a bug introduced in version 3.5.0 where the string form of
 Actor Addresses for remote actors might not show the remote
-address portion.</li>
+address portion.
+</li>
 
 <li>Ensure dead target transmit failures are forwarded to the dead
-letter handler.</li>
+letter handler.
+</li>
 
 <li>Clarified that only <code>.py</code> files in the loadable sources are
 used, and that <code>.pyo</code> and <code>.pyc</code> files are ignored.  This has
 always been the way it operated, but the previous documentation
-stated the inverse.</li>
-</ul></li>
+stated the inverse.
+</li>
+</ul>
+</li>
 
 <li>Other
 
 <ul class="org-ul">
-<li>Miscellaneous internal cleanup.</li>
+<li>Miscellaneous internal cleanup.
+</li>
 
-<li>Update status reporting of pending wakeups.</li>
+<li>Update status reporting of pending wakeups.
+</li>
 
-<li>Refactor and improve simpleSystemBase handling of wakeups.</li>
-</ul></li>
+<li>Refactor and improve simpleSystemBase handling of wakeups.
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16">3.5</h3>
-<div class="outline-text-3" id="text-orgheadline16">
-</div><div id="outline-container-orgheadline13" class="outline-4">
-<h4 id="orgheadline13">3.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline13">
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">3.5</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-sec-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1">3.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
-<li>Slow down hysteresis backoff rate for inter-system admin messages.</li>
+<li>Slow down hysteresis backoff rate for inter-system admin messages.
+</li>
 
 <li>Updates to asynchronous transmit management for better
 multi-threading support, and addition of Spin/Promela models for
-validation of this behavior.</li>
+validation of this behavior.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-4">
-<h4 id="orgheadline14">3.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline14">
+<div id="outline-container-sec-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2">3.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li>Rollback of Admin routing address creation optimization: loses
 important information needed when passing the address to remote
-convention members.</li>
+convention members.
+</li>
 
 <li>Ensure local Admin always receives packets, even under high
 backlog conditions where normal actors will enter TX only mode to
-drain the outbound message queues.</li>
+drain the outbound message queues.
+</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline15" class="outline-4">
-<h4 id="orgheadline15">3.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-04 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline15">
+<div id="outline-container-sec-1-4-3" class="outline-4">
+<h4 id="sec-1-4-3">3.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-04 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-4-3">
 <ul class="org-ul">
 <li>Enhancements
 
 <ul class="org-ul">
 <li>Signal handling is re-enabled after being disabled in 3.0.0 with
 a new approach to avoid conflicts with signal processing
-context.</li>
+context.
+</li>
 
 <li>Only passes class name and not entire class module heirarchy to
-setproctitle for setting the Actor process name.</li>
+setproctitle for setting the Actor process name.
+</li>
 
 <li>Added ability to query the troupe leader for status (intended
 for user interpretation with thespianShell and not programmatic
-consumption).</li>
+consumption).
+</li>
 
 <li>Added <code>self.actorSystemShutdown()</code> to allow an actor to shutdown
-the entire local actor system (<a href="https://github.com/godaddy/Thespian/issues/24">Issue 24</a>).</li>
-</ul></li>
+the entire local actor system (<a href="https://github.com/godaddy/Thespian/issues/24">Issue 24</a>).
+</li>
+</ul>
+</li>
 
 <li>Bug Fixes and internal changes
 
 <ul class="org-ul">
 <li>The TCPTransport will attempt to close old idle sockets if it
 fails to create new sockets (incoming or outbound) due to
-resource limits.</li>
+resource limits.
+</li>
 
 <li>Added exception protection against closed descriptors in
-TCPTransport idle socket cleanup.</li>
+TCPTransport idle socket cleanup.
+</li>
 
 <li>Now closes all open idle sockets when spawning a child process
-with the TCPTransport instead of just a subset.</li>
+with the TCPTransport instead of just a subset.
+</li>
 
 <li>Remove child liveness detection confirmation delay (enabled
-SIGCHLD handling makes this unnecessary).</li>
+SIGCHLD handling makes this unnecessary).
+</li>
 
 <li>Ensure convention Hysteresis is reset on pre-registration of
-remote and slow down hysteresis rate.</li>
+remote and slow down hysteresis rate.
+</li>
 
-<li>Added status indication of exiting condition in status reports.</li>
+<li>Added status indication of exiting condition in status reports.
+</li>
 
-<li>Internal cleanup of routed address definitions.</li>
+<li>Internal cleanup of routed address definitions.
+</li>
 
 <li>Updated visual form of addresses for more brevity.  Note that
 all code should treat Actor Addresses as opaque, and there
 should be no programmatic dependence on a specific
 representation, so this update does not constitute a
-compatibility change relative to previous versions.</li>
+compatibility change relative to previous versions.
+</li>
 
 <li>Added optimization of AdminRouting: local targets are sent
 directly instead of routing via the Admin, and also avoid extra
-hops in routing from the Admin back to itself.</li>
+hops in routing from the Admin back to itself.
+</li>
 
 <li>Upgraded logging of transmit completion errors to ERROR from
-INFO.</li>
+INFO.
+</li>
 
 <li>Set the TZ environment variable on startup if not already set to
-avoid repeated stat() calls to "/etc/localtime" under Unix.</li>
+avoid repeated stat() calls to "/etc/localtime" under Unix.
+</li>
 
 <li>Fixes and updates to the troupe implementation to handle
 ChildActorExit messages from workers, ensure completed work
 messages are sent back to the troupe leader, and use string
-class names for compatibility with loaded sources.</li>
+class names for compatibility with loaded sources.
+</li>
 
 <li>Use SO_EXCLUSIVEADDRUSE on Windows to probe for existing
-multiprocTCPBase.</li>
-</ul></li>
+multiprocTCPBase.
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18">3.4</h3>
-<div class="outline-text-3" id="text-orgheadline18">
-</div><div id="outline-container-orgheadline17" class="outline-4">
-<h4 id="orgheadline17">3.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-07 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline17">
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">3.4</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-sec-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1">3.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-07 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-5-1">
 <ul class="org-ul">
 <li>Added <code>notifyOnSourceAvailability()</code> call for an Actor to register
 to receive <code>LoadedSource</code> objects indicating that a new source
@@ -741,11 +857,13 @@ file has been loaded and is ready to be used, and <code>UnloadedSource</code>
 objects when a source has been unloaded.  This can be used to
 write a "source manager" that can take specific actions when these
 trigger messages indicate changes in the loaded sources for the
-current actor system.</li>
+current actor system.
+</li>
 
 <li>Updated Actor System <code>ask()</code> and <code>listen()</code> calls to return as
 soon as a response is available.  Previously the calls did not
-return until the delay period had expired.</li>
+return until the delay period had expired.
+</li>
 
 <li>Updated convention management with a full analysis of different
 scenarios (in the design-routing document) and corresponding
@@ -755,52 +873,64 @@ introduced in the previous release that would prevent a TxOnly
 admin from updating remote nodes and therefore causing the remote
 to enter a partially-disconnected state after about 22 minutes.
 These changes introduce significant stability and behavior
-imprlements for conventions.</li>
+imprlements for conventions.
+</li>
 
 <li>Add <code>.details</code> to <code>PoisonMessage</code> for additional information
-(<a href="https://github.com/godaddy/Thespian/issues/22">Issue 22</a>).</li>
+(<a href="https://github.com/godaddy/Thespian/issues/22">Issue 22</a>).
+</li>
 
-<li>Adds supported Actor Troupe functionality (<a href="https://github.com/godaddy/Thespian/issues/2">Issue 2</a>).</li>
+<li>Adds supported Actor Troupe functionality (<a href="https://github.com/godaddy/Thespian/issues/2">Issue 2</a>).
+</li>
 
-<li>Fixed logging error (<a href="https://github.com/godaddy/Thespian/issues/23">Issue 23</a>) introduced in 3.3.0.</li>
+<li>Fixed logging error (<a href="https://github.com/godaddy/Thespian/issues/23">Issue 23</a>) introduced in 3.3.0.
+</li>
 
 <li>Updated packaging to include documentation and top-level files
 including the readme, license, and contributor's agreement (<a href="https://github.com/godaddy/Thespian/issues/25">Issue
-25</a>).</li>
+25</a>).
+</li>
 
 <li>Internal cleanups and re-arrangement, including introduction of a
-more efficient internal timer.</li>
+more efficient internal timer.
+</li>
 
 <li>Update TCP transport to use more efficient timer, handle socket
 shutdown corner cases (e.g. no socket created yet or already
-removed).</li>
+removed).
+</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20">3.3</h3>
-<div class="outline-text-3" id="text-orgheadline20">
-</div><div id="outline-container-orgheadline19" class="outline-4">
-<h4 id="orgheadline19">3.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline19">
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">3.3</h3>
+<div class="outline-text-3" id="text-1-6">
+</div><div id="outline-container-sec-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1">3.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-6-1">
 <ul class="org-ul">
 <li>Allow <code>deRegisterRemoteSystem()</code> to be called with the remote
 admin <code>ActorAddress</code> object (as would be provided via convention
-notification) as an alternative to the raw remote address format.</li>
+notification) as an alternative to the raw remote address format.
+</li>
 
 <li>Enhanced the thespianShell "ask" command to pretty-print the
-responses (if possible).</li>
+responses (if possible).
+</li>
 
 <li>Thespian is now compatible with Python 3.6
 <ul class="org-ul">
 <li>Removed the "universal newline" loaded source open flag that is
-no longer supported for <code>ZipFile.open()</code> in Python 3.6.</li>
+no longer supported for <code>ZipFile.open()</code> in Python 3.6.
+</li>
 <li>Updated tests to account for address information now included in
-default <code>str</code> forms of objects.</li>
-</ul></li>
+default <code>str</code> forms of objects.
+</li>
+</ul>
+</li>
 
 <li>Internal improvements in convention support for more reliable
 convention membership and notification.
@@ -808,55 +938,67 @@ convention membership and notification.
 <ul class="org-ul">
 <li>When a remote pre-registration is performed, there is no
 notification until the convention attendee completes the
-checkin.</li>
+checkin.
+</li>
 
 <li>Better matching of loopback addresses with the "external"
-address(es) of the current system to recognize this system.</li>
+address(es) of the current system to recognize this system.
+</li>
 
 <li>Better connection establishment for pre-registered remote
-convention members with local tx-only admin routing.</li>
+convention members with local tx-only admin routing.
+</li>
 
 <li>Allow more communication with remote convention members on
-shutdown for a faster and more complete cleanup and exit.</li>
-</ul></li>
+shutdown for a faster and more complete cleanup and exit.
+</li>
+</ul>
+</li>
 
 <li>Internal improvements and bugfixes in the TCP transmit.
 
 <ul class="org-ul">
-<li>Enable TCP transport retransmits if ack/nak packet is corrupted.</li>
+<li>Enable TCP transport retransmits if ack/nak packet is corrupted.
+</li>
 
 <li>Avoid non-progress select() scenarios that could result in
-periods of high CPU utilization.</li>
+periods of high CPU utilization.
+</li>
 
-<li>Better handling of cleanup operations when shutting down.</li>
-</ul></li>
+<li>Better handling of cleanup operations when shutting down.
+</li>
+</ul>
+</li>
 
-<li>Fixed handling for a race condition on timeout in the UDP transport.</li>
+<li>Fixed handling for a race condition on timeout in the UDP transport.
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24">3.2</h3>
-<div class="outline-text-3" id="text-orgheadline24">
-</div><div id="outline-container-orgheadline21" class="outline-4">
-<h4 id="orgheadline21">3.2.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline21">
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">3.2</h3>
+<div class="outline-text-3" id="text-1-7">
+</div><div id="outline-container-sec-1-7-1" class="outline-4">
+<h4 id="sec-1-7-1">3.2.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-7-1">
 <ul class="org-ul">
 <li>Suppressed notification of pre-registered remotes on
 <code>preRegisterRemoteSystem()</code> call; notification is now only
 delivered when the remote actually confirms convention
-registration.</li>
+registration.
+</li>
 
 <li>Fixed convention notification remote admin address value (in some
 scenarios this delivered the convention message itself rather than
-the remote address).</li>
+the remote address).
+</li>
 
-<li>Enhanced notification tests.</li>
+<li>Enhanced notification tests.
+</li>
 
-<li><p>
-Actors with multiple threads that initiate large numbers of sends
+<li>Actors with multiple threads that initiate large numbers of sends
 from the alternate threads but which do not receive many messages
 to invoke the main thread encountered significant backlog or flow
 suppression in those threads.  This release modifies the transmit
@@ -866,92 +1008,104 @@ invocation of the actor's <code>receiveMessage()</code> method still occurs
 only on the primary thread.  No change in Actor implementation is
 indicated, and this should generally improve the functionality of
 any multi-threaded Actors.
-</p>
 
 <p>
 Note that the use of Thespian Actors suggests that Actors rather
 than threads should be used for parallelism; this support is
 designed for Actors which import libraries where those libraries
 internally create multiple threads (e.g. kazoo).
-</p></li>
+</p>
+</li>
 
 <li>Modified recent async transport base changes to ensure that the
 maximum number of message sends are performed at any point in
 time.  The previous release introduced a degradation wherein a
 single send could block the processing of other, independent
 message sends for a period of time; messages were still delivered
-but often not in a timely manner.</li>
+but often not in a timely manner.
+</li>
 
 <li>Enhanced the thespianShell utility's simple source authority to
-propagate available <code>sourceInfo</code> field for loadable sources.</li>
+propagate available <code>sourceInfo</code> field for loadable sources.
+</li>
 
 <li>Fixed a missing import error when resolving race conditions where
 multiple globalName actor requests resulted in multiple actors
-being created.</li>
+being created.
+</li>
 
 <li>Minimized traceback line-number offsets in loaded sources from an
-offset of 3 to an offset of 1 line number.</li>
+offset of 3 to an offset of 1 line number.
+</li>
 
 <li>Documentation updates, including a warning about the inability to
 exchange objects between different loaded sources unless
-conventionally serialized (see <a href="http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d">Source Loading Issues</a>).</li>
+conventionally serialized (see <a href="http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d">Source Loading Issues</a>).
+</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22">3.2.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline22">
+<div id="outline-container-sec-1-7-2" class="outline-4">
+<h4 id="sec-1-7-2">3.2.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-7-2">
 <ul class="org-ul">
 <li>Added backward compatibility support for interacting with
-pre-3.2.0 Thespian instances without the sourceInfo argument.</li>
+pre-3.2.0 Thespian instances without the sourceInfo argument.
+</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline23" class="outline-4">
-<h4 id="orgheadline23">3.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline23">
+<div id="outline-container-sec-1-7-3" class="outline-4">
+<h4 id="sec-1-7-3">3.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-7-3">
 <ul class="org-ul">
 <li>Added sourceInfo argument to ValidateSource; allows informational
 tag to be associated with a loadable source for logging and status
 information.  Thespian will automatically attempt to identify the
 filename for the <code>ActorSystem.loadSource()</code> operation and provide
-that on status requests.</li>
+that on status requests.
+</li>
 
 <li>Updated handling for multithreaded Actors to allow any thread to
 <code>self.send()</code> messages (or generate logging output); receiving
-messages still occurs only on the main thread.</li>
+messages still occurs only on the main thread.
+</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27">3.1</h3>
-<div class="outline-text-3" id="text-orgheadline27">
-</div><div id="outline-container-orgheadline25" class="outline-4">
-<h4 id="orgheadline25">3.1.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline25">
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">3.1</h3>
+<div class="outline-text-3" id="text-1-8">
+</div><div id="outline-container-sec-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1">3.1.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-8-1">
 <ul class="org-ul">
-<li>Better TCPTransport handling of connection attempts.</li>
+<li>Better TCPTransport handling of connection attempts.
+</li>
 
-<li>Added missing import for exception case in async transport base.</li>
+<li>Added missing import for exception case in async transport base.
+</li>
 
-<li>Explicit disable of ActorAddress hashing.</li>
+<li>Explicit disable of ActorAddress hashing.
+</li>
 
 <li>Updated message for <code>ActorSystem.tell()</code> bad target address
-exception failure.</li>
+exception failure.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-4">
-<h4 id="orgheadline26">3.1.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-29 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline26">
+<div id="outline-container-sec-1-8-2" class="outline-4">
+<h4 id="sec-1-8-2">3.1.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-29 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-8-2">
 <ul class="org-ul">
 <li>API and Public Changes
 
@@ -959,12 +1113,15 @@ exception failure.</li>
 <li>Adds the ability to allow specification of a "Process Startup
 Method" capability when starting Actor Systems to select the
 process creation technique for new Actors: "spawn", "fork", or
-"forkserver".</li>
+"forkserver".
+</li>
 
 <li>Updates the thespianShell.py utility to add Python3
 compatibility and a simple Source Authority for accepting test
-actor loadable sources.</li>
-</ul></li>
+actor loadable sources.
+</li>
+</ul>
+</li>
 
 <li>Behavioral Fixes
 
@@ -974,278 +1131,340 @@ Thespian will still create Actors as separate processes if using
 a "multiproc&#x2026;"  system base, but if those Actors internal
 create threads (directly or through the use of a library), those
 threads will no longer cause failures or deadlocks when calling
-<code>self.send()</code> or <code>logging</code>.</li>
+<code>self.send()</code> or <code>logging</code>.
+</li>
 
 <li>Adds a small timeout period for TCP transport outbound connection
-initiation to accomodate busy or noisy networks.</li>
+initiation to accomodate busy or noisy networks.
+</li>
 
 <li>Fixes a system shutdown completion failure management bug that
-formerly caused some Actors to never receive shutdown requests.</li>
+formerly caused some Actors to never receive shutdown requests.
+</li>
 
 <li>Adds timeouts to MultiprocessQueueBase transmits (matching
 functionality of the multiprocTCPBase and multiprocUDPBase) to
-avoid indefinite hangs on errors or blocks.</li>
-</ul></li>
+avoid indefinite hangs on errors or blocks.
+</li>
+</ul>
+</li>
 
 <li>Internal Bugfixes
 
 <ul class="org-ul">
 <li>Ensures that source unloaded notifications are not reciprocally
 sent between actor systems that would result in indefinitely
-repeated notifications.</li>
+repeated notifications.
+</li>
 
 <li>Sets an upper limit on individual socket receive calls in the
 TCP transport to prevent starvation.  This is only a limit in
 individual receives; the overall packet size can be larger than
-the recieve and it will be reconstructed on the receiving side.</li>
+the recieve and it will be reconstructed on the receiving side.
+</li>
 
 <li>Retries more frequently in the TCP transport if waiting on an
-outbound transmit slot.</li>
+outbound transmit slot.
+</li>
 
 <li>If the TCP transport encounters a connection reset while sending
 an ACK, this event is simply logged instead of throwing an
-exception.</li>
+exception.
+</li>
 
 <li>Various test updates for parameterizing the various allowed time
-durations during the test.</li>
+durations during the test.
+</li>
 
-<li>Miscellaneous internal formatting and code cleanup.</li>
-</ul></li>
+<li>Miscellaneous internal formatting and code cleanup.
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33">3.0</h3>
-<div class="outline-text-3" id="text-orgheadline33">
-</div><div id="outline-container-orgheadline28" class="outline-4">
-<h4 id="orgheadline28">3.0.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-12 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline28">
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">3.0</h3>
+<div class="outline-text-3" id="text-1-9">
+</div><div id="outline-container-sec-1-9-1" class="outline-4">
+<h4 id="sec-1-9-1">3.0.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-12 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-9-1">
 <ul class="org-ul">
-<li>Fix for initialization hardening in previous release.</li>
+<li>Fix for initialization hardening in previous release.
+</li>
 
-<li>Optimize <code>__import__</code> interceptor to avoid repeated lookup failures.</li>
+<li>Optimize <code>__import__</code> interceptor to avoid repeated lookup failures.
+</li>
 
 <li>Extended actor creation startup allowance period to accomodate
-remote fetch of large sources.</li>
+remote fetch of large sources.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-4">
-<h4 id="orgheadline29">3.0.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-11 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline29">
+<div id="outline-container-sec-1-9-2" class="outline-4">
+<h4 id="sec-1-9-2">3.0.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-11 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-9-2">
 <ul class="org-ul">
 <li>Hardened initialization for environments where the fqdn, hostname,
-or dns lookup could cause gaierror exceptions.</li>
+or dns lookup could cause gaierror exceptions.
+</li>
 
-<li>Fixed error reporting for actor creation failure exception.</li>
+<li>Fixed error reporting for actor creation failure exception.
+</li>
 
-<li>Internal code cleanup/enhancements and minor test updates.</li>
+<li>Internal code cleanup/enhancements and minor test updates.
+</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline30" class="outline-4">
-<h4 id="orgheadline30">3.0.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-29 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline30">
+<div id="outline-container-sec-1-9-3" class="outline-4">
+<h4 id="sec-1-9-3">3.0.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-29 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-9-3">
 <ul class="org-ul">
 <li>More updates to tests for timing issues and adding idempotency of
-assert statements because pytest may re-execute them.</li>
+assert statements because pytest may re-execute them.
+</li>
 
 <li>An Actor call to createActor may specify a sourceHash that it does
 not have the source for; fixed to properly handle this case to
 defer the createActor to the Admin and remove the erroneous error
-log output.</li>
+log output.
+</li>
 
 <li>Only hook <code>__import__</code> for Python3.5 source loading; do not
-replicate all builtins.</li>
+replicate all builtins.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-4">
-<h4 id="orgheadline31">3.0.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-26 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline31">
+<div id="outline-container-sec-1-9-4" class="outline-4">
+<h4 id="sec-1-9-4">3.0.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-26 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-9-4">
 <ul class="org-ul">
 <li>Internal updates to tests for selection of available network ports
-for each test's admin address.</li>
+for each test's admin address.
+</li>
 
 <li>Added test delay function for convenient centralization and
 standardizationof testing delays and the ability to override,
-mock, or adjust the delay as needed.</li>
+mock, or adjust the delay as needed.
+</li>
 
-<li>Updated <code>mark.skip</code> specifications for broader pytest compatibility.</li>
+<li>Updated <code>mark.skip</code> specifications for broader pytest compatibility.
+</li>
 
 <li>On loaded source unload, skip None (in-progress) entries in
-<code>sys.modules</code>.</li>
+<code>sys.modules</code>.
+</li>
 
 <li>Optimize source load import intercept; only one definition per
-sourceload module is needed instead of per file.</li>
+sourceload module is needed instead of per file.
+</li>
 
-<li>Updated thespian shell to handle non-hashable Actor Addresses.</li>
+<li>Updated thespian shell to handle non-hashable Actor Addresses.
+</li>
 
-<li>More information reported in Pending Actor timeout exceptions.</li>
+<li>More information reported in Pending Actor timeout exceptions.
+</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline32" class="outline-4">
-<h4 id="orgheadline32">3.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-04 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline32">
+<div id="outline-container-sec-1-9-5" class="outline-4">
+<h4 id="sec-1-9-5">3.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-04 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-1-9-5">
 <ul class="org-ul">
 <li>Actor Addresses are not hashable.  Previously they were
 incorrectly marked as hashable, but they may be updated internally
 over time, and this internal mutability makes them non-hashable.
 This does not affect the ability to compare addresses for equality
-and inequality.</li>
+and inequality.
+</li>
 
 <li>Converted to using pytest for test framework; more information is
 available in the <code>thespian/test/00README.txt</code> file.  These changes
 include significant test updates and enhancements, as well as
 broader coverage of all current system bases and configurations
-(e.g. Admin Routing and TX Only base settings).</li>
+(e.g. Admin Routing and TX Only base settings).
+</li>
 
 <li>Documentation updates, including distinguishing this Thespian
-against unrelated efforts with overlapping similarities.</li>
+against unrelated efforts with overlapping similarities.
+</li>
 
 <li>Updated sourceloading support to handle uses of <code>__import__</code>
-    directly (e,g. for sqlalchemy support).</li>
+    directly (e,g. for sqlalchemy support).
+</li>
 
-<li>Better handling of socket accept failures in the TCP transport.</li>
+<li>Better handling of socket accept failures in the TCP transport.
+</li>
 
 <li>Fixed ChildActorExited messages for unresolved local addresses to
-no longer be fatal issue.</li>
+no longer be fatal issue.
+</li>
 
 <li>Updated Convention pre-registration to properly identify as a
 pre-registration and to send a Convention De-Register for
-pre-registered systems on system shutdown.</li>
+pre-registered systems on system shutdown.
+</li>
 
 <li>Sending an ACK or NACK in the TCP transport is no longer capable
-of causing a hang in the transport on blocking sends or errors.</li>
+of causing a hang in the transport on blocking sends or errors.
+</li>
 
 <li>Updated the common Capabilities definitions for the
-simpleSystemBase to match the other system bases.</li>
+simpleSystemBase to match the other system bases.
+</li>
 
 <li>More regular throwing of exceptions for
 <code>ActorSystem().createActor()</code> requests for top level actors that
-cannot be satisifed.</li>
+cannot be satisifed.
+</li>
 
 <li>Asynchronous transports will immediately fail transmit requests if
-the outbound queue has reached an upper-limit threshold in size.</li>
+the outbound queue has reached an upper-limit threshold in size.
+</li>
 
-<li>If in transmit-only mode, fail expired requests appropriately.</li>
+<li>If in transmit-only mode, fail expired requests appropriately.
+</li>
 
 <li>Fix wakeup-supporting transports to always check for expired
 wakeups and immediately-processable events even if there is no
-positive non-zero time duration for transport processing.</li>
+positive non-zero time duration for transport processing.
+</li>
 
 <li>Revert signal handling introduced in version 2.5.8: internal
 Python issues (e.g. <a href="http://bugs.python.org/issues14976">http://bugs.python.org/issues14976</a>) made the
 initial approach buggy.  Newly engineered signals support will be
-added in a forthcoming release.</li>
+added in a forthcoming release.
+</li>
 
 <li>Updated Convention Notification handler removal for common code to
-ensure the same treatment is given for all cases of handler removal.</li>
+ensure the same treatment is given for all cases of handler removal.
+</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline65" class="outline-2">
-<h2 id="orgheadline65">2.x</h2>
-<div class="outline-text-2" id="text-orgheadline65">
-</div><div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37">2.6</h3>
-<div class="outline-text-3" id="text-orgheadline37">
-</div><div id="outline-container-orgheadline35" class="outline-4">
-<h4 id="orgheadline35">2.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-20 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline35">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">2.x</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">2.6</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1">2.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-20 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>Fix simpleSystemBase wrapping of DeadEnvelope for dead letter
-re-routing.</li>
+re-routing.
+</li>
 
 <li>Fix SIGUSR1 status output for Windows, which has no SIGUSR1 (and
-therefore does not support this functionality).</li>
+therefore does not support this functionality).
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline36" class="outline-4">
-<h4 id="orgheadline36">2.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-18 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline36">
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2">2.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-18 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Functional Changes
 
 <ul class="org-ul">
 <li>Added status output to thesplog on SIGUSR1 to an Actor.  This is
 useful for scenarios where the Actor is not responding to
-regular queries (e.g. network queue blockages, etc.).</li>
-</ul></li>
+regular queries (e.g. network queue blockages, etc.).
+</li>
+</ul>
+</li>
 
 <li>Behavioral Fixes
 
 <ul class="org-ul">
 <li>The simpleSystemBase now properly supports system capability
 updates and validates the actorSystemCapabilityCheck results
-when creating Actors.</li>
+when creating Actors.
+</li>
 
 <li>The httpserver example is fixed for handling requests with no
-QUERY_STRING portion.</li>
+QUERY_STRING portion.
+</li>
 
 <li>Do not try to restart the logger if the system is being
-shutdown.</li>
-</ul></li>
+shutdown.
+</li>
+</ul>
+</li>
 
 <li>Internal Bugfixes
 
 <ul class="org-ul">
 <li>Many tests update to use independent admin ports to avoid
-inter-test influences.</li>
-</ul></li>
+inter-test influences.
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline49" class="outline-3">
-<h3 id="orgheadline49">2.5</h3>
-<div class="outline-text-3" id="text-orgheadline49">
-</div><div id="outline-container-orgheadline38" class="outline-4">
-<h4 id="orgheadline38">2.5.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-03 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline38">
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">2.5</h3>
+<div class="outline-text-3" id="text-2-2">
+</div><div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1">2.5.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-03 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li>API and Public Changes
 
 <ul class="org-ul">
 <li>Added a Websocket Actor example and the Actorize decorator
-contributed code from Paul Jimenez.</li>
+contributed code from Paul Jimenez.
+</li>
 
-<li>Added ThespianWatch and WatchMessage functionality.</li>
-</ul></li>
+<li>Added ThespianWatch and WatchMessage functionality.
+</li>
+</ul>
+</li>
 
 <li>Behavioral Fixes
 
 <ul class="org-ul">
 <li>Update logging if convention leadership is changed for logging via
-new leader.</li>
+new leader.
+</li>
 
-<li>Restart the logger if it exits.</li>
+<li>Restart the logger if it exits.
+</li>
 
 <li>Update signal handling to better interrupt wait cycles in
-transports, resulting in handling signals more immediately.</li>
+transports, resulting in handling signals more immediately.
+</li>
 
 <li>Ensure actor checks/restarts caused by updating Actor System
-capabilities only affect actors on the updated system.</li>
+capabilities only affect actors on the updated system.
+</li>
 
 <li>Fixed bug on address forwarding that caused transmit lockups when
-the forwarded message exceeded the pending transmit limit.</li>
-</ul></li>
+the forwarded message exceeded the pending transmit limit.
+</li>
+</ul>
+</li>
 </ul>
 
 
@@ -1255,236 +1474,286 @@ the forwarded message exceeded the pending transmit limit.</li>
 <ul class="org-ul">
 <li>Update the logging to use a global transport instance to ensure
 that children inheriting threads will use the proper transport
-instance.</li>
+instance.
+</li>
 
 <li>Add small wait to allow child exit information to propagate and be
-handled.</li>
+handled.
+</li>
 
 <li>Update the admin for handling child exit signalling to provide
-better detection of children that are no longer running.</li>
+better detection of children that are no longer running.
+</li>
 
 <li>Miscellaneous test updates to ensure distinct Actor Systems used
-for different tests to avoid crosstalk failures.</li>
+for different tests to avoid crosstalk failures.
+</li>
 
 <li>Better handling of closed/bad file descriptors in the
-multiprocTCPBase transport to handle remote closures, etc.</li>
+multiprocTCPBase transport to handle remote closures, etc.
+</li>
 
 <li>Use a thread-safe Queue in the async transports to ensure that
 transmits queued by alternate threads (e.g. log messages) only
-enter the core transport work loop via the main thread.</li>
+enter the core transport work loop via the main thread.
+</li>
 
-<li>TCP transport cleanups from Paul Jimenez.</li>
+<li>TCP transport cleanups from Paul Jimenez.
+</li>
 
-<li>Fixed wakeup transport handling for TransmitOnly mode.</li>
-</ul></li>
+<li>Fixed wakeup transport handling for TransmitOnly mode.
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline39" class="outline-4">
-<h4 id="orgheadline39">2.5.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline39">
+<div id="outline-container-sec-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2">2.5.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>Fix signal handling introduced in 2.5.8 release to support Windows
 and other operating systems that don't define the full set of
-standard Unix signals.</li>
+standard Unix signals.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline40" class="outline-4">
-<h4 id="orgheadline40">2.5.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline40">
+<div id="outline-container-sec-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3">2.5.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-3">
 <ul class="org-ul">
 <li>Added protection to prevent simpleSystemBase internal addresses
-from being killed (<a href="https://github.com/godaddy/Thespian/issues/5">Issue #5</a>).</li>
+from being killed (<a href="https://github.com/godaddy/Thespian/issues/5">Issue #5</a>).
+</li>
 
 <li>Updated documentation to clarify the status, availability, and
-intended usage of ActorSystemMessage messages (<a href="https://github.com/godaddy/Thespian/issues/6">Issue #6</a>).</li>
+intended usage of ActorSystemMessage messages (<a href="https://github.com/godaddy/Thespian/issues/6">Issue #6</a>).
+</li>
 
 <li>Updated documentation to describe the potential for Message
 Mutability for some ActorSystem bases as a tradeoff for
-performance (<a href="https://github.com/godaddy/Thespian/issues/7">Issue #7</a>).</li>
+performance (<a href="https://github.com/godaddy/Thespian/issues/7">Issue #7</a>).
+</li>
 
 <li>Added internal atexit and signal handling functionality to attempt
 normal Actor shutdown (via <code>ActorExitRequest</code> message delivery) in all
-circumstances.</li>
+circumstances.
+</li>
 
 <li>Added internal SIGCHLD signal handling to send <code>ChildActorExited</code>
 messages to parent Actors in cases where the child process was
-unable to send that message before exiting.</li>
+unable to send that message before exiting.
+</li>
 
 <li>Updated documentation to clarify which ActorSystem Capabilities
-are read-only (for each system base).</li>
+are read-only (for each system base).
+</li>
 
 <li>Modified internal loaded source hash tagging for better handling
-of circular import references in loaded sources.</li>
+of circular import references in loaded sources.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline41" class="outline-4">
-<h4 id="orgheadline41">2.5.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-14 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline41">
+<div id="outline-container-sec-2-2-4" class="outline-4">
+<h4 id="sec-2-2-4">2.5.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-14 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-4">
 <ul class="org-ul">
 <li>Updated loaded source lookup failure to throw ImportError
 exception instead of BadZipFile exception for compatibility with
-importing code handling the former.</li>
+importing code handling the former.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline42" class="outline-4">
-<h4 id="orgheadline42">2.5.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-11 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline42">
+<div id="outline-container-sec-2-2-5" class="outline-4">
+<h4 id="sec-2-2-5">2.5.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-11 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-5">
 <ul class="org-ul">
 <li>Fixes for detection of socket closure in the TCPTransport:
 corrected errno reference and add handling of additional errors
-(for Windows and Mac OS/X).</li>
+(for Windows and Mac OS/X).
+</li>
 
 <li>Update TCPTransport to ensure select() is never called with empty
-select lists (needed for Windows).</li>
+select lists (needed for Windows).
+</li>
 
 <li>Added small delay in ActorSystem shutdown to allow
-shutdown-related communications to complete.</li>
+shutdown-related communications to complete.
+</li>
 
 <li>Update source loading tests to allow Source Authority registration
-before commencing test.</li>
+before commencing test.
+</li>
 
 <li>Selection of "temp" directory for writing logs adjusted to be
-OS-aware.</li>
+OS-aware.
+</li>
 
 <li>Added logging for actor instantiation failures (normal logging in
-addition to previously-existing internal logging).</li>
+addition to previously-existing internal logging).
+</li>
 
 <li>Updated default logging for thespian tests to support Windows
 which cannot inherit an open logging file descriptor in forked
-children.</li>
+children.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline43" class="outline-4">
-<h4 id="orgheadline43">2.5.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-05 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline43">
+<div id="outline-container-sec-2-2-6" class="outline-4">
+<h4 id="sec-2-2-6">2.5.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-05 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-6">
 <ul class="org-ul">
 <li>Added fix for closing open TCPTransport sockets to a remote Admin
 that is known to be unavailable (i.e. on explicit or time-based
-de-registration).</li>
+de-registration).
+</li>
 
 <li>Ensure that all sends are routed through the local admin if the
 local environment is TX-Only ("Outbound Only": True capability)
-for TCPTransport-based communications.</li>
+for TCPTransport-based communications.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline44" class="outline-4">
-<h4 id="orgheadline44">2.5.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-01 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline44">
+<div id="outline-container-sec-2-2-7" class="outline-4">
+<h4 id="sec-2-2-7">2.5.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-01 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-7">
 <ul class="org-ul">
 <li>Calling <code>loadSource()</code> multiple times for the same source does
 nothing instead of unloading and reloading the source.  This
 provides more consistent behavior, especially when working with
-objects instantiated from the original source.</li>
+objects instantiated from the original source.
+</li>
 
 <li>Fixed possible scenario where logging of errors from TCP transport
-would encounter further problems.</li>
+would encounter further problems.
+</li>
 
-<li>Test updates.</li>
+<li>Test updates.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline45" class="outline-4">
-<h4 id="orgheadline45">2.5.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-28 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline45">
+<div id="outline-container-sec-2-2-8" class="outline-4">
+<h4 id="sec-2-2-8">2.5.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-28 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-8">
 <ul class="org-ul">
 <li>Fixed hash representation of TCP routed and tx-only addresses to
 provide consistent hash values and match the equality-sense of the
-addresses.</li>
+addresses.
+</li>
 
-<li>Better convention management, especially for pre-registered members.</li>
+<li>Better convention management, especially for pre-registered members.
+</li>
 
 <li>Minor update to ActorAddress string representation for TCP routed
-addresses.</li>
+addresses.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline46" class="outline-4">
-<h4 id="orgheadline46">2.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline46">
+<div id="outline-container-sec-2-2-9" class="outline-4">
+<h4 id="sec-2-2-9">2.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-9">
 <ul class="org-ul">
-<li>Enhanced and fixed logging messages, including severity indications.</li>
+<li>Enhanced and fixed logging messages, including severity indications.
+</li>
 
-<li>Formatting updates in the design document.</li>
+<li>Formatting updates in the design document.
+</li>
 
-<li>Update allowable multi-system actor response times in tests.</li>
+<li>Update allowable multi-system actor response times in tests.
+</li>
 
-<li>Limit status key/value output column alignment width to 40 characters.</li>
+<li>Limit status key/value output column alignment width to 40 characters.
+</li>
 
-<li>Added TCPTransport idle sockets to status reports.</li>
+<li>Added TCPTransport idle sockets to status reports.
+</li>
 
-<li>Fix multiple TCPTransport transmit retry handling and re-queueing bugs.</li>
+<li>Fix multiple TCPTransport transmit retry handling and re-queueing bugs.
+</li>
 
 <li>Enhance TCPTransport to gracefully handle receive of a remote
-message while waiting for an ACK of a locally transmitted message.</li>
+message while waiting for an ACK of a locally transmitted message.
+</li>
 
 <li>Update TCPTransport for full address/target re-evaluation on
 message forwarding to properly handle dead targets and related
-scenarios.</li>
+scenarios.
+</li>
 
 <li>Immediate cancel of all pending transmits to a remote target on
-Connection Refused (remote target is dead).</li>
+Connection Refused (remote target is dead).
+</li>
 
 <li>Fixed TCPTransport to never use a negative delay (occurs if
 pending wait time on an event has already expired) and use a zero
-delay instead.</li>
+delay instead.
+</li>
 
 <li>No socket-level timeout on connects from TCPTransport; timeout management
-is done internally to TCPTransport.</li>
+is done internally to TCPTransport.
+</li>
 
 <li>Allow connection to Admin even if the reported address is
 different than the expected address.  This allows support for
 systems that change addresses or which have multiple viable
-addresses.</li>
+addresses.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline47" class="outline-4">
-<h4 id="orgheadline47">2.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline47">
+<div id="outline-container-sec-2-2-10" class="outline-4">
+<h4 id="sec-2-2-10">2.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-10">
 <ul class="org-ul">
 <li>Fixed sourceload path handling: zipfiles use posix paths only, but
 running loaded sources on Windows with previous versions attempted
-to use Windows path specifications.</li>
+to use Windows path specifications.
+</li>
 
 <li>Increased level of logging from sourceload failures to ERROR from
-INFO.</li>
+INFO.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline48" class="outline-4">
-<h4 id="orgheadline48">2.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline48">
+<div id="outline-container-sec-2-2-11" class="outline-4">
+<h4 id="sec-2-2-11">2.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-2-11">
 <ul class="org-ul">
-<li>Allow value specification with the <code>@requireCapability</code> decorator.</li>
+<li>Allow value specification with the <code>@requireCapability</code> decorator.
+</li>
 
 <li>Add the <code>preRegisterRemoteSystem</code> and <code>deRegisterRemoteSystem</code>
 Actor API methods.  These assist in identifying remote Actor
 Systems that might not normally have connectivity.  These are most
-useful with the 'Outbound Only' capability (see below).</li>
+useful with the 'Outbound Only' capability (see below).
+</li>
 
 <li>Updated the TCP system base to persist and re-use open socket
 connections; previous versions would always close the socket after
 sending or recieving a single message.  This change can increase
 network efficiency and reduce latency.  This change is backward
 compatible with previous Thespian 2.x versions and will devolve
-into the older disconnecting-mode of operation.</li>
+into the older disconnecting-mode of operation.
+</li>
 
 <li>Added ~"Admin Routing": True~ capability specification (TCP system
 base only).  The presence of this capability indicates that all
@@ -1498,7 +1767,8 @@ firewall-allowed ports and setting the "Admin Routing" capability
 will route all traffic via the Admin (at a small performance
 penalty).  Enabling this setting is <i>not</i> backward compatible with
 previous Thespian 2.x versions.  This setting should be considered
-<i>Beta</i> functionality at this time.</li>
+<i>Beta</i> functionality at this time.
+</li>
 
 <li>Added ~"Outbound Only": True~ capability specification (TCP system
 base only).  The presence of this capability indicates that the
@@ -1512,280 +1782,342 @@ additional performance penalties and potential delays while an
 outbound connection is being re-established.  Enabling this
 setting is <i>not</i> backward compatible with previous Thespian 2.x
 versions.  This setting should be considered <i>Beta</i> functionality
-at this time.</li>
+at this time.
+</li>
 
 <li>The "Thespian ActorSystem Version" for the TCP system base has
-been updated to "2" from "1" to indicate the above changes.</li>
+been updated to "2" from "1" to indicate the above changes.
+</li>
 
 <li>All systems that have attempted to create an Actor will be
-remembered to avoid infinited creation loops.</li>
+remembered to avoid infinited creation loops.
+</li>
 
-<li>Logging updates and enhancements.</li>
+<li>Logging updates and enhancements.
+</li>
 
 <li>Enhance shutdown by ensuring the exiting status is set before
 shutting down children to handle their responses appropriately and
-avoid race conditions.</li>
+avoid race conditions.
+</li>
 
 <li>Show statistics values before labels in the status output for
-better readability.</li>
+better readability.
+</li>
 
-<li>Design document updates.</li>
+<li>Design document updates.
+</li>
 
 <li>The simple system base now properly implements the <code>wakeupAfter()</code>
 delays.  It will not hang if only wakeups are pending, but it will
 deliver them after at least the appropriate delay and relative to
-<code>tell()</code>, <code>ask()</code> and <code>listen()</code> timeouts.</li>
+<code>tell()</code>, <code>ask()</code> and <code>listen()</code> timeouts.
+</li>
 
 <li>All <code>loadActorSource()</code> calls are ignored if there is no
 registered Source Authority.  This changes the disposition of an
-Actor System to secure/protected by default.</li>
+Actor System to secure/protected by default.
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline55" class="outline-3">
-<h3 id="orgheadline55">2.4</h3>
-<div class="outline-text-3" id="text-orgheadline55">
-</div><div id="outline-container-orgheadline50" class="outline-4">
-<h4 id="orgheadline50">2.4.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline50">
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">2.4</h3>
+<div class="outline-text-3" id="text-2-3">
+</div><div id="outline-container-sec-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1">2.4.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-3-1">
 <ul class="org-ul">
-<li>Removed TCP connect timeout that overrode non-blocking mode.</li>
+<li>Removed TCP connect timeout that overrode non-blocking mode.
+</li>
 
 <li>Fixed TCP address equality comparison when zero port specification
 compared.  A port of zero matches any other port if the address
 portion is the same; previously this only worked for comparing to
 known local addresses, not arbitrary addresses when the port
-was 0.</li>
+was 0.
+</li>
 
 <li>Fixed error text when using <code>tell()</code> with a bad Actor Address
-(previously identified the wrong call).</li>
+(previously identified the wrong call).
+</li>
 
 <li>Ensure Actor System <code>createActor()</code> calls are not aborted
 prematurely by leftover responses to previous operations
-(e.g. timeout-unclaimed <code>ask()</code> responses).</li>
+(e.g. timeout-unclaimed <code>ask()</code> responses).
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline51" class="outline-4">
-<h4 id="orgheadline51">2.4.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-18 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline51">
+<div id="outline-container-sec-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2">2.4.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-18 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-3-2">
 <ul class="org-ul">
-<li>Ensured that PoisonMessage sending doesn't recurse indefinitely.</li>
+<li>Ensured that PoisonMessage sending doesn't recurse indefinitely.
+</li>
 
-<li>Added a missing newline in status output formatting.</li>
+<li>Added a missing newline in status output formatting.
+</li>
 
 <li>Added a descriptive failure output messaging for IP-based address
 connection failures.  This helps with common mistakes, such as
-specifying the "Admin Port" as a string instead of an integer.</li>
+specifying the "Admin Port" as a string instead of an integer.
+</li>
 
 <li>Fixed a bug where calling <code>ActorSystem().shutdown()</code> multiple
-times would throw an exception.</li>
+times would throw an exception.
+</li>
 
 <li>Fixed a bug on multi-level import references (e.g. <code>import x.y.z</code>)
-in sources loaded by <code>loadActorSource()</code> operations.</li>
+in sources loaded by <code>loadActorSource()</code> operations.
+</li>
 
 <li>Fixed a bug where old actors checking in with a restarted
-ActorSystem caused exceptions.</li>
+ActorSystem caused exceptions.
+</li>
 
 <li>Fixed a TCP transport bug that caused transmits to be abandoned
-instead of being retried after the back-off timer expired.</li>
+instead of being retried after the back-off timer expired.
+</li>
 
 <li>Updated default thespian.log logfile creation to honor <code>$TMPDIR</code> if
 it is set and only default to directing logging to <code>/tmp</code> if it is
-not set.</li>
+not set.
+</li>
 
 <li>Added internal <code>wait()</code> call for logger child process on shutdown
-to avoid defunct loggers.</li>
+to avoid defunct loggers.
+</li>
 
-<li>Removed a debug printf in the simpleSystemBase.</li>
+<li>Removed a debug printf in the simpleSystemBase.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline52" class="outline-4">
-<h4 id="orgheadline52">2.4.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-26 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline52">
+<div id="outline-container-sec-2-3-3" class="outline-4">
+<h4 id="sec-2-3-3">2.4.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-26 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-3-3">
 <ul class="org-ul">
 <li>Delay thesplog location determination until usage to allow startup
-code to adjust location.</li>
+code to adjust location.
+</li>
 
-<li>Better daemonization of multiproc Admin on Unix.</li>
+<li>Better daemonization of multiproc Admin on Unix.
+</li>
 
 <li>Ensure filenums to close is passed as a list not a Python3
-iterator when creating multiproc children (bugfix).</li>
+iterator when creating multiproc children (bugfix).
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline53" class="outline-4">
-<h4 id="orgheadline53">2.4.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-20 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline53">
+<div id="outline-container-sec-2-3-4" class="outline-4">
+<h4 id="sec-2-3-4">2.4.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-20 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-3-4">
 <ul class="org-ul">
 <li>Updated to allow packets not blocked on waiting for an address
 resolution to be sent even if previous packets are still waiting
-for that resolution.</li>
+for that resolution.
+</li>
 
-<li>Fixed documentation uploads.</li>
+<li>Fixed documentation uploads.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline54" class="outline-4">
-<h4 id="orgheadline54">2.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-18 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline54">
+<div id="outline-container-sec-2-3-5" class="outline-4">
+<h4 id="sec-2-3-5">2.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-18 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-3-5">
 <ul class="org-ul">
 <li>Add loadActorSource() and unloadActorSource() to Actor API
-(duplicating existing Actor System API functionality).</li>
+(duplicating existing Actor System API functionality).
+</li>
 
-<li>Internal: use distributed importlib whenever possible.</li>
+<li>Internal: use distributed importlib whenever possible.
+</li>
 
-<li>Fix stats response for Actor Systems for Python3.</li>
+<li>Fix stats response for Actor Systems for Python3.
+</li>
 
-<li>Allow optional error strings in reporting actor creation failures.</li>
+<li>Allow optional error strings in reporting actor creation failures.
+</li>
 
-<li>Better capture and reporting of loaded source instantiation errors.</li>
+<li>Better capture and reporting of loaded source instantiation errors.
+</li>
 
-<li>Miscellaneous test and logging updates.</li>
+<li>Miscellaneous test and logging updates.
+</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline57" class="outline-3">
-<h3 id="orgheadline57">2.3</h3>
-<div class="outline-text-3" id="text-orgheadline57">
-</div><div id="outline-container-orgheadline56" class="outline-4">
-<h4 id="orgheadline56">2.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline56">
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">2.3</h3>
+<div class="outline-text-3" id="text-2-4">
+</div><div id="outline-container-sec-2-4-1" class="outline-4">
+<h4 id="sec-2-4-1">2.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li>Added ActorTypeDispatcher enhanced base class to facilitate
-dispatching of received messages based on message type.</li>
+dispatching of received messages based on message type.
+</li>
 
 <li>Ensure exceptions occuring while writing to Thespian file log do
-not cause failures.</li>
+not cause failures.
+</li>
 
 <li>Protect against exceptions occurring when comparing messages for
-equality.</li>
+equality.
+</li>
 
-<li>Updates to testActorSystemRestart.</li>
+<li>Updates to testActorSystemRestart.
+</li>
 
 <li>Update "Thespian Generation" common Capabilities to version (2,3).
-Previous 2.2.0 release erroneously did not update this value.</li>
+Previous 2.2.0 release erroneously did not update this value.
+</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline59" class="outline-3">
-<h3 id="orgheadline59">2.2</h3>
-<div class="outline-text-3" id="text-orgheadline59">
-</div><div id="outline-container-orgheadline58" class="outline-4">
-<h4 id="orgheadline58">2.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline58">
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">2.2</h3>
+<div class="outline-text-3" id="text-2-5">
+</div><div id="outline-container-sec-2-5-1" class="outline-4">
+<h4 id="sec-2-5-1">2.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-5-1">
 <ul class="org-ul">
-<li>Fix internal links in Using Thespian document.</li>
+<li>Fix internal links in Using Thespian document.
+</li>
 
-<li>Add support for multiple convention notification registrations.</li>
+<li>Add support for multiple convention notification registrations.
+</li>
 
 <li>Allow ActorSystem logDefs to be specified as False to suppress any
 logging configuration; especially useful for test log capture
-modes.</li>
+modes.
+</li>
 
 <li>Better ActorSystem startup processing to distinguish between a
 re-specification of the current base and a new base, and added the
 transientUnique startup argument to get a plain instance (a
-non-global-singleton instance).</li>
+non-global-singleton instance).
+</li>
 
 <li>Added missing description of the ActorSystem <code>shutdown()</code>
-    operation in the Using Thespian document.</li>
+    operation in the Using Thespian document.
+</li>
 
 <li>Added ability to set the maximum thesplog logging file via the
 <code>THESPLOG_FILE_MAXSIZE</code> environment variable and changed the default
-to 50KB.</li>
+to 50KB.
+</li>
 
 <li>Added Using Thespian documentation description of logging with the
 <code>THESPLOG_FILE</code> and <code>THESPLOG_FILE_MAXSIZE</code> environment variable
-controls.</li>
+controls.
+</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline63" class="outline-3">
-<h3 id="orgheadline63">2.1</h3>
-<div class="outline-text-3" id="text-orgheadline63">
-</div><div id="outline-container-orgheadline60" class="outline-4">
-<h4 id="orgheadline60">2.1.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline60">
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">2.1</h3>
+<div class="outline-text-3" id="text-2-6">
+</div><div id="outline-container-sec-2-6-1" class="outline-4">
+<h4 id="sec-2-6-1">2.1.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-6-1">
 <ul class="org-ul">
-<li>Fix imports in tests and actors.py for multiple Python versions.</li>
+<li>Fix imports in tests and actors.py for multiple Python versions.
+</li>
 
-<li>Add missing timeout to test to prevent hang.</li>
+<li>Add missing timeout to test to prevent hang.
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline61" class="outline-4">
-<h4 id="orgheadline61">2.1.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-20 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline61">
+<div id="outline-container-sec-2-6-2" class="outline-4">
+<h4 id="sec-2-6-2">2.1.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-20 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-6-2">
 <ul class="org-ul">
 <li>Adds support for Python 3.3 and Python 3.4 versions, including the
-use of the PyPy interpreter.</li>
+use of the PyPy interpreter.
+</li>
 
-<li>Adds the <code>listen()</code> API call (<code>ask()</code> is <code>tell()</code> + <code>listen()</code>)</li>
+<li>Adds the <code>listen()</code> API call (<code>ask()</code> is <code>tell()</code> + <code>listen()</code>)
+</li>
 
 <li>Log Actor exception through normal logging channels as well as via
-Thespian internal logging output.</li>
+Thespian internal logging output.
+</li>
 
-<li>The Thespian shell loads the TestActor via loadable sources.</li>
+<li>The Thespian shell loads the TestActor via loadable sources.
+</li>
 
-<li>The simpleSystemBase will always apply default logging.</li>
+<li>The simpleSystemBase will always apply default logging.
+</li>
 
 <li>The <code>loadActorSource()</code> call can now take a file-like object as
-well as a filename.</li>
+well as a filename.
+</li>
 
-<li>Added the Thespian Developer's document.</li>
+<li>Added the Thespian Developer's document.
+</li>
 
-<li>Added the Thespian In-Depth Introduction document.</li>
+<li>Added the Thespian In-Depth Introduction document.
+</li>
 
-<li>Added the Thespian Index (main pages) document.</li>
+<li>Added the Thespian Index (main pages) document.
+</li>
 
-<li>Added the Thespian Releases document.</li>
+<li>Added the Thespian Releases document.
+</li>
 
 <li>Internal updates to more gracefully handle shutdown scenarios and
-avoid impossible retransmits.</li>
+avoid impossible retransmits.
+</li>
 
-<li>Testing, documentation, and setup file updates.</li>
+<li>Testing, documentation, and setup file updates.
+</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline62" class="outline-4">
-<h4 id="orgheadline62">2.1.4 Initial Public Release <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-31 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline62">
+<div id="outline-container-sec-2-6-3" class="outline-4">
+<h4 id="sec-2-6-3">2.1.4 Initial Public Release <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-31 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-6-3">
 <p>
 The 2.1.4 Release represents the first publicly available release of
 Thespian.  It includes the following features:
 </p>
 
 <ul class="org-ul">
-<li>System Bases: SimpleSystemBase, MultiprocTCPBase, MultiprocUDPBase, MultiprocQueueBase</li>
-<li>Support for Loadable Sources</li>
+<li>System Bases: SimpleSystemBase, MultiprocTCPBase, MultiprocUDPBase, MultiprocQueueBase
+</li>
+<li>Support for Loadable Sources
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline64" class="outline-3">
-<h3 id="orgheadline64">2.0</h3>
-<div class="outline-text-3" id="text-orgheadline64">
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">2.0</h3>
+<div class="outline-text-3" id="text-2-7">
 <p>
 The 2.0 Release was developed and used internally by GoDaddy.
 </p>
@@ -1793,9 +2125,9 @@ The 2.0 Release was developed and used internally by GoDaddy.
 </div>
 </div>
 
-<div id="outline-container-orgheadline66" class="outline-2">
-<h2 id="orgheadline66">1.x</h2>
-<div class="outline-text-2" id="text-orgheadline66">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">1.x</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 The 1.x Release series was developed and used internally by GoDaddy
 </p>
@@ -1804,7 +2136,8 @@ The 1.x Release series was developed and used internally by GoDaddy
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2017-08-22 Tue 23:33</p>
+<p class="date">Created: 2017-10-22 Sun 23:45</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,6 +1,7 @@
 		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 		 [HTTP://THESPIANPY.COM/] RELEASE NOTES
 
+
 		     Kevin Quick <quick@sparq.org>
 		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -10,6 +11,7 @@ Table of Contents
 
 3.x
 .. 3.8
+..... 3.8.1 <2017-10-22 Sun>
 ..... 3.8.0 <2017-08-22 Tue>
 .. 3.7
 ..... 3.7.3 <2017-05-02 Tue>
@@ -47,7 +49,7 @@ Table of Contents
 ..... 2.6.1 <2016-05-20 Fri>
 ..... 2.6.0 <2016-05-18 Wed>
 .. 2.5
-..... 2.5.10 <2016-05-03 Tue>
+..... 2.5.10 <2016-05-03 Mon>
 ..... 2.5.9 <2016-03-21 Mon>
 ..... 2.5.8 <2016-03-21 Mon>
 ..... 2.5.7 <2016-03-14 Mon>
@@ -62,7 +64,7 @@ Table of Contents
 ..... 2.4.4 <2015-12-16 Wed>
 ..... 2.4.3 <2015-11-18 Wed>
 ..... 2.4.2 <2015-10-26 Mon>
-..... 2.4.1 <2015-10-20 Tue>
+..... 2.4.1 <2015-10-20 Mon>
 ..... 2.4.0 <2015-10-18 Sun>
 .. 2.3
 ..... 2.3.0 <2015-10-04 Sun>
@@ -90,6 +92,28 @@ not change the API.
 
 3.8
 ───
+
+3.8.1 <2017-10-22 Sun>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Fix startup of loaded-source Actors on Windows: use string classname
+    since Windows spawn does not inherit modified sys.modules at the
+    time that the startup arguments (which include the child class) are
+    deserialized.
+
+  ‣ Update httpserver to use msvcrt.getch() instead of signal.pause()
+    under Windows (thanks to Thomas Christian for this contribution).
+
+  ‣ Update multi_system act examples to add __main__ wrappers to primary
+    scripts to improve Windows support (thanks to Thomas Christian for
+    this contribution).
+
+  ‣ Adds thread synchronization protection to wakeupAfter() Actor method
+    in case the Actor is multi-threaded.
+
+  ‣ Internal modification of time sampling to allow consistent sampling
+    for logic evaluation.
+
 
 3.8.0 <2017-08-22 Tue>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -128,7 +152,7 @@ not change the API.
   ‣ The tox-based testing will now test the TCP transports as well.
 
 
-[Issue #5] https://github.com/kquick/Thespian/issues/5
+  [Issue #5] https://github.com/kquick/Thespian/issues/5
 
 
 3.7
@@ -221,13 +245,13 @@ not change the API.
     article]).
 
 
-[Issue 35] https://github.com/godaddy/Thespian/issues/35
+  [Issue 35] https://github.com/godaddy/Thespian/issues/35
 
-[the description of the private method in the Using Thespian document]
-http://thespianpy.com/doc/using#actorsystem.private
+  [the description of the private method in the Using Thespian document]
+  http://thespianpy.com/doc/using#actorsystem.private
 
-[Lee Hinman's article]
-https://writequit.org/articles/emacs-org-mode-generate-ids.html
+  [Lee Hinman's article]
+  https://writequit.org/articles/emacs-org-mode-generate-ids.html
 
 
 3.6
@@ -240,7 +264,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
     dropped or not delivered ([Issue 37]).
 
 
-[Issue 37] https://github.com/godaddy/Thespian/issues/37
+  [Issue 37] https://github.com/godaddy/Thespian/issues/37
 
 
 3.6.2 <2017-02-19 Sun>
@@ -279,7 +303,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
   ‣ Misc test cleanups.
 
 
-[Issue 34] https://github.com/godaddy/Thespian/issues/34
+  [Issue 34] https://github.com/godaddy/Thespian/issues/34
 
 
 3.6.1 <2017-01-18 Wed>
@@ -322,7 +346,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
   ‣ Improved status output for pending transmits.
 
 
-[Issue 32] https://github.com/godaddy/Thespian/issues/32
+  [Issue 32] https://github.com/godaddy/Thespian/issues/32
 
 
 3.6.0 <2017-01-02 Mon>
@@ -479,7 +503,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
       multiprocTCPBase.
 
 
-[Issue 24] https://github.com/godaddy/Thespian/issues/24
+  [Issue 24] https://github.com/godaddy/Thespian/issues/24
 
 
 3.4
@@ -529,13 +553,13 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
     removed).
 
 
-[Issue 22] https://github.com/godaddy/Thespian/issues/22
+  [Issue 22] https://github.com/godaddy/Thespian/issues/22
 
-[Issue 2] https://github.com/godaddy/Thespian/issues/2
+  [Issue 2] https://github.com/godaddy/Thespian/issues/2
 
-[Issue 23] https://github.com/godaddy/Thespian/issues/23
+  [Issue 23] https://github.com/godaddy/Thespian/issues/23
 
-[Issue 25] https://github.com/godaddy/Thespian/issues/25
+  [Issue 25] https://github.com/godaddy/Thespian/issues/25
 
 
 3.3
@@ -638,8 +662,8 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
     conventionally serialized (see [Source Loading Issues]).
 
 
-[Source Loading Issues]
-http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
+  [Source Loading Issues]
+  http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
 
 
 3.2.1 <2016-09-08 Thu>
@@ -901,7 +925,7 @@ http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
 2.5
 ───
 
-2.5.10 <2016-05-03 Tue>
+2.5.10 <2016-05-03 Mon>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   ‣ API and Public Changes
@@ -991,11 +1015,11 @@ http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
     circular import references in loaded sources.
 
 
-[Issue #5] https://github.com/godaddy/Thespian/issues/5
+  [Issue #5] https://github.com/godaddy/Thespian/issues/5
 
-[Issue #6] https://github.com/godaddy/Thespian/issues/6
+  [Issue #6] https://github.com/godaddy/Thespian/issues/6
 
-[Issue #7] https://github.com/godaddy/Thespian/issues/7
+  [Issue #7] https://github.com/godaddy/Thespian/issues/7
 
 
 2.5.7 <2016-03-14 Mon>
@@ -1256,7 +1280,7 @@ http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
     when creating multiproc children (bugfix).
 
 
-2.4.1 <2015-10-20 Tue>
+2.4.1 <2015-10-20 Mon>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   ‣ Updated to allow packets not blocked on waiting for an address
