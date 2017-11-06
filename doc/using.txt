@@ -1,6 +1,7 @@
 	     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 	      [HTTP://THESPIANPY.COM] ACTORS USER'S GUIDE
 
+
 		     Kevin Quick <quick@sparq.org>
 	     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -44,6 +45,7 @@ Table of Contents
 .. 4.11 Other Actor Systems
 ..... 4.11.1 Convention Establishment
 ..... 4.11.2 Convention Administrator Communications
+..... 4.11.3 Multi-system Global Name support
 .. 4.12 Performance
 .. 4.13 Logging
 ..... 4.13.1 Thespian Internals Logging
@@ -132,6 +134,9 @@ Table of Contents
 
 1 Actor Overview
 ════════════════
+
+
+
 
 1.1 Actors
 ──────────
@@ -231,9 +236,9 @@ Table of Contents
   their level of feature support and any known issues.
 
 
-[Actor Addresses] See section 1.2
+  [Actor Addresses] See section 1.2
 
-[ActorSystem Implementations] See section 9
+  [ActorSystem Implementations] See section 9
 
 
 1.3.2 Multiple Systems
@@ -289,9 +294,9 @@ Table of Contents
   [ActorSystem API] section.
 
 
-[Parent Actor] See section 2.2.4
+  [Parent Actor] See section 2.2.4
 
-[ActorSystem API] See section 6
+  [ActorSystem API] See section 6
 
 
 1.5 Effects
@@ -308,6 +313,9 @@ Table of Contents
 
 1.6 Comparisons
 ───────────────
+
+
+
 
 1.6.1 Message Bus (Pub/Sub) Architecture
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -336,7 +344,7 @@ Table of Contents
   easily be extended to mimic a Logging System.
 
 
-[Message Bus (Pub/Sub) Architecture] See section 1.6.1
+  [Message Bus (Pub/Sub) Architecture] See section 1.6.1
 
 
 2 Using Thespian
@@ -375,9 +383,9 @@ Table of Contents
   parameters.
 
 
-[ActorSystem] See section 6.2
+  [ActorSystem] See section 6.2
 
-[ActorSystem Implementations] See section 9
+  [ActorSystem Implementations] See section 9
 
 
 2.2 Actor Lifecycle
@@ -417,13 +425,13 @@ Table of Contents
   created Actor.
 
 
-[Parent Actor] See section 2.2.4
+  [Parent Actor] See section 2.2.4
 
-[ActorSystem.createActor] See section 6.4
+  [ActorSystem.createActor] See section 6.4
 
-[ask] See section 6.6
+  [ask] See section 6.6
 
-[tell] See section 6.5
+  [tell] See section 6.5
 
 
 2.2.2 Creating an Actor
@@ -449,9 +457,9 @@ Table of Contents
   created Actor (using the current Actor's [send]() method).
 
 
-[createActor] See section 5.3
+  [createActor] See section 5.3
 
-[send] See section 5.4
+  [send] See section 5.4
 
 
 2.2.3 Killing an Actor
@@ -472,9 +480,9 @@ Table of Contents
   described in [Dead Letter Handling].
 
 
-[ActorExitRequest] See section 7.4
+  [ActorExitRequest] See section 7.4
 
-[Dead Letter Handling] See section 4.2
+  [Dead Letter Handling] See section 4.2
 
 
 2.2.4 Parent Actor
@@ -495,7 +503,7 @@ Table of Contents
   ‣ `.childAddress' to specify the ActorAddress of the child
 
 
-[Creating an Actor] See section 2.2.2
+  [Creating an Actor] See section 2.2.2
 
 
 2.2.5 Actor Failure
@@ -513,7 +521,7 @@ Table of Contents
   [PoisonMessage Returns] for more details.
 
 
-[PoisonMessage Returns] See section 4.4
+  [PoisonMessage Returns] See section 4.4
 
 
 3 Guidelines for Actors and their messages
@@ -590,17 +598,17 @@ Table of Contents
     expected utilization.
 
 
-[Killing an Actor] See section 2.2.3
+  [Killing an Actor] See section 2.2.3
 
-[Parent Actor] See section 2.2.4
+  [Parent Actor] See section 2.2.4
 
-[PoisonMessage Returns] See section 4.4
+  [PoisonMessage Returns] See section 4.4
 
-[Other Actor Systems] See section 4.11
+  [Other Actor Systems] See section 4.11
 
-[Timer Messages] See section 4.7
+  [Timer Messages] See section 4.7
 
-[updateCapability] See section 5.13
+  [updateCapability] See section 5.13
 
 
 4 Thespian Actor Feature Extensions
@@ -639,7 +647,8 @@ Table of Contents
   is redirected as described in [Dead Letter Handling].
 
 
-[Dead Letter Handling] See section 4.2
+  [Dead Letter Handling] See section 4.2
+
 
 4.1.1 Message Mutability
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -698,7 +707,7 @@ Table of Contents
   Thespian does not automatically perform this copy).
 
 
-[simpleSystemBase] See section 9.2
+  [simpleSystemBase] See section 9.2
 
 
 4.2 Dead Letter Handling
@@ -728,7 +737,7 @@ Table of Contents
   undoubtably cause confusion.
 
 
-[DeadEnvelope] See section 7.6
+  [DeadEnvelope] See section 7.6
 
 
 4.3 Non-startable Actors
@@ -741,7 +750,7 @@ Table of Contents
   non-starting Actor are discarded by the default Dead Letter Handling.
 
 
-[Dead Letter Handling] See section 4.2
+  [Dead Letter Handling] See section 4.2
 
 
 4.4 PoisonMessage Returns
@@ -762,9 +771,9 @@ Table of Contents
   See [PoisonMessage] for details on the `PoisonMessage' object.
 
 
-[Actor Failure] See section 2.2.5
+  [Actor Failure] See section 2.2.5
 
-[PoisonMessage] See section 7.1
+  [PoisonMessage] See section 7.1
 
 
 4.5 Top-Level Actors
@@ -780,9 +789,9 @@ Table of Contents
   redirected to the Dead Letter Handler (see [Dead Letter Handling]).
 
 
-[Parent Actor] See section 2.2.4
+  [Parent Actor] See section 2.2.4
 
-[Dead Letter Handling] See section 4.2
+  [Dead Letter Handling] See section 4.2
 
 
 4.6 Named Actors
@@ -821,16 +830,29 @@ Table of Contents
      Actors because of the need to perform global lookup and
      coordination based on the name.
 
+  3. The globalName is (at present time) unique only to the Actor System
+     within which it is running.  There may be multiple Actor Systems
+     running and communicating as part of a Convention (see [Other Actor
+     Systems]), but the uniqueness of the globalName (and corresponding
+     Actor instance) applies only to the system that has created it.
+     See [Multi-system Global Name support] for more details and
+     recommendations.
+
+
   It is recommended (but not required) that only the top-level,
   coordinating Actors be Named Actors and that most Actors in the system
-  be
+  be unnamed Actors to avoid these disadvantages.
 
 
-[createActor] See section 6.4
+  [createActor] See section 6.4
 
-[createActor] See section 5.3
+  [createActor] See section 5.3
 
-[Top-Level Actors] See section 4.5
+  [Top-Level Actors] See section 4.5
+
+  [Other Actor Systems] See section 4.11
+
+  [Multi-system Global Name support] See section 4.11.3
 
 
 4.7 Timer Messages
@@ -859,7 +881,7 @@ Table of Contents
   should simply ignore the `WakeupMessage' when it is received.
 
 
-[Message Delivery] See section 4.1
+  [Message Delivery] See section 4.1
 
 
 4.8 Watching File Descriptors
@@ -924,11 +946,12 @@ Table of Contents
   limit the portability of these Actors.
 
 
-[http_server1.py]
-https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server1.py
+  [http_server1.py]
+  https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server1.py
 
-[http_server2.py]
-https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2.py
+  [http_server2.py]
+  https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2.py
+
 
 4.8.1 Blocking Actors
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -951,7 +974,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   be used as well.
 
 
-[Message Delivery] See section 4.1
+  [Message Delivery] See section 4.1
 
 
 4.9 Actor Troupes
@@ -977,7 +1000,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   See [Actor Troupe Support] for more details.
 
 
-[Actor Troupe Support] See section 8.1
+  [Actor Troupe Support] See section 8.1
 
 
 4.10 ActorSystem Capabilities
@@ -1003,7 +1026,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   common capabilities described in the [Common Capabilities] section.
 
 
-[Common Capabilities] See section 9.1
+  [Common Capabilities] See section 9.1
 
 
 4.11 Other Actor Systems
@@ -1032,13 +1055,14 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   that do are normally of the multi-process variety.
 
 
-[Multiple Systems] See section 1.3.2
+  [Multiple Systems] See section 1.3.2
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
-[ActorSystemConventionUpdate] See section 7.7
+  [ActorSystemConventionUpdate] See section 7.7
 
-[notifyOnSystemRegistrationChanges] See section 5.7
+  [notifyOnSystemRegistrationChanges] See section 5.7
+
 
 4.11.1 Convention Establishment
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -1067,11 +1091,11 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
      initiate inbound connections to the Leader.
 
 
-[preRegisterRemoteSystem()] See section 5.14
+  [preRegisterRemoteSystem()] See section 5.14
 
-[deRegisterRemoteSystem()] See section 5.15
+  [deRegisterRemoteSystem()] See section 5.15
 
-[multiprocTCPBase] See section 9.4
+  [multiprocTCPBase] See section 9.4
 
 
 4.11.2 Convention Administrator Communications
@@ -1090,6 +1114,39 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   protect the overall environment from failure scenarios; please contact
   the Thespian developers if this hysteresis is adversely affecting your
   utilization of Thespian.
+
+
+4.11.3 Multi-system Global Name support
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  Actor creation is first attempted locally, but if the Actor's
+  requirements do not match the local system's capabilities, other Actor
+  Systems will be invited to create the specified Actor, one at a time.
+  The first Actor System that can create the specified Actor will record
+  the global name in that system; if an Actor System already has an
+  Actor running under that global name, that will satisfy the creation
+  attempt.
+
+  Because this global name is only recorded on a single system and the
+  creation is on a first-found basis, it is not necessarily the case
+  that the next attempt to call createActor with the same globalName
+  will query the same system before another system is found that is
+  willing to create the target actor.  As a result, two `createActor()'
+  calls with the same `globalName' value may result in two different
+  target Actors running on two separate remote Actor Systems.
+
+  An recommended alternative approach is to create a "registrar" Actor
+  on the Convention Leader system, using a `globalName' to ensure that
+  the registrar instance is unique.  The registrar can then register for
+  notification of remote Actor Systems
+  ([notifyOnSystemRegistrationChanges]) and when a new remote Actor
+  System joins the convention, the registrar Actor can create a specific
+  Actor on that remote system, recording the resulting address locally
+  in the registrar.  When that unique remote Actor is needed, the
+  registrar can be consulted to obtain the target address.
+
+
+  [notifyOnSystemRegistrationChanges] See section 5.7
 
 
 4.12 Performance
@@ -1187,7 +1244,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   `ActorSystem()' instantiation.
 
 
-[ActorSystem Implementations] See section 9
+  [ActorSystem Implementations] See section 9
+
 
 4.13.1 Thespian Internals Logging
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -1288,7 +1346,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   detail, including security protections associated with this feature.
 
 
-[loadActorSource] See section 5.9
+  [loadActorSource] See section 5.9
 
 
 5 Actor API
@@ -1313,7 +1371,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   [ActorSystem Capabilities].
 
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
+
 
 5.1 myAddress
 ─────────────
@@ -1354,11 +1413,12 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   the modifications made by the original attempt.
 
 
-[External Communications] See section 1.4
+  [External Communications] See section 1.4
 
-[Actors] See section 1.1
+  [Actors] See section 1.1
 
-[PoisonMessage Returns] See section 4.4
+  [PoisonMessage Returns] See section 4.4
+
 
 5.2.1 Return Value
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -1393,9 +1453,9 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   the set of file descriptors that should be watched when it exits.
 
 
-[Watching File Descriptors] See section 4.8
+  [Watching File Descriptors] See section 4.8
 
-[WatchMessage] See section 7.3
+  [WatchMessage] See section 7.3
 
 
 5.3 createActor
@@ -1472,15 +1532,16 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   described in the [Dead Letter Handling] section.
 
 
-[actorSystemCapabilityCheck] See section 5.12
+  [actorSystemCapabilityCheck] See section 5.12
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
-[Named Actors] See section 4.6
+  [Named Actors] See section 4.6
 
-[loadActorSource] See section 5.9
+  [loadActorSource] See section 5.9
 
-[Dead Letter Handling] See section 4.2
+  [Dead Letter Handling] See section 4.2
+
 
 5.3.1 globalName
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -1500,7 +1561,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   requested the creation of the Named Actor.
 
 
-[ChildActorExited] See section 7.5
+  [ChildActorExited] See section 7.5
 
 
 5.3.2 Actor Creation Gotchas
@@ -1547,7 +1608,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
         name/import-path string.
 
 
-[loadActorSource] See section 5.9
+  [loadActorSource] See section 5.9
 
 
 5.4 send
@@ -1570,7 +1631,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   the message to [Dead Letter Handling] if it cannot be delivered.
 
 
-[Dead Letter Handling] See section 4.2
+  [Dead Letter Handling] See section 4.2
 
 
 5.5 wakeupAfter
@@ -1594,7 +1655,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   recommended to keep the `payload' reasonably small.
 
 
-[Timer Messages] See section 4.7
+  [Timer Messages] See section 4.7
 
 
 5.6 handleDeadLetters
@@ -1620,9 +1681,9 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   [Other Actor Systems]) via [ActorSystemConventionUpdate] messages.
 
 
-[Other Actor Systems] See section 4.11
+  [Other Actor Systems] See section 4.11
 
-[ActorSystemConventionUpdate] See section 7.7
+  [ActorSystemConventionUpdate] See section 7.7
 
 
 5.8 registerSourceAuthority
@@ -1643,11 +1704,11 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   Actor registers for this role.
 
 
-[Security Considerations] See section 6.10.2
+  [Security Considerations] See section 6.10.2
 
-[loadActorSource] See section 5.9
+  [loadActorSource] See section 5.9
 
-[ValidateSource] See section 7.8
+  [ValidateSource] See section 7.8
 
 
 5.9 loadActorSource
@@ -1673,13 +1734,13 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   section for more details.
 
 
-[createActor] See section 5.3
+  [createActor] See section 5.3
 
-[registerSourceAuthority] See section 5.8
+  [registerSourceAuthority] See section 5.8
 
-[Security Considerations] See section 6.10.2
+  [Security Considerations] See section 6.10.2
 
-[ActorSystem API] See section 6
+  [ActorSystem API] See section 6
 
 
 5.10 unloadActorSource
@@ -1696,9 +1757,9 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   section for more details.
 
 
-[loadActorSource] See section 5.9
+  [loadActorSource] See section 5.9
 
-[ActorSystem API] See section 6
+  [ActorSystem API] See section 6
 
 
 5.11 notifyOnSourceAvailability
@@ -1720,9 +1781,9 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   available, but are not triggered by local load or unload events.
 
 
-[LoadedSource] See section 7.10
+  [LoadedSource] See section 7.10
 
-[UnloadedSource] See section 9
+  [UnloadedSource] See section 9
 
 
 5.12 actorSystemCapabilityCheck
@@ -1758,11 +1819,12 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   message.
 
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
-[updateCapability] See section 5.13
+  [updateCapability] See section 5.13
 
-[ActorExitRequest] See section 7.4
+  [ActorExitRequest] See section 7.4
+
 
 5.12.1 requireCapability decorator
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -1892,11 +1954,11 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   a [Thespian_StatusReq] to the ActorSystem.
 
 
-[ActorSystem API] See section 6
+  [ActorSystem API] See section 6
 
-[actorSystemCapabilityCheck] See section 5.12
+  [actorSystemCapabilityCheck] See section 5.12
 
-[Thespian_StatusReq] See section 7.12
+  [Thespian_StatusReq] See section 7.12
 
 
 5.14 preRegisterRemoteSystem
@@ -1945,7 +2007,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   communications.
 
 
-[Other Actor Systems] See section 4.11
+  [Other Actor Systems] See section 4.11
 
 
 5.15 deRegisterRemoteSystem
@@ -1976,7 +2038,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   [ActorSystemConventionUpdate] messages).
 
 
-[ActorSystemConventionUpdate] See section 7.7
+  [ActorSystemConventionUpdate] See section 7.7
 
 
 5.16 actorSystemShutdown
@@ -2264,13 +2326,13 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   must be explicitly specified for non-singleton creations.
 
 
-[ActorSystem Implementations] See section 9
+  [ActorSystem Implementations] See section 9
 
-[simpleSystemBase] See section 9.2
+  [simpleSystemBase] See section 9.2
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
-[Logging] See section 4.13
+  [Logging] See section 4.13
 
 
 6.3 ActorSystem.shutdown
@@ -2301,7 +2363,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   unaffected by stopping the transient unique ActorSystem.
 
 
-[ActorSystem Implementations] See section 9
+  [ActorSystem Implementations] See section 9
 
 
 6.4 ActorSystem.createActor
@@ -2373,15 +2435,15 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
     match any currently loaded source.
 
 
-[createActor] See section 5.3
+  [createActor] See section 5.3
 
-[actorSystemCapabilityCheck] See section 5.12
+  [actorSystemCapabilityCheck] See section 5.12
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
-[Named Actors] See section 4.6
+  [Named Actors] See section 4.6
 
-[loadActorSource] See section 6.10
+  [loadActorSource] See section 6.10
 
 
 6.5 tell
@@ -2543,9 +2605,9 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   a [Thespian_StatusReq] to the ActorSystem.
 
 
-[actorSystemCapabilityCheck] See section 5.12
+  [actorSystemCapabilityCheck] See section 5.12
 
-[Thespian_StatusReq] See section 7.12
+  [Thespian_StatusReq] See section 7.12
 
 
 6.10 loadActorSource
@@ -2580,11 +2642,12 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   feedback (excepting perhaps the `/tmp/Thespian.log' logfile).
 
 
-[createActor] See section 5.12
+  [createActor] See section 5.12
 
-[registerSourceAuthority] See section 5.8
+  [registerSourceAuthority] See section 5.8
 
-[Security Considerations] See section 6.10.2
+  [Security Considerations] See section 6.10.2
+
 
 6.10.1 Source Loading Issues
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -2776,7 +2839,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   that sourceHash this request does nothing silently.
 
 
-[loadActorSource] See section 5.9
+  [loadActorSource] See section 5.9
 
 
 7 ActorSystem Messages
@@ -2805,7 +2868,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   Returns]).
 
 
-[PoisonMessage Returns] See section 4.4
+  [PoisonMessage Returns] See section 4.4
+
 
 7.1.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -2826,7 +2890,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   (see [Timer Messages]).
 
 
-[Timer Messages] See section 4.7
+  [Timer Messages] See section 4.7
+
 
 7.2.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -2850,7 +2915,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   information.
 
 
-[Watching File Descriptors] See section 4.8
+  [Watching File Descriptors] See section 4.8
+
 
 7.3.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -2902,9 +2968,10 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   interface will have no Parent; their exit is unremarked.
 
 
-[ActorExitRequest] See section 7.4
+  [ActorExitRequest] See section 7.4
 
-[Named Actors] See section 4.6
+  [Named Actors] See section 4.6
+
 
 7.5.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -2923,7 +2990,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   Actor because the target is no longer running.
 
 
-[Dead Letter Handling] See section 4.2
+  [Dead Letter Handling] See section 4.2
+
 
 7.6.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -2942,7 +3010,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   generated by the ActorSystem itself.
 
 
-[Other Actor Systems] See section 4.14
+  [Other Actor Systems] See section 4.14
+
 
 7.7.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -2994,11 +3063,12 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   [Thespian_StatusReq] operation.
 
 
-[loadActorSource] See section 5.9
+  [loadActorSource] See section 5.9
 
-[ValidatedSource] See section 7.9
+  [ValidatedSource] See section 7.9
 
-[Thespian_StatusReq] See section 7.12
+  [Thespian_StatusReq] See section 7.12
+
 
 7.8.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -3008,7 +3078,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
     [loadActorSource] call to the ActorSystem.
 
 
-[loadActorSource] See section 5.9
+  [loadActorSource] See section 5.9
 
 
 7.9 ValidatedSource
@@ -3033,7 +3103,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   being actively rejected.
 
 
-[ValidateSource] See section 7.8
+  [ValidateSource] See section 7.8
+
 
 7.9.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -3065,7 +3136,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   system call).
 
 
-[notifyOnSourceAvailability] See section 5.11
+  [notifyOnSourceAvailability] See section 5.11
+
 
 7.10.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -3116,9 +3188,10 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   ActorSystem.
 
 
-[Thespian_SystemStatus] See section 7.13
+  [Thespian_SystemStatus] See section 7.13
 
-[Thespian_ActorStatus] See section 7.14
+  [Thespian_ActorStatus] See section 7.14
+
 
 7.12.1 Attributes
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -3218,9 +3291,9 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   non-troupe actors has no effect on their behavior and is safe to do.
 
 
-[Actor Troupes] See section 4.9
+  [Actor Troupes] See section 4.9
 
-[WakeupMessages] See section 4.7
+  [WakeupMessages] See section 4.7
 
 
 8.2 Transient Actors
@@ -3310,9 +3383,10 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-[ActorSystem] See section 1.3
+  [ActorSystem] See section 1.3
 
-[simpleSystemBase] See section 9.2
+  [simpleSystemBase] See section 9.2
+
 
 9.1 Common Capabilities
 ───────────────────────
@@ -3413,15 +3487,15 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
                              ActorSystems that are part of the Convention.
 
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
-[actorSystemCapabilityCheck] See section 5.12
+  [actorSystemCapabilityCheck] See section 5.12
 
-[ActorSystem] See section 1.3
+  [ActorSystem] See section 1.3
 
-[updateCapability] See section 5.13
+  [updateCapability] See section 5.13
 
-[Actor Code Distribution] See section 4.14
+  [Actor Code Distribution] See section 4.14
 
 
 9.2 simpleSystemBase
@@ -3470,15 +3544,15 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   *Thespian ActorSystem Name*: /read-only/ "simpleSystemBase"
 
 
-[Message Mutability] See section 4.1.1
+  [Message Mutability] See section 4.1.1
 
-[actorSystemCapabilityCheck] See section 5.12
+  [actorSystemCapabilityCheck] See section 5.12
 
-[Multiple Systems] See section 1.3.2
+  [Multiple Systems] See section 1.3.2
 
-[wakeupAfter] See section 5.5
+  [wakeupAfter] See section 5.5
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
 
 9.3 multiprocQueueBase
@@ -3533,9 +3607,9 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
                             "forkserver" method.
 
 
-[Multiple Systems] See section 1.3.2
+  [Multiple Systems] See section 1.3.2
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
 
 9.4 multiprocTCPBase
@@ -3654,7 +3728,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
                             "spawn" method.
 
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
 
 9.5 multiprocUDPBase
@@ -3722,9 +3796,9 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
                             "spawn" method.
 
 
-[ActorSystem Capabilities] See section 4.10
+  [ActorSystem Capabilities] See section 4.10
 
-[multiprocTCPBase] See section 9.4
+  [multiprocTCPBase] See section 9.4
 
 
 10 Deploying Actor-based Projects
@@ -3813,7 +3887,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
                      but remember the guideline: "Fail Early, Fail Often."
 
 
-[registerSourceAuthority] See section 5.8
+  [registerSourceAuthority] See section 5.8
+
 
 10.1.1 Security Scenarios
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -3834,16 +3909,17 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
 Footnotes
 ─────────
 
-[1] The PEP302 Python extension specification defines the ability to add
-a custom package finder/loader that coordinates with the Python `import'
-statement.  The Thespian `loadActorSource' implements a PEP302-compliant
-package manager.  All loaded packages are prefixed with their source
-hash to ensure namespace uniqueness.
+[1] The PEP302 Python extension specification defines the ability to
+add a custom package finder/loader that coordinates with the Python
+`import' statement.  The Thespian `loadActorSource' implements a
+PEP302-compliant package manager.  All loaded packages are prefixed
+with their source hash to ensure namespace uniqueness.
 
 [2] Note that this can result in behavioral differences between
 in-process and multi-process ActorSystems: unloaded sources are still
-present in still-existing multi-process Actors and so import statements
-and other references will still succeed in those Actors even after the
-source has been unloaded.  In general it is recommended that all Actors
-running within a loaded source have exited before the source is
-unloaded, so this behavioral difference will remain unaddressed.
+present in still-existing multi-process Actors and so import
+statements and other references will still succeed in those Actors
+even after the source has been unloaded.  In general it is recommended
+that all Actors running within a loaded source have exited before the
+source is unloaded, so this behavioral difference will remain
+unaddressed.
