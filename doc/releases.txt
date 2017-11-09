@@ -11,6 +11,7 @@ Table of Contents
 
 3.x
 .. 3.8
+..... 3.8.3 <2017-11-08 Wed>
 ..... 3.8.2 <2017-11-01 Wed>
 ..... 3.8.1 <2017-10-22 Sun>
 ..... 3.8.0 <2017-08-22 Tue>
@@ -93,6 +94,21 @@ not change the API.
 
 3.8
 ───
+
+3.8.3 <2017-11-08 Wed>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Fixed issue preventing use of globalName actors in conjunction with
+    a multiple ActorSystem Convention.
+
+  ‣ Fixed documentation link in the Using Thespian documentation.
+
+  ‣ Updated description of the globalName argument in the Using Thespian
+    documentation.
+
+  ‣ Added a better description of the startup modes for an ActorSystem
+    relating to the arguments supplied.
+
 
 3.8.2 <2017-11-01 Wed>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
