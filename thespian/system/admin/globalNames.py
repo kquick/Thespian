@@ -37,6 +37,7 @@ class GlobalNamesAdmin(AdminCore):
                         TransmitIntent(actualAddress, ActorExitRequest(recursive=True)))
                     actualAddress = self._globalNames[gName]
                 else:
+                    childInstance.globalName = gName
                     self._globalNames[gName] = actualAddress
         return super(GlobalNamesAdmin, self)._pendingActorReady(childInstance,
                                                                 actualAddress)
