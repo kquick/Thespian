@@ -1346,12 +1346,14 @@ Table of Contents
   The [loadActorSource] operation describes this capability in more
   detail, including security protections associated with this feature.
 
-  The Thespian Director document describes the Director utility and how
-  it can help to use loadable Actor sources in a safe and practical
+  The [Thespian Director] document describes the Director utility and
+  how it can help to use loadable Actor sources in a safe and practical
   manner.
 
 
   [loadActorSource] See section 5.9
+
+  [Thespian Director] file:director.org
 
 
 5 Actor API
@@ -2875,8 +2877,8 @@ Table of Contents
   by being passed the ActorAddress of an already running Actor in the
   other source load via independent means.
 
-  The Thespian Director document describes the Director utility and how
-  it can help to use loadable Actor sources in a safe and practical
+  The [Thespian Director] document describes the Director utility and
+  how it can help to use loadable Actor sources in a safe and practical
   manner.
 
 
@@ -2885,6 +2887,8 @@ Table of Contents
   [Actor Code Distribution] See section 4.14
 
   [Common Capabilities] See section 9.1
+
+  [Thespian Director] file:director.org
 
 
 6.11 unloadActorSource
@@ -3419,8 +3423,11 @@ Table of Contents
   using the Director, but it's easier to use the Director to provide a
   base set of support functionality.
 
-  See the Thespian Director document for more information on the
+  See the [Thespian Director] document for more information on the
   Director.
+
+
+  [Thespian Director] file:director.org
 
 
 9 ActorSystem Implementations
@@ -3910,9 +3917,12 @@ Table of Contents
   complexity perspective, but it allows the ActorSystem to be shared by
   multiple Actor-based applications, as well as providing for seamless
   upgrades of each application (because the new and old sources can be
-  running simultaneously).  The Thespian Director document describes the
-  Director utility that can optionally be used to enhance and support
-  this latter method.
+  running simultaneously).  The [Thespian Director] document describes
+  the Director utility that can optionally be used to enhance and
+  support this latter method.
+
+
+  [Thespian Director] file:director.org
 
 
 10.1 Overall Security Considerations
