@@ -118,6 +118,7 @@ Table of Contents
 8 Patterns and Helpers
 .. 8.1 Actor Troupe Support
 .. 8.2 Transient Actors
+.. 8.3 Thespian Director
 9 ActorSystem Implementations
 .. 9.1 Common Capabilities
 .. 9.2 simpleSystemBase
@@ -1344,6 +1345,10 @@ Table of Contents
 
   The [loadActorSource] operation describes this capability in more
   detail, including security protections associated with this feature.
+
+  The Thespian Director document describes the Director utility and how
+  it can help to use loadable Actor sources in a safe and practical
+  manner.
 
 
   [loadActorSource] See section 5.9
@@ -2870,6 +2875,10 @@ Table of Contents
   by being passed the ActorAddress of an already running Actor in the
   other source load via independent means.
 
+  The Thespian Director document describes the Director utility and how
+  it can help to use loadable Actor sources in a safe and practical
+  manner.
+
 
   [Multiple Systems] See section 1.3.2
 
@@ -3401,6 +3410,19 @@ Table of Contents
   started after receipt of the actor's first message.
 
 
+8.3 Thespian Director
+─────────────────────
+
+  The Thespian Director is a support utility that provides functionality
+  that makes it easier to use the Loadable Sources functionality
+  provided by Thespian.  It is possible to use loadable sources without
+  using the Director, but it's easier to use the Director to provide a
+  base set of support functionality.
+
+  See the Thespian Director document for more information on the
+  Director.
+
+
 9 ActorSystem Implementations
 ═════════════════════════════
 
@@ -3888,7 +3910,9 @@ Table of Contents
   complexity perspective, but it allows the ActorSystem to be shared by
   multiple Actor-based applications, as well as providing for seamless
   upgrades of each application (because the new and old sources can be
-  running simultaneously).
+  running simultaneously).  The Thespian Director document describes the
+  Director utility that can optionally be used to enhance and support
+  this latter method.
 
 
 10.1 Overall Security Considerations
