@@ -254,6 +254,7 @@ Table of Contents
    TXT    PDF    HTML    Description                                                                                                                           
   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
    [TXT]  [PDF]  [HTML]  [Using Thespian] is the main documentation reference for developers  writing and implementing Actor-based applications with Thespian. 
+   [TXT]  [PDF]  [HTML]  [Thespian Director] is the main documentation reference for the Director utility.                                                     
    [TXT]  [PDF]  [HTML]  [Thespian Developer's Notes] provides documentation for developers working on Thespian itself.                                        
    [TXT]  [PDF]  [HTML]  Release History is maintained in the [Thespian Release Notes].                                                                        
    [TXT]  [PDF]  [HTML]  An [In Depth Introduction to Thespian].                                                                                               
@@ -267,6 +268,14 @@ Table of Contents
   [HTML] file:using.html
 
   [Using Thespian] file:using.html
+
+  [TXT] file:director.txt
+
+  [PDF] file:director.pdf
+
+  [HTML] file:director.html
+
+  [Thespian Director] file:director.html
 
   [TXT] file:developer.txt
 
