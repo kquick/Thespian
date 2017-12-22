@@ -1,4 +1,4 @@
-pre { font-family; 'Inconsolata'; }
+pre { font-family; 'Inconsolata'; font-size: smaller; }
 pre.src-python {background-color:hsl(0,70%,97%)}
 // pre.src-python {background-color:hsl(108,25%,95%)}
 // pre.src-python { background-color:#606060 }
@@ -23,8 +23,10 @@ pre span.comment {color:#b22222}
 body { font-family: 'Actor'; font-size: 22px; }
 h1, h2, h3, h4, h5, ul#tabs { font-family: 'Actor'; }
 h1 { font-size: xx-large; }
-h2 { font-size: x-large; }
-h3 { font-size: large; }
+h2 { font-size: xx-large; }
+h3 { font-size: x-large; }
+h4 { font-size: x-large; }
+#tabs li a { font-size: inherit; }
 
 .buttons {
     padding: 0px 7px 23px 0px;  // needed for the taller font

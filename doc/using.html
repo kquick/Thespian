@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Thespian Actors User's Guide</title>
-<!-- 2017-12-22 Fri 12:37 -->
+<!-- 2017-12-22 Fri 13:04 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
@@ -702,7 +702,7 @@ package:
 
 <div class="org-src-container">
 
-<pre class="src src-python">    &gt;&gt;&gt; import thespian
+<pre class="src src-python">&gt;&gt;&gt; import thespian
 </pre>
 </div>
 </div>
@@ -720,7 +720,7 @@ an ActorSystem using the "multiprocTCPBase":
 
 <div class="org-src-container">
 
-<pre class="src src-python">    &gt;&gt;&gt; asys = ActorSystem('multiprocTCPBase')
+<pre class="src src-python">&gt;&gt;&gt; asys = ActorSystem('multiprocTCPBase')
 </pre>
 </div>
 
@@ -776,11 +776,11 @@ A Top-Level Actor is created via the <a href="#hH-a565af1b-aabb-4336-a51d-7505c0
 
 <div class="org-src-container">
 
-<pre class="src src-python">    &gt;&gt;&gt; class MyFirstActor(Actor):
-    ...     def receiveMessage(self, message, sender):
-    ...         pass
-    ...
-    &gt;&gt;&gt; mfa_addr = asys.createActor(MyFirstActor)
+<pre class="src src-python">&gt;&gt;&gt; class MyFirstActor(Actor):
+...     def receiveMessage(self, message, sender):
+...         pass
+...
+&gt;&gt;&gt; mfa_addr = asys.createActor(MyFirstActor)
 </pre>
 </div>
 
@@ -804,14 +804,14 @@ own instance:
 
 <div class="org-src-container">
 
-<pre class="src src-python">    &gt;&gt;&gt; class Support(Actor):
-    ...     def receiveMessage(self, message, sender):
-    ...         pass
-    ...
-    &gt;&gt;&gt; class MyFirstActor(Actor):
-    ...     def receiveMessage(self, message, sender):
-    ...         if message == 'create another actor':
-    ...             newActor = self.createActor(Support)
+<pre class="src src-python">&gt;&gt;&gt; class Support(Actor):
+...     def receiveMessage(self, message, sender):
+...         pass
+...
+&gt;&gt;&gt; class MyFirstActor(Actor):
+...     def receiveMessage(self, message, sender):
+...         if message == 'create another actor':
+...             newActor = self.createActor(Support)
 </pre>
 </div>
 
@@ -1929,9 +1929,9 @@ Each Actor is represented by an Actor baseclass:
 
 <div class="org-src-container">
 
-<pre class="src src-python">    from thespian.actors import Actor
+<pre class="src src-python">from thespian.actors import Actor
 
-    class MyActor(Actor): ...
+class MyActor(Actor): ...
 </pre>
 </div>
 
@@ -1947,7 +1947,7 @@ Versioning of the Actor API and the ActorSystem are described in
 
 <div class="org-src-container">
 
-<pre class="src src-python">    self.myAddress
+<pre class="src src-python">self.myAddress
 </pre>
 </div>
 
@@ -2269,7 +2269,7 @@ delivered.
 
 <div class="org-src-container">
 
-<pre class="src src-python">    self.wakeupAfter(timePeriod, payload=None)
+<pre class="src src-python">self.wakeupAfter(timePeriod, payload=None)
 </pre>
 </div>
 
@@ -5294,7 +5294,7 @@ difference will remain unaddressed.
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2017-12-22 Fri 12:37</p>
+<p class="date">Created: 2017-12-22 Fri 13:04</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
