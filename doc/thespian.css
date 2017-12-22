@@ -1,4 +1,4 @@
-pre {font-size:medium}
+pre { font-family; 'Inconsolata'; }
 pre.src-python {background-color:hsl(0,70%,97%)}
 // pre.src-python {background-color:hsl(108,25%,95%)}
 // pre.src-python { background-color:#606060 }
@@ -14,11 +14,21 @@ pre span.constant {color:#d0372d}
 pre span.comment-delimiter {color:#8d8d84}
 pre span.comment {color:#b22222}
 
+#content { max-width: 1200px; } // wider than normal bigblow
+
 // .title {background-color:#80d0f0}
 .title {background-color:#80b0f0}
 
 // body { font:16px/1.385 arial,helvetica,clean,sans-serif; }
 body { font-family: 'Actor'; font-size: 22px; }
+h1, h2, h3, h4, h5, ul#tabs { font-family: 'Actor'; }
+h1 { font-size: xx-large; }
+h2 { font-size: x-large; }
+h3 { font-size: large; }
+
+.buttons {
+    padding: 0px 7px 23px 0px;  // needed for the taller font
+}
 
 .bannerheader {
     font-size: 180%;
