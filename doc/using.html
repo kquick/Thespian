@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Thespian Actors User's Guide</title>
-<!-- 2017-12-02 Sat 00:24 -->
+<!-- 2017-12-22 Fri 11:05 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
@@ -100,6 +100,7 @@
 <script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
 <script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Actor" rel="stylesheet">
 <link href="thespian.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript">
 /*
@@ -259,7 +260,9 @@ for the JavaScript code in this tag.
 <li><a href="#hH-9e800ed1-ed40-4ff3-8445-f795719f6218">5.16. actorSystemShutdown</a></li>
 <li><a href="#hH-2f5b52bd-72b8-41eb-b879-809d174c0e30">5.17. ActorTypeDispatcher</a>
 <ul>
-<li><a href="#hH-e58ce3a1-df40-4d3f-bc1f-e7743e3c1dc1">5.17.1. Type Handling Deferral</a></li>
+<li><a href="#h:96440ac7-3db5-4cb4-9496-6c8c46075f14">5.17.1. Derived Classes</a></li>
+<li><a href="#h:d92333c1-bb53-48d1-8323-f6013e479750">5.17.2. Unrecognized Messages</a></li>
+<li><a href="#hH-e58ce3a1-df40-4d3f-bc1f-e7743e3c1dc1">5.17.3. Type Handling Deferral</a></li>
 </ul>
 </li>
 </ul>
@@ -2864,6 +2867,11 @@ Got a long message
 Got a message
 &gt;&gt;&gt;
 </pre>
+</div>
+
+<div id="outline-container-h:96440ac7-3db5-4cb4-9496-6c8c46075f14" class="outline-4">
+<h4 id="h:96440ac7-3db5-4cb4-9496-6c8c46075f14"><a id="sec-5-17-1" name="sec-5-17-1"></a><span class="section-number-4">5.17.1</span> Derived Classes</h4>
+<div class="outline-text-4" id="text-h:96440ac7-3db5-4cb4-9496-6c8c46075f14">
 
 <p>
 This receive method lookup also works for derived classes:
@@ -2894,9 +2902,47 @@ Got a long message
 </pre>
 
 <p>
-It is possible to specify a fallback handler for the
-<code>ActorTypeDispatcher</code> if the type is not explicitly recognized by
-defining the <code>receiveUnrecognizedMessage()</code> method.
+The matching does not rely on import path specifications.  In the
+following example, the creation of Message2 requires import
+qualification, but the <code>ActorTypeDispatcher</code>-supported
+<code>receiveMsg_Message1</code> will match <code>Message1</code> without the import
+namespace prefix:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python" id="messagedefs.py"><span class="linenr">1: </span>class Message1: ...
+<span class="linenr">2: </span>class Message2: ...
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python" id="myactor.py"><span class="linenr">1: </span>import messagedefs
+<span class="linenr">2: </span>
+<span class="linenr">3: </span>class SendActor(ActorTypeDispatcher):
+<span class="linenr">4: </span>    def receiveMsg_Message1(self, msg, sender):
+<span class="linenr">5: </span>        self.send(sender, messagedefs.Message2())
+<span class="linenr">6: </span>
+<span class="linenr">7: </span>class RcvActor(ActorTypeDispatcher):
+<span class="linenr">8: </span>    def receiveMsg_Message2(self, msg, sender):
+<span class="linenr">9: </span>        ...
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-h:d92333c1-bb53-48d1-8323-f6013e479750" class="outline-4">
+<h4 id="h:d92333c1-bb53-48d1-8323-f6013e479750"><a id="sec-5-17-2" name="sec-5-17-2"></a><span class="section-number-4">5.17.2</span> Unrecognized Messages</h4>
+<div class="outline-text-4" id="text-h:d92333c1-bb53-48d1-8323-f6013e479750">
+
+<p>
+Normally the ActorTypeDispatcher will quietly discard messages that do
+not match any of the type-related receive methods.  It is possible to
+specify a fallback handler for the <code>ActorTypeDispatcher</code> if the type
+is not explicitly recognized by defining the
+<code>receiveUnrecognizedMessage()</code> method.
 </p>
 
 <div class="org-src-container">
@@ -2922,10 +2968,19 @@ Got an int
 Did not recognize the message type: &lt;type 'float'&gt;
 &gt;&gt;&gt;
 </pre>
+
+<p>
+It is important to note that an Actor based on the
+ActorTypeDispatcher that is also using the <a href="#ThespianWatch">5.2.1</a>
+functionality should implement the <code>receiveUnrecognizedMessage</code>
+entrypointto ensure that a proper <code>ThespianWatch</code> message is
+returned when an unrecognized message is received.
+</p>
+</div>
 </div>
 
 <div id="outline-container-hH-e58ce3a1-df40-4d3f-bc1f-e7743e3c1dc1" class="outline-4">
-<h4 id="hH-e58ce3a1-df40-4d3f-bc1f-e7743e3c1dc1"><a id="sec-5-17-1" name="sec-5-17-1"></a><span class="section-number-4">5.17.1</span> Type Handling Deferral</h4>
+<h4 id="hH-e58ce3a1-df40-4d3f-bc1f-e7743e3c1dc1"><a id="sec-5-17-3" name="sec-5-17-3"></a><span class="section-number-4">5.17.3</span> Type Handling Deferral</h4>
 <div class="outline-text-4" id="text-hH-e58ce3a1-df40-4d3f-bc1f-e7743e3c1dc1">
 
 <p>
@@ -3943,7 +3998,7 @@ specified on the original <code>.wakeupAfter()</code> call.
 <p>
 The <code>WatchMessage</code> is delivered to the Actor by the ActorSystem when
 one or more file descriptors has available data.  The WatchMessage
-specifies which file numbers have data vailable.
+specifies which file numbers have data available.
 </p>
 
 <p>
@@ -5238,7 +5293,7 @@ difference will remain unaddressed.
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2017-12-02 Sat 00:24</p>
+<p class="date">Created: 2017-12-22 Fri 11:05</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
