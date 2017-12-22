@@ -72,7 +72,9 @@ Table of Contents
 .. 5.15 deRegisterRemoteSystem
 .. 5.16 actorSystemShutdown
 .. 5.17 ActorTypeDispatcher
-..... 5.17.1 Type Handling Deferral
+..... 5.17.1 Derived Classes
+..... 5.17.2 Unrecognized Messages
+..... 5.17.3 Type Handling Deferral
 6 ActorSystem API
 .. 6.1 Exceptions
 .. 6.2 ActorSystem
@@ -357,7 +359,7 @@ Table of Contents
   `thespian' package:
 
   ┌────
-  │     >>> import thespian
+  │ >>> import thespian
   └────
 
 
@@ -370,7 +372,7 @@ Table of Contents
   an ActorSystem using the "multiprocTCPBase":
 
   ┌────
-  │     >>> asys = ActorSystem('multiprocTCPBase')
+  │ >>> asys = ActorSystem('multiprocTCPBase')
   └────
 
   More details on the explicit parameters for this call are found in
@@ -414,11 +416,11 @@ Table of Contents
   A Top-Level Actor is created via the [ActorSystem.createActor] call:
 
   ┌────
-  │     >>> class MyFirstActor(Actor):
-  │     ...     def receiveMessage(self, message, sender):
-  │     ...         pass
-  │     ...
-  │     >>> mfa_addr = asys.createActor(MyFirstActor)
+  │ >>> class MyFirstActor(Actor):
+  │ ...     def receiveMessage(self, message, sender):
+  │ ...         pass
+  │ ...
+  │ >>> mfa_addr = asys.createActor(MyFirstActor)
   └────
 
   The result of the call is the ActorAddress which can be used with the
@@ -443,14 +445,14 @@ Table of Contents
   its own instance:
 
   ┌────
-  │     >>> class Support(Actor):
-  │     ...     def receiveMessage(self, message, sender):
-  │     ...         pass
-  │     ...
-  │     >>> class MyFirstActor(Actor):
-  │     ...     def receiveMessage(self, message, sender):
-  │     ...         if message == 'create another actor':
-  │     ...             newActor = self.createActor(Support)
+  │ >>> class Support(Actor):
+  │ ...     def receiveMessage(self, message, sender):
+  │ ...         pass
+  │ ...
+  │ >>> class MyFirstActor(Actor):
+  │ ...     def receiveMessage(self, message, sender):
+  │ ...         if message == 'create another actor':
+  │ ...             newActor = self.createActor(Support)
   └────
 
   As with the creation of a Top-Level actor, the `createActor()' method
@@ -1369,9 +1371,9 @@ Table of Contents
   Each Actor is represented by an Actor baseclass:
 
   ┌────
-  │     from thespian.actors import Actor
+  │ from thespian.actors import Actor
   │ 
-  │     class MyActor(Actor): ...
+  │ class MyActor(Actor): ...
   └────
 
   Versioning of the Actor API and the ActorSystem are described in
@@ -1385,7 +1387,7 @@ Table of Contents
 ─────────────
 
   ┌────
-  │     self.myAddress
+  │ self.myAddress
   └────
 
   This property is the ActorAddress of this Actor.
@@ -1469,15 +1471,15 @@ Table of Contents
 ───────────────
 
   ┌────
-  │     newAddress = self.createActor(self, actorClass,
-  │                                   targetActorRequirements=None,
-  │                                   globalName=None)
+  │ newAddress = self.createActor(self, actorClass,
+  │                               targetActorRequirements=None,
+  │                               globalName=None)
   └────
 
   This method is called by the Actor to create a new Actor represented
   by the specified `actorClass'.  The `actorClass' may be specified as
   either a class object or as a module-qualified string
-  (e.g. ~"foo.bar.BarActor"~ will search for `class BarActor' in the
+  (e.g. "foo.bar.BarActor" will search for `class BarActor' in the
   `bar.py' in the `foo' directory).  The InvalidActorSpecification
   exception will be thrown if the actorClass is not specified in a valid
   manner.
@@ -1622,7 +1624,7 @@ Table of Contents
 ────────
 
   ┌────
-  │     self.send(targetAddress, message)
+  │ self.send(targetAddress, message)
   └────
 
   This is the method used to send a message from the current Actor to
@@ -1645,7 +1647,7 @@ Table of Contents
 ───────────────
 
   ┌────
-  │     self.wakeupAfter(timePeriod, payload=None)
+  │ self.wakeupAfter(timePeriod, payload=None)
   └────
 
   The `timePeriod' specifies a Python `datetime.timedelta' period.  When
@@ -1680,7 +1682,7 @@ Table of Contents
 ─────────────────────────────────────
 
   ┌────
-  │     self.notifyOnSystemRegistrationChanges(startHandling=True)
+  │ self.notifyOnSystemRegistrationChanges(startHandling=True)
   └────
 
   This method can be called to register or de-register this Actor for
@@ -1697,7 +1699,7 @@ Table of Contents
 ───────────────────────────
 
   ┌────
-  │     self.registerSourceAuthority()
+  │ self.registerSourceAuthority()
   └────
 
   This method registers the current Actor as the Source Authority
@@ -1722,7 +1724,7 @@ Table of Contents
 ───────────────────
 
   ┌────
-  │     sourceHash = self.loadActorSource(fileref)
+  │ sourceHash = self.loadActorSource(fileref)
   └────
 
   The `loadActorSource()' method is used to load a (possibly encrypted)
@@ -1754,7 +1756,7 @@ Table of Contents
 ──────────────────────
 
   ┌────
-  │     self.unloadActorSource(sourceHash)
+  │ self.unloadActorSource(sourceHash)
   └────
 
   The `unloadActorSource()' method is used to unload a source zipfile
@@ -1797,8 +1799,8 @@ Table of Contents
 ───────────────────────────────
 
   ┌────
-  │     def actorSystemCapabilityCheck(capabilities, requirements=None):
-  │         return True
+  │ def actorSystemCapabilityCheck(capabilities, requirements=None):
+  │     return True
   └────
 
   This is a *static* method provided by the Actor object that is called
@@ -1841,7 +1843,7 @@ Table of Contents
   specify that a capability must be present in the system capabilities.
 
   ┌────
-  │     @requireCapability(capabilityName[, capabilityValue])
+  │ @requireCapability(capabilityName[, capabilityValue])
   └────
 
   The `requireCapability' decorator can also specify a value for the
@@ -1855,51 +1857,51 @@ Table of Contents
   For example:
 
   ┌────
-  │     class MyActor(Actor):
+  │ class MyActor(Actor):
   │ 
-  │         @staticmethod
-  │         def actorSystemCapabilityCheck(capabilities, requirements):
-  │             return capabilities.get('Has Lightbulb', False) and \
-  │                    capabilities.get('Lit', False) and \
-  │                    capabilities.get('Color', 'none') == 'Yellow'
+  │     @staticmethod
+  │     def actorSystemCapabilityCheck(capabilities, requirements):
+  │         return capabilities.get('Has Lightbulb', False) and \
+  │                capabilities.get('Lit', False) and \
+  │                capabilities.get('Color', 'none') == 'Yellow'
   │ 
-  │         def receiveMessage(self, msg, sender): pass
+  │     def receiveMessage(self, msg, sender): pass
   └────
 
   is equivalent to the following combined use:
 
   ┌────
-  │     @requireCapability('Has Lightbulb')
-  │     @requireCapability('Lit')
-  │     class MyActor(Actor):
+  │ @requireCapability('Has Lightbulb')
+  │ @requireCapability('Lit')
+  │ class MyActor(Actor):
   │ 
-  │         @staticmethod
-  │         def actorSystemCapabilityCheck(capabilities, requirements):
-  │             return capabilities.get('Color', 'none') == 'Yellow'
+  │     @staticmethod
+  │     def actorSystemCapabilityCheck(capabilities, requirements):
+  │         return capabilities.get('Color', 'none') == 'Yellow'
   │ 
-  │         def receiveMessage(self, msg, sender): pass
+  │     def receiveMessage(self, msg, sender): pass
   └────
 
   or the equivalent use of only the decorator:
 
   ┌────
-  │     @requireCapability('Has Lightbulb')
-  │     @requireCapability('Lit')
-  │     @requireCapability(Color', 'Yellow')
-  │     class MyActor(Actor):
+  │ @requireCapability('Has Lightbulb')
+  │ @requireCapability('Lit')
+  │ @requireCapability('Color', 'Yellow')
+  │ class MyActor(Actor):
   │ 
-  │         def receiveMessage(self, msg, sender): pass
+  │     def receiveMessage(self, msg, sender): pass
   └────
 
   In the above examples, the `MyActor' Actor can be instantiated in an
   ActorSystem that had the capabilities of:
 
   ┌────
-  │     {
-  │       'Has Lightbulb': 5,
-  │       'Lit': True,
-  │       'Color' : 'Yellow'
-  │     }
+  │ {
+  │   'Has Lightbulb': 5,
+  │   'Lit': True,
+  │   'Color' : 'Yellow'
+  │ }
   └────
 
   Note that the value of 5 is "true", as compared to a value of 0 that
@@ -1909,22 +1911,22 @@ Table of Contents
   An example of a much simpler case:
 
   ┌────
-  │     class MyActor(Actor):
+  │ class MyActor(Actor):
   │ 
-  │         @staticmethod
-  │         def actorSystemCapabilityCheck(capabilities, requirements):
-  │             return capabilities.get('Has Lightbulb', False)
+  │     @staticmethod
+  │     def actorSystemCapabilityCheck(capabilities, requirements):
+  │         return capabilities.get('Has Lightbulb', False)
   │ 
-  │         def receiveMessage(self, msg, sender): pass
+  │     def receiveMessage(self, msg, sender): pass
   └────
 
   is equivalent to:
 
   ┌────
-  │     @requireCapability('Has Lightbulb')
-  │     class MyActor(Actor):
+  │ @requireCapability('Has Lightbulb')
+  │ class MyActor(Actor):
   │ 
-  │         def receiveMessage(self, msg, sender): pass
+  │     def receiveMessage(self, msg, sender): pass
   └────
 
 
@@ -1937,7 +1939,7 @@ Table of Contents
   [ActorSystem API] for that version).
 
   ┌────
-  │      self.updateCapability(capabilityName, capabilityValue=None)
+  │ self.updateCapability(capabilityName, capabilityValue=None)
   └────
 
   If the capability value is specified and is not None, the specified
@@ -1997,8 +1999,8 @@ Table of Contents
   remote system.
 
   ┌────
-  │      self.preRegisterRemoteSystem(remoteSystemAddress,
-  │                                   remoteSystemCapabilities)
+  │ self.preRegisterRemoteSystem(remoteSystemAddress,
+  │                              remoteSystemCapabilities)
   └────
 
   The `remoteSystemAddress' parameter is not a true Actor Address: it
@@ -2034,7 +2036,7 @@ Table of Contents
   local ActorSystem, this method will simply return with no effect.
 
   ┌────
-  │      self.preRegisterRemoteSystem(remoteSystemAddress)
+  │ self.preRegisterRemoteSystem(remoteSystemAddress)
   └────
 
   The `remoteSystemAddress' parameter may be specified in the same
@@ -2061,7 +2063,7 @@ Table of Contents
   ActorExitRequests will be sent to all locally running Actors.
 
   ┌────
-  │     self.actorSystemShutdown()
+  │ self.actorSystemShutdown()
   └────
 
   Use this method with caution.
@@ -2131,6 +2133,10 @@ Table of Contents
   │ >>>
   └────
 
+
+5.17.1 Derived Classes
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
   This receive method lookup also works for derived classes:
 
   ┌────
@@ -2155,9 +2161,38 @@ Table of Contents
   │ >>>
   └────
 
-  It is possible to specify a fallback handler for the
-  `ActorTypeDispatcher' if the type is not explicitly recognized by
-  defining the `receiveUnrecognizedMessage()' method.
+  The matching does not rely on import path specifications.  In the
+  following example, the creation of Message2 requires import
+  qualification, but the `ActorTypeDispatcher'-supported
+  `receiveMsg_Message1' will match `Message1' without the import
+  namespace prefix:
+
+  ┌────
+  │ 1  class Message1: ...
+  │ 2  class Message2: ...
+  └────
+
+  ┌────
+  │ 1  import messagedefs
+  │ 2  
+  │ 3  class SendActor(ActorTypeDispatcher):
+  │ 4      def receiveMsg_Message1(self, msg, sender):
+  │ 5          self.send(sender, messagedefs.Message2())
+  │ 6  
+  │ 7  class RcvActor(ActorTypeDispatcher):
+  │ 8      def receiveMsg_Message2(self, msg, sender):
+  │ 9          ...
+  └────
+
+
+5.17.2 Unrecognized Messages
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  Normally the ActorTypeDispatcher will quietly discard messages that do
+  not match any of the type-related receive methods.  It is possible to
+  specify a fallback handler for the `ActorTypeDispatcher' if the type
+  is not explicitly recognized by defining the
+  `receiveUnrecognizedMessage()' method.
 
   ┌────
   │ class Subtyper2(Typer):
@@ -2181,8 +2216,14 @@ Table of Contents
   │ >>>
   └────
 
+  It is important to note that an Actor based on the ActorTypeDispatcher
+  that is also using the 5.2.1 functionality should implement the
+  `receiveUnrecognizedMessage' entrypointto ensure that a proper
+  `ThespianWatch' message is returned when an unrecognized message is
+  received.
 
-5.17.1 Type Handling Deferral
+
+5.17.3 Type Handling Deferral
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   In a normal Python subclass, it is possible for a method in the
@@ -2260,7 +2301,7 @@ Table of Contents
   `thespian.actors' module:
 
   ┌────
-  │      import thespian.actors
+  │ import thespian.actors
   └────
 
 
@@ -2410,7 +2451,7 @@ Table of Contents
 ────────────────────────
 
   ┌────
-  │     actorSys.shutdown()
+  │ actorSys.shutdown()
   └────
 
   The `shutdown()' ActorSystem method is used to terminate an
@@ -2441,10 +2482,10 @@ Table of Contents
 ───────────────────────────
 
   ┌────
-  │     actorAddr = actorSys.createActor(actorClass,
-  │                                      targetActorRequirements = None,
-  │                                      globalName = None,
-  │                                      sourceHash = None)
+  │ actorAddr = actorSys.createActor(actorClass,
+  │                                  targetActorRequirements = None,
+  │                                  globalName = None,
+  │                                  sourceHash = None)
   └────
 
   The `createActor()' method is used by external applications to request
@@ -2455,7 +2496,7 @@ Table of Contents
 
   The `actorClass' argument can be specified either as a class object or
   as a module-qualified string identifying a class object
-  (e.g. ~"foo.bar.BarActor"~ will search for `class BarActor' in the
+  (e.g. "foo.bar.BarActor" will search for `class BarActor' in the
   `bar.py' in the `foo' directory).
 
   The `targetActorRequirements' argument is a value that will be passed
@@ -2524,7 +2565,7 @@ Table of Contents
   specific Actor) without waiting for any response message.
 
   ┌────
-  │      actorSys.tell(targetAddr, message)
+  │ actorSys.tell(targetAddr, message)
   └────
 
   The `targetAddr' must be an Actor Address known to the current
@@ -2544,7 +2585,7 @@ Table of Contents
   system) and wait for a response message.
 
   ┌────
-  │      responseMessage = actorSys.ask(targetAddr, message[, timeout])
+  │ responseMessage = actorSys.ask(targetAddr, message[, timeout])
   └────
 
   As with the `tell()' operation, the target address must be a valid
@@ -2588,7 +2629,7 @@ Table of Contents
   Listen is used to wait for a message.
 
   ┌────
-  │      responseMessage = actorSys.listen([timeout])
+  │ responseMessage = actorSys.listen([timeout])
   └────
 
   The received message is any message received by the local endpoint.
@@ -2652,7 +2693,7 @@ Table of Contents
   Actors can issue capability updates as well.
 
   ┌────
-  │      actorSys.updateCapability(capabilityName, capabilityValue=None)
+  │ actorSys.updateCapability(capabilityName, capabilityValue=None)
   └────
 
   If the capability value is specified and is not None, the specified
@@ -2685,7 +2726,7 @@ Table of Contents
 ────────────────────
 
   ┌────
-  │     sourceHash = actorSys.loadActorSource(fileref)
+  │ sourceHash = actorSys.loadActorSource(fileref)
   └────
 
   The `loadActorSource()' method is used to load a (possibly encrypted)
@@ -2895,7 +2936,7 @@ Table of Contents
 ──────────────────────
 
   ┌────
-  │     actorSys.unloadActorSource(sourceHash)
+  │ actorSys.unloadActorSource(sourceHash)
   └────
 
   The `unloadActorSource()' method is used to unload a source zipfile
@@ -2985,7 +3026,7 @@ Table of Contents
 
   The `WatchMessage' is delivered to the Actor by the ActorSystem when
   one or more file descriptors has available data.  The WatchMessage
-  specifies which file numbers have data vailable.
+  specifies which file numbers have data available.
 
   This functionality is not available from all ActorSystem
   implementations.  See [Watching File Descriptors] for more
@@ -3499,85 +3540,94 @@ Table of Contents
   addition, the following common capabilities are defined for all
   ActorSystems:
 
-  *Python Version*: /read-only/ This is set to the tuple value of the
-                    Python version under which the ActorSystem is running
-                    (this is the same value supplied by
-                    `sys.version_info').  Any Actors wishing to enforce
-                    any version restrictions use this capability to do so.
+  *Python Version*: tuple
 
-  *Thespian Generation*: /read-only/ This is the Thespian API
-                         functionality specifier as a tuple of two values:
-                         `(generation, enhancement)'.  The first value is
-                         the `generation' and indicates a major
-                         functionality level (which is not necessarily
-                         backwards-compatible with the previous
-                         functionality level).  The second number is the
-                         `enhancement' value and is incremented when
-                         backwards-compatible functional enhancements have
-                         been added within the current `generation'.  The
-                         `generation' value is monotonically increasing,
-                         whereas the `enhancement' value monotonically
-                         increases within a `generation' but resets to
-                         zero when the generation changes. The Thespian
-                         Release Notes should be consulted to determine
-                         what features are supported in what generations.
+                    usage: /read-only/
+                    description: This is set to the tuple value of the Python version
+                                 under which the ActorSystem is running (this is the same
+                                 value supplied by `sys.version_info').  Any Actors
+                                 wishing to enforce any version restrictions use this
+                                 capability to do so.
 
-                         This value is also available to current code in
-                         the `thespian.api' import as the
-                         `ThespianGeneration' value; if this local value
-                         is different than the ActorSystem provides in the
-                         capabilities
+  *Thespian Generation*: tuple
 
-  *Thespian Version*: /read-only/ This is the identifier for the version
-                      of Thespian running in the current environment.
-                      This is a single numeric value where later releases
-                      will have a higher (but not necessarily successor)
-                      value.
+                         usage: /read-only/
+                         description: This is the Thespian API functionality specifier as a
+                                      tuple of two values: `(generation, enhancement)'. The
+                                      first value is the `generation' and indicates a major
+                                      functionality level (which is not necessarily
+                                      backwards-compatible with the previous functionality
+                                      level).  The second number is the `enhancement' value and
+                                      is incremented when backwards-compatible functional
+                                      enhancements have been added within the current
+                                      `generation'.  The `generation' value is monotonically
+                                      increasing, whereas the `enhancement' value monotonically
+                                      increases within a `generation' but resets to zero when
+                                      the generation changes. The Thespian Release Notes should
+                                      be consulted to determine what features are supported in
+                                      what generations.
 
-  *Thespian ActorSystem Name*: /read-only/ This is the name of the running
-                               ActorSystem implementation.  It is
-                               encouraged that Actors are not written to
-                               be unique to any particular implementation,
-                               but this information is present to allow
-                               ActorSystem-specific capability
-                               verification.
+                                      This value is also available to current code in the
+                                      `thespian.api' import as the `ThespianGeneration' value;
+                                      if this local value is different than the ActorSystem
+                                      provides in the capabilities
 
-  *Thespian ActorSystem Version*: /read-only/ This is the ActorSystem
-                                  version as a single numeric value
-                                  (similar to the `Thespian Version'
-                                  capability.  This value may be
-                                  incremented separately from the
-                                  `Thespian Version' to indicate an update
-                                  in the underlying ActorSystem
-                                  implementation.  The value of a specific
-                                  ActorSystem will increment, but
-                                  different ActorSystems have different
-                                  version namespaces and switching from
-                                  one to another does not guarantee that
-                                  the ActorSystem version will increment.
+  *Thespian Version*: number
 
-  *AllowRemoteActorSources*: This capability specifies whether or not this
-                             ActorSystem will accept sources loaded via
-                             remote ActorSystems as described in the
-                             [Actor Code Distribution] section.  Valid
-                             values for this capability are:
+                      usage: /read-only/
+                      description: This is the identifier for the version of Thespian
+                                   running in the current environment.  This is a single
+                                   numeric value where later releases will have a higher
+                                   (but not necessarily successor) value.
 
-                             *Yes*: Any Actor Source validated by a Source Authority on a
-                                    remote system can be run on this system as well (this is
-                                    the default).
+  *Thespian ActorSystem Name*: string
 
-                             *No*: No Actor Sources from remote systems will be accepted
-                                   locally.
+                               usage: /read-only/
+                               description: This is the name of the running ActorSystem
+                                            implementation.  It is encouraged that Actors are not
+                                            written to be unique to any particular implementation,
+                                            but this information is present to allow
+                                            ActorSystem-specific capability verification.
 
-                             *LeaderOnly*: Only Actor Sources provided by the Convention
-                                           Leader will be accepted locally.
-                             Any unrecognized value will be treated as
-                             *No* and will disallow sources loaded on
-                             remote systems to be used in the current
-                             ActorSystem.  If this capability is not
-                             specified, the default is *Yes* which will
-                             accept sources loaded on any of the remote
-                             ActorSystems that are part of the Convention.
+  *Thespian ActorSystem Version*: number
+
+                                  usage: /read-only/
+                                  description: This is the ActorSystem version as a single numeric value
+                                               (similar to the `Thespian Version' capability.  This
+                                               value may be incremented separately from the `Thespian
+                                               Version' to indicate an update in the underlying
+                                               ActorSystem implementation.  The value of a specific
+                                               ActorSystem will increment, but different ActorSystems
+                                               have different version namespaces and switching from one
+                                               to another does not guarantee that the ActorSystem
+                                               version will increment.
+
+  *AllowRemoteActorSources*: string
+
+                             usage: /optional settable/
+                             values: `Yes', `No', `LeaderOnly'
+                             default: `Yes'
+                             description: This capability specifies whether or not this ActorSystem
+                                          will accept sources loaded via remote ActorSystems as
+                                          described in the [Actor Code Distribution] section.
+                                          Valid values for this capability are:
+
+                                          *Yes*: Any Actor Source validated by a Source
+                                                 Authority on a remote system can be run on
+                                                 this system as well (this is the default).
+
+                                          *No*: No Actor Sources from remote systems will be
+                                                accepted locally.
+
+                                          *LeaderOnly*: Only Actor Sources provided by the
+                                                        Convention Leader will be accepted
+                                                        locally.
+                                          Any unrecognized value will be treated as *No* and will
+                                          disallow sources loaded on remote systems to be used in
+                                          the current ActorSystem.  If this capability is not
+                                          specified, the default is *Yes* which will accept sources
+                                          loaded on any of the remote ActorSystems that are part of
+                                          the Convention.
 
 
   [ActorSystem Capabilities] See section 4.10
@@ -3634,7 +3684,10 @@ Table of Contents
 
   The simpleSystemBase uses the following [ActorSystem Capabilities]:
 
-  *Thespian ActorSystem Name*: /read-only/ "simpleSystemBase"
+  *Thespian ActorSystem Name*: string
+
+                               usage: /read-only/
+                               value: `simpleSystemBase'
 
 
   [Message Mutability] See section 4.1.1
@@ -3679,25 +3732,34 @@ Table of Contents
 
   The multiprocQueueBase uses the following [ActorSystem Capabilities]:
 
-  *Thespian ActorSystem Name*: /read-only/ "multiprocQueueBase"
+  *Thespian ActorSystem Name*: string
 
-  *Admin Address*: /read-only/ the address for the Admin queue. This is an
-                   arbitrary string value; the default is 'ThespianQ'.
+                               usage: /read-only/
+                               value: `multiprocQueueBase'
 
-  *Process Startup Method*: /optional/ specifies the multiprocessing
-                            process startup method (see
-                            `multiprocessing.get_context()').  Supported
-                            values are "fork" and "spawn".  The "spawn"
-                            method is generally slower because it creates
-                            each new process from scratch, but it provides
-                            better independence and isolation.  The "fork"
-                            method is faster but can inherit memory and
-                            other resources from the parent, and it is
-                            only available under Unix.  Note that the
-                            other multi-process bases support the
-                            multiprocessing "forkserver" method, but this
-                            multiprocQueueBase does not support the
-                            "forkserver" method.
+  *Admin Address*: string
+
+                   usage: /read-only/
+                   value: `ThespianQ'
+                   description: the address for the Admin queue. This is an arbitrary
+                                string value.
+
+  *Process Startup Method*: string
+
+                            usage: /optional settable/
+                            values: `fork' or `spawn'
+                            default: `fork' (Unix), or `spawn' (Windows)
+                            description: specifies the multiprocessing process startup method (see
+                                         `multiprocessing.get_context()').  Supported values are
+                                         "fork" and "spawn".  The "spawn" method is generally
+                                         slower because it creates each new process from scratch,
+                                         but it provides better independence and isolation.  The
+                                         "fork" method is faster but can inherit memory and other
+                                         resources from the parent, and it is only available under
+                                         Unix.  Note that the other multi-process bases support
+                                         the multiprocessing "forkserver" method, but this
+                                         multiprocQueueBase does not support the "forkserver"
+                                         method.
 
 
   [Multiple Systems] See section 1.3.2
@@ -3727,98 +3789,118 @@ Table of Contents
 
   The multiprocTCPBase uses the following [ActorSystem Capabilities]:
 
-  *Thespian ActorSystem Name*: /read-only/ "multiprocTCPBase"
+  *Thespian ActorSystem Name*: string
 
-  *Admin Port*: which specifies the TCP port number upon which the
-                ActorSystem will listen for new communications.  Actors
-                and the external systems do not need to access that port
-                specifically: it specifies which port the ActorSystem uses
-                internally for coordination of operations.
+                               usage: /read-only/
+                               value: `multiprocTCPBase'
 
-                If a multiprocTCPBase ActorSystem is already listening at
-                that port, then the existing system will be utilized;
-                otherwise a new multiprocTCPBase ActorSystem will be
-                started up.
+  *Admin Port*: number
 
-                If not specified, the default Admin Port of 1900 is used.
+                usage: /optional settable/
+                default: `1900'
+                description: specifies the TCP port number upon which the ActorSystem
+                             will listen for new communications.  Actors and the
+                             external systems do not need to access that port
+                             specifically: it specifies which port the ActorSystem
+                             uses internally for coordination of operations.
 
-  *Convention Address.IPv4*: the IPv4 address of the convention leader's
-                             Admin.  This should be specified either as a
-                             tuple of /(hostname, portnum)/ or as a string
-                             of the form "hostname:portnum".  The hostname
-                             may be a DNS name or a dotted quad IPv4
-                             address (specified as a string) and
-                             references the host on which the Convention
-                             Leader Admin is to be found.  The portnum is
-                             the *Admin Port* upon which that Admin
-                             listens; if not specified (no colon is found)
-                             then the port num defaults to the *Admin
-                             Port* setting.
+                             If a multiprocTCPBase ActorSystem is already listening at
+                             that port, then the existing system will be utilized;
+                             otherwise a new multiprocTCPBase ActorSystem will be
+                             started up.
 
-  *Admin Routing*: if this capability is present and has a true value,
-                   this indicates that all Actors in remote ActorSystems
-                   must send all messages to local Actors through the
-                   Admin.  This is commonly used where the ActorSystem is
-                   running on a host node that has a firewall that only
-                   allows the Admin Port to have network ingress
-                   permissions.
 
-                   Note that this capability has no effect on the way in
-                   which the Actors themselves are implemented; it only
-                   changes the way that the ActorSystem routes messages.
+  *Convention Address.IPv4*: tuple or string
 
-  *Outbound Only*: if this capability is present and has a true value then
-                   it means that this ActorSystem (and all of the Actors
-                   within it) can only initiate outbound connections.
-                   Inbound connections are not supported.
+                             usage: /optional settable/
+                             examples: `('123.45.6.78', 1923)', `123.45.6.78:1923', `host-a:1923',
+                                       or `123.45.6.78'
+                             description: the IPv4 address of the convention leader's Admin.  This
+                                          should be specified either as a tuple of /(hostname,
+                                          portnum)/ or as a string of the form "hostname:portnum".
+                                          The hostname may be a DNS name or a dotted quad IPv4
+                                          address (specified as a string) and references the host
+                                          on which the Convention Leader Admin is to be found.  The
+                                          portnum is the *Admin Port* upon which that Admin
+                                          listens; if not specified (no colon is found) then the
+                                          port num defaults to the *Admin Port* setting.
 
-                   This configuration may be needed for a system that is
-                   behind a firewall with very strict ingress rules but
-                   looser egress rules.
+                                          If not specified, then this ActorSystem operates in
+                                          isolation and cannot interact with other Actor Systems.
 
-                   Specifying this capability as True will implicitly
-                   force "Admin Routing" to be true as well, regardless of
-                   the user setting.  This is because it is impractical
-                   for this system to maintain outbound connections to all
-                   possible remote Actors, so it will maintain a
-                   persistent connection to other Admins only and forward
-                   packets via them using the "Admin Routing"
-                   functionality.
+  *Admin Routing*: boolean
 
-                   In addition, this system will not be able to join in
-                   conventions with other systems unless the other systems
-                   are declared via the `preRegisterRemoteSystem()' call,
-                   since they cannot initiate an inbound registration to
-                   this system.
+                   usage: /optional settable/
+                   default: `False'
+                   description: if this capability is present and has a true value, this
+                                indicates that all Actors in remote ActorSystems must
+                                send all messages to local Actors through the Admin.
+                                This is commonly used where the ActorSystem is running on
+                                a host node that has a firewall that only allows the
+                                Admin Port to have network ingress permissions.
 
-                   Remote systems may encounter periodic delays in message
-                   forwarding messages to an Outbound Only system because
-                   they must await a connection establishment from that
-                   system (which may not occur until the next Convention
-                   Registration time period has elapsed).  (This mode also
-                   requires socket re-use by the TCP transport, which is
-                   the normal operational mode).
+                                Note that this capability has no affect on the way in
+                                which the Actors themselves are implemented; it only
+                                changes the way that the ActorSystem routes messages.
 
-  *Thespian Watch Supported*: /read-only/ If True, then an Actor may
-                              return the `ThespianWatch' object from its
-                              `receiveMessage()' method and be called back
-                              later when input is available on any of the
-                              numbered file descriptors passed in the
-                              `ThespianWatch' object.
+  *Outbound Only*: boolean
 
-  *Process Startup Method*: /optional/ specifies the multiprocessing
-                            process startup method (see
-                            `multiprocessing.get_context()').  Supported
-                            values are "fork", "forkserver", and "spawn".
-                            The "spawn" method is generally slower because
-                            it creates each new process from scratch, but
-                            it provides better independence and isolation.
-                            The "fork" method is faster but can inherit
-                            memory and other resources from the parent,
-                            and it is only available under Unix.  The
-                            "forkserver" performance is between the other
-                            two, but closer to the performance of the
-                            "spawn" method.
+                   usage: /optional settable/
+                   default: `False'
+                   description: if this capability is present and has a true value then
+                                it means that this ActorSystem (and all of the Actors
+                                within it) can only initiate outbound
+                                connections. Inbound connections are not supported.
+
+                                This configuration may be needed for a system that is
+                                behind a firewall with very strict ingress rules but
+                                looser egress rules.
+
+                                Specifying this capability as True will implicitly force
+                                "Admin Routing" to be true as well, regardless of the
+                                user setting. This is because it is impractical for this
+                                system to maintain outbound connections to all possible
+                                remote Actors, so it will maintain a persistent
+                                connection to other Admins only and forward packets via
+                                them using the "Admin Routing" functionality.
+
+                                In addition, this system will not be able to join in
+                                conventions with other systems unless the other systems
+                                are declared via the `preRegisterRemoteSystem()' call,
+                                since they cannot initiate an inbound registration to
+                                this system.
+
+                                Remote systems may encounter periodic delays in message
+                                forwarding messages to an Outbound Only system because
+                                they must await a connection establishment from that
+                                system (which may not occur until the next Convention
+                                Registration time period has elapsed).  (This mode also
+                                requires socket re-use by the TCP transport, which is the
+                                normal operational mode).
+
+  *Thespian Watch Supported*: boolean
+
+                              usage: /read-only/
+                              description: If True, then an Actor may return the `ThespianWatch'
+                                           object from its `receiveMessage()' method and be called
+                                           back later when input is available on any of the numbered
+                                           file descriptors passed in the `ThespianWatch' object.
+
+  *Process Startup Method*: string
+
+                            usage: /optional/
+                            values: `fork', `spawn', or `forkserver'
+                            default: `fork' (Unix), or `spawn' (Windows)
+                            description: specifies the multiprocessing process startup method (see
+                                         `multiprocessing.get_context()').  Supported values are
+                                         "fork", "forkserver", and "spawn".  The "spawn" method is
+                                         generally slower because it creates each new process from
+                                         scratch, but it provides better independence and
+                                         isolation.  The "fork" method is faster but can inherit
+                                         memory and other resources from the parent, and it is
+                                         only available under Unix.  The "forkserver" performance
+                                         is between the other two, but closer to the performance
+                                         of the "spawn" method.
 
 
   [ActorSystem Capabilities] See section 4.10
@@ -3854,39 +3936,49 @@ Table of Contents
 
   The multiprocUDPBase uses the following [ActorSystem Capabilities]:
 
-  *Thespian ActorSystem Name*: /read-only/ "multiprocUDPBase"
+  *Thespian ActorSystem Name*: string
 
-  *Admin Port*: which specifies the UDP port number upon which the
-                ActorSystem will listen for new communications.  Actors
-                and the external systems do not need to access that port
-                specifically: it specifies which port the ActorSystem uses
-                internally for coordination of operations.
+                               usage: /read-only/
+                               value: `~multiprocUDPBase'
 
-                If a multiprocUDPBase ActorSystem is already listening at
-                that port, then the existing system will be utilized;
-                otherwise a new multiprocUDPBase ActorSystem will be
-                started up.
+  *Admin Port*: number
 
-                If not specified, the default Admin Port of 1029 is used.
+                usage: /optional settable/
+                default: `1029'
+                description: specifies the UDP port number upon which the ActorSystem
+                             will listen for new communications.  Actors and the
+                             external systems do not need to access that port
+                             specifically: it specifies which port the ActorSystem
+                             uses internally for coordination of operations.
 
-  *Convention Address.IPv4*: the IPv4 address of the convention leader's
-                             Admin.  See the description of the same
-                             capability in the [multiprocTCPBase] for more
-                             details.
+                             If a multiprocUDPBase ActorSystem is already listening at
+                             that port, then the existing system will be utilized;
+                             otherwise a new multiprocUDPBase ActorSystem will be
+                             started up.
 
-  *Process Startup Method*: /optional/ specifies the multiprocessing
-                            process startup method (see
-                            `multiprocessing.get_context()').  Supported
-                            values are "fork", "forkserver", and "spawn".
-                            The "spawn" method is generally slower because
-                            it creates each new process from scratch, but
-                            it provides better independence and isolation.
-                            The "fork" method is faster but can inherit
-                            memory and other resources from the parent,
-                            and it is only available under Unix.  The
-                            "forkserver" performance is between the other
-                            two, but closer to the performance of the
-                            "spawn" method.
+  *Convention Address.IPv4*: tuple or string
+
+                             usage: /optional settable/
+                             description: the IPv4 address of the convention leader's Admin.  See
+                                          the description of the same capability in the
+                                          [multiprocTCPBase] for more details.
+
+
+  *Process Startup Method*: string
+
+                            usage: /optional/
+                            values: `fork', `spawn', or `forkserver'
+                            default: `fork' (Unix), or `spawn' (Windows)
+                            description: specifies the multiprocessing process startup method (see
+                                         `multiprocessing.get_context()').  Supported values are
+                                         "fork", "forkserver", and "spawn".  The "spawn" method is
+                                         generally slower because it creates each new process from
+                                         scratch, but it provides better independence and
+                                         isolation.  The "fork" method is faster but can inherit
+                                         memory and other resources from the parent, and it is
+                                         only available under Unix.  The "forkserver" performance
+                                         is between the other two, but closer to the performance
+                                         of the "spawn" method.
 
 
   [ActorSystem Capabilities] See section 4.10

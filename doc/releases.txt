@@ -10,6 +10,8 @@ Table of Contents
 ─────────────────
 
 3.x
+.. 3.9
+..... 3.9.0 <2017-12-22 Fri>
 .. 3.8
 ..... 3.8.3 <2017-11-08 Wed>
 ..... 3.8.2 <2017-11-01 Wed>
@@ -91,6 +93,71 @@ not change the API.
 
 3.x
 ═══
+
+3.9
+───
+
+3.9.0 <2017-12-22 Fri>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Added `self.globalName' to Actor objects.  An actor can determine
+    its `globalName' by checking this property: the value will be an
+    empty string if this Actor does not have a `globalName'.  Thanks to
+    [Waqar Aqeel] for this contribution.
+
+  ‣ No longer use deprecated `imp' module for newer Python versions.  In
+    conjunction with contributions to 3.8.2 from [asevans], this fixes
+    [Issue #9].
+
+  ‣ Logging levels have been adjusted to generate less logging for
+    normal operations.  Additionally lowered the default log reporting
+    level for the simpleSystemBase from WARNING to INFO to support its
+    use as a diagnostic/debugging base.
+
+  ‣ Changes to the Thespian Director:
+
+    ‣ Added [documentation for the Thespian Director], which was
+      introduced in version 3.6.0.
+
+    ‣ The `gensrc' command for the Thespian Director supports recursive
+      globbing for Python versions that support it (see the [glob module
+      documentation]) and has additional output when `verbose' mode is
+      used.
+
+    ‣ The "start on load" functionality of the Thespian Director now
+      records (and reports) the start time of the Actor.  In addition,
+      there is a minimum running time that a started actor must achieve
+      before it will be restarted on failure; this helps prevent an
+      endless loop of attempts to start one of these Actors cannot
+      properly start.
+
+    ‣ The Director is updated to use the installed TLI file instead of
+      the local TLI file for implementing the `TLS_Keep_Limit'
+      functionality.
+
+  ‣ Added the `thespian.runcommand' helper module which provides an
+    Actor and associated messages that can be used for running a command
+    in a sub-process (similar to the Python `subprocess' module) using
+    Thespian best practices to maintain a responsive actor and handle
+    input, output, and result messaging.
+
+  ‣ Added a `README.org' file in the thespian directory to describe the
+    (growing) contents.
+
+  ‣ Miscellaneous test and documentation updates.
+
+
+  [Waqar Aqeel] https://github.com/waqaraqeel
+
+  [asevans] https://github.com/asevans48
+
+  [Issue #9] https://github.com/kquick/Thespian/issues/9
+
+  [documentation for the Thespian Director] file:doc/director.html
+
+  [glob module documentation]
+  https://docs.python.org/3.6/library/glob.html
+
 
 3.8
 ───
