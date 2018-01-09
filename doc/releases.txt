@@ -10,10 +10,12 @@ Table of Contents
 ─────────────────
 
 Summary
+.. 2018
 .. 2017
 .. 2016
 3.x
 .. 3.9
+..... 3.9.1 <2018-01-09 Tue>
 ..... 3.9.0 <2017-12-22 Fri>
 .. 3.8
 ..... 3.8.3 <2017-11-08 Wed>
@@ -96,6 +98,16 @@ not change the API.
 
 Summary
 ═══════
+
+2018
+────
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes      Significant Features             
+  ─────────────────────────────────────────────────────────────────────────────────
+     3.9.1  2018-01-09  `RunCommand logging fix'  log message serialization errors 
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 2017
 ────
@@ -213,7 +225,7 @@ Summary
      2.6.1  2016-05-20  Fix DeadEnvelope in simpleSystemBase                                                         
                         Fix SIGUSR1 for Windows                                                                      
                                                                                                                    
-     2.6.0              No restart of logger on shutdown                     SIGUSR1 status reporting,               
+     2.6.0  2016-05-18  No restart of logger on shutdown                     SIGUSR1 status reporting,               
                                                                              simpleSystemBase capability updates     
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -226,6 +238,20 @@ Summary
 
 3.9
 ───
+
+3.9.1 <2018-01-09 Tue>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Message serialization failures (causing a `PoisonMessage' response)
+          are now logged for easier diagnosis.
+
+  ‣ Fixed an error in logging for the new `RunCommand' helper.
+
+  ‣ Updated `RunCommand' to take a logger Actor Address instead of
+    attempting to call a logging function directly.  This allows any
+    filtering and log adjustments to be implemented by the logging actor
+    and keeps RunCommand cleaner.
+
 
 3.9.0 <2017-12-22 Fri>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
