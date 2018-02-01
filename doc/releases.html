@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Thespian Release Notes</title>
-<!-- 2018-01-09 Tue 07:46 -->
+<!-- 2018-01-31 Wed 23:35 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
@@ -168,8 +168,9 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-2-1">3.9</a>
 <ul>
-<li><a href="#sec-2-1-1">3.9.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-09 Tue&gt;</span></span></a></li>
-<li><a href="#sec-2-1-2">3.9.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-22 Fri&gt;</span></span></a></li>
+<li><a href="#sec-2-1-1">3.9.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-31 Wed&gt;</span></span></a></li>
+<li><a href="#sec-2-1-2">3.9.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-09 Tue&gt;</span></span></a></li>
+<li><a href="#sec-2-1-3">3.9.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-22 Fri&gt;</span></span></a></li>
 </ul>
 </li>
 <li><a href="#sec-2-2">3.8</a>
@@ -327,6 +328,13 @@ do not change the API.
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="right">3.9.2</td>
+<td class="right">2018-01-31</td>
+<td class="left"><code>RunCommand error processing fix</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+
 <tr>
 <td class="right">3.9.1</td>
 <td class="right">2018-01-09</td>
@@ -1021,8 +1029,19 @@ do not change the API.
 <h3 id="sec-2-1">3.9</h3>
 <div class="outline-text-3" id="text-2-1">
 </div><div id="outline-container-sec-2-1-1" class="outline-4">
-<h4 id="sec-2-1-1">3.9.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-09 Tue&gt;</span></span></h4>
+<h4 id="sec-2-1-1">3.9.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-31 Wed&gt;</span></span></h4>
 <div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li>Fixed an error in the error handling code for the <code>RunCommand</code>
+      helper.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2">3.9.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-09 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Message serialization failures (causing a <code>PoisonMessage</code>
       response) are now logged for easier diagnosis.
@@ -1040,9 +1059,9 @@ actor and keeps RunCommand cleaner.
 </div>
 </div>
 
-<div id="outline-container-sec-2-1-2" class="outline-4">
-<h4 id="sec-2-1-2">3.9.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-22 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-2-1-2">
+<div id="outline-container-sec-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3">3.9.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-22 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>Added <code>self.globalName</code> to Actor objects.  An actor can
 determine its <code>globalName</code> by checking this property: the value
@@ -3009,7 +3028,7 @@ The 1.x Release series was developed and used internally by GoDaddy
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2018-01-09 Tue 07:46</p>
+<p class="date">Created: 2018-01-31 Wed 23:35</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
