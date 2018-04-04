@@ -238,7 +238,7 @@ Table of Contents
 
   [Thespian In-Depth Introduction] http://thespianpy.com/doc/in_depth
 
-  [Using Thespian] http://thespian.py/doc/using
+  [Using Thespian] http://thespianpy.com/doc/using
 
 
 3 Documentation
