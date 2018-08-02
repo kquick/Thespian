@@ -1,7 +1,6 @@
 		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 		 [HTTP://THESPIANPY.COM/] RELEASE NOTES
 
-
 		     Kevin Quick <quick@sparq.org>
 		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -15,6 +14,7 @@ Summary
 .. 2016
 3.x
 .. 3.9
+..... 3.9.3 <2018-07-31 Tue>
 ..... 3.9.2 <2018-01-31 Wed>
 ..... 3.9.1 <2018-01-09 Tue>
 ..... 3.9.0 <2017-12-22 Fri>
@@ -59,7 +59,7 @@ Summary
 ..... 2.6.1 <2016-05-20 Fri>
 ..... 2.6.0 <2016-05-18 Wed>
 .. 2.5
-..... 2.5.10 <2016-05-03 Mon>
+..... 2.5.10 <2016-05-03 Tue>
 ..... 2.5.9 <2016-03-21 Mon>
 ..... 2.5.8 <2016-03-21 Mon>
 ..... 2.5.7 <2016-03-14 Mon>
@@ -74,7 +74,7 @@ Summary
 ..... 2.4.4 <2015-12-16 Wed>
 ..... 2.4.3 <2015-11-18 Wed>
 ..... 2.4.2 <2015-10-26 Mon>
-..... 2.4.1 <2015-10-20 Mon>
+..... 2.4.1 <2015-10-20 Tue>
 ..... 2.4.0 <2015-10-18 Sun>
 .. 2.3
 ..... 2.3.0 <2015-10-04 Sun>
@@ -103,12 +103,19 @@ Summary
 2018
 ────
 
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Release        Date  Significant Bugfixes               Significant Features             
-  ──────────────────────────────────────────────────────────────────────────────────────────
-     3.9.2  2018-01-31  `RunCommand error processing fix'                                   
-     3.9.1  2018-01-09  `RunCommand logging fix'           log message serialization errors 
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes                              Significant Features             
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+     3.9.3  2018-07-31  Log deserialization errors at ERROR level         `THESPLOG_THRESHOLD'             
+                        More thread-safety fixes                                                           
+                        Fix [Issue #27]: parent dies before child starts                                   
+                        Updates to the http_server.                                                        
+     3.9.2  2018-01-31  `RunCommand error processing fix'                                                  
+     3.9.1  2018-01-09  `RunCommand logging fix'                          log message serialization errors 
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[Issue #27] https://github.com/kquick/Thespian/issues/27
 
 
 2017
@@ -155,11 +162,11 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-  [Issue #9] https://github.com/kquick/Thespian/issues/9
+[Issue #9] https://github.com/kquick/Thespian/issues/9
 
-  [Issue #5] https://github.com/kquick/Thespian/issues/5
+[Issue #5] https://github.com/kquick/Thespian/issues/5
 
-  [Issue 32] https://github.com/godaddy/Thespian/issues/32
+[Issue 32] https://github.com/godaddy/Thespian/issues/32
 
 
 2016
@@ -232,7 +239,7 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-  [Issue 23] https://github.com/godaddy/Thespian/issues/23
+[Issue 23] https://github.com/godaddy/Thespian/issues/23
 
 
 3.x
@@ -241,18 +248,43 @@ Summary
 3.9
 ───
 
+3.9.3 <2018-07-31 Tue>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Added the `THESPLOG_THRESHOLD' environment variable to allow control
+    over thesplog logging levels without editing files, and fixed some
+    log deserialization (thanks to Daniel Mitterdorfer for this
+    enhancement).
+  ‣ Set the level for logging incoming message deserialization levels to
+    ERROR (again, thank you to Daniel Mitterdorfer).
+  ‣ Fixed [Issue #27] which prevented a child from being destroyed when
+    the parent exited before the child was successfully created.
+  ‣ More fixes for thread-safety when Actors use multiple threads.
+  ‣ Updates to the `http_server' example for handling: remote closure
+    after send, retrieving the full Content-Length specified, and
+    providing the body of the data in the HTTPRequest message.
+  ‣ Internal fixes to async transmit to exit when no more work is
+    available.
+  ‣ Added `test_bigmessages' to test the transfer of very large
+    messages.
+  ‣ Increased incoming message buffer size for less re-assembly.
+
+
+[Issue #27] https://github.com/kquick/Thespian/issues/27
+
+
 3.9.2 <2018-01-31 Wed>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   ‣ Fixed an error in the error handling code for the `RunCommand'
-          helper.
+    helper.
 
 
 3.9.1 <2018-01-09 Tue>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   ‣ Message serialization failures (causing a `PoisonMessage' response)
-          are now logged for easier diagnosis.
+    are now logged for easier diagnosis.
 
   ‣ Fixed an error in logging for the new `RunCommand' helper.
 
@@ -312,16 +344,16 @@ Summary
   ‣ Miscellaneous test and documentation updates.
 
 
-  [Waqar Aqeel] https://github.com/waqaraqeel
+[Waqar Aqeel] https://github.com/waqaraqeel
 
-  [asevans] https://github.com/asevans48
+[asevans] https://github.com/asevans48
 
-  [Issue #9] https://github.com/kquick/Thespian/issues/9
+[Issue #9] https://github.com/kquick/Thespian/issues/9
 
-  [documentation for the Thespian Director] file:director.html
+[documentation for the Thespian Director] file:director.html
 
-  [glob module documentation]
-  https://docs.python.org/3.6/library/glob.html
+[glob module documentation]
+https://docs.python.org/3.6/library/glob.html
 
 
 3.8
@@ -392,11 +424,11 @@ Summary
     `requirements' arguments.
 
     ┌────
-    │ class MyActor(Actor):
-    │     def __init__(self, requirements, capabilities):
-    │         if requirements['key'] == 'value' and \
-    │             capabilities['key2'] == 'another value':
-    │             self.mode = 'enabled'
+    │       class MyActor(Actor):
+    │           def __init__(self, requirements, capabilities):
+    │               if requirements['key'] == 'value' and \
+    │                   capabilities['key2'] == 'another value':
+    │                   self.mode = 'enabled'
     └────
 
     If specified, these will receive the corresponding ActorSystem
@@ -422,7 +454,7 @@ Summary
   ‣ The tox-based testing will now test the TCP transports as well.
 
 
-  [Issue #5] https://github.com/kquick/Thespian/issues/5
+[Issue #5] https://github.com/kquick/Thespian/issues/5
 
 
 3.7
@@ -515,13 +547,13 @@ Summary
     article]).
 
 
-  [Issue 35] https://github.com/godaddy/Thespian/issues/35
+[Issue 35] https://github.com/godaddy/Thespian/issues/35
 
-  [the description of the private method in the Using Thespian document]
-  http://thespianpy.com/doc/using#actorsystem.private
+[the description of the private method in the Using Thespian document]
+http://thespianpy.com/doc/using#actorsystem.private
 
-  [Lee Hinman's article]
-  https://writequit.org/articles/emacs-org-mode-generate-ids.html
+[Lee Hinman's article]
+https://writequit.org/articles/emacs-org-mode-generate-ids.html
 
 
 3.6
@@ -534,7 +566,7 @@ Summary
     dropped or not delivered ([Issue 37]).
 
 
-  [Issue 37] https://github.com/godaddy/Thespian/issues/37
+[Issue 37] https://github.com/godaddy/Thespian/issues/37
 
 
 3.6.2 <2017-02-19 Sun>
@@ -573,7 +605,7 @@ Summary
   ‣ Misc test cleanups.
 
 
-  [Issue 34] https://github.com/godaddy/Thespian/issues/34
+[Issue 34] https://github.com/godaddy/Thespian/issues/34
 
 
 3.6.1 <2017-01-18 Wed>
@@ -616,7 +648,7 @@ Summary
   ‣ Improved status output for pending transmits.
 
 
-  [Issue 32] https://github.com/godaddy/Thespian/issues/32
+[Issue 32] https://github.com/godaddy/Thespian/issues/32
 
 
 3.6.0 <2017-01-02 Mon>
@@ -773,7 +805,7 @@ Summary
       multiprocTCPBase.
 
 
-  [Issue 24] https://github.com/godaddy/Thespian/issues/24
+[Issue 24] https://github.com/godaddy/Thespian/issues/24
 
 
 3.4
@@ -823,13 +855,13 @@ Summary
     removed).
 
 
-  [Issue 22] https://github.com/godaddy/Thespian/issues/22
+[Issue 22] https://github.com/godaddy/Thespian/issues/22
 
-  [Issue 2] https://github.com/godaddy/Thespian/issues/2
+[Issue 2] https://github.com/godaddy/Thespian/issues/2
 
-  [Issue 23] https://github.com/godaddy/Thespian/issues/23
+[Issue 23] https://github.com/godaddy/Thespian/issues/23
 
-  [Issue 25] https://github.com/godaddy/Thespian/issues/25
+[Issue 25] https://github.com/godaddy/Thespian/issues/25
 
 
 3.3
@@ -932,8 +964,8 @@ Summary
     conventionally serialized (see [Source Loading Issues]).
 
 
-  [Source Loading Issues]
-  http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
+[Source Loading Issues]
+http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
 
 
 3.2.1 <2016-09-08 Thu>
@@ -1111,7 +1143,7 @@ Summary
     against unrelated efforts with overlapping similarities.
 
   ‣ Updated sourceloading support to handle uses of `__import__'
-        directly (e,g. for sqlalchemy support).
+    directly (e,g. for sqlalchemy support).
 
   ‣ Better handling of socket accept failures in the TCP transport.
 
@@ -1195,7 +1227,7 @@ Summary
 2.5
 ───
 
-2.5.10 <2016-05-03 Mon>
+2.5.10 <2016-05-03 Tue>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   ‣ API and Public Changes
@@ -1285,11 +1317,11 @@ Summary
     circular import references in loaded sources.
 
 
-  [Issue #5] https://github.com/godaddy/Thespian/issues/5
+[Issue #5] https://github.com/godaddy/Thespian/issues/5
 
-  [Issue #6] https://github.com/godaddy/Thespian/issues/6
+[Issue #6] https://github.com/godaddy/Thespian/issues/6
 
-  [Issue #7] https://github.com/godaddy/Thespian/issues/7
+[Issue #7] https://github.com/godaddy/Thespian/issues/7
 
 
 2.5.7 <2016-03-14 Mon>
@@ -1431,7 +1463,7 @@ Summary
     compatible with previous Thespian 2.x versions and will devolve into
     the older disconnecting-mode of operation.
 
-  ‣ Added ~"Admin Routing": True~ capability specification (TCP system
+  ‣ Added `"Admin Routing": True' capability specification (TCP system
     base only).  The presence of this capability indicates that all
     traffic routed to any Actor on that Actor System must be forwarded
     via the Admin on that Actor System (Thespian handles the forwarding
@@ -1444,10 +1476,10 @@ Summary
     is /not/ backward compatible with previous Thespian 2.x versions.
     This setting should be considered /Beta/ functionality at this time.
 
-  ‣ Added ~"Outbound Only": True~ capability specification (TCP system
+  ‣ Added `"Outbound Only": True' capability specification (TCP system
     base only).  The presence of this capability indicates that the
     current system cannot accept incoming connections.  This setting
-    implies ~"Admin Routing": True~ for this same system.  This setting
+    implies `"Admin Routing": True' for this same system.  This setting
     causes all Actor traffic to be routed through the Admin, and the
     Admin will open and leave open persistent connections to all remote
     Admins.  This setting is useful where a firewall or VPN
@@ -1550,7 +1582,7 @@ Summary
     when creating multiproc children (bugfix).
 
 
-2.4.1 <2015-10-20 Mon>
+2.4.1 <2015-10-20 Tue>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   ‣ Updated to allow packets not blocked on waiting for an address
@@ -1617,7 +1649,7 @@ Summary
     non-global-singleton instance).
 
   ‣ Added missing description of the ActorSystem `shutdown()' operation
-        in the Using Thespian document.
+    in the Using Thespian document.
 
   ‣ Added ability to set the maximum thesplog logging file via the
     `THESPLOG_FILE_MAXSIZE' environment variable and changed the default
