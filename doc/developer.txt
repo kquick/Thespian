@@ -1,8 +1,8 @@
-	      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-	       [HTTP://THESPIANPY.COM] DEVELOPER'S NOTES
+	      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+	       [HTTPS://THESPIANPY.COM] DEVELOPER'S NOTES
 
 		     Kevin Quick <quick@sparq.org>
-	      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+	      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 Table of Contents
@@ -131,7 +131,7 @@ Table of Contents
 
 
 [here in the Using Thespian guide]
-http://thespianpy.com/doc/using.html#hH-2a5fa63d-e6eb-43b9-bea8-47223b27544e
+https://thespianpy.com/doc/using.html#hH-2a5fa63d-e6eb-43b9-bea8-47223b27544e
 
 
 2.4 Running Tests
@@ -157,25 +157,25 @@ http://thespianpy.com/doc/using.html#hH-2a5fa63d-e6eb-43b9-bea8-47223b27544e
   The viability and focus of individual testcases is specified using
   methods from the `thespian/test/__init__.py' file:
 
-  unstable_test: Specifies that the test is unstable for the
-                 specified base and should be skipped. The features tested
-                 may usually work, but are not reliably supported by the
-                 underlying base (e.g. the UDP transport does not provide
-                 delivery guarantees, so hi-traffic tests are marked with
-                 `unstable_test("multiprocUDPBase")'
+  unstable_test
+             Specifies that the test is unstable for the specified base
+        and should be skipped. The features tested may usually work, but
+        are not reliably supported by the underlying base (e.g. the UDP
+        transport does not provide delivery guarantees, so hi-traffic
+        tests are marked with `unstable_test("multiprocUDPBase")'
 
-                 ┌────
-                 │ unstable_test(asys, basename[, ...])
-                 └────
+        ┌────
+        │      unstable_test(asys, basename[, ...])
+        └────
 
-  actor_system_unsupported: Specifies that the functionality being
-                            tested is not supported by this particular
-                            system base and the test should be skipped for
-                            the indicated base(s).
+  actor_system_unsupported
+             Specifies that the functionality being tested is not
+        supported by this particular system base and the test should be
+        skipped for the indicated base(s).
 
-                            ┌────
-                            │ actor_system_unsupported(asys, basename [,...])
-                            └────
+        ┌────
+        │      actor_system_unsupported(asys, basename [,...])
+        └────
 
 
   When running the tests from the command line, the normal pytest-based

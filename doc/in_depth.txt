@@ -1,9 +1,8 @@
-	    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-	     [HTTP://THESPIANPY.COM] IN-DEPTH INTRODUCTION
-
+	    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+	     [HTTPS://THESPIANPY.COM] IN-DEPTH INTRODUCTION
 
 		     Kevin Quick <quick@sparq.org>
-	    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+	    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 Table of Contents
@@ -72,12 +71,11 @@ Table of Contents
   others to leverage the Actor Model architecture for Python.
 
 
-  [Actor Model] https://en.wikipedia.org/wiki/Actor_model
+[Actor Model] https://en.wikipedia.org/wiki/Actor_model
 
-  [Python language] http://python.org
+[Python language] https://python.org
 
-  [Thespian library] http://thespianpy.com
-
+[Thespian library] https://thespianpy.com
 
 1.1 The Actor Model
 ───────────────────
@@ -123,24 +121,23 @@ Table of Contents
 2 Thespian Features
 ═══════════════════
 
-
-
-
 2.1 Thespian Walk-Through
 ─────────────────────────
 
   One of the first things you'll notice when writing Actor-based code is
   how easy it is to write code for.
 
-  Environment: While it is possible to provide configuration information
-               to customize your setup, it is often not necessary to
-               specify anything for a simple environment.
+  Environment
+        While it is possible to provide configuration information to
+        customize your setup, it is often not necessary to specify
+        anything for a simple environment.
 
 
-  Code: Actors don't need lots of setup code and management.  With many
+  Code
+        Actors don't need lots of setup code and management.  With many
         libraries, you simply include a module, subclass a base Actor
-        object to define the Actor code, then create the Actor in a single
-        library call.
+        object to define the Actor code, then create the Actor in a
+        single library call.
 
   To demonstrate how easy this is, let's look at an example using the
   /Thespian/ Python Actor library.
@@ -150,9 +147,9 @@ Table of Contents
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   The Thespian Python library is available on github at
-  [http://github.com/kquick/Thespian], from [http://pypi.python.org], or
-  possibly via a package provided for your OS.  You should probably use
-  the latter if it's available, but otherwise just use `pip' for
+  [https://github.com/kquick/Thespian], from [https://pypi.python.org],
+  or possibly via a package provided for your OS.  You should probably
+  use the latter if it's available, but otherwise just use `pip' for
   simplicity:
 
   ┌────
@@ -206,21 +203,22 @@ Table of Contents
     baseclass provided by the `thespian' import.  The `Actor' baseclass
     provides methods for all of the actions that Actor might take that
     would interact with other Actors or the Actor System itself (see the
-    Using Thespian documentation for more details).
+    [Using Thespian] documentation for more details).
 
 
   ‣ Line 4 is the main entry point into any Actor.  It is invoked (by
     the Actor System) to deliver a new message to the current Actor to
     be processed.
 
-    ‣ In Thespian, messages can be *anything* that can be [pickled].
-      In this particular example, the incoming message is ignored, but
-      it can be used in any way desired by this Actor.
+    ‣ In Thespian, messages can be *anything* that can be [pickled].  In
+      this particular example, the incoming message is ignored, but it
+      can be used in any way desired by this Actor.
 
     ‣ The `sender' is the Actor Address of the Actor that sent the
       message.  This Actor Address is opaque to the Actor: it can save
       the address and use it to send messages, but it doesn't know what
       is in the address.
+
     When the Actor's `receiveMessage()' method exits, the Actor sleeps
     until another message is delivered to it.  Each Actor processes only
     a single message at a time.
@@ -235,9 +233,10 @@ Table of Contents
   Actors running, but lets keep it simple for the moment.
 
 
-  [pickled]
-  https://docs.python.org/3/library/pickle.html?highlight=pickle#module-pickle
+[Using Thespian] file:using
 
+[pickled]
+https://docs.python.org/3/library/pickle.html?highlight=pickle#module-pickle
 
 ◊ 2.1.2.1 Actor System Interaction
 
@@ -287,16 +286,19 @@ Table of Contents
   several options in addition to the `ask()' method shown in the example
   above:
 
-  `ask()': sends a message and waits for a response message (or a
-           timeout).  Note that the response message does not have to be
-           from the same Actor that the input message was sent to, and the
-           receipt of /any/ message counts as a response.
+  `ask()'
+        sends a message and waits for a response message (or a timeout).
+        Note that the response message does not have to be from the same
+        Actor that the input message was sent to, and the receipt of
+        /any/ message counts as a response.
 
-  `tell()': queues a message for transmission to the indicated Actor and
-            returns immediately.  The message may or may not have been
-            delivered to the target Actor by the time this call returns.
+  `tell()'
+        queues a message for transmission to the indicated Actor and
+        returns immediately.  The message may or may not have been
+        delivered to the target Actor by the time this call returns.
 
-  `listen()': waits for a response message or a timeout.
+  `listen()'
+        waits for a response message or a timeout.
 
 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -424,9 +426,9 @@ Table of Contents
   unconstrained growth, there are two options:
   1. Hello only creates one World Actor and remembers the address:
      ┌────
-     │   if not hasattr(self, 'world'):
-     │       self.world = self.createActor(World)
-     │   self.send(self.world, (sender, 'Hello'))
+     │          if not hasattr(self, 'world'):
+     │              self.world = self.createActor(World)
+     │          self.send(self.world, (sender, 'Hello'))
      └────
   2. The World Actor exits after doing its work.  An Actor will exit if
      it receives an `ActorExitRequest' message (this message is defined
@@ -434,17 +436,17 @@ Table of Contents
      be sent by any Actor to any other Actor, so the Hello Actor could
      send it as follows:
      ┌────
-     │   world = self.createActor(World)
-     │   self.send(world, (sender, 'Hello,'))
-     │   self.send(world, ActorExitRequest())
+     │          world = self.createActor(World)
+     │          self.send(world, (sender, 'Hello,'))
+     │          self.send(world, ActorExitRequest())
      └────
      Because the `ActorExitRequest' is sent just like any other message,
      the World Actor could send it to itself (using the `myAddress'
      self-reference provided by the `Actor' base class):
      ┌────
-     │   orig_sender, pre_world = message
-     │   self.send(orig_sender, pre_world + ' world!')
-     │   self.send(self.myAddress, ActorExitRequest())
+     │          orig_sender, pre_world = message
+     │          self.send(orig_sender, pre_world + ' world!')
+     │          self.send(self.myAddress, ActorExitRequest())
      └────
 
   When the Actor System delivers an `ActorExitRequest' to an Actor, it
@@ -504,10 +506,10 @@ Table of Contents
   perturbing the existing Actors and their functionality.
 
 
-  [*Separation of Concerns*]
-  https://en.wikipedia.org/wiki/Separation_of_concerns
+[*Separation of Concerns*]
+https://en.wikipedia.org/wiki/Separation_of_concerns
 
-  [coupling] https://en.wikipedia.org/wiki/Coupling_(computer_science)
+[coupling] https://en.wikipedia.org/wiki/Coupling_(computer_science)
 
 
 2.3 Different ActorSystem Bases
@@ -536,18 +538,18 @@ Table of Contents
   so it's only necessary to pass any initialization arguments to the
   very first call).  Different "bases" provide different Actor
   System-level functionality; they do not change the way that Actors
-  work but they change the way that they are implemented. The Using
-  Thespian guide defines the set of available system bases available for
-  Thespian.
+  work but they change the way that they are implemented. The [Using
+  Thespian] guide defines the set of available system bases available
+  for Thespian.
 
   By default, the "`simpleSystemBase'" is used, which runs all Actors
   synchronously in the current process.  While this base is very useful
-  for debugging (see the Debugging section), it does not provide the
+  for debugging (see the [Debugging] section), it does not provide the
   level of concurrency usually desired at production time.
 
 
   To demonstrate the use of different ActorSystem bases, the Actor
-  System `shutdown()' method call in line 25 of hellogoodbye.py above
+  System `shutdown()' method call in line 25 of [hellogoodbye.py] above
   can be commented out, and different bases can be specified on the
   command line.  In the following example the "`multiprocTCPBase'" is
   used; this system base implements Actors with multiprocess concurrency
@@ -617,15 +619,20 @@ Table of Contents
   to the existing Admin for that system base, so shutting down that
   Admin will stop all Actors in that Actor System.
 
-  As mentioned above, the Using Thespian document provides much more
+  As mentioned above, the [Using Thespian] document provides much more
   detail about the available System Bases for Thespian and their
   capabilities.  Other Actor System implemntations may or may not have
   similar configurability.
 
 
-  [python standard logging facility]
-  https://docs.python.org/3/library/logging.html?highlight=logging#module-logging
+[Using Thespian] file:using
 
+[Debugging] See section 2.5.1
+
+[hellogoodbye.py] See listing 2
+
+[python standard logging facility]
+https://docs.python.org/3/library/logging.html?highlight=logging#module-logging
 
 2.3.1 Base Persistence
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -729,8 +736,8 @@ Table of Contents
   Thespian supports the standard `logging' library, but provides some
   enhanced handling of log messages to accomodate the different system
   bases that may implement Actors in separate processes (or even on
-  separate systems): as described in the Logging section of the Using
-  Thespian documentation, log messages are forwarded to a "Logging"
+  separate systems): as described in the Logging section of the [Using
+  Thespian] documentation, log messages are forwarded to a "Logging"
   process to be written according to the logging configuration supplied
   when the `ActorSystem()' initialization call was made.  In addition,
   for multi-system configurations, any messages of Warning level or
@@ -867,12 +874,14 @@ Table of Contents
   configuration which overrides the default.
 
 
+[Using Thespian] file:using
+
 2.4.1 Source Actor Address Logging
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   Some system bases are capable of specifying the current Actor's
   address when generating log output lines by setting the "actorAddress"
-  attribute, as described in the Using Thespian documentation.
+  attribute, as described in the [Using Thespian] documentation.
   Unfortunately, the log formatter must handle the case where the
   actorAddress attribute is not present.  To do this, a filter can be
   used to select the right formatter based on the presence or absence of
@@ -946,6 +955,9 @@ Table of Contents
   │ 65      run_example(sys.argv[1] if len(sys.argv) > 1 else None)
   └────
   Listing 6: hellogoodbyelog3.py:
+
+
+[Using Thespian] file:using
 
 
 2.5 Concurrency
@@ -1085,8 +1097,7 @@ Table of Contents
   de-duplicating Actors.
 
 
-  [Horizontal Scalability] See section 2.2.1
-
+[Horizontal Scalability] See section 2.2.1
 
 2.6.1 Capability-based Location Selection
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -1187,27 +1198,19 @@ Table of Contents
   The example code above might represent the startup code that runs on
   each host node in our environment:
 
-  Line 4: All systems specify the IP
-          address of the Convention
-          Leader as a standard
-          capability
-  Line 9: Each system checks to see if it
-          can access the database
-          successfully and sets another
-          capability if it can.  This
-          capability is the same capability
-          that the DBUpdate Actor above
-          requires to be able to run.
-  Line 13: Each system starts the
-           Actor System with the
-           specified set of
-           capabilities.  The Actor
-           Systems will join the
-           Convention run by the
-           Actor System at the
-           specified address and
-           report their capabilities
-           to each other.
+  Line 4
+        All systems specify the IP address of the Convention Leader as a
+        standard capability
+  Line 9
+        Each system checks to see if it can access the database
+        successfully and sets another capability if it can.  This
+        capability is the same capability that the DBUpdate Actor above
+        requires to be able to run.
+  Line 13
+        Each system starts the Actor System with the specified set of
+        capabilities.  The Actor Systems will join the Convention run by
+        the Actor System at the specified address and report their
+        capabilities to each other.
 
   If the `DBUpdate' Actor startup occurs in an Actor System that is on a
   host node that does not have access to the external database server,
@@ -1236,8 +1239,8 @@ Table of Contents
   Any modern application must be capable of dealing with faults, and
   this is definitely true of a distributed system which has by its very
   nature many additional places where faults can occur.  The same
-  benefits that make Actors easy to use with Location Independence also
-  make them resilient to Faults in the system.
+  benefits that make Actors easy to use with [Location Independence]
+  also make them resilient to Faults in the system.
 
   Because Actors do not share state and only communicate via message
   passing, the failure of an Actor does not directly affect any of the
@@ -1262,8 +1265,7 @@ Table of Contents
     ‣ The Actor System will wrap the message in a `PoisonMessage'
       wrapper and send it back to the Actor which originally sent the
       message.  This originating Actor is free to ignore this
-      `PoisonMessage', or it can provide operational recovery
-      handling.
+      `PoisonMessage', or it can provide operational recovery handling.
 
     ‣ The failed Actor will resume processing messages with the next
       message to be delivered.
@@ -1280,12 +1282,15 @@ Table of Contents
   interfering with concurrency.
 
 
+[Location Independence] See section 2.6
+
+
 3 Dynamic Source Loading
 ════════════════════════
 
-  Thespian's ability to perform Dynamic Actor Creation can be logically
-  extended to be able to dynamically load the sources from which these
-  Actors are created.  This can be useful in several ways:
+  Thespian's ability to perform [Dynamic Actor Creation] can be
+  logically extended to be able to dynamically load the sources from
+  which these Actors are created.  This can be useful in several ways:
 
   ‣ Updating source code running in persistent ActorSystem base
     instances (as described in [Base Persistence]).
@@ -1402,7 +1407,9 @@ Table of Contents
   `unloadActorSource()' or until the Actor System exits.
 
 
-  [Base Persistence] See section 2.3.1
+[Dynamic Actor Creation] See section 2.2
+
+[Base Persistence] See section 2.3.1
 
 
 4 Shell
@@ -1453,7 +1460,7 @@ Table of Contents
   │ Starting multiprocTCPBase ActorSystem
   │ thespian> address localhost 1900
   │ Actor Address 0: ActorAddr-(TCP|127.0.0.1:1900)
-  │ thespian>
+  │ thespian> 
   └────
 
 

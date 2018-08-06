@@ -1,8 +1,8 @@
-		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-		 [HTTP://THESPIANPY.COM/] RELEASE NOTES
+	       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+		[HTTPS://THESPIANPY.COM/] RELEASE NOTES
 
 		     Kevin Quick <quick@sparq.org>
-		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+	       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 Table of Contents
@@ -95,7 +95,7 @@ added functionality that is backwards compatible, and bugfix changes do
 not change the API.
 
 
-[Semantic Versioning] http://semver.org
+[Semantic Versioning] https://semver.org
 
 
 Summary
@@ -107,6 +107,7 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Release        Date  Significant Bugfixes                              Significant Features             
   ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+     3.9.4  2018-08-05  Fix [Issue #28]: Enable offline                                                    
      3.9.3  2018-07-31  Log deserialization errors at ERROR level         `THESPLOG_THRESHOLD'             
                         More thread-safety fixes                                                           
                         Fix [Issue #27]: parent dies before child starts                                   
@@ -115,6 +116,8 @@ Summary
      3.9.1  2018-01-09  `RunCommand logging fix'                          log message serialization errors 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+
+[Issue #28] https://github.com/kquick/Thespian/issues/28
 
 [Issue #27] https://github.com/kquick/Thespian/issues/27
 
@@ -562,7 +565,7 @@ https://docs.python.org/3.6/library/glob.html
 [Issue 35] https://github.com/godaddy/Thespian/issues/35
 
 [the description of the private method in the Using Thespian document]
-http://thespianpy.com/doc/using#actorsystem.private
+https://thespianpy.com/doc/using#actorsystem.private
 
 [Lee Hinman's article]
 https://writequit.org/articles/emacs-org-mode-generate-ids.html
@@ -977,7 +980,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
 
 
 [Source Loading Issues]
-http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
+https://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
 
 
 3.2.1 <2016-09-08 Thu>
@@ -1186,7 +1189,7 @@ http://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
     non-zero time duration for transport processing.
 
   ‣ Revert signal handling introduced in version 2.5.8: internal Python
-    issues (e.g. [http://bugs.python.org/issues14976]) made the initial
+    issues (e.g. [https://bugs.python.org/issues14976]) made the initial
     approach buggy.  Newly engineered signals support will be added in a
     forthcoming release.
 

@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2018-08-05 Sun 21:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thespian Thespian Director Guide</title>
-<!-- 2017-12-22 Fri 14:56 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -46,27 +53,111 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -86,6 +177,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="icon" type="image/png" href="/favicon.png" />
@@ -108,7 +200,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -152,7 +244,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"><a href="http://thespianpy.com"><img src="thesplogo2.png" alt="Thespian" width="50%" style="inline" /></a> Thespian Director Guide</h1>
+<h1 class="title"><a href="https://thespianpy.com"><img src="thesplogo2.png" alt="Thespian" width="50%" style="inline" /></a> Thespian Director Guide</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -204,10 +296,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-h:a5d09d6f-8a45-4935-9e26-f90f303f1fc4" class="outline-2">
-<h2 id="h:a5d09d6f-8a45-4935-9e26-f90f303f1fc4"><a id="sec-1" name="sec-1"></a><span class="section-number-2">1</span> Thespian Director</h2>
+<div id="outline-container-org76926d3" class="outline-2">
+<h2 id="h:a5d09d6f-8a45-4935-9e26-f90f303f1fc4"><a id="org76926d3"></a><span class="section-number-2">1</span> Thespian Director</h2>
 <div class="outline-text-2" id="text-h:a5d09d6f-8a45-4935-9e26-f90f303f1fc4">
-
 <p>
 As described in the <a href="using.html">Using Thespian</a> document, it is possible to use the
 Thespian Director utility to assist in working with loadable Actor
@@ -222,10 +313,9 @@ functionality provided by the Director.
 </p>
 </div>
 
-<div id="outline-container-h:d195688d-da40-4d37-9e53-863c04c925ed" class="outline-3">
-<h3 id="h:d195688d-da40-4d37-9e53-863c04c925ed"><a id="sec-1-1" name="sec-1-1"></a><span class="section-number-3">1.1</span> Loadable Sources</h3>
+<div id="outline-container-org1525bf9" class="outline-3">
+<h3 id="h:d195688d-da40-4d37-9e53-863c04c925ed"><a id="org1525bf9"></a><span class="section-number-3">1.1</span> Loadable Sources</h3>
 <div class="outline-text-3" id="text-h:d195688d-da40-4d37-9e53-863c04c925ed">
-
 <p>
 As a review, loadable Actor sources provide a method for hot-updates
 of the Actor source code and possibly running multiple versions of the
@@ -237,49 +327,41 @@ sources in parallel.  This has a number of advantages:
 all other ActorSystems will update from the leading system
 automatically on an as-needed basis.  This also alleviates the
 need to restart the ActorSystem on the remote nodes each time the
-source is updated.
-</li>
+source is updated.</li>
 
 <li>Multiple versions of the sources can be running simultaneously.
 One use case for this is allowing the older sources to continue
 running the requests submitted to that source while directing all
 new requests to the newer version.  The older sources can be
 unloaded at a later time after all of the in-progress requests
-have been completed.
-</li>
+have been completed.</li>
 
 <li>Loaded sources are validated by the Source Authority, which can
 use cryptographic signature validation of the sources, increasing
-the overall security of the system.
-</li>
+the overall security of the system.</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-h:b3af5450-cb9b-498e-b17d-915737ed6cbe" class="outline-2">
-<h2 id="h:b3af5450-cb9b-498e-b17d-915737ed6cbe"><a id="sec-2" name="sec-2"></a><span class="section-number-2">2</span> Director Functionality</h2>
+<div id="outline-container-org8fc55cb" class="outline-2">
+<h2 id="h:b3af5450-cb9b-498e-b17d-915737ed6cbe"><a id="org8fc55cb"></a><span class="section-number-2">2</span> Director Functionality</h2>
 <div class="outline-text-2" id="text-h:b3af5450-cb9b-498e-b17d-915737ed6cbe">
-
 <p>
 The Thespian Director is made up of several components:
 </p>
 
 <ol class="org-ol">
 <li>A command-line interface allowing configuration and management of
-the loadable sources.
-</li>
+the loadable sources.</li>
 
 <li>A source package creator that generates a signed, loadable source
-package from a set of inputs.
-</li>
+package from a set of inputs.</li>
 
 <li>A Director Actor which maintains a list of the currently loaded
-sources and assists in loading new sources.
-</li>
+sources and assists in loading new sources.</li>
 
-<li>A Source Authority Actor which validates loaded sources.
-</li>
+<li>A Source Authority Actor which validates loaded sources.</li>
 
 <li>Configuration specifications for starting up a Thespian ActorSystem
 with various configuration settings.  These specifications are
@@ -288,27 +370,22 @@ configuration updates across an entire environment.
 
 <ul class="org-ul">
 <li>This includes configuration of the logging subsystem for Thespian
-interaction.
-</li>
-</ul>
-</li>
+interaction.</li>
+</ul></li>
 
 <li>Common logging filter function to ensure logging can display actor
-addresses consistently.
-</li>
+addresses consistently.</li>
 
 <li>Thespian startup using the specified configuration settings.  This
 startup can be performed on demand or it can be configured to be
 started at system boot time for systemd, initctl, and Windows-based
-operating systems.
-</li>
+operating systems.</li>
 </ol>
 </div>
 
-<div id="outline-container-h:63786d9a-2c7b-4be2-a851-419232f73e6f" class="outline-3">
-<h3 id="h:63786d9a-2c7b-4be2-a851-419232f73e6f"><a id="sec-2-1" name="sec-2-1"></a><span class="section-number-3">2.1</span> Invoking the Director Utility</h3>
+<div id="outline-container-orgd752671" class="outline-3">
+<h3 id="h:63786d9a-2c7b-4be2-a851-419232f73e6f"><a id="orgd752671"></a><span class="section-number-3">2.1</span> Invoking the Director Utility</h3>
 <div class="outline-text-3" id="text-h:63786d9a-2c7b-4be2-a851-419232f73e6f">
-
 <p>
 The Thespian Director is easily invoked from the command line via the
 Python module specification syntax:
@@ -345,10 +422,9 @@ Windows.
 </div>
 </div>
 
-<div id="outline-container-h:17d0e6a2-a766-4a84-9851-e1d05401887e" class="outline-3">
-<h3 id="h:17d0e6a2-a766-4a84-9851-e1d05401887e"><a id="sec-2-2" name="sec-2-2"></a><span class="section-number-3">2.2</span> Director Source Authority</h3>
+<div id="outline-container-orgc8ea603" class="outline-3">
+<h3 id="h:17d0e6a2-a766-4a84-9851-e1d05401887e"><a id="orgc8ea603"></a><span class="section-number-3">2.2</span> Director Source Authority</h3>
 <div class="outline-text-3" id="text-h:17d0e6a2-a766-4a84-9851-e1d05401887e">
-
 <p>
 One of the primary purposes of the Director is to support the ability
 to dynamically load new Actor sources into a running Thespian
@@ -382,10 +458,9 @@ the Source Authority.
 </div>
 </div>
 
-<div id="outline-container-h:c1538482-8183-405f-ac40-77689ae88e9b" class="outline-3">
-<h3 id="h:c1538482-8183-405f-ac40-77689ae88e9b"><a id="sec-2-3" name="sec-2-3"></a><span class="section-number-3">2.3</span> Creating Source Packages</h3>
+<div id="outline-container-orgc864a0e" class="outline-3">
+<h3 id="h:c1538482-8183-405f-ac40-77689ae88e9b"><a id="orgc864a0e"></a><span class="section-number-3">2.3</span> Creating Source Packages</h3>
 <div class="outline-text-3" id="text-h:c1538482-8183-405f-ac40-77689ae88e9b">
-
 <p>
 In order to create a loadable source, the varous Python files must be
 packaged into a ZIP file, and that ZIP file should be prepared for
@@ -409,10 +484,9 @@ sources are built or generated.
 </p>
 </div>
 
-<div id="outline-container-h:46cb8ed2-828b-4d5b-9b00-9d6589894fba" class="outline-4">
-<h4 id="h:46cb8ed2-828b-4d5b-9b00-9d6589894fba"><a id="sec-2-3-1" name="sec-2-3-1"></a><span class="section-number-4">2.3.1</span> Long-running Actor Systems</h4>
+<div id="outline-container-orgf0fd369" class="outline-4">
+<h4 id="h:46cb8ed2-828b-4d5b-9b00-9d6589894fba"><a id="orgf0fd369"></a><span class="section-number-4">2.3.1</span> Long-running Actor Systems</h4>
 <div class="outline-text-4" id="text-h:46cb8ed2-828b-4d5b-9b00-9d6589894fba">
-
 <p>
 The overall operational concept of using the Director and associated
 loadable sources is that the Thespian ActorSystem is started up at
@@ -450,10 +524,9 @@ document.
 </div>
 
 
-<div id="outline-container-h:6593a443-96a5-4738-bb6f-89ca2dba32d6" class="outline-4">
-<h4 id="h:6593a443-96a5-4738-bb6f-89ca2dba32d6"><a id="sec-2-3-2" name="sec-2-3-2"></a><span class="section-number-4">2.3.2</span> Creating a signing key</h4>
+<div id="outline-container-org87655f9" class="outline-4">
+<h4 id="h:6593a443-96a5-4738-bb6f-89ca2dba32d6"><a id="org87655f9"></a><span class="section-number-4">2.3.2</span> Creating a signing key</h4>
 <div class="outline-text-4" id="text-h:6593a443-96a5-4738-bb6f-89ca2dba32d6">
-
 <p>
 The customary way to create a key pair for signing sources is to use
 the openssl toolset.  As an example:
@@ -479,10 +552,9 @@ please consult the openssl documentation for more information.
 </div>
 </div>
 
-<div id="outline-container-h:e66ac423-726f-43ef-8b7c-deb8a400d01f" class="outline-4">
-<h4 id="h:e66ac423-726f-43ef-8b7c-deb8a400d01f"><a id="sec-2-3-3" name="sec-2-3-3"></a><span class="section-number-4">2.3.3</span> Specifying source inputs</h4>
+<div id="outline-container-org9bff1cf" class="outline-4">
+<h4 id="h:e66ac423-726f-43ef-8b7c-deb8a400d01f"><a id="org9bff1cf"></a><span class="section-number-4">2.3.3</span> Specifying source inputs</h4>
 <div class="outline-text-4" id="text-h:e66ac423-726f-43ef-8b7c-deb8a400d01f">
-
 <p>
 Once a keypair has been created (which is usually a one-time
 operation), signed loadable source packages can be generated using the
@@ -549,10 +621,9 @@ identified by the "tli:" prefix.
 </div>
 </div>
 
-<div id="outline-container-h:11affdea-60eb-4b3e-b0aa-7ee747d5acfa" class="outline-4">
-<h4 id="h:11affdea-60eb-4b3e-b0aa-7ee747d5acfa"><a id="sec-2-3-4" name="sec-2-3-4"></a><span class="section-number-4">2.3.4</span> Versioning</h4>
+<div id="outline-container-orge944aca" class="outline-4">
+<h4 id="h:11affdea-60eb-4b3e-b0aa-7ee747d5acfa"><a id="orge944aca"></a><span class="section-number-4">2.3.4</span> Versioning</h4>
 <div class="outline-text-4" id="text-h:11affdea-60eb-4b3e-b0aa-7ee747d5acfa">
-
 <p>
 One of the arguments to the gensrc command specifies the version of
 the loadable source file.  As described earlier, updated sources can
@@ -596,10 +667,9 @@ the same source at the same time.
 </div>
 </div>
 
-<div id="outline-container-h:df3462e3-de58-4a35-ab35-ec7280d71885" class="outline-4">
-<h4 id="h:df3462e3-de58-4a35-ab35-ec7280d71885"><a id="sec-2-3-5" name="sec-2-3-5"></a><span class="section-number-4">2.3.5</span> Full gensrc example</h4>
+<div id="outline-container-org993e4fa" class="outline-4">
+<h4 id="h:df3462e3-de58-4a35-ab35-ec7280d71885"><a id="org993e4fa"></a><span class="section-number-4">2.3.5</span> Full gensrc example</h4>
 <div class="outline-text-4" id="text-h:df3462e3-de58-4a35-ab35-ec7280d71885">
-
 <p>
 The following is a hypothetical project tree for an Actor-based application:
 </p>
@@ -725,10 +795,9 @@ These commands can help ensure that the loadable source package contains the exp
 </div>
 
 
-<div id="outline-container-h:0b69f371-9abb-4f8a-b8b2-3feca048d9d6" class="outline-3">
-<h3 id="h:0b69f371-9abb-4f8a-b8b2-3feca048d9d6"><a id="sec-2-4" name="sec-2-4"></a><span class="section-number-3">2.4</span> Specifying Thespian Configuration Settings</h3>
+<div id="outline-container-org7c13f43" class="outline-3">
+<h3 id="h:0b69f371-9abb-4f8a-b8b2-3feca048d9d6"><a id="org7c13f43"></a><span class="section-number-3">2.4</span> Specifying Thespian Configuration Settings</h3>
 <div class="outline-text-3" id="text-h:0b69f371-9abb-4f8a-b8b2-3feca048d9d6">
-
 <p>
 One of the Director's capabilities is being able to startup the
 Thespian ActorSystem on the local host to be able to run the Actor
@@ -805,10 +874,9 @@ $
 </pre>
 </div>
 
-<div id="outline-container-h:bd6fe8f9-14e2-424c-afce-9f963ba9519f" class="outline-4">
-<h4 id="h:bd6fe8f9-14e2-424c-afce-9f963ba9519f"><a id="sec-2-4-1" name="sec-2-4-1"></a><span class="section-number-4">2.4.1</span> Director Log Filter</h4>
+<div id="outline-container-org250a103" class="outline-4">
+<h4 id="h:bd6fe8f9-14e2-424c-afce-9f963ba9519f"><a id="org250a103"></a><span class="section-number-4">2.4.1</span> Director Log Filter</h4>
 <div class="outline-text-4" id="text-h:bd6fe8f9-14e2-424c-afce-9f963ba9519f">
-
 <p>
 As seen in the example configuration in the previous section, the
 <code>thespian.director.ActorAddressLogFilter</code> can be specified as the
@@ -821,10 +889,9 @@ an empty string if the message did not come from an Actor.
 </div>
 </div>
 
-<div id="outline-container-h:92d51cdc-0c1a-42d6-892e-59c0f48d129c" class="outline-4">
-<h4 id="h:92d51cdc-0c1a-42d6-892e-59c0f48d129c"><a id="sec-2-4-2" name="sec-2-4-2"></a><span class="section-number-4">2.4.2</span> Configuration confirmation</h4>
+<div id="outline-container-orgbaf376e" class="outline-4">
+<h4 id="h:92d51cdc-0c1a-42d6-892e-59c0f48d129c"><a id="orgbaf376e"></a><span class="section-number-4">2.4.2</span> Configuration confirmation</h4>
 <div class="outline-text-4" id="text-h:92d51cdc-0c1a-42d6-892e-59c0f48d129c">
-
 <p>
 The <code>config</code> Director command can be used to echo various information
 about the configuration observed by the Director:
@@ -850,10 +917,9 @@ configuration specifications correctly.
 </div>
 </div>
 
-<div id="outline-container-h:e5d0da64-4179-4712-9bc8-c39963b92af6" class="outline-3">
-<h3 id="h:e5d0da64-4179-4712-9bc8-c39963b92af6"><a id="sec-2-5" name="sec-2-5"></a><span class="section-number-3">2.5</span> Starting Thespian</h3>
+<div id="outline-container-orgdc2406f" class="outline-3">
+<h3 id="h:e5d0da64-4179-4712-9bc8-c39963b92af6"><a id="orgdc2406f"></a><span class="section-number-3">2.5</span> Starting Thespian</h3>
 <div class="outline-text-3" id="text-h:e5d0da64-4179-4712-9bc8-c39963b92af6">
-
 <p>
 The Director can be used to start the local Thespian ActorSystem either
 on-demand or at boot time.  The startup will use the configuration
@@ -895,10 +961,9 @@ and Windows Boot Manager.
 </div>
 </div>
 
-<div id="outline-container-h:23992716-881e-4aed-8790-b3b97cb5f5d9" class="outline-3">
-<h3 id="h:23992716-881e-4aed-8790-b3b97cb5f5d9"><a id="sec-2-6" name="sec-2-6"></a><span class="section-number-3">2.6</span> Stopping Thespian</h3>
+<div id="outline-container-orgd8941d8" class="outline-3">
+<h3 id="h:23992716-881e-4aed-8790-b3b97cb5f5d9"><a id="orgd8941d8"></a><span class="section-number-3">2.6</span> Stopping Thespian</h3>
 <div class="outline-text-3" id="text-h:23992716-881e-4aed-8790-b3b97cb5f5d9">
-
 <p>
 A running Thespian Actor System can be stopped with the <code>shutdown</code>
 Director command:
@@ -916,10 +981,9 @@ Actor System itself to shutdown, just as if the
 </div>
 </div>
 
-<div id="outline-container-h:fd910797-75e7-42c7-ae9d-1ae87a4040b8" class="outline-3">
-<h3 id="h:fd910797-75e7-42c7-ae9d-1ae87a4040b8"><a id="sec-2-7" name="sec-2-7"></a><span class="section-number-3">2.7</span> Managing loaded sources</h3>
+<div id="outline-container-org3047f59" class="outline-3">
+<h3 id="h:fd910797-75e7-42c7-ae9d-1ae87a4040b8"><a id="org3047f59"></a><span class="section-number-3">2.7</span> Managing loaded sources</h3>
 <div class="outline-text-3" id="text-h:fd910797-75e7-42c7-ae9d-1ae87a4040b8">
-
 <p>
 The source files generated by the 'gensrc' command (described above)
 can be loaded into the current Thespian ActorSystem and run.  The
@@ -1008,10 +1072,9 @@ delete it from the <code>THESPIAN_DIRECTOR_DIR</code> directory.
 </p>
 </div>
 
-<div id="outline-container-h:6476d6be-5745-47a4-a302-55744fe38d55" class="outline-4">
-<h4 id="h:6476d6be-5745-47a4-a302-55744fe38d55"><a id="sec-2-7-1" name="sec-2-7-1"></a><span class="section-number-4">2.7.1</span> Loading the latest source versions</h4>
+<div id="outline-container-orgef6b844" class="outline-4">
+<h4 id="h:6476d6be-5745-47a4-a302-55744fe38d55"><a id="orgef6b844"></a><span class="section-number-4">2.7.1</span> Loading the latest source versions</h4>
 <div class="outline-text-4" id="text-h:6476d6be-5745-47a4-a302-55744fe38d55">
-
 <p>
 The Director <code>load</code> command is useful for loading a specific source,
 and also automatically selecting the latest source if just the group
@@ -1048,10 +1111,9 @@ no effect on that group.
 </div>
 
 
-<div id="outline-container-h:de4181e6-1c1b-461a-b8b6-bfdd605bf734" class="outline-4">
-<h4 id="h:de4181e6-1c1b-461a-b8b6-bfdd605bf734"><a id="sec-2-7-2" name="sec-2-7-2"></a><span class="section-number-4">2.7.2</span> TLI Files</h4>
+<div id="outline-container-org9329849" class="outline-4">
+<h4 id="h:de4181e6-1c1b-461a-b8b6-bfdd605bf734"><a id="org9329849"></a><span class="section-number-4">2.7.2</span> TLI Files</h4>
 <div class="outline-text-4" id="text-h:de4181e6-1c1b-461a-b8b6-bfdd605bf734">
-
 <p>
 When loading a loadable source, it is also typical to perform various
 startup operations for the source that has been loaded, and it is also
@@ -1171,10 +1233,9 @@ cleaned up and removed.
 </div>
 </div>
 
-<div id="outline-container-h:306175d7-4db6-4e47-b035-86efa491b3e0" class="outline-3">
-<h3 id="h:306175d7-4db6-4e47-b035-86efa491b3e0"><a id="sec-2-8" name="sec-2-8"></a><span class="section-number-3">2.8</span> Director API</h3>
+<div id="outline-container-orgcc93396" class="outline-3">
+<h3 id="h:306175d7-4db6-4e47-b035-86efa491b3e0"><a id="orgcc93396"></a><span class="section-number-3">2.8</span> Director API</h3>
 <div class="outline-text-3" id="text-h:306175d7-4db6-4e47-b035-86efa491b3e0">
-
 <p>
 As well as the command-line interface, a Python program can interact
 with the Director in two ways:
@@ -1182,11 +1243,9 @@ with the Director in two ways:
 
 <ol class="org-ol">
 <li>Exchanging messages to the Director Actor (via
-<code>ActorSystem.ask()</code> or another Actor).
-</li>
+<code>ActorSystem.ask()</code> or another Actor).</li>
 
-<li>Via the DirectorControl object.
-</li>
+<li>Via the DirectorControl object.</li>
 </ol>
 
 <p>
@@ -1280,10 +1339,9 @@ searched for a role match).
 </div>
 </div>
 
-<div id="outline-container-h:712ee97c-25b7-4c23-8409-167a2c567bdd" class="outline-2">
-<h2 id="h:712ee97c-25b7-4c23-8409-167a2c567bdd"><a id="sec-3" name="sec-3"></a><span class="section-number-2">3</span> Considerations for using Loadable Sources</h2>
+<div id="outline-container-org96a10c7" class="outline-2">
+<h2 id="h:712ee97c-25b7-4c23-8409-167a2c567bdd"><a id="org96a10c7"></a><span class="section-number-2">3</span> Considerations for using Loadable Sources</h2>
 <div class="outline-text-2" id="text-h:712ee97c-25b7-4c23-8409-167a2c567bdd">
-
 <p>
 Loadable sources are a great way to dynamically manage and update one
 or more Thespian Actor-based applications, and especially for
@@ -1298,10 +1356,9 @@ string or class reference.
 </p>
 </div>
 
-<div id="outline-container-h:1898efa0-a1d4-4415-92e0-8232b2b5285f" class="outline-3">
-<h3 id="h:1898efa0-a1d4-4415-92e0-8232b2b5285f"><a id="sec-3-1" name="sec-3-1"></a><span class="section-number-3">3.1</span> Source Package limitations</h3>
+<div id="outline-container-org9331cdb" class="outline-3">
+<h3 id="h:1898efa0-a1d4-4415-92e0-8232b2b5285f"><a id="org9331cdb"></a><span class="section-number-3">3.1</span> Source Package limitations</h3>
 <div class="outline-text-3" id="text-h:1898efa0-a1d4-4415-92e0-8232b2b5285f">
-
 <p>
 Although the <code>loadActorSource()</code> functionality works quite well,
 there are a few scenarios that can cause difficulties:
@@ -1318,8 +1375,7 @@ simply <b>refers</b> to an externally available library
 (e.g. PyOpenSSL python package refers to <code>/usr/lib/libssl.so</code>)
 then this may work if the proper object library has been
 installed on the target system by other means (i.e. not via the
-<code>loadActorSource()</code> call.
-</li>
+<code>loadActorSource()</code> call.</li>
 
 <li>Sources containing other PEP302 path importers may not work
 correctly when used in conjuction with the <code>loadActorSource()</code>
@@ -1329,54 +1385,49 @@ with those modules to ensure uniqueness.  This is not always
 compatible with other PEP302 importers.
 
 <ol class="org-ol">
-<li>The <code>six</code> package (providing Python2/Python3 compatibility)
+<li><p>
+The <code>six</code> package (providing Python2/Python3 compatibility)
 uses a PEP302 importer to manage moved packages.  This
 functionality of the <code>six</code> package is broken by the
 <code>loadActorSource()</code> Source Hash prefixing. To avoid this
 <code>loadActorSource()</code> processing handles <code>six</code> as a special
 case and <i>does not</i> prefix <code>six</code> with any Source Hash.
+</p>
 
 <p>
 The assumption is that <code>six</code> is a mature and unchanging
 package and a global version is acceptable for all loaded
 sources (and that a working <code>six</code> importer is preferrable to
 a non-working importer).
-</p>
-</li>
-</ol>
-</li>
+</p></li>
+</ol></li>
 
 <li>The <code>importlib</code> package has a subtle flaw that is not compatible
 with the Source Hash prefixing performed by <code>loadActorSource()</code>.
 To work around this problem Thespian provides an updated version
 of <code>importlib</code>; use " <code>import thespian.importlib as importlib</code> "
 instead of just " <code>import importlib</code> " in Actor sources that
-will be loaded via <code>loadActorSource()</code>.
-</li>
+will be loaded via <code>loadActorSource()</code>.</li>
 
 <li>Loaded sources should expect that <code>__file__</code> or other internals
-can be set to None.
-</li>
+can be set to None.</li>
 
 <li>It is not possible to send internally-defined objects between
-sources (see <a href="#h:423373f2-9638-4b96-80a5-a57abe94f134">Communication across package boundaries</a> below).
-</li>
+sources (see <a href="#h:423373f2-9638-4b96-80a5-a57abe94f134">Communication across package boundaries</a> below).</li>
 
 <li>The loadable source can only contain pure Python code, including
 all dependencies.  If there are dependencies that have
 associated C object extensions or other binary-specific
 components, those must be pre-installed and accessed via the
 normal fashion and not included as a dependency in the loadable
-source package.
-</li>
+source package.</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-h:1e8b3963-5daa-4ea5-9067-25bde3580b80" class="outline-3">
-<h3 id="h:1e8b3963-5daa-4ea5-9067-25bde3580b80"><a id="sec-3-2" name="sec-3-2"></a><span class="section-number-3">3.2</span> Logging callables not supported</h3>
+<div id="outline-container-org8432347" class="outline-3">
+<h3 id="h:1e8b3963-5daa-4ea5-9067-25bde3580b80"><a id="org8432347"></a><span class="section-number-3">3.2</span> Logging callables not supported</h3>
 <div class="outline-text-3" id="text-h:1e8b3963-5daa-4ea5-9067-25bde3580b80">
-
 <p>
 The Python <code>logging</code> library has the ability to configure callable
 objects to provide various formatter capabilities.  Since the
@@ -1394,10 +1445,9 @@ be used.
 </div>
 </div>
 
-<div id="outline-container-h:423373f2-9638-4b96-80a5-a57abe94f134" class="outline-3">
-<h3 id="h:423373f2-9638-4b96-80a5-a57abe94f134"><a id="sec-3-3" name="sec-3-3"></a><span class="section-number-3">3.3</span> Communication across package boundaries</h3>
+<div id="outline-container-orgae121c9" class="outline-3">
+<h3 id="h:423373f2-9638-4b96-80a5-a57abe94f134"><a id="orgae121c9"></a><span class="section-number-3">3.3</span> Communication across package boundaries</h3>
 <div class="outline-text-3" id="text-h:423373f2-9638-4b96-80a5-a57abe94f134">
-
 <p>
 By default, Thespian uses the pickle module to send messages from
 one actor to another.  This requires that the unpickling operation
@@ -1428,10 +1478,9 @@ message to determine the sender.
 </div>
 </div>
 
-<div id="outline-container-h:29d0f65c-db9f-4d8c-893b-0711958ed792" class="outline-3">
-<h3 id="h:29d0f65c-db9f-4d8c-893b-0711958ed792"><a id="sec-3-4" name="sec-3-4"></a><span class="section-number-3">3.4</span> Actor specifications for createActor</h3>
+<div id="outline-container-org0c28976" class="outline-3">
+<h3 id="h:29d0f65c-db9f-4d8c-893b-0711958ed792"><a id="org0c28976"></a><span class="section-number-3">3.4</span> Actor specifications for createActor</h3>
 <div class="outline-text-3" id="text-h:29d0f65c-db9f-4d8c-893b-0711958ed792">
-
 <p>
 When using the <code>ActorSystem().createActor()</code> method, the Actor to be
 created must be specified by the fully module-qualified string name of
@@ -1463,8 +1512,7 @@ good_addr = ActorSystem().createActor('foo.fooActor.FooActor', ...)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2017-12-22 Fri 14:56</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2018-08-05 Sun 21:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

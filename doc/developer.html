@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2018-08-05 Sun 21:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thespian Developer's Notes</title>
-<!-- 2017-12-22 Fri 14:56 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -46,27 +53,111 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -86,6 +177,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="icon" type="image/png" href="/favicon.png" />
@@ -108,7 +200,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -152,7 +244,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"><a href="http://thespianpy.com"><img src="thesplogo2.png" alt="Thespian" width="50%" style="inline" /></a> Developer's Notes</h1>
+<h1 class="title"><a href="https://thespianpy.com"><img src="thesplogo2.png" alt="Thespian" width="50%" style="inline" /></a> Developer's Notes</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -178,15 +270,14 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-hH-851aafed-d085-49ed-b189-3bfd90a8e573" class="outline-2">
-<h2 id="hH-851aafed-d085-49ed-b189-3bfd90a8e573"><a id="sec-1" name="sec-1"></a><span class="section-number-2">1</span> Source</h2>
+<div id="outline-container-orgba28414" class="outline-2">
+<h2 id="hH-851aafed-d085-49ed-b189-3bfd90a8e573"><a id="orgba28414"></a><span class="section-number-2">1</span> Source</h2>
 <div class="outline-text-2" id="text-hH-851aafed-d085-49ed-b189-3bfd90a8e573">
 </div>
 
-<div id="outline-container-hH-273880cf-f38b-40bd-8ea0-95d03d668b29" class="outline-3">
-<h3 id="hH-273880cf-f38b-40bd-8ea0-95d03d668b29"><a id="sec-1-1" name="sec-1-1"></a><span class="section-number-3">1.1</span> Availability</h3>
+<div id="outline-container-orgf401b53" class="outline-3">
+<h3 id="hH-273880cf-f38b-40bd-8ea0-95d03d668b29"><a id="orgf401b53"></a><span class="section-number-3">1.1</span> Availability</h3>
 <div class="outline-text-3" id="text-hH-273880cf-f38b-40bd-8ea0-95d03d668b29">
-
 <p>
 Source code for Thespian is available at
 <a href="https://github.com/kquick/Thespian">https://github.com/kquick/Thespian</a> under the MIT license.
@@ -194,10 +285,9 @@ Source code for Thespian is available at
 </div>
 </div>
 
-<div id="outline-container-hH-9ebe8005-1460-4634-bead-237826702ea2" class="outline-3">
-<h3 id="hH-9ebe8005-1460-4634-bead-237826702ea2"><a id="sec-1-2" name="sec-1-2"></a><span class="section-number-3">1.2</span> Documentation</h3>
+<div id="outline-container-orgbd044eb" class="outline-3">
+<h3 id="hH-9ebe8005-1460-4634-bead-237826702ea2"><a id="orgbd044eb"></a><span class="section-number-3">1.2</span> Documentation</h3>
 <div class="outline-text-3" id="text-hH-9ebe8005-1460-4634-bead-237826702ea2">
-
 <p>
 Thespian documentation is maintained in the source tree under the
 <code>doc/</code> directory.  Documentation is written in Emacs orgmode,
@@ -223,20 +313,18 @@ $ bash doc/gen_html.sh doc/using.org
 </div>
 </div>
 
-<div id="outline-container-hH-e9695953-86ef-420c-a33a-4a0db2455a04" class="outline-3">
-<h3 id="hH-e9695953-86ef-420c-a33a-4a0db2455a04"><a id="sec-1-3" name="sec-1-3"></a><span class="section-number-3">1.3</span> Issues</h3>
+<div id="outline-container-org9488830" class="outline-3">
+<h3 id="hH-e9695953-86ef-420c-a33a-4a0db2455a04"><a id="org9488830"></a><span class="section-number-3">1.3</span> Issues</h3>
 <div class="outline-text-3" id="text-hH-e9695953-86ef-420c-a33a-4a0db2455a04">
-
 <p>
 Any issues should be posted via the <a href="https://github.com/kquick/Thespian">main Thespian github page</a>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-hH-a0f114cf-cfc2-4ae6-a852-a4db84986f57" class="outline-3">
-<h3 id="hH-a0f114cf-cfc2-4ae6-a852-a4db84986f57"><a id="sec-1-4" name="sec-1-4"></a><span class="section-number-3">1.4</span> Contributions</h3>
+<div id="outline-container-org2994bd1" class="outline-3">
+<h3 id="hH-a0f114cf-cfc2-4ae6-a852-a4db84986f57"><a id="org2994bd1"></a><span class="section-number-3">1.4</span> Contributions</h3>
 <div class="outline-text-3" id="text-hH-a0f114cf-cfc2-4ae6-a852-a4db84986f57">
-
 <p>
 Contributions (both source and documentation) should be in the
 form of pull requests.  Contributions will not be accepted until
@@ -250,15 +338,14 @@ to sign the agreement when you make your contribution.
 </div>
 </div>
 
-<div id="outline-container-hH-701a67c8-8882-49ff-928c-14ae0b663cbf" class="outline-2">
-<h2 id="hH-701a67c8-8882-49ff-928c-14ae0b663cbf"><a id="sec-2" name="sec-2"></a><span class="section-number-2">2</span> Testing</h2>
+<div id="outline-container-orgd492c8e" class="outline-2">
+<h2 id="hH-701a67c8-8882-49ff-928c-14ae0b663cbf"><a id="orgd492c8e"></a><span class="section-number-2">2</span> Testing</h2>
 <div class="outline-text-2" id="text-hH-701a67c8-8882-49ff-928c-14ae0b663cbf">
 </div>
 
-<div id="outline-container-hH-1c7bb213-1e22-455e-b767-c9a6a1a5cd68" class="outline-3">
-<h3 id="hH-1c7bb213-1e22-455e-b767-c9a6a1a5cd68"><a id="sec-2-1" name="sec-2-1"></a><span class="section-number-3">2.1</span> Approach</h3>
+<div id="outline-container-org7ec64b5" class="outline-3">
+<h3 id="hH-1c7bb213-1e22-455e-b767-c9a6a1a5cd68"><a id="org7ec64b5"></a><span class="section-number-3">2.1</span> Approach</h3>
 <div class="outline-text-3" id="text-hH-1c7bb213-1e22-455e-b767-c9a6a1a5cd68">
-
 <p>
 While there are some Thespian tests that use mocking to reduce the
 effects of external elements, the main focus of Thespian testing is
@@ -276,10 +363,9 @@ systembases are tested on the same set of tests.
 </div>
 </div>
 
-<div id="outline-container-hH-f099ef66-5ab1-45d7-a700-b065f885ca75" class="outline-3">
-<h3 id="hH-f099ef66-5ab1-45d7-a700-b065f885ca75"><a id="sec-2-2" name="sec-2-2"></a><span class="section-number-3">2.2</span> Test Duration</h3>
+<div id="outline-container-org8d34418" class="outline-3">
+<h3 id="hH-f099ef66-5ab1-45d7-a700-b065f885ca75"><a id="org8d34418"></a><span class="section-number-3">2.2</span> Test Duration</h3>
 <div class="outline-text-3" id="text-hH-f099ef66-5ab1-45d7-a700-b065f885ca75">
-
 <p>
 Because of the approach above running the tests can take some time.
 Test can even can hang if there is bad code or if system resources
@@ -300,10 +386,9 @@ As of Thespian 3.7.0, the full test suite duration is approximately
 </div>
 </div>
 
-<div id="outline-container-hH-1dfd22a5-0c88-4d8e-8e0d-5383a503678a" class="outline-3">
-<h3 id="hH-1dfd22a5-0c88-4d8e-8e0d-5383a503678a"><a id="sec-2-3" name="sec-2-3"></a><span class="section-number-3">2.3</span> Testing System Bases</h3>
+<div id="outline-container-orgcc12cd6" class="outline-3">
+<h3 id="hH-1dfd22a5-0c88-4d8e-8e0d-5383a503678a"><a id="orgcc12cd6"></a><span class="section-number-3">2.3</span> Testing System Bases</h3>
 <div class="outline-text-3" id="text-hH-1dfd22a5-0c88-4d8e-8e0d-5383a503678a">
-
 <p>
 Because all systembases are tested, it is necessary to accomodate
 the differences between those system bases.  For most Actors, there
@@ -316,17 +401,16 @@ task and Actors at hand.
 
 <p>
 Some of the system bases do not support some features (as detailed
-<a href="http://thespianpy.com/doc/using.html#hH-2a5fa63d-e6eb-43b9-bea8-47223b27544e">here in the Using Thespian guide</a>) and so there are inputs provided
+<a href="https://thespianpy.com/doc/using.html#hH-2a5fa63d-e6eb-43b9-bea8-47223b27544e">here in the Using Thespian guide</a>) and so there are inputs provided
 to the tests to indicate which are viable and/or stable.  More on
 this in the Running Tests section below.
 </p>
 </div>
 </div>
 
-<div id="outline-container-hH-a992a85a-623f-47c8-a810-deefcb82a521" class="outline-3">
-<h3 id="hH-a992a85a-623f-47c8-a810-deefcb82a521"><a id="sec-2-4" name="sec-2-4"></a><span class="section-number-3">2.4</span> Running Tests</h3>
+<div id="outline-container-orgd6f2619" class="outline-3">
+<h3 id="hH-a992a85a-623f-47c8-a810-deefcb82a521"><a id="orgd6f2619"></a><span class="section-number-3">2.4</span> Running Tests</h3>
 <div class="outline-text-3" id="text-hH-a992a85a-623f-47c8-a810-deefcb82a521">
-
 <p>
 Tests are written to fairly conventional Python unittest standards
 without relying on plugins.  Tests are normally run via the pytest
@@ -356,25 +440,27 @@ methods from the <code>thespian/test/__init__.py</code> file:
 </p>
 
 <dl class="org-dl">
-<dt> unstable_test </dt><dd>     Specifies that the test is unstable for the specified base and
+<dt>unstable_test</dt><dd><p>
+     Specifies that the test is unstable for the specified base and
 should be skipped. The features tested may usually work, but are
 not reliably supported by the underlying base (e.g. the UDP
 transport does not provide delivery guarantees, so hi-traffic
 tests are marked with <code>unstable_test("multiprocUDPBase")</code>
+</p>
 
 <pre class="example">
-unstable_test(asys, basename[, ...])
-</pre>
-</dd>
+     unstable_test(asys, basename[, ...])
+</pre></dd>
 
-<dt> actor_system_unsupported </dt><dd>     Specifies that the functionality being tested is not supported by
+<dt>actor_system_unsupported</dt><dd><p>
+     Specifies that the functionality being tested is not supported by
 this particular system base and the test should be skipped for
 the indicated base(s).
+</p>
 
 <pre class="example">
-actor_system_unsupported(asys, basename [,...])
-</pre>
-</dd>
+     actor_system_unsupported(asys, basename [,...])
+</pre></dd>
 </dl>
 
 
@@ -402,10 +488,9 @@ $ py.test -k Func
 </div>
 </div>
 
-<div id="outline-container-hH-bf031295-256d-471e-922a-808a77c3fbec" class="outline-3">
-<h3 id="hH-bf031295-256d-471e-922a-808a77c3fbec"><a id="sec-2-5" name="sec-2-5"></a><span class="section-number-3">2.5</span> Writing Tests</h3>
+<div id="outline-container-orgda5a24b" class="outline-3">
+<h3 id="hH-bf031295-256d-471e-922a-808a77c3fbec"><a id="orgda5a24b"></a><span class="section-number-3">2.5</span> Writing Tests</h3>
 <div class="outline-text-3" id="text-hH-bf031295-256d-471e-922a-808a77c3fbec">
-
 <p>
 When writing tests for Thespian, there is an <code>asys</code> fixture for pytest
 that provides an initialized ActorSystem for each system base.
@@ -418,8 +503,7 @@ run the test once for each system base type.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2017-12-22 Fri 14:56</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2018-08-05 Sun 21:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

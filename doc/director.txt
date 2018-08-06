@@ -1,9 +1,8 @@
-	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-	    [HTTP://THESPIANPY.COM] THESPIAN DIRECTOR GUIDE
-
+	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+	    [HTTPS://THESPIANPY.COM] THESPIAN DIRECTOR GUIDE
 
 		     Kevin Quick <quick@sparq.org>
-	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 Table of Contents
@@ -52,8 +51,7 @@ Table of Contents
   functionality provided by the Director.
 
 
-  [Using Thespian] file:using.org
-
+[Using Thespian] file:using.org
 
 1.1 Loadable Sources
 ────────────────────
@@ -959,7 +957,7 @@ Table of Contents
      included as a dependency in the loadable source package.
 
 
-  [Communication across package boundaries] See section 3.3
+[Communication across package boundaries] See section 3.3
 
 
 3.2 Logging callables not supported

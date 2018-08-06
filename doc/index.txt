@@ -1,9 +1,8 @@
-		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-		 [HTTP://THESPIANPY.COM] PYTHON ACTORS
-
+		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+		 [HTTPS://THESPIANPY.COM] PYTHON ACTORS
 
 		     Kevin Quick <quick@sparq.org>
-		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+		━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 Table of Contents
@@ -42,34 +41,36 @@ Table of Contents
   which communicate via messages.  These Actors run within the Actor
   System provided by the Thespian library.
 
-  Concurrent: All Actors run independently within the Actor System.  The
-              Actor System may run the Actors as threads, processes, or
-              even sequential operations within the current process—all
-              with no change to the Actors themselves.
+  Concurrent
+        All Actors run independently within the Actor System.  The Actor
+        System may run the Actors as threads, processes, or even
+        sequential operations within the current process—all with no
+        change to the Actors themselves.
 
-  Distributed: Actors run independently…anywhere.  Multiple servers can
-               each be running Thespian and an Actor can be run on any of
-               these systems—all with no change to the Actors themselves.
-               Thespian handles the communication between the Actors and
-               the management process of distributing the Actors across
-               the systems.
+  Distributed
+        Actors run independently…anywhere.  Multiple servers can each be
+        running Thespian and an Actor can be run on any of these
+        systems—all with no change to the Actors themselves.  Thespian
+        handles the communication between the Actors and the management
+        process of distributing the Actors across the systems.
 
-  Location Independent: Because Actors run independently anywhere, they
-                        run independently of their actual location.  A
-                        distributed Actor application may have part of it
-                        running on a local server, part running on a
-                        server in Amsterdam, and part running on a server
-                        in Singapore… or not, with no change or awareness
-                        of this by the Actors themselves.
+  Location Independent
+        Because Actors run independently anywhere, they run
+        independently of their actual location.  A distributed Actor
+        application may have part of it running on a local server, part
+        running on a server in Amsterdam, and part running on a server
+        in Singapore… or not, with no change or awareness of this by the
+        Actors themselves.
 
-  Fault Tolerant: Individual Actors can fail and be
-                  restarted—automatically—without impact to the rest of
-                  the system.
+  Fault Tolerant
+        Individual Actors can fail and be
+        restarted—automatically—without impact to the rest of the
+        system.
 
-  Scalable: The number of Actors in the system can be dynamically extended
-            based on factors such as work volume, and systems added to the
-            Distributed Actor System environment are automatically
-            utilized.
+  Scalable
+        The number of Actors in the system can be dynamically extended
+        based on factors such as work volume, and systems added to the
+        Distributed Actor System environment are automatically utilized.
 
   One of the key aspects of the Actor Model is that it represents a
   higher level of abstraction than is provided by most frameworks.  When
@@ -83,14 +84,11 @@ Table of Contents
   removed from the environment dynamically.
 
 
-  [Actor Model] http://wikipedia.org/wiki/Actor_model
+[Actor Model] https://wikipedia.org/wiki/Actor_model
 
 
 2 Quick Start
 ═════════════
-
-
-
 
 2.1 Simple Installation
 ───────────────────────
@@ -236,16 +234,13 @@ Table of Contents
   utilization document.
 
 
-  [Thespian In-Depth Introduction] http://thespianpy.com/doc/in_depth
+[Thespian In-Depth Introduction] https://thespianpy.com/doc/in_depth
 
-  [Using Thespian] http://thespianpy.com/doc/using
+[Using Thespian] https://thespianpy.com/doc/using
 
 
 3 Documentation
 ═══════════════
-
-
-
 
 3.1 Thespian Documentation
 ──────────────────────────
@@ -261,45 +256,45 @@ Table of Contents
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-  [TXT] file:using.txt
+[TXT] file:using.txt
 
-  [PDF] file:using.pdf
+[PDF] file:using.pdf
 
-  [HTML] file:using.html
+[HTML] file:using.html
 
-  [Using Thespian] file:using.html
+[Using Thespian] file:using.html
 
-  [TXT] file:director.txt
+[TXT] file:director.txt
 
-  [PDF] file:director.pdf
+[PDF] file:director.pdf
 
-  [HTML] file:director.html
+[HTML] file:director.html
 
-  [Thespian Director] file:director.html
+[Thespian Director] file:director.html
 
-  [TXT] file:developer.txt
+[TXT] file:developer.txt
 
-  [PDF] file:developer.pdf
+[PDF] file:developer.pdf
 
-  [HTML] file:developer.html
+[HTML] file:developer.html
 
-  [Thespian Developer's Notes] file:developer.html
+[Thespian Developer's Notes] file:developer.html
 
-  [TXT] file:releases.txt
+[TXT] file:releases.txt
 
-  [PDF] file:releases.pdf
+[PDF] file:releases.pdf
 
-  [HTML] file:releases.org
+[HTML] file:releases.org
 
-  [Thespian Release Notes] file:releases.org
+[Thespian Release Notes] file:releases.org
 
-  [TXT] file:in_depth.txt
+[TXT] file:in_depth.txt
 
-  [PDF] file:in_depth.pdf
+[PDF] file:in_depth.pdf
 
-  [HTML] file:in_depth.html
+[HTML] file:in_depth.html
 
-  [In Depth Introduction to Thespian] file:in_depth.html
+[In Depth Introduction to Thespian] file:in_depth.html
 
 
 3.2 Background and Related Efforts
@@ -308,29 +303,29 @@ Table of Contents
   ‣ The [Actor Model] at Wikipedia
   ‣ A video with [Carl Hewitt, Eric Meijer, and Clemens Szyperski
     discussing the Actor Model]
-  ‣ [http://c2.com/cgi/wiki?ActorsModel]
+  ‣ [https://c2.com/cgi/wiki?ActorsModel]
   ‣ [Akka] is a popular Actor Library for Java and Scala; it is roughly
     the equivalent to Thespian for those languages.
   ‣ [Akka.NET] is an implementation of Akka for the .NET and Mono
     environments making it useable for C# and F# applications.
   ‣ The [Erlang] language has Actor support built-in (see
-    [http://www.erlang.org/doc/getting_started/conc_prog.html]).
+    [https://www.erlang.org/doc/getting_started/conc_prog.html]).
 
   The Wikipedia site has a good list of Actor Model implementations, but
   please let us know of others that should be listed here.
 
 
-  [Actor Model] http://wikipedia.org/wiki/Actor_model
+[Actor Model] https://wikipedia.org/wiki/Actor_model
 
-  [Carl Hewitt, Eric Meijer, and Clemens Szyperski discussing the Actor
-  Model]
-  https://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-Model-everything-you-wanted-to-know-but-were-afraid-to-ask
+[Carl Hewitt, Eric Meijer, and Clemens Szyperski discussing the Actor
+Model]
+https://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-Model-everything-you-wanted-to-know-but-were-afraid-to-ask
 
-  [Akka] http://akka.io
+[Akka] https://akka.io
 
-  [Akka.NET] http://getakka.net/
+[Akka.NET] https://getakka.net/
 
-  [Erlang] http://www.erlang.org
+[Erlang] https://www.erlang.org
 
 
 3.3 Unrelated Efforts
@@ -378,21 +373,21 @@ Table of Contents
   ‣ Report a Bug: [https://github.com/kquick/Thespian/issues]
 
 
-  [Thespian Developer's Notes] file:developer.org
+[Thespian Developer's Notes] file:developer.org
 
 
 6 News
 ══════
 
-  2015-08-31: Thespian Publicly Released
+  2015-08-31
+        Thespian Publicly Released
 
 
   Current and previous Thespian release information is available in the
   [Thespian Release Notes].
 
 
-  [Thespian Release Notes] file:releases.org
-
+[Thespian Release Notes] file:releases.org
 
 6.1 Blogs and Success Stories
 ─────────────────────────────
@@ -404,8 +399,8 @@ Table of Contents
   here, please contact one of the project administrators.
 
 
-  [GoDaddy blog article introducing Thespian, 2015 Aug]
-  http://engineering.godaddy.com/why-godaddy-built-an-actor-system-library
+[GoDaddy blog article introducing Thespian, 2015 Aug]
+https://engineering.godaddy.com/why-godaddy-built-an-actor-system-library
 
-  [Article comparing Actors to Python asyncio/await, 2016 Feb]
-  file:blog/async_blog_2016Feb/async_2016Feb.org
+[Article comparing Actors to Python asyncio/await, 2016 Feb]
+file:blog/async_blog_2016Feb/async_2016Feb.org

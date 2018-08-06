@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2018-08-05 Sun 22:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thespian In-Depth Introduction</title>
-<!-- 2017-12-22 Fri 14:56 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -46,27 +53,111 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -86,6 +177,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="icon" type="image/png" href="/favicon.png" />
@@ -108,7 +200,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -152,7 +244,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"><a href="http://thespianpy.com"><img src="thesplogo2.png" alt="Thespian" width="50%" style="inline" /></a> In-Depth Introduction</h1>
+<h1 class="title"><a href="https://thespianpy.com"><img src="thesplogo2.png" alt="Thespian" width="50%" style="inline" /></a> In-Depth Introduction</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -214,10 +306,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-hH-2755875e-6956-405e-8be2-cfc2ea596f63" class="outline-2">
-<h2 id="hH-2755875e-6956-405e-8be2-cfc2ea596f63"><a id="sec-1" name="sec-1"></a><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-org63229d5" class="outline-2">
+<h2 id="hH-2755875e-6956-405e-8be2-cfc2ea596f63"><a id="org63229d5"></a><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-hH-2755875e-6956-405e-8be2-cfc2ea596f63">
-
 <p>
 How do you design an application using Agile methodologies that will
 be capable of scaling to become a distributed application running
@@ -247,18 +338,17 @@ in-depth introduction to writing Actor-based applications
 </p>
 
 <p>
-GoDaddy uses the <a href="http://python.org">Python language</a> for many of it's internal systems and
+GoDaddy uses the <a href="https://python.org">Python language</a> for many of it's internal systems and
 has developed an Actor library for Python called <b>Thespian</b> to support
 this highly-scalable architecture.  GoDaddy has open-sourced the
-<a href="http://thespianpy.com">Thespian library</a> itself to share it with the community and allow
+<a href="https://thespianpy.com">Thespian library</a> itself to share it with the community and allow
 others to leverage the Actor Model architecture for Python.
 </p>
 </div>
 
-<div id="outline-container-hH-53c50716-fdfa-4b6e-91d0-ed0313de1b4a" class="outline-3">
-<h3 id="hH-53c50716-fdfa-4b6e-91d0-ed0313de1b4a"><a id="sec-1-1" name="sec-1-1"></a><span class="section-number-3">1.1</span> The Actor Model</h3>
+<div id="outline-container-orge18795b" class="outline-3">
+<h3 id="hH-53c50716-fdfa-4b6e-91d0-ed0313de1b4a"><a id="orge18795b"></a><span class="section-number-3">1.1</span> The Actor Model</h3>
 <div class="outline-text-3" id="text-hH-53c50716-fdfa-4b6e-91d0-ed0313de1b4a">
-
 <p>
 The Actor Model itself is pretty simple, but it's the way that it
 frames the problem that creates big advantages.  A program's code is
@@ -274,12 +364,9 @@ gets a message, it does one of three things:
 </p>
 
 <ol class="org-ol">
-<li>sends a finite number of messages
-</li>
-<li>creates a finite number of other Actors
-</li>
-<li>updates internal state
-</li>
+<li>sends a finite number of messages</li>
+<li>creates a finite number of other Actors</li>
+<li>updates internal state</li>
 </ol>
 
 <p>
@@ -297,7 +384,7 @@ concerns of the application.
 <div class="figure">
 <p><img src="./fig1.png" alt="fig1.png" />
 </p>
-<p><span class="figure-number">Figure 1:</span> Example Actor configuration</p>
+<p><span class="figure-number">Figure 1: </span>Example Actor configuration</p>
 </div>
 
 <p>
@@ -309,49 +396,42 @@ various details, they all provide a common set of features, including:
 </p>
 
 <ul class="org-ul">
-<li>Creating the actual Actor instances
-</li>
-<li>Handling message delivery from one Actor to another
-</li>
-<li>Managing Actor lifecycles
-</li>
+<li>Creating the actual Actor instances</li>
+<li>Handling message delivery from one Actor to another</li>
+<li>Managing Actor lifecycles</li>
 <li>Providing appropriate scheduling and concurrency between
-different Actors.
-</li>
+different Actors.</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-hH-1b595f63-447b-40d1-ad52-582e4ac7a536" class="outline-2">
-<h2 id="hH-1b595f63-447b-40d1-ad52-582e4ac7a536"><a id="sec-2" name="sec-2"></a><span class="section-number-2">2</span> Thespian Features</h2>
+<div id="outline-container-org6a710ae" class="outline-2">
+<h2 id="hH-1b595f63-447b-40d1-ad52-582e4ac7a536"><a id="org6a710ae"></a><span class="section-number-2">2</span> Thespian Features</h2>
 <div class="outline-text-2" id="text-hH-1b595f63-447b-40d1-ad52-582e4ac7a536">
 </div>
 
-<div id="outline-container-hH-0a2f4dce-a031-4631-8270-267fa1956ead" class="outline-3">
-<h3 id="hH-0a2f4dce-a031-4631-8270-267fa1956ead"><a id="sec-2-1" name="sec-2-1"></a><span class="section-number-3">2.1</span> Thespian Walk-Through</h3>
+<div id="outline-container-org5f9de55" class="outline-3">
+<h3 id="hH-0a2f4dce-a031-4631-8270-267fa1956ead"><a id="org5f9de55"></a><span class="section-number-3">2.1</span> Thespian Walk-Through</h3>
 <div class="outline-text-3" id="text-hH-0a2f4dce-a031-4631-8270-267fa1956ead">
-
 <p>
 One of the first things you'll notice when writing Actor-based code is
 how easy it is to write code for.
 </p>
 
 <dl class="org-dl">
-<dt> Environment </dt><dd>While it is possible to provide configuration
+<dt>Environment</dt><dd>While it is possible to provide configuration
 information to customize your setup, it is often not necessary to
-specify anything for a simple environment.
-</dd>
+specify anything for a simple environment.</dd>
 </dl>
 
 
 <dl class="org-dl">
-<dt> Code </dt><dd>Actors don't need lots of setup code and management.
+<dt>Code</dt><dd>Actors don't need lots of setup code and management.
 With many libraries, you simply include a module, subclass a
 base Actor object to define the Actor code, then create the Actor
-in a single library call.
-</dd>
+in a single library call.</dd>
 </dl>
 
 <p>
@@ -360,19 +440,19 @@ To demonstrate how easy this is, let's look at an example using the
 </p>
 </div>
 
-<div id="outline-container-hH-b974440c-2d2e-4bc0-be71-1f85ca4d397e" class="outline-4">
-<h4 id="hH-b974440c-2d2e-4bc0-be71-1f85ca4d397e"><a id="sec-2-1-1" name="sec-2-1-1"></a><span class="section-number-4">2.1.1</span> Installation of Thespian</h4>
+<div id="outline-container-orgde551ca" class="outline-4">
+<h4 id="hH-b974440c-2d2e-4bc0-be71-1f85ca4d397e"><a id="orgde551ca"></a><span class="section-number-4">2.1.1</span> Installation of Thespian</h4>
 <div class="outline-text-4" id="text-hH-b974440c-2d2e-4bc0-be71-1f85ca4d397e">
-
 <p>
 The Thespian Python library is available on github at
-<a href="http://github.com/kquick/Thespian">http://github.com/kquick/Thespian</a>, from <a href="http://pypi.python.org">http://pypi.python.org</a>, or possibly
+<a href="https://github.com/kquick/Thespian">https://github.com/kquick/Thespian</a>, from <a href="https://pypi.python.org">https://pypi.python.org</a>, or possibly
 via a package provided for your OS.  You should probably use the
 latter if it's available, but otherwise just use <code>pip</code> for simplicity:
 </p>
 
 <pre class="example">
 $ pip install thespian
+
 </pre>
 
 <p>
@@ -390,10 +470,9 @@ them in `ps' output.
 </div>
 </div>
 
-<div id="outline-container-hH-2b0d0d3f-4752-4adc-aa3e-db0b46c5739e" class="outline-4">
-<h4 id="hH-2b0d0d3f-4752-4adc-aa3e-db0b46c5739e"><a id="sec-2-1-2" name="sec-2-1-2"></a><span class="section-number-4">2.1.2</span> Hello World</h4>
+<div id="outline-container-org870d190" class="outline-4">
+<h4 id="hH-2b0d0d3f-4752-4adc-aa3e-db0b46c5739e"><a id="org870d190"></a><span class="section-number-4">2.1.2</span> Hello World</h4>
 <div class="outline-text-4" id="text-hH-2b0d0d3f-4752-4adc-aa3e-db0b46c5739e">
-
 <p>
 Let's start with the typical example of Hello World.  In this case,
 we'll create an Actor, send it a message, wait for a response message,
@@ -401,18 +480,17 @@ and print that response:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name">hello.py:</label>
-<pre class="src src-python" id="hello.py"><span class="linenr"> 1: </span>from thespian.actors import *
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>hello.py:</label><pre class="src src-python" id="org0ba022e"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
-<span id="coderef-baseclass" class="coderef-off"><span class="linenr"> 3: </span>class Hello(Actor):</span>
-<span id="coderef-receiveMessage" class="coderef-off"><span class="linenr"> 4: </span>    def receiveMessage(self, message, sender):</span>
-<span id="coderef-send" class="coderef-off"><span class="linenr"> 5: </span>        self.send(sender, 'Hello, world!')</span>
+<span id="coderef-baseclass" class="coderef-off"><span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):</span>
+<span id="coderef-receiveMessage" class="coderef-off"><span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):</span>
+<span id="coderef-send" class="coderef-off"><span class="linenr"> 5: </span>        <span class="org-keyword">self</span>.send(sender, <span class="org-string">'Hello, world!'</span>)</span>
 <span class="linenr"> 6: </span>
-<span class="linenr"> 7: </span>def say_hello():
-<span id="coderef-startActorSystem" class="coderef-off"><span class="linenr"> 8: </span>    hello = ActorSystem().createActor(Hello)</span>
-<span id="coderef-ask" class="coderef-off"><span class="linenr"> 9: </span>    print(ActorSystem().ask(hello, 'are you there?', 1.5))</span>
+<span class="linenr"> 7: </span><span class="org-keyword">def</span> <span class="org-function-name">say_hello</span>():
+<span id="coderef-startActorSystem" class="coderef-off"><span class="linenr"> 8: </span>    <span class="org-variable-name">hello</span> = ActorSystem().createActor(Hello)</span>
+<span id="coderef-ask" class="coderef-off"><span class="linenr"> 9: </span>    <span class="org-keyword">print</span>(ActorSystem().ask(hello, <span class="org-string">'are you there?'</span>, 1.5))</span>
 <span class="linenr">10: </span>
-<span class="linenr">11: </span>if __name__ == "__main__":
+<span class="linenr">11: </span><span class="org-keyword">if</span> <span class="org-builtin">__name__</span> == <span class="org-string">"__main__"</span>:
 <span class="linenr">12: </span>    say_hello()
 </pre>
 </div>
@@ -432,44 +510,42 @@ the code and resulting system state:
 </p>
 
 <ul class="org-ul">
-<li><a href="#coderef-baseclass"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-baseclass');" onmouseout="CodeHighlightOff(this, 'coderef-baseclass');">Line 3</a> shows how the Hello class subclasses the standard
+<li><a href="#coderef-baseclass" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-baseclass');" onmouseout="CodeHighlightOff(this, 'coderef-baseclass');">Line 3</a> shows how the Hello class subclasses the standard
 <code>Actor</code> baseclass provided by the <code>thespian</code> import.  The <code>Actor</code>
 baseclass provides methods for all of the actions that Actor might
 take that would interact with other Actors or the Actor System
-itself (see the <i>Using Thespian</i> documentation for more details).
-</li>
+itself (see the <a href="using">Using Thespian</a> documentation for more details).</li>
 </ul>
 
 
 <ul class="org-ul">
-<li><a href="#coderef-receiveMessage"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-receiveMessage');" onmouseout="CodeHighlightOff(this, 'coderef-receiveMessage');">Line 4</a> is the main entry point into any Actor.  It
+<li><p>
+<a href="#coderef-receiveMessage" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-receiveMessage');" onmouseout="CodeHighlightOff(this, 'coderef-receiveMessage');">Line 4</a> is the main entry point into any Actor.  It
 is invoked (by the Actor System) to deliver a new message to the
 current Actor to be processed.
+</p>
 
 <ul class="org-ul">
 <li>In Thespian, messages can be <b>anything</b> that can be <a href="https://docs.python.org/3/library/pickle.html?highlight=pickle#module-pickle">pickled</a>.  In
 this particular example, the incoming message is ignored, but it
-can be used in any way desired by this Actor.
-</li>
+can be used in any way desired by this Actor.</li>
 
 <li>The <code>sender</code> is the Actor Address of the Actor that sent the
 message.  This Actor Address is opaque to the Actor: it can save
 the address and use it to send messages, but it doesn't know
-what is in the address.
-</li>
+what is in the address.</li>
 </ul>
+
 <p>
 When the Actor's <code>receiveMessage()</code> method exits, the Actor sleeps
 until another message is delivered to it.  Each Actor processes
 only a single message at a time.
-</p>
-</li>
+</p></li>
 
-<li><a href="#coderef-send"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-send');" onmouseout="CodeHighlightOff(this, 'coderef-send');">Line 5</a> shows how an Actor sends a message.  Just the message
+<li><a href="#coderef-send" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-send');" onmouseout="CodeHighlightOff(this, 'coderef-send');">Line 5</a> shows how an Actor sends a message.  Just the message
 and the target Actor's Address are needed.  In this case, the
 response message is sent back to the same Actor that generated the
-incoming message.
-</li>
+incoming message.</li>
 </ul>
 
 
@@ -479,8 +555,9 @@ Actors running, but lets keep it simple for the moment.
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="hH-dcc3fb43-fa1f-47df-9eb0-aff3eaa093aa" name="hH-dcc3fb43-fa1f-47df-9eb0-aff3eaa093aa"></a><a id="sec-2-1-2-1" name="sec-2-1-2-1"></a>Actor System Interaction<br  /><div class="outline-text-5" id="text-hH-dcc3fb43-fa1f-47df-9eb0-aff3eaa093aa">
-
+<ol class="org-ol">
+<li><a id="hH-dcc3fb43-fa1f-47df-9eb0-aff3eaa093aa"></a><a id="org8a903bf"></a>Actor System Interaction<br />
+<div class="outline-text-5" id="text-hH-dcc3fb43-fa1f-47df-9eb0-aff3eaa093aa">
 <p>
 The next couple of lines in the Hello World example are a little
 different though.  The Actors operate within the Actor System, but the
@@ -489,34 +566,36 @@ Actors from the external world.
 </p>
 
 <ul class="org-ul">
-<li><a href="#coderef-startActorSystem"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-startActorSystem');" onmouseout="CodeHighlightOff(this, 'coderef-startActorSystem');">Line 8</a> actually performs two actions.  The first
+<li><p>
+<a href="#coderef-startActorSystem" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-startActorSystem');" onmouseout="CodeHighlightOff(this, 'coderef-startActorSystem');">Line 8</a> actually performs two actions.  The first
 portion of the line gets a reference to a running Actor System,
 starting one up if one is not already running.
+</p>
 
 <p>
 The second portion of the line calls that Actor System and
 requests the creation of an Actor (of the Hello class) within that
 system.  The result of this <code>createActor()</code> call is an Actor
 Address.
-</p>
-</li>
+</p></li>
 </ul>
 
 
 <ul class="org-ul">
-<li><a href="#coderef-ask"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-ask');" onmouseout="CodeHighlightOff(this, 'coderef-ask');">Line 9</a> then calls the <code>ask()</code> method on the Actor System to
+<li><p>
+<a href="#coderef-ask" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-ask');" onmouseout="CodeHighlightOff(this, 'coderef-ask');">Line 9</a> then calls the <code>ask()</code> method on the Actor System to
 send a message to an Actor within that system and wait for a
 response message.  In this case it sends a text query as the
 message, but as discussed previously that message is immaterial:
 the Hello Actor will always generate the same response.
+</p>
 
 <p>
 The additional argument (the value <code>1.5</code>) specifies a timeout
 period: if there is no response from the actor in 1-and-a-half
 seconds then the return value from the <code>ask()</code> will be None to
 indicate a timeout.
-</p>
-</li>
+</p></li>
 </ul>
 
 
@@ -547,21 +626,18 @@ example above:
 </p>
 
 <dl class="org-dl">
-<dt> <code>ask()</code> </dt><dd>sends a message and waits for a response message (or a
+<dt><code>ask()</code></dt><dd>sends a message and waits for a response message (or a
 timeout).  Note that the response message does not
 have to be from the same Actor that the input message
 was sent to, and the receipt of <i>any</i> message counts
-as a response.
-</dd>
+as a response.</dd>
 
-<dt> <code>tell()</code> </dt><dd>queues a message for transmission to the indicated
+<dt><code>tell()</code></dt><dd>queues a message for transmission to the indicated
 Actor and returns immediately.  The message may or
 may not have been delivered to the target Actor by
-the time this call returns.
-</dd>
+the time this call returns.</dd>
 
-<dt> <code>listen()</code> </dt><dd>waits for a response message or a timeout.
-</dd>
+<dt><code>listen()</code></dt><dd>waits for a response message or a timeout.</dd>
 </dl>
 
 
@@ -569,30 +645,30 @@ the time this call returns.
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">ActorSystem API</th>
-<th scope="col" class="left">Actor</th>
+<th scope="col" class="org-left">ActorSystem API</th>
+<th scope="col" class="org-left">Actor</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">ask()</td>
-<td class="left">&#xa0;</td>
+<td class="org-left">ask()</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="left">tell()</td>
-<td class="left">send()</td>
+<td class="org-left">tell()</td>
+<td class="org-left">send()</td>
 </tr>
 
 <tr>
-<td class="left">listen()</td>
-<td class="left">receiveMessage() method invoked</td>
+<td class="org-left">listen()</td>
+<td class="org-left">receiveMessage() method invoked</td>
 </tr>
 </tbody>
 </table>
@@ -604,10 +680,9 @@ equally valid to rewrite those lines as below:
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-python">  actorsys = ActorSystem()
-  hello = actorsys.createActor(Hello)
-  print(actorsys.ask(hello, 'are you there?', 1.5))
+<pre class="src src-python">  <span class="org-variable-name">actorsys</span> = ActorSystem()
+  <span class="org-variable-name">hello</span> = actorsys.createActor(Hello)
+  <span class="org-keyword">print</span>(actorsys.ask(hello, <span class="org-string">'are you there?'</span>, 1.5))
 </pre>
 </div>
 
@@ -624,22 +699,21 @@ running in that Actor System will also be terminated when the Actor
 System is shutdown.
 </p>
 <div class="org-src-container">
-
-<pre class="src src-python">  actorsys = ActorSystem()
-  hello = actorsys.createActor(Hello)
-  print(actorsys.ask(hello, 'are you there?', 1.5))
+<pre class="src src-python">  <span class="org-variable-name">actorsys</span> = ActorSystem()
+  <span class="org-variable-name">hello</span> = actorsys.createActor(Hello)
+  <span class="org-keyword">print</span>(actorsys.ask(hello, <span class="org-string">'are you there?'</span>, 1.5))
   actorsys.shutdown()
 </pre>
 </div>
 </div>
-</li></ol>
+</li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680" class="outline-3">
-<h3 id="hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680"><a id="sec-2-2" name="sec-2-2"></a><span class="section-number-3">2.2</span> Dynamic Actor Creation</h3>
+<div id="outline-container-orgddfb94c" class="outline-3">
+<h3 id="hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680"><a id="orgddfb94c"></a><span class="section-number-3">2.2</span> Dynamic Actor Creation</h3>
 <div class="outline-text-3" id="text-hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680">
-
 <p>
 In the Hello World example above, only a single Actor was created and
 used.  It's actually possible to create any number of Actors (subject
@@ -647,36 +721,35 @@ to system limits), and for Actors to create other Actors.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name">hellogoodbye.py:</label>
-<pre class="src src-python" id="hellogoodbye.py"><span class="linenr"> 1: </span>from thespian.actors import *
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>hellogoodbye.py:</label><pre class="src src-python" id="orgba88a05"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
-<span class="linenr"> 3: </span>class Hello(Actor):
-<span class="linenr"> 4: </span>    def receiveMessage(self, message, sender):
-<span id="coderef-messageCheck" class="coderef-off"><span class="linenr"> 5: </span>        if message == 'are you there?':</span>
-<span id="coderef-createGoodbye" class="coderef-off"><span class="linenr"> 6: </span>            world = self.createActor(World)</span>
-<span id="coderef-messageTuple" class="coderef-off"><span class="linenr"> 7: </span>            worldmsg = (sender, 'Hello,')</span>
-<span class="linenr"> 8: </span>            self.send(world, worldmsg)
+<span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
+<span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span id="coderef-messageCheck" class="coderef-off"><span class="linenr"> 5: </span>        <span class="org-keyword">if</span> message == <span class="org-string">'are you there?'</span>:</span>
+<span id="coderef-createGoodbye" class="coderef-off"><span class="linenr"> 6: </span>            <span class="org-variable-name">world</span> = <span class="org-keyword">self</span>.createActor(World)</span>
+<span id="coderef-messageTuple" class="coderef-off"><span class="linenr"> 7: </span>            <span class="org-variable-name">worldmsg</span> = (sender, <span class="org-string">'Hello,'</span>)</span>
+<span class="linenr"> 8: </span>            <span class="org-keyword">self</span>.send(world, worldmsg)
 <span class="linenr"> 9: </span>
-<span class="linenr">10: </span>class World(Actor):
-<span class="linenr">11: </span>    def receiveMessage(self, message, sender):
-<span id="coderef-messageIsTuple" class="coderef-off"><span class="linenr">12: </span>        if isinstance(message, tuple):</span>
-<span class="linenr">13: </span>            orig_sender, pre_world = message
-<span id="coderef-sendOriginalSender" class="coderef-off"><span class="linenr">14: </span>            self.send(orig_sender, pre_world + ' world!')</span>
+<span class="linenr">10: </span><span class="org-keyword">class</span> <span class="org-type">World</span>(Actor):
+<span class="linenr">11: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span id="coderef-messageIsTuple" class="coderef-off"><span class="linenr">12: </span>        <span class="org-keyword">if</span> <span class="org-builtin">isinstance</span>(message, <span class="org-builtin">tuple</span>):</span>
+<span class="linenr">13: </span>            <span class="org-variable-name">orig_sender</span>, <span class="org-variable-name">pre_world</span> = message
+<span id="coderef-sendOriginalSender" class="coderef-off"><span class="linenr">14: </span>            <span class="org-keyword">self</span>.send(orig_sender, pre_world + <span class="org-string">' world!'</span>)</span>
 <span class="linenr">15: </span>
-<span class="linenr">16: </span>class Goodbye(Actor):
-<span class="linenr">17: </span>    def receiveMessage(self, message, sender):
-<span class="linenr">18: </span>        self.send(sender, 'Goodbye')
+<span class="linenr">16: </span><span class="org-keyword">class</span> <span class="org-type">Goodbye</span>(Actor):
+<span class="linenr">17: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr">18: </span>        <span class="org-keyword">self</span>.send(sender, <span class="org-string">'Goodbye'</span>)
 <span class="linenr">19: </span>
-<span class="linenr">20: </span>def run_example(systembase=None):
-<span class="linenr">21: </span>    hello = ActorSystem(systembase).createActor(Hello)
-<span class="linenr">22: </span>    goodbye = ActorSystem().createActor(Goodbye)
-<span class="linenr">23: </span>    greeting = ActorSystem().ask(hello, 'are you there?', 1.5)
-<span id="coderef-print" class="coderef-off"><span class="linenr">24: </span>    print(greeting + '\n' + ActorSystem().ask(goodbye, None, 0.1))</span>
+<span class="linenr">20: </span><span class="org-keyword">def</span> <span class="org-function-name">run_example</span>(systembase=<span class="org-constant">None</span>):
+<span class="linenr">21: </span>    <span class="org-variable-name">hello</span> = ActorSystem(systembase).createActor(Hello)
+<span class="linenr">22: </span>    <span class="org-variable-name">goodbye</span> = ActorSystem().createActor(Goodbye)
+<span class="linenr">23: </span>    <span class="org-variable-name">greeting</span> = ActorSystem().ask(hello, <span class="org-string">'are you there?'</span>, 1.5)
+<span id="coderef-print" class="coderef-off"><span class="linenr">24: </span>    <span class="org-keyword">print</span>(greeting + <span class="org-string">'\n'</span> + ActorSystem().ask(goodbye, <span class="org-constant">None</span>, 0.1))</span>
 <span id="coderef-actorSysShutdown" class="coderef-off"><span class="linenr">25: </span>    ActorSystem().shutdown()</span>
 <span class="linenr">26: </span>
-<span class="linenr">27: </span>if __name__ == "__main__":
-<span class="linenr">28: </span>    import sys
-<span class="linenr">29: </span>    run_example(sys.argv[1] if len(sys.argv) &gt; 1 else None)
+<span class="linenr">27: </span><span class="org-keyword">if</span> <span class="org-builtin">__name__</span> == <span class="org-string">"__main__"</span>:
+<span class="linenr">28: </span>    <span class="org-keyword">import</span> sys
+<span class="linenr">29: </span>    run_example(sys.argv[1] <span class="org-keyword">if</span> <span class="org-builtin">len</span>(sys.argv) &gt; 1 <span class="org-keyword">else</span> <span class="org-constant">None</span>)
 </pre>
 </div>
 
@@ -699,23 +772,22 @@ Goodbye
 <p>
 In the <code>hellogoodbye</code> example, the Hello Actor does not send a
 message directly back to the sender, but instead passes the sender's
-address to another Actor that it creates on the fly (in <a href="#coderef-createGoodbye"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-createGoodbye');" onmouseout="CodeHighlightOff(this, 'coderef-createGoodbye');">line
+address to another Actor that it creates on the fly (in <a href="#coderef-createGoodbye" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-createGoodbye');" onmouseout="CodeHighlightOff(this, 'coderef-createGoodbye');">line
 6</a>).  The second Actor (World) receives a tuple which
 is the combination of the original sender's address and the first
-part of the message (created in <a href="#coderef-messageTuple"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-messageTuple');" onmouseout="CodeHighlightOff(this, 'coderef-messageTuple');">line 7</a>).  The World
+part of the message (created in <a href="#coderef-messageTuple" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-messageTuple');" onmouseout="CodeHighlightOff(this, 'coderef-messageTuple');">line 7</a>).  The World
 Actor updates the message and then sends the resulting message to
-the original sender (<a href="#coderef-sendOriginalSender"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sendOriginalSender');" onmouseout="CodeHighlightOff(this, 'coderef-sendOriginalSender');">line 14</a>).
+the original sender (<a href="#coderef-sendOriginalSender" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sendOriginalSender');" onmouseout="CodeHighlightOff(this, 'coderef-sendOriginalSender');">line 14</a>).
 </p>
 
 <p>
 The main code (outside the Actor System) has also created another
 Actor (the Goodbye Actor).  The message printed to the console in
-<a href="#coderef-print"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-print');" onmouseout="CodeHighlightOff(this, 'coderef-print');">line 24</a> is the result of calling both the Hello and the Goodbye
+<a href="#coderef-print" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-print');" onmouseout="CodeHighlightOff(this, 'coderef-print');">line 24</a> is the result of calling both the Hello and the Goodbye
 Actors (and indirectly the World Actor).
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-plantuml">title Hello Goodbye Sequence Diagram
 create Main
 create Hello
@@ -745,25 +817,26 @@ because too many World Actors had been created.  To avoid this
 unconstrained growth, there are two options:
 </p>
 <ol class="org-ol">
-<li>Hello only creates one World Actor and remembers the address:
+<li><p>
+Hello only creates one World Actor and remembers the address:
+</p>
 <div class="org-src-container">
-
-<pre class="src src-python">  if not hasattr(self, 'world'):
-      self.world = self.createActor(World)
-  self.send(self.world, (sender, 'Hello'))
+<pre class="src src-python">         <span class="org-keyword">if</span> <span class="org-keyword">not</span> <span class="org-builtin">hasattr</span>(<span class="org-keyword">self</span>, <span class="org-string">'world'</span>):
+             <span class="org-keyword">self</span>.world = <span class="org-keyword">self</span>.createActor(World)
+         <span class="org-keyword">self</span>.send(<span class="org-keyword">self</span>.world, (sender, <span class="org-string">'Hello'</span>))
 </pre>
-</div>
-</li>
-<li>The World Actor exits after doing its work.  An Actor will exit
+</div></li>
+<li><p>
+The World Actor exits after doing its work.  An Actor will exit
 if it receives an <code>ActorExitRequest</code> message (this message is
 defined in the <code>thespian</code> import file).  The <code>ActorExitRequest</code>
 message can be sent by any Actor to any other Actor, so the
 Hello Actor could send it as follows:
+</p>
 <div class="org-src-container">
-
-<pre class="src src-python">  world = self.createActor(World)
-  self.send(world, (sender, 'Hello,'))
-  self.send(world, ActorExitRequest())
+<pre class="src src-python">         <span class="org-variable-name">world</span> = <span class="org-keyword">self</span>.createActor(World)
+         <span class="org-keyword">self</span>.send(world, (sender, <span class="org-string">'Hello,'</span>))
+         <span class="org-keyword">self</span>.send(world, ActorExitRequest())
 </pre>
 </div>
 <p>
@@ -772,13 +845,11 @@ message, the World Actor could send it to itself (using the
 <code>myAddress</code> self-reference provided by the <code>Actor</code> base class):
 </p>
 <div class="org-src-container">
-
-<pre class="src src-python">  orig_sender, pre_world = message
-  self.send(orig_sender, pre_world + ' world!')
-  self.send(self.myAddress, ActorExitRequest())
+<pre class="src src-python">         <span class="org-variable-name">orig_sender</span>, <span class="org-variable-name">pre_world</span> = message
+         <span class="org-keyword">self</span>.send(orig_sender, pre_world + <span class="org-string">' world!'</span>)
+         <span class="org-keyword">self</span>.send(<span class="org-keyword">self</span>.myAddress, ActorExitRequest())
 </pre>
-</div>
-</li>
+</div></li>
 </ol>
 
 <p>
@@ -788,7 +859,7 @@ allow the Actor to perform shutdown activities.  Once the
 <code>receiveMessage()</code> returns from handling the <code>ActorExitRequest</code>, the
 Actor System will destroy the Actor.  If the Actor does not need to
 do any operations prior to being destroyed, it is free to ignore the
-<code>ActorExitRequest</code> message, but the if statement in <a href="#coderef-messageIsTuple"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-messageIsTuple');" onmouseout="CodeHighlightOff(this, 'coderef-messageIsTuple');">line
+<code>ActorExitRequest</code> message, but the if statement in <a href="#coderef-messageIsTuple" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-messageIsTuple');" onmouseout="CodeHighlightOff(this, 'coderef-messageIsTuple');">line
 12</a> ensures that when the World Actor receives the
 <code>ActorExitRequest</code> it does not try to interpret it as the greeting
 message it expected from the Hello Actor.
@@ -798,7 +869,7 @@ message it expected from the Hello Actor.
 Whenever an Actor exits, the Actor that initially created it will be
 notified via a <code>ChildActorExited</code> message.  This message is
 generated by the Actor System and specifies the address of the Actor
-which exited.  This is why there is also an if statement in <a href="#coderef-messageCheck"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-messageCheck');" onmouseout="CodeHighlightOff(this, 'coderef-messageCheck');">line
+which exited.  This is why there is also an if statement in <a href="#coderef-messageCheck" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-messageCheck');" onmouseout="CodeHighlightOff(this, 'coderef-messageCheck');">line
 5</a> above: when the World Actor exits the Hello Actor
 should not create another World Actor and send it a message&#x2014;this
 would result in an infinite loop!
@@ -815,10 +886,9 @@ functionality is needed or desired.
 </p>
 </div>
 
-<div id="outline-container-hH-015afee7-1483-44d0-bb06-f9d464c842a8" class="outline-4">
-<h4 id="hH-015afee7-1483-44d0-bb06-f9d464c842a8"><a id="sec-2-2-1" name="sec-2-2-1"></a><span class="section-number-4">2.2.1</span> Horizontal Scalability</h4>
+<div id="outline-container-org978a9a9" class="outline-4">
+<h4 id="hH-015afee7-1483-44d0-bb06-f9d464c842a8"><a id="org978a9a9"></a><span class="section-number-4">2.2.1</span> Horizontal Scalability</h4>
 <div class="outline-text-4" id="text-hH-015afee7-1483-44d0-bb06-f9d464c842a8">
-
 <p>
 As the <i>hellogoodbye</i> example above demonstrates, Actors can easily be
 created (and destroyed) on an as-needed basis.  This offers
@@ -830,10 +900,9 @@ messages across those instances (e.g. round-robin).
 </div>
 </div>
 
-<div id="outline-container-hH-1ff47ec9-6caa-4a8b-8209-2d75c6214728" class="outline-4">
-<h4 id="hH-1ff47ec9-6caa-4a8b-8209-2d75c6214728"><a id="sec-2-2-2" name="sec-2-2-2"></a><span class="section-number-4">2.2.2</span> Modularity and Extensibility</h4>
+<div id="outline-container-orgc5f186f" class="outline-4">
+<h4 id="hH-1ff47ec9-6caa-4a8b-8209-2d75c6214728"><a id="orgc5f186f"></a><span class="section-number-4">2.2.2</span> Modularity and Extensibility</h4>
 <div class="outline-text-4" id="text-hH-1ff47ec9-6caa-4a8b-8209-2d75c6214728">
-
 <p>
 Just as the Actor model supports Horizontal Scalability, it's also
 naturally promoting a highly-modular <a href="https://en.wikipedia.org/wiki/Separation_of_concerns"><b>Separation of Concerns</b></a>
@@ -856,10 +925,9 @@ perturbing the existing Actors and their functionality.
 </div>
 
 
-<div id="outline-container-hH-b2414e9c-4cec-46e7-8d53-80008f2c9498" class="outline-3">
-<h3 id="hH-b2414e9c-4cec-46e7-8d53-80008f2c9498"><a id="sec-2-3" name="sec-2-3"></a><span class="section-number-3">2.3</span> Different ActorSystem Bases</h3>
+<div id="outline-container-org9068a71" class="outline-3">
+<h3 id="hH-b2414e9c-4cec-46e7-8d53-80008f2c9498"><a id="org9068a71"></a><span class="section-number-3">2.3</span> Different ActorSystem Bases</h3>
 <div class="outline-text-3" id="text-hH-b2414e9c-4cec-46e7-8d53-80008f2c9498">
-
 <p>
 The ActorSystem Base determines how the Actor System implements the
 Actor concurrency and transport elements for supporting the Actors.
@@ -890,22 +958,22 @@ singleton, so it's only necessary to pass any initialization
 arguments to the very first call).  Different "bases" provide
 different Actor System-level functionality; they do not change the
 way that Actors work but they change the way that they are
-implemented. The <i>Using Thespian</i> guide defines the set of available
+implemented. The <a href="using">Using Thespian</a> guide defines the set of available
 system bases available for Thespian.
 </p>
 
 <p>
 By default, the "<code>simpleSystemBase</code>" is used, which runs all Actors
 synchronously in the current process.  While this base is very
-useful for debugging (see the <a href="#sec-2-5-1">Debugging</a> section), it does not
+useful for debugging (see the <a href="#hH-786634c3-1045-41a3-9354-fe5123fb6508">Debugging</a> section), it does not
 provide the level of concurrency usually desired at production time.
 </p>
 
 
 <p>
 To demonstrate the use of different ActorSystem bases, the Actor
-System <code>shutdown()</code> method call in <a href="#coderef-actorSysShutdown"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-actorSysShutdown');" onmouseout="CodeHighlightOff(this, 'coderef-actorSysShutdown');">line 25</a> of
-<a href="#hellogoodbye.py">hellogoodbye.py</a> above can be commented out, and different bases can
+System <code>shutdown()</code> method call in <a href="#coderef-actorSysShutdown" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-actorSysShutdown');" onmouseout="CodeHighlightOff(this, 'coderef-actorSysShutdown');">line 25</a> of
+<a href="#orgba88a05">hellogoodbye.py</a> above can be commented out, and different bases can
 be specified on the command line.  In the following example the
 "<code>multiprocTCPBase</code>" is used; this system base implements Actors with
 multiprocess concurrency and uses TCP as the transport:
@@ -983,24 +1051,23 @@ facility configuration).
 Each time the above tests are run, a new set of Hello, World, and
 Goodbye Actors are created.  Feel free to play around, and when you
 want all of them to be deleted, simply uncomment the Actor System
-<code>shutdown()</code> call in <a href="#coderef-actorSysShutdown"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-actorSysShutdown');" onmouseout="CodeHighlightOff(this, 'coderef-actorSysShutdown');">line 25</a> above and run it one
+<code>shutdown()</code> call in <a href="#coderef-actorSysShutdown" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-actorSysShutdown');" onmouseout="CodeHighlightOff(this, 'coderef-actorSysShutdown');">line 25</a> above and run it one
 last time: although new Actors are created each time, each run will
 automatically connect to the existing Admin for that system base, so
 shutting down that Admin will stop all Actors in that Actor System.
 </p>
 
 <p>
-As mentioned above, the <i>Using Thespian</i> document provides much more
+As mentioned above, the <a href="using">Using Thespian</a> document provides much more
 detail about the available System Bases for Thespian and their
 capabilities.  Other Actor System implemntations may or may not have
 similar configurability.
 </p>
 </div>
 
-<div id="outline-container-hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5" class="outline-4">
-<h4 id="hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5"><a id="sec-2-3-1" name="sec-2-3-1"></a><span class="section-number-4">2.3.1</span> Base Persistence</h4>
+<div id="outline-container-orgf89a126" class="outline-4">
+<h4 id="hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5"><a id="orgf89a126"></a><span class="section-number-4">2.3.1</span> Base Persistence</h4>
 <div class="outline-text-4" id="text-hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5">
-
 <p>
 One of the trickiest parts of using Thespian is in properly starting
 and/or using the desired SystemBase.  For process-local bases (like
@@ -1018,17 +1085,16 @@ the <code>ActorSystem().shutdown()</code> operation.  This can be very useful:
 <ul class="org-ul">
 <li>At boot time a startup script starts a Thespian multi-process
 base, providing various base configuration information at this
-startup point.
-</li>
+startup point.</li>
 <li>Applications can utilize the existing base, and other systems
 (as described later) can interact and utilize the current
-running Actor System.
-</li>
+running Actor System.</li>
 </ul>
 </div>
 
-<ol class="org-ol"><li><a id="hH-7dffe41e-27cd-4b56-bc6a-017add7b2c34" name="hH-7dffe41e-27cd-4b56-bc6a-017add7b2c34"></a><a id="sec-2-3-1-1" name="sec-2-3-1-1"></a>Code Updates<br  /><div class="outline-text-5" id="text-hH-7dffe41e-27cd-4b56-bc6a-017add7b2c34">
-
+<ol class="org-ol">
+<li><a id="hH-7dffe41e-27cd-4b56-bc6a-017add7b2c34"></a><a id="org0a0a199"></a>Code Updates<br />
+<div class="outline-text-5" id="text-hH-7dffe41e-27cd-4b56-bc6a-017add7b2c34">
 <p>
 Because the persistent base's admin process continues to exist,
 whatever code that was part of the admin process remains unchanged.
@@ -1037,19 +1103,18 @@ return to our original <code>hello.py</code> sample:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name">hello.py:</label>
-<pre class="src src-python" id="hello2.py"><span class="linenr"> 1: </span>from thespian.actors import *
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>hello.py:</label><pre class="src src-python" id="orga81ce16"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
-<span class="linenr"> 3: </span>class Hello(Actor):
-<span class="linenr"> 4: </span>    def receiveMessage(self, message, sender):
-<span id="coderef-message" class="coderef-off"><span class="linenr"> 5: </span>        self.send(sender, 'Hello, world!')</span>
+<span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
+<span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span id="coderef-message" class="coderef-off"><span class="linenr"> 5: </span>        <span class="org-keyword">self</span>.send(sender, <span class="org-string">'Hello, world!'</span>)</span>
 <span class="linenr"> 6: </span>
-<span class="linenr"> 7: </span>def say_hello():
-<span id="coderef-ActorSystemSpec" class="coderef-off"><span class="linenr"> 8: </span>    hello = ActorSystem().createActor(Hello)</span>
-<span class="linenr"> 9: </span>    print(ActorSystem().ask(hello, 'are you there?', 1.5))
+<span class="linenr"> 7: </span><span class="org-keyword">def</span> <span class="org-function-name">say_hello</span>():
+<span id="coderef-ActorSystemSpec" class="coderef-off"><span class="linenr"> 8: </span>    <span class="org-variable-name">hello</span> = ActorSystem().createActor(Hello)</span>
+<span class="linenr"> 9: </span>    <span class="org-keyword">print</span>(ActorSystem().ask(hello, <span class="org-string">'are you there?'</span>, 1.5))
 <span id="coderef-nomorehello" class="coderef-off"><span class="linenr">10: </span>    ActorSystem().tell(hello, ActorExitRequest)</span>
 <span class="linenr">11: </span>
-<span class="linenr">12: </span>if __name__ == "__main__":
+<span class="linenr">12: </span><span class="org-keyword">if</span> <span class="org-builtin">__name__</span> == <span class="org-string">"__main__"</span>:
 <span class="linenr">13: </span>    say_hello()
 </pre>
 </div>
@@ -1071,7 +1136,7 @@ Hello, universe!
 </pre>
 
 <p>
-However, modifying <a href="#coderef-ActorSystemSpec"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-ActorSystemSpec');" onmouseout="CodeHighlightOff(this, 'coderef-ActorSystemSpec');">Line 8</a> to pass "multiprocTCPBase"
+However, modifying <a href="#coderef-ActorSystemSpec" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-ActorSystemSpec');" onmouseout="CodeHighlightOff(this, 'coderef-ActorSystemSpec');">Line 8</a> to pass "multiprocTCPBase"
 as the argument to <code>ActorSystem()</code> results in the following:
 </p>
 
@@ -1087,9 +1152,9 @@ Hello, world!
 
 <p>
 Note that although the code was updated and the application was run
-again, that the ActorSystem call in <a href="#coderef-baseclass"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-baseclass');" onmouseout="CodeHighlightOff(this, 'coderef-baseclass');">line 3</a> re-connected to
+again, that the ActorSystem call in <a href="#coderef-baseclass" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-baseclass');" onmouseout="CodeHighlightOff(this, 'coderef-baseclass');">line 3</a> re-connected to
 the existing Admin.  Even though the previous run had stopped the
-Hello Actor itself (via the exit request in <a href="#coderef-nomorehello"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-nomorehello');" onmouseout="CodeHighlightOff(this, 'coderef-nomorehello');">line 10</a>, the
+Hello Actor itself (via the exit request in <a href="#coderef-nomorehello" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-nomorehello');" onmouseout="CodeHighlightOff(this, 'coderef-nomorehello');">line 10</a>, the
 code used to start the new instance of the Hello Actor was still the
 original code that the Admin process inherited when it was first
 started up.
@@ -1112,20 +1177,20 @@ in that system base.  The alternative is to dynamically load the new
 source code as described in <a href="#hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d">Dynamic Source Loading</a>.
 </p>
 </div>
-</li></ol>
+</li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-hH-ff59a149-101e-4e09-8552-81b155d06d72" class="outline-3">
-<h3 id="hH-ff59a149-101e-4e09-8552-81b155d06d72"><a id="sec-2-4" name="sec-2-4"></a><span class="section-number-3">2.4</span> Logging</h3>
+<div id="outline-container-orgac0b584" class="outline-3">
+<h3 id="hH-ff59a149-101e-4e09-8552-81b155d06d72"><a id="orgac0b584"></a><span class="section-number-3">2.4</span> Logging</h3>
 <div class="outline-text-3" id="text-hH-ff59a149-101e-4e09-8552-81b155d06d72">
-
 <p>
 Thespian supports the standard <code>logging</code> library, but provides some
 enhanced handling of log messages to accomodate the different system
 bases that may implement Actors in separate processes (or even on
-separate systems): as described in the Logging section of the <i>Using
-Thespian</i> documentation, log messages are forwarded to a "Logging"
+separate systems): as described in the Logging section of the <a href="using">Using
+Thespian</a> documentation, log messages are forwarded to a "Logging"
 process to be written according to the logging configuration supplied
 when the <code>ActorSystem()</code> initialization call was made.  In addition,
 for multi-system configurations, any messages of Warning level or
@@ -1139,38 +1204,37 @@ inserted in one of the actors:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name">hellogoodbyelog.py:</label>
-<pre class="src src-python" id="hellogoodbyelog.py"><span class="linenr"> 1: </span>import logging
-<span class="linenr"> 2: </span>from thespian.actors import *
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>hellogoodbyelog.py:</label><pre class="src src-python" id="org1d24734"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
+<span class="linenr"> 2: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span>class Hello(Actor):
-<span class="linenr"> 5: </span>    def receiveMessage(self, message, sender):
-<span id="coderef-loghello" class="coderef-off"><span class="linenr"> 6: </span>        logging.info('Hello actor got: %s', message)</span>
-<span class="linenr"> 7: </span>        if message == 'are you there?':
-<span class="linenr"> 8: </span>            world = self.createActor(World)
-<span class="linenr"> 9: </span>            worldmsg = (sender, 'Hello,')
-<span class="linenr">10: </span>            self.send(world, worldmsg)
+<span class="linenr"> 4: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
+<span class="linenr"> 5: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span id="coderef-loghello" class="coderef-off"><span class="linenr"> 6: </span>        logging.info(<span class="org-string">'Hello actor got: %s'</span>, message)</span>
+<span class="linenr"> 7: </span>        <span class="org-keyword">if</span> message == <span class="org-string">'are you there?'</span>:
+<span class="linenr"> 8: </span>            <span class="org-variable-name">world</span> = <span class="org-keyword">self</span>.createActor(World)
+<span class="linenr"> 9: </span>            <span class="org-variable-name">worldmsg</span> = (sender, <span class="org-string">'Hello,'</span>)
+<span class="linenr">10: </span>            <span class="org-keyword">self</span>.send(world, worldmsg)
 <span class="linenr">11: </span>
-<span class="linenr">12: </span>class World(Actor):
-<span class="linenr">13: </span>    def receiveMessage(self, message, sender):
-<span class="linenr">14: </span>        if isinstance(message, tuple):
-<span class="linenr">15: </span>            orig_sender, pre_world = message
-<span class="linenr">16: </span>            self.send(orig_sender, pre_world + ' world!')
+<span class="linenr">12: </span><span class="org-keyword">class</span> <span class="org-type">World</span>(Actor):
+<span class="linenr">13: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr">14: </span>        <span class="org-keyword">if</span> <span class="org-builtin">isinstance</span>(message, <span class="org-builtin">tuple</span>):
+<span class="linenr">15: </span>            <span class="org-variable-name">orig_sender</span>, <span class="org-variable-name">pre_world</span> = message
+<span class="linenr">16: </span>            <span class="org-keyword">self</span>.send(orig_sender, pre_world + <span class="org-string">' world!'</span>)
 <span class="linenr">17: </span>
-<span class="linenr">18: </span>class Goodbye(Actor):
-<span class="linenr">19: </span>    def receiveMessage(self, message, sender):
-<span class="linenr">20: </span>        self.send(sender, 'Goodbye')
+<span class="linenr">18: </span><span class="org-keyword">class</span> <span class="org-type">Goodbye</span>(Actor):
+<span class="linenr">19: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr">20: </span>        <span class="org-keyword">self</span>.send(sender, <span class="org-string">'Goodbye'</span>)
 <span class="linenr">21: </span>
-<span class="linenr">22: </span>def run_example(systembase=None):
-<span class="linenr">23: </span>    hello = ActorSystem(systembase).createActor(Hello)
-<span class="linenr">24: </span>    goodbye = ActorSystem().createActor(Goodbye)
-<span class="linenr">25: </span>    greeting = ActorSystem().ask(hello, 'are you there?', 1.5)
-<span class="linenr">26: </span>    print(greeting + '\n' + ActorSystem().ask(goodbye, None, 0.1))
+<span class="linenr">22: </span><span class="org-keyword">def</span> <span class="org-function-name">run_example</span>(systembase=<span class="org-constant">None</span>):
+<span class="linenr">23: </span>    <span class="org-variable-name">hello</span> = ActorSystem(systembase).createActor(Hello)
+<span class="linenr">24: </span>    <span class="org-variable-name">goodbye</span> = ActorSystem().createActor(Goodbye)
+<span class="linenr">25: </span>    <span class="org-variable-name">greeting</span> = ActorSystem().ask(hello, <span class="org-string">'are you there?'</span>, 1.5)
+<span class="linenr">26: </span>    <span class="org-keyword">print</span>(greeting + <span class="org-string">'\n'</span> + ActorSystem().ask(goodbye, <span class="org-constant">None</span>, 0.1))
 <span class="linenr">27: </span>    ActorSystem().shutdown()
 <span class="linenr">28: </span>
-<span class="linenr">29: </span>if __name__ == "__main__":
-<span class="linenr">30: </span>    import sys
-<span class="linenr">31: </span>    run_example(sys.argv[1] if len(sys.argv) &gt; 1 else None)
+<span class="linenr">29: </span><span class="org-keyword">if</span> <span class="org-builtin">__name__</span> == <span class="org-string">"__main__"</span>:
+<span class="linenr">30: </span>    <span class="org-keyword">import</span> sys
+<span class="linenr">31: </span>    run_example(sys.argv[1] <span class="org-keyword">if</span> <span class="org-builtin">len</span>(sys.argv) &gt; 1 <span class="org-keyword">else</span> <span class="org-constant">None</span>)
 </pre>
 </div>
 
@@ -1189,7 +1253,7 @@ INFO:root:Hello got: ChildActorExited:ActorAddr-(TCP|12.34.56.78:47034)
 </pre>
 
 <p>
-The logging statement on <a href="#coderef-loghello"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-loghello');" onmouseout="CodeHighlightOff(this, 'coderef-loghello');">line 6</a> has generated the INFO
+The logging statement on <a href="#coderef-loghello" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-loghello');" onmouseout="CodeHighlightOff(this, 'coderef-loghello');">line 6</a> has generated the INFO
 statements (except for the first which came from the Thespian
 ActorSystem itself) in the output above because the default logging
 configuration is to write to the console.
@@ -1202,57 +1266,56 @@ To customize the logging (for example, to write to a file called
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name">hellogoodbyelog2.py:</label>
-<pre class="src src-python" id="hellogoodbyelog2.py"><span class="linenr"> 1: </span>import logging
-<span class="linenr"> 2: </span>from thespian.actors import *
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>hellogoodbyelog2.py:</label><pre class="src src-python" id="orge6374cc"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
+<span class="linenr"> 2: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span>class Hello(Actor):
-<span class="linenr"> 5: </span>    def receiveMessage(self, message, sender):
-<span class="linenr"> 6: </span>        logging.info('Hello actor got: %s', message)
-<span class="linenr"> 7: </span>        if message == 'are you there?':
-<span class="linenr"> 8: </span>            world = self.createActor(World)
-<span class="linenr"> 9: </span>            worldmsg = (sender, 'Hello,')
-<span class="linenr">10: </span>            self.send(world, worldmsg)
+<span class="linenr"> 4: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
+<span class="linenr"> 5: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr"> 6: </span>        logging.info(<span class="org-string">'Hello actor got: %s'</span>, message)
+<span class="linenr"> 7: </span>        <span class="org-keyword">if</span> message == <span class="org-string">'are you there?'</span>:
+<span class="linenr"> 8: </span>            <span class="org-variable-name">world</span> = <span class="org-keyword">self</span>.createActor(World)
+<span class="linenr"> 9: </span>            <span class="org-variable-name">worldmsg</span> = (sender, <span class="org-string">'Hello,'</span>)
+<span class="linenr">10: </span>            <span class="org-keyword">self</span>.send(world, worldmsg)
 <span class="linenr">11: </span>
-<span class="linenr">12: </span>class World(Actor):
-<span class="linenr">13: </span>    def receiveMessage(self, message, sender):
-<span class="linenr">14: </span>        if isinstance(message, tuple):
-<span class="linenr">15: </span>            orig_sender, pre_world = message
-<span class="linenr">16: </span>            self.send(orig_sender, pre_world + ' world!')
+<span class="linenr">12: </span><span class="org-keyword">class</span> <span class="org-type">World</span>(Actor):
+<span class="linenr">13: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr">14: </span>        <span class="org-keyword">if</span> <span class="org-builtin">isinstance</span>(message, <span class="org-builtin">tuple</span>):
+<span class="linenr">15: </span>            <span class="org-variable-name">orig_sender</span>, <span class="org-variable-name">pre_world</span> = message
+<span class="linenr">16: </span>            <span class="org-keyword">self</span>.send(orig_sender, pre_world + <span class="org-string">' world!'</span>)
 <span class="linenr">17: </span>
-<span class="linenr">18: </span>class Goodbye(Actor):
-<span class="linenr">19: </span>    def receiveMessage(self, message, sender):
-<span class="linenr">20: </span>        self.send(sender, 'Goodbye')
+<span class="linenr">18: </span><span class="org-keyword">class</span> <span class="org-type">Goodbye</span>(Actor):
+<span class="linenr">19: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr">20: </span>        <span class="org-keyword">self</span>.send(sender, <span class="org-string">'Goodbye'</span>)
 <span class="linenr">21: </span>
-<span id="coderef-logdef" class="coderef-off"><span class="linenr">22: </span>logcfg = { 'version': 1,</span>
-<span class="linenr">23: </span>           'formatters': {
-<span class="linenr">24: </span>               'normal': {
-<span class="linenr">25: </span>                   'format': '%(levelname)-8s %(message)s'}},
-<span class="linenr">26: </span>           'handlers': {
-<span class="linenr">27: </span>               'h': {'class': 'logging.FileHandler',
-<span class="linenr">28: </span>                     'filename': 'hello.log',
-<span class="linenr">29: </span>                     'formatter': 'normal',
-<span class="linenr">30: </span>                     'level': logging.INFO}},
-<span class="linenr">31: </span>           'loggers' : {
-<span class="linenr">32: </span>               '': {'handlers': ['h'], 'level': logging.DEBUG}}
+<span id="coderef-logdef" class="coderef-off"><span class="linenr">22: </span><span class="org-variable-name">logcfg</span> = { <span class="org-string">'version'</span>: 1,</span>
+<span class="linenr">23: </span>           <span class="org-string">'formatters'</span>: {
+<span class="linenr">24: </span>               <span class="org-string">'normal'</span>: {
+<span class="linenr">25: </span>                   <span class="org-string">'format'</span>: <span class="org-string">'%(levelname)-8s %(message)s'</span>}},
+<span class="linenr">26: </span>           <span class="org-string">'handlers'</span>: {
+<span class="linenr">27: </span>               <span class="org-string">'h'</span>: {<span class="org-string">'class'</span>: <span class="org-string">'logging.FileHandler'</span>,
+<span class="linenr">28: </span>                     <span class="org-string">'filename'</span>: <span class="org-string">'hello.log'</span>,
+<span class="linenr">29: </span>                     <span class="org-string">'formatter'</span>: <span class="org-string">'normal'</span>,
+<span class="linenr">30: </span>                     <span class="org-string">'level'</span>: logging.INFO}},
+<span class="linenr">31: </span>           <span class="org-string">'loggers'</span> : {
+<span class="linenr">32: </span>               <span class="org-string">''</span>: {<span class="org-string">'handlers'</span>: [<span class="org-string">'h'</span>], <span class="org-string">'level'</span>: logging.DEBUG}}
 <span class="linenr">33: </span>         }
 <span class="linenr">34: </span>
-<span class="linenr">35: </span>def run_example(systembase=None):
-<span id="coderef-loginit" class="coderef-off"><span class="linenr">36: </span>    hello = ActorSystem(systembase, logDefs=logcfg).createActor(Hello)</span>
-<span class="linenr">37: </span>    goodbye = ActorSystem().createActor(Goodbye)
-<span class="linenr">38: </span>    greeting = ActorSystem().ask(hello, 'are you there?', 1.5)
-<span class="linenr">39: </span>    print(greeting + '\n' + ActorSystem().ask(goodbye, None, 0.1))
+<span class="linenr">35: </span><span class="org-keyword">def</span> <span class="org-function-name">run_example</span>(systembase=<span class="org-constant">None</span>):
+<span id="coderef-loginit" class="coderef-off"><span class="linenr">36: </span>    <span class="org-variable-name">hello</span> = ActorSystem(systembase, logDefs=logcfg).createActor(Hello)</span>
+<span class="linenr">37: </span>    <span class="org-variable-name">goodbye</span> = ActorSystem().createActor(Goodbye)
+<span class="linenr">38: </span>    <span class="org-variable-name">greeting</span> = ActorSystem().ask(hello, <span class="org-string">'are you there?'</span>, 1.5)
+<span class="linenr">39: </span>    <span class="org-keyword">print</span>(greeting + <span class="org-string">'\n'</span> + ActorSystem().ask(goodbye, <span class="org-constant">None</span>, 0.1))
 <span class="linenr">40: </span>    ActorSystem().shutdown()
 <span class="linenr">41: </span>
-<span class="linenr">42: </span>if __name__ == "__main__":
-<span class="linenr">43: </span>    import sys
-<span class="linenr">44: </span>    run_example(sys.argv[1] if len(sys.argv) &gt; 1 else None)
+<span class="linenr">42: </span><span class="org-keyword">if</span> <span class="org-builtin">__name__</span> == <span class="org-string">"__main__"</span>:
+<span class="linenr">43: </span>    <span class="org-keyword">import</span> sys
+<span class="linenr">44: </span>    run_example(sys.argv[1] <span class="org-keyword">if</span> <span class="org-builtin">len</span>(sys.argv) &gt; 1 <span class="org-keyword">else</span> <span class="org-constant">None</span>)
 </pre>
 </div>
 
 <p>
-In <a href="#coderef-loginit"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-loginit');" onmouseout="CodeHighlightOff(this, 'coderef-loginit');">line 36</a> above, the <code>logDefs</code> argument specifies the logging
-configuration defined at <a href="#coderef-logdef"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-logdef');" onmouseout="CodeHighlightOff(this, 'coderef-logdef');">line 22</a>.  Running this version of the code yields the following:
+In <a href="#coderef-loginit" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-loginit');" onmouseout="CodeHighlightOff(this, 'coderef-loginit');">line 36</a> above, the <code>logDefs</code> argument specifies the logging
+configuration defined at <a href="#coderef-logdef" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-logdef');" onmouseout="CodeHighlightOff(this, 'coderef-logdef');">line 22</a>.  Running this version of the code yields the following:
 </p>
 
 <pre class="example">
@@ -1276,14 +1339,13 @@ configuration which overrides the default.
 </p>
 </div>
 
-<div id="outline-container-hH-bb02d15f-a0a3-456f-93df-64ee2712bd89" class="outline-4">
-<h4 id="hH-bb02d15f-a0a3-456f-93df-64ee2712bd89"><a id="sec-2-4-1" name="sec-2-4-1"></a><span class="section-number-4">2.4.1</span> Source Actor Address Logging</h4>
+<div id="outline-container-org9966eff" class="outline-4">
+<h4 id="hH-bb02d15f-a0a3-456f-93df-64ee2712bd89"><a id="org9966eff"></a><span class="section-number-4">2.4.1</span> Source Actor Address Logging</h4>
 <div class="outline-text-4" id="text-hH-bb02d15f-a0a3-456f-93df-64ee2712bd89">
-
 <p>
 Some system bases are capable of specifying the current Actor's
 address when generating log output lines by setting the "actorAddress"
-attribute, as described in the <i>Using Thespian</i> documentation.
+attribute, as described in the <a href="using">Using Thespian</a> documentation.
 Unfortunately, the log formatter must handle the case where the
 actorAddress attribute is not present.  To do this, a filter can be
 used to select the right formatter based on the presence or absence of
@@ -1291,82 +1353,80 @@ this attribute:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name">hellogoodbyelog3.py:</label>
-<pre class="src src-python" id="hellogoodbyelog3.py"><span class="linenr"> 1: </span>import logging
-<span class="linenr"> 2: </span>from thespian.actors import *
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>hellogoodbyelog3.py:</label><pre class="src src-python" id="org7e01f6d"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
+<span class="linenr"> 2: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span>class Hello(Actor):
-<span class="linenr"> 5: </span>    def receiveMessage(self, message, sender):
-<span class="linenr"> 6: </span>        logging.info('Hello actor got: %s', message)
-<span class="linenr"> 7: </span>        if message == 'are you there?':
-<span class="linenr"> 8: </span>            world = self.createActor(World)
-<span class="linenr"> 9: </span>            worldmsg = (sender, 'Hello,')
-<span class="linenr">10: </span>            self.send(world, worldmsg)
+<span class="linenr"> 4: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
+<span class="linenr"> 5: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr"> 6: </span>        logging.info(<span class="org-string">'Hello actor got: %s'</span>, message)
+<span class="linenr"> 7: </span>        <span class="org-keyword">if</span> message == <span class="org-string">'are you there?'</span>:
+<span class="linenr"> 8: </span>            <span class="org-variable-name">world</span> = <span class="org-keyword">self</span>.createActor(World)
+<span class="linenr"> 9: </span>            <span class="org-variable-name">worldmsg</span> = (sender, <span class="org-string">'Hello,'</span>)
+<span class="linenr">10: </span>            <span class="org-keyword">self</span>.send(world, worldmsg)
 <span class="linenr">11: </span>
-<span class="linenr">12: </span>class World(Actor):
-<span class="linenr">13: </span>    def receiveMessage(self, message, sender):
-<span class="linenr">14: </span>        if isinstance(message, tuple):
-<span class="linenr">15: </span>            orig_sender, pre_world = message
-<span class="linenr">16: </span>            self.send(orig_sender, pre_world + ' world!')
+<span class="linenr">12: </span><span class="org-keyword">class</span> <span class="org-type">World</span>(Actor):
+<span class="linenr">13: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr">14: </span>        <span class="org-keyword">if</span> <span class="org-builtin">isinstance</span>(message, <span class="org-builtin">tuple</span>):
+<span class="linenr">15: </span>            <span class="org-variable-name">orig_sender</span>, <span class="org-variable-name">pre_world</span> = message
+<span class="linenr">16: </span>            <span class="org-keyword">self</span>.send(orig_sender, pre_world + <span class="org-string">' world!'</span>)
 <span class="linenr">17: </span>
-<span class="linenr">18: </span>class Goodbye(Actor):
-<span class="linenr">19: </span>    def receiveMessage(self, message, sender):
-<span class="linenr">20: </span>        self.send(sender, 'Goodbye')
+<span class="linenr">18: </span><span class="org-keyword">class</span> <span class="org-type">Goodbye</span>(Actor):
+<span class="linenr">19: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr">20: </span>        <span class="org-keyword">self</span>.send(sender, <span class="org-string">'Goodbye'</span>)
 <span class="linenr">21: </span>
-<span class="linenr">22: </span>class actorLogFilter(logging.Filter):
-<span class="linenr">23: </span>    def filter(self, logrecord):
-<span class="linenr">24: </span>        return 'actorAddress' in logrecord.__dict__
-<span class="linenr">25: </span>class notActorLogFilter(logging.Filter):
-<span class="linenr">26: </span>    def filter(self, logrecord):
-<span class="linenr">27: </span>        return 'actorAddress' not in logrecord.__dict__
+<span class="linenr">22: </span><span class="org-keyword">class</span> <span class="org-type">actorLogFilter</span>(logging.Filter):
+<span class="linenr">23: </span>    <span class="org-keyword">def</span> <span class="org-function-name">filter</span>(<span class="org-keyword">self</span>, logrecord):
+<span class="linenr">24: </span>        <span class="org-keyword">return</span> <span class="org-string">'actorAddress'</span> <span class="org-keyword">in</span> logrecord.__dict__
+<span class="linenr">25: </span><span class="org-keyword">class</span> <span class="org-type">notActorLogFilter</span>(logging.Filter):
+<span class="linenr">26: </span>    <span class="org-keyword">def</span> <span class="org-function-name">filter</span>(<span class="org-keyword">self</span>, logrecord):
+<span class="linenr">27: </span>        <span class="org-keyword">return</span> <span class="org-string">'actorAddress'</span> <span class="org-keyword">not</span> <span class="org-keyword">in</span> logrecord.__dict__
 <span class="linenr">28: </span>
-<span class="linenr">29: </span>logcfg = {
-<span class="linenr">30: </span>  'version': 1,
-<span class="linenr">31: </span>  'formatters': {
-<span class="linenr">32: </span>      'normal': {'format': '%(levelname)-8s %(message)s'},
-<span class="linenr">33: </span>      'actor': {
-<span class="linenr">34: </span>          'format': '%(levelname)-8s %(actorAddress)s =&gt; %(message)s'}},
-<span class="linenr">35: </span>  'filters': { 'isActorLog': { '()': actorLogFilter},
-<span class="linenr">36: </span>               'notActorLog': { '()': notActorLogFilter}},
-<span class="linenr">37: </span>  'handlers': { 'h1': {'class': 'logging.FileHandler',
-<span class="linenr">38: </span>                       'filename': 'hello.log',
-<span class="linenr">39: </span>                       'formatter': 'normal',
-<span class="linenr">40: </span>                       'filters': ['notActorLog'],
-<span class="linenr">41: </span>                       'level': logging.INFO},
-<span class="linenr">42: </span>                'h2': {'class': 'logging.FileHandler',
-<span class="linenr">43: </span>                       'filename': 'hello.log',
-<span class="linenr">44: </span>                       'formatter': 'actor',
-<span class="linenr">45: </span>                       'filters': ['isActorLog'],
-<span class="linenr">46: </span>                       'level': logging.INFO},},
-<span class="linenr">47: </span>  'loggers' : {
-<span class="linenr">48: </span>      '': {'handlers': ['h1', 'h2'], 'level': logging.DEBUG}}
+<span class="linenr">29: </span><span class="org-variable-name">logcfg</span> = {
+<span class="linenr">30: </span>  <span class="org-string">'version'</span>: 1,
+<span class="linenr">31: </span>  <span class="org-string">'formatters'</span>: {
+<span class="linenr">32: </span>      <span class="org-string">'normal'</span>: {<span class="org-string">'format'</span>: <span class="org-string">'%(levelname)-8s %(message)s'</span>},
+<span class="linenr">33: </span>      <span class="org-string">'actor'</span>: {
+<span class="linenr">34: </span>          <span class="org-string">'format'</span>: <span class="org-string">'%(levelname)-8s %(actorAddress)s =&gt; %(message)s'</span>}},
+<span class="linenr">35: </span>  <span class="org-string">'filters'</span>: { <span class="org-string">'isActorLog'</span>: { <span class="org-string">'()'</span>: actorLogFilter},
+<span class="linenr">36: </span>               <span class="org-string">'notActorLog'</span>: { <span class="org-string">'()'</span>: notActorLogFilter}},
+<span class="linenr">37: </span>  <span class="org-string">'handlers'</span>: { <span class="org-string">'h1'</span>: {<span class="org-string">'class'</span>: <span class="org-string">'logging.FileHandler'</span>,
+<span class="linenr">38: </span>                       <span class="org-string">'filename'</span>: <span class="org-string">'hello.log'</span>,
+<span class="linenr">39: </span>                       <span class="org-string">'formatter'</span>: <span class="org-string">'normal'</span>,
+<span class="linenr">40: </span>                       <span class="org-string">'filters'</span>: [<span class="org-string">'notActorLog'</span>],
+<span class="linenr">41: </span>                       <span class="org-string">'level'</span>: logging.INFO},
+<span class="linenr">42: </span>                <span class="org-string">'h2'</span>: {<span class="org-string">'class'</span>: <span class="org-string">'logging.FileHandler'</span>,
+<span class="linenr">43: </span>                       <span class="org-string">'filename'</span>: <span class="org-string">'hello.log'</span>,
+<span class="linenr">44: </span>                       <span class="org-string">'formatter'</span>: <span class="org-string">'actor'</span>,
+<span class="linenr">45: </span>                       <span class="org-string">'filters'</span>: [<span class="org-string">'isActorLog'</span>],
+<span class="linenr">46: </span>                       <span class="org-string">'level'</span>: logging.INFO},},
+<span class="linenr">47: </span>  <span class="org-string">'loggers'</span> : {
+<span class="linenr">48: </span>      <span class="org-string">''</span>: {<span class="org-string">'handlers'</span>: [<span class="org-string">'h1'</span>, <span class="org-string">'h2'</span>], <span class="org-string">'level'</span>: logging.DEBUG}}
 <span class="linenr">49: </span>}
 <span class="linenr">50: </span>
-<span class="linenr">51: </span>def run_example(systembase=None):
-<span class="linenr">52: </span>    hello = ActorSystem(systembase,
+<span class="linenr">51: </span><span class="org-keyword">def</span> <span class="org-function-name">run_example</span>(systembase=<span class="org-constant">None</span>):
+<span class="linenr">52: </span>    <span class="org-variable-name">hello</span> = ActorSystem(systembase,
 <span class="linenr">53: </span>                        logDefs=logcfg).createActor(Hello)
-<span class="linenr">54: </span>    goodbye = ActorSystem().createActor(Goodbye)
-<span class="linenr">55: </span>    greeting = ActorSystem().ask(hello, 'are you there?', 1.5)
+<span class="linenr">54: </span>    <span class="org-variable-name">goodbye</span> = ActorSystem().createActor(Goodbye)
+<span class="linenr">55: </span>    <span class="org-variable-name">greeting</span> = ActorSystem().ask(hello, <span class="org-string">'are you there?'</span>, 1.5)
 <span class="linenr">56: </span>
-<span class="linenr">57: </span>    logging.info('Actors are started')
-<span class="linenr">58: </span>    print(greeting + '\n' + ActorSystem().ask(goodbye, None, 0.1))
+<span class="linenr">57: </span>    logging.info(<span class="org-string">'Actors are started'</span>)
+<span class="linenr">58: </span>    <span class="org-keyword">print</span>(greeting + <span class="org-string">'\n'</span> + ActorSystem().ask(goodbye, <span class="org-constant">None</span>, 0.1))
 <span class="linenr">59: </span>
-<span class="linenr">60: </span>    logging.info('Finished with example')
+<span class="linenr">60: </span>    logging.info(<span class="org-string">'Finished with example'</span>)
 <span class="linenr">61: </span>    ActorSystem().shutdown()
 <span class="linenr">62: </span>
-<span class="linenr">63: </span>if __name__ == "__main__":
-<span class="linenr">64: </span>    import sys
-<span class="linenr">65: </span>    run_example(sys.argv[1] if len(sys.argv) &gt; 1 else None)
+<span class="linenr">63: </span><span class="org-keyword">if</span> <span class="org-builtin">__name__</span> == <span class="org-string">"__main__"</span>:
+<span class="linenr">64: </span>    <span class="org-keyword">import</span> sys
+<span class="linenr">65: </span>    run_example(sys.argv[1] <span class="org-keyword">if</span> <span class="org-builtin">len</span>(sys.argv) &gt; 1 <span class="org-keyword">else</span> <span class="org-constant">None</span>)
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-hH-e01f8b46-7c4d-4740-a2c5-b74380f18875" class="outline-3">
-<h3 id="hH-e01f8b46-7c4d-4740-a2c5-b74380f18875"><a id="sec-2-5" name="sec-2-5"></a><span class="section-number-3">2.5</span> Concurrency</h3>
+<div id="outline-container-orga12dd80" class="outline-3">
+<h3 id="hH-e01f8b46-7c4d-4740-a2c5-b74380f18875"><a id="orga12dd80"></a><span class="section-number-3">2.5</span> Concurrency</h3>
 <div class="outline-text-3" id="text-hH-e01f8b46-7c4d-4740-a2c5-b74380f18875">
-
 <p>
 In the examples shown above, messages were delivered to the
 different Actors and those Actors processed those messages.  One of
@@ -1388,15 +1448,13 @@ message.  There are two primary constraints on Actor message handling:
 <li>Each Actor will only process one message at a time.  It must
 return from the <code>receiveMessage()</code> handling of the current
 message before the next message will be delivered to the
-Actor.
-</li>
+Actor.</li>
 
 <li>Thespian guarantees that messages sent from Actor A to Actor B
 are delivered to B in the same order that they are sent by A,
 but if Actor C is also sending messages to Actor B there is no
 guarantee that A's messages and C's messages will not be
-commingled.
-</li>
+commingled.</li>
 </ol>
 
 <p>
@@ -1437,10 +1495,9 @@ different concurrency type is needed later on.
 </p>
 </div>
 
-<div id="outline-container-hH-786634c3-1045-41a3-9354-fe5123fb6508" class="outline-4">
-<h4 id="hH-786634c3-1045-41a3-9354-fe5123fb6508"><a id="sec-2-5-1" name="sec-2-5-1"></a><span class="section-number-4">2.5.1</span> Debugging</h4>
+<div id="outline-container-orgd1a577a" class="outline-4">
+<h4 id="hH-786634c3-1045-41a3-9354-fe5123fb6508"><a id="orgd1a577a"></a><span class="section-number-4">2.5.1</span> Debugging</h4>
 <div class="outline-text-4" id="text-hH-786634c3-1045-41a3-9354-fe5123fb6508">
-
 <p>
 Multi-threaded applications are very difficult to debug, and
 multi-process applications are even worse.  Stepping through code,
@@ -1458,14 +1515,13 @@ Actor's <code>receiveMessage()</code> is executed one after another serially.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name">test-hellogoodbye.py:</label>
-<pre class="src src-python" id="test-hellogoodbye.py"><span class="linenr">1: </span>  from hellogoodbye import *
-<span class="linenr">2: </span>  from unitttest import TestCase
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>test-hellogoodbye.py:</label><pre class="src src-python" id="org0c47da7"><span class="linenr">1: </span>  <span class="org-keyword">from</span> hellogoodbye <span class="org-keyword">import</span> *
+<span class="linenr">2: </span>  <span class="org-keyword">from</span> unitttest <span class="org-keyword">import</span> TestCase
 <span class="linenr">3: </span>
-<span class="linenr">4: </span>  class TestHelloGoodbye(TestCase):
+<span class="linenr">4: </span>  <span class="org-keyword">class</span> <span class="org-type">TestHelloGoodbye</span>(TestCase):
 <span class="linenr">5: </span>
-<span class="linenr">6: </span>      def test_example(self):
-<span class="linenr">7: </span>          run_example('simpleSystemBase')
+<span class="linenr">6: </span>      <span class="org-keyword">def</span> <span class="org-function-name">test_example</span>(<span class="org-keyword">self</span>):
+<span class="linenr">7: </span>          run_example(<span class="org-string">'simpleSystemBase'</span>)
 </pre>
 </div>
 
@@ -1497,10 +1553,9 @@ argument will be discussed in the next section.
 </div>
 </div>
 
-<div id="outline-container-hH-4d0d08fe-d96a-4937-8bca-2a9b2588bb4c" class="outline-3">
-<h3 id="hH-4d0d08fe-d96a-4937-8bca-2a9b2588bb4c"><a id="sec-2-6" name="sec-2-6"></a><span class="section-number-3">2.6</span> Location Independence</h3>
+<div id="outline-container-orgc878292" class="outline-3">
+<h3 id="hH-4d0d08fe-d96a-4937-8bca-2a9b2588bb4c"><a id="orgc878292"></a><span class="section-number-3">2.6</span> Location Independence</h3>
 <div class="outline-text-3" id="text-hH-4d0d08fe-d96a-4937-8bca-2a9b2588bb4c">
-
 <p>
 When an Actor wishes to send a message to another Actor, it uses the
 <code>self.send()</code> method and specifies the Address of the target Actor.
@@ -1541,10 +1596,9 @@ de-duplicating Actors.
 </p>
 </div>
 
-<div id="outline-container-hH-b6f32db8-fb0e-4110-95c0-c745ab5b730e" class="outline-4">
-<h4 id="hH-b6f32db8-fb0e-4110-95c0-c745ab5b730e"><a id="sec-2-6-1" name="sec-2-6-1"></a><span class="section-number-4">2.6.1</span> Capability-based Location Selection</h4>
+<div id="outline-container-org9e9f474" class="outline-4">
+<h4 id="hH-b6f32db8-fb0e-4110-95c0-c745ab5b730e"><a id="org9e9f474"></a><span class="section-number-4">2.6.1</span> Capability-based Location Selection</h4>
 <div class="outline-text-4" id="text-hH-b6f32db8-fb0e-4110-95c0-c745ab5b730e">
-
 <p>
 Thespian allows different Actor Systems to identify what
 capabilities are present in the current environment.  These
@@ -1555,21 +1609,20 @@ capabilities of the current system match the Actor's requirements.
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-python"><span class="linenr"> 1: </span>  from thespian.actors import *
-<span class="linenr"> 2: </span>  from database import dbclass
+<pre class="src src-python"><span class="linenr"> 1: </span>  <span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<span class="linenr"> 2: </span>  <span class="org-keyword">from</span> database <span class="org-keyword">import</span> dbclass
 <span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span>  class DBUpdate(Actor):
+<span class="linenr"> 4: </span>  <span class="org-keyword">class</span> <span class="org-type">DBUpdate</span>(Actor):
 <span class="linenr"> 5: </span>
-<span class="linenr"> 6: </span>      @staticmethod
-<span id="coderef-capcheck" class="coderef-off"><span class="linenr"> 7: </span>      def actorSystemCapabilityCheck(capabilities, requirements):</span>
-<span id="coderef-dbCap" class="coderef-off"><span class="linenr"> 8: </span>          return capabilities.get('Has DB access', False)</span>
+<span class="linenr"> 6: </span>      <span class="org-type">@staticmethod</span>
+<span id="coderef-capcheck" class="coderef-off"><span class="linenr"> 7: </span>      <span class="org-keyword">def</span> <span class="org-function-name">actorSystemCapabilityCheck</span>(capabilities, requirements):</span>
+<span id="coderef-dbCap" class="coderef-off"><span class="linenr"> 8: </span>          <span class="org-keyword">return</span> capabilities.get(<span class="org-string">'Has DB access'</span>, <span class="org-constant">False</span>)</span>
 <span class="linenr"> 9: </span>      
-<span class="linenr">10: </span>      def __init__(self):
-<span class="linenr">11: </span>          self.db = dbclass.connect(...)
+<span class="linenr">10: </span>      <span class="org-keyword">def</span> <span class="org-function-name">__init__</span>(<span class="org-keyword">self</span>):
+<span class="linenr">11: </span>          <span class="org-keyword">self</span>.db = dbclass.connect(...)
 <span class="linenr">12: </span>          
-<span class="linenr">13: </span>      def receiveMessage(self, message, sender):
-<span class="linenr">14: </span>          rows = self.db.query('select * from ...')
+<span class="linenr">13: </span>      <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr">14: </span>          <span class="org-variable-name">rows</span> = <span class="org-keyword">self</span>.db.query(<span class="org-string">'select * from ...'</span>)
 <span class="linenr">15: </span>          ...
 </pre>
 </div>
@@ -1579,7 +1632,7 @@ The <code>DBUpdate</code> Actor above must be able to access a database to run
 properly; if the current host node does not have network access to
 that database then the Actor should be run on another host that does
 have access to the database.  The <code>actorSystemCapabilityCheck()</code> in
-<a href="#coderef-capcheck"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-capcheck');" onmouseout="CodeHighlightOff(this, 'coderef-capcheck');">line 7</a> checks the <code>capabilities</code> argument (which is a
+<a href="#coderef-capcheck" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-capcheck');" onmouseout="CodeHighlightOff(this, 'coderef-capcheck');">line 7</a> checks the <code>capabilities</code> argument (which is a
 dictionary provided by the current Actor System) to see if the needed
 capabilities are there.  The <code>actorSystemCapabilityCheck()</code> method
 returns <code>True</code> if the current capabilities are valid for it to be
@@ -1588,7 +1641,7 @@ Actor cannot run in this Actor System.
 </p>
 
 <p>
-There is also a <code>requirements</code> argument in <a href="#coderef-capcheck"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-capcheck');" onmouseout="CodeHighlightOff(this, 'coderef-capcheck');">line 7</a> that the
+There is also a <code>requirements</code> argument in <a href="#coderef-capcheck" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-capcheck');" onmouseout="CodeHighlightOff(this, 'coderef-capcheck');">line 7</a> that the
 Actor can check: the <code>self.createActor()</code> method can be called with an
 optional requirements dictionary that lets the creating Actor pass
 requirements to the Actor it is wishing to create.
@@ -1610,28 +1663,26 @@ method:
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-python"><span class="linenr"> 1: </span>  from thespian.actors import *
-<span class="linenr"> 2: </span>  from database import dbclass
+<pre class="src src-python"><span class="linenr"> 1: </span>  <span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<span class="linenr"> 2: </span>  <span class="org-keyword">from</span> database <span class="org-keyword">import</span> dbclass
 <span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span>  @requireCapability('Has DB access')
-<span class="linenr"> 5: </span>  @requireCapability('LDAP installed')
-<span class="linenr"> 6: </span>  class DBUpdateFromLDAP(Actor):
+<span class="linenr"> 4: </span>  <span class="org-type">@requireCapability</span>(<span class="org-string">'Has DB access'</span>)
+<span class="linenr"> 5: </span>  <span class="org-type">@requireCapability</span>(<span class="org-string">'LDAP installed'</span>)
+<span class="linenr"> 6: </span>  <span class="org-keyword">class</span> <span class="org-type">DBUpdateFromLDAP</span>(Actor):
 <span class="linenr"> 7: </span>
-<span class="linenr"> 8: </span>      @staticmethod
-<span class="linenr"> 9: </span>      def actorSystemCapabilityCheck(capabilities, requirements):
-<span class="linenr">10: </span>          return capabilities.get('LDAP zone', None) == 'Active'
+<span class="linenr"> 8: </span>      <span class="org-type">@staticmethod</span>
+<span class="linenr"> 9: </span>      <span class="org-keyword">def</span> <span class="org-function-name">actorSystemCapabilityCheck</span>(capabilities, requirements):
+<span class="linenr">10: </span>          <span class="org-keyword">return</span> capabilities.get(<span class="org-string">'LDAP zone'</span>, <span class="org-constant">None</span>) == <span class="org-string">'Active'</span>
 <span class="linenr">11: </span>      
-<span class="linenr">12: </span>      def receiveMessage(self, message, sender): ...
+<span class="linenr">12: </span>      <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender): ...
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-hH-1ab869b1-c7be-4dce-8346-d4b3a78cb2ba" class="outline-4">
-<h4 id="hH-1ab869b1-c7be-4dce-8346-d4b3a78cb2ba"><a id="sec-2-6-2" name="sec-2-6-2"></a><span class="section-number-4">2.6.2</span> Multiple Cooperating Actor Systems</h4>
+<div id="outline-container-orgdacaba5" class="outline-4">
+<h4 id="hH-1ab869b1-c7be-4dce-8346-d4b3a78cb2ba"><a id="orgdacaba5"></a><span class="section-number-4">2.6.2</span> Multiple Cooperating Actor Systems</h4>
 <div class="outline-text-4" id="text-hH-1ab869b1-c7be-4dce-8346-d4b3a78cb2ba">
-
 <p>
 When Thespian Actor Systems are started on each host node, they can
 specify the capabilities of the current system at that startup time.
@@ -1641,20 +1692,19 @@ and share Actors:
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-python"><span class="linenr"> 1: </span>  from thespian.actors import *
-<span class="linenr"> 2: </span>  from database import dbclass
+<pre class="src src-python"><span class="linenr"> 1: </span>  <span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<span class="linenr"> 2: </span>  <span class="org-keyword">from</span> database <span class="org-keyword">import</span> dbclass
 <span class="linenr"> 3: </span>
-<span id="coderef-conventionSpec" class="coderef-off"><span class="linenr"> 4: </span>  capabilities = { 'Convention Address.IPv4': '10.5.1.1:1900' }</span>
+<span id="coderef-conventionSpec" class="coderef-off"><span class="linenr"> 4: </span>  <span class="org-variable-name">capabilities</span> = { <span class="org-string">'Convention Address.IPv4'</span>: <span class="org-string">'10.5.1.1:1900'</span> }</span>
 <span class="linenr"> 5: </span>
-<span class="linenr"> 6: </span>  try:
-<span class="linenr"> 7: </span>      dbconn = dbclass.connect(...)
-<span class="linenr"> 8: </span>      if dbconn and 1 == dbconn.runquery('select 1=1'):
-<span id="coderef-dbAccessSet" class="coderef-off"><span class="linenr"> 9: </span>          capabilities['Has DB access'] = True</span>
-<span class="linenr">10: </span>  except DBError:
-<span class="linenr">11: </span>      pass
+<span class="linenr"> 6: </span>  <span class="org-keyword">try</span>:
+<span class="linenr"> 7: </span>      <span class="org-variable-name">dbconn</span> = dbclass.connect(...)
+<span class="linenr"> 8: </span>      <span class="org-keyword">if</span> dbconn <span class="org-keyword">and</span> 1 == dbconn.runquery(<span class="org-string">'select 1=1'</span>):
+<span id="coderef-dbAccessSet" class="coderef-off"><span class="linenr"> 9: </span>          <span class="org-variable-name">capabilities</span>[<span class="org-string">'Has DB access'</span>] = <span class="org-constant">True</span></span>
+<span class="linenr">10: </span>  <span class="org-keyword">except</span> DBError:
+<span class="linenr">11: </span>      <span class="org-keyword">pass</span>
 <span class="linenr">12: </span>
-<span id="coderef-startupActorSys" class="coderef-off"><span class="linenr">13: </span>  ActorSystem('multiprocTCPBase', capabilities)</span>
+<span id="coderef-startupActorSys" class="coderef-off"><span class="linenr">13: </span>  ActorSystem(<span class="org-string">'multiprocTCPBase'</span>, capabilities)</span>
 </pre>
 </div>
 
@@ -1664,19 +1714,16 @@ each host node in our environment:
 </p>
 
 <dl class="org-dl">
-<dt> <a href="#coderef-conventionSpec"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-conventionSpec');" onmouseout="CodeHighlightOff(this, 'coderef-conventionSpec');">Line 4</a> </dt><dd>All systems specify the IP address of the
-Convention Leader as a standard capability
-</dd>
-<dt> <a href="#coderef-dbAccessSet"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-dbAccessSet');" onmouseout="CodeHighlightOff(this, 'coderef-dbAccessSet');">Line 9</a> </dt><dd>Each system checks to see if it can access
+<dt><a href="#coderef-conventionSpec" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-conventionSpec');" onmouseout="CodeHighlightOff(this, 'coderef-conventionSpec');">Line 4</a></dt><dd>All systems specify the IP address of the
+Convention Leader as a standard capability</dd>
+<dt><a href="#coderef-dbAccessSet" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-dbAccessSet');" onmouseout="CodeHighlightOff(this, 'coderef-dbAccessSet');">Line 9</a></dt><dd>Each system checks to see if it can access
 the database successfully and sets another capability if it
 can.  This capability is the same capability that the DBUpdate
-Actor above requires to be able to run.
-</dd>
-<dt> <a href="#coderef-startupActorSys"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-startupActorSys');" onmouseout="CodeHighlightOff(this, 'coderef-startupActorSys');">Line 13</a> </dt><dd>Each system starts the Actor System with
+Actor above requires to be able to run.</dd>
+<dt><a href="#coderef-startupActorSys" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-startupActorSys');" onmouseout="CodeHighlightOff(this, 'coderef-startupActorSys');">Line 13</a></dt><dd>Each system starts the Actor System with
 the specified set of capabilities.  The Actor Systems will join
 the Convention run by the Actor System at the specified address
-and report their capabilities to each other.
-</dd>
+and report their capabilities to each other.</dd>
 </dl>
 
 <p>
@@ -1695,7 +1742,7 @@ Convention that has the Address of the Actor.
 <div class="figure">
 <p><img src="./fig2.png" alt="fig2.png" />
 </p>
-<p><span class="figure-number">Figure 3:</span> Example Multi-node Actor configuration</p>
+<p><span class="figure-number">Figure 3: </span>Example Multi-node Actor configuration</p>
 </div>
 
 <p>
@@ -1711,15 +1758,14 @@ failures.
 </div>
 </div>
 
-<div id="outline-container-hH-8835eec5-eb65-4899-ab80-1f861bb5f52c" class="outline-3">
-<h3 id="hH-8835eec5-eb65-4899-ab80-1f861bb5f52c"><a id="sec-2-7" name="sec-2-7"></a><span class="section-number-3">2.7</span> Fault Tolerance</h3>
+<div id="outline-container-org0123ede" class="outline-3">
+<h3 id="hH-8835eec5-eb65-4899-ab80-1f861bb5f52c"><a id="org0123ede"></a><span class="section-number-3">2.7</span> Fault Tolerance</h3>
 <div class="outline-text-3" id="text-hH-8835eec5-eb65-4899-ab80-1f861bb5f52c">
-
 <p>
 Any modern application must be capable of dealing with faults, and
 this is definitely true of a distributed system which has by its very
 nature many additional places where faults can occur.  The same
-benefits that make Actors easy to use with <a href="#sec-2-6">Location Independence</a> also
+benefits that make Actors easy to use with <a href="#hH-4d0d08fe-d96a-4937-8bca-2a9b2588bb4c">Location Independence</a> also
 make them resilient to Faults in the system.
 </p>
 
@@ -1738,8 +1784,7 @@ When an Actor fails, the Actor System will respond to that failure:
 <ul class="org-ul">
 <li>The Actor System will restart the Actor and re-deliver the message
 that it was processing when it failed (all other inbound and
-outbound messages for that Actor are unaffected).
-</li>
+outbound messages for that Actor are unaffected).</li>
 
 <li>If the Actor fails <i>again</i> processing the same message, the Actor
 System determines that it is the message that is causing the
@@ -1747,21 +1792,17 @@ problem.
 
 <ul class="org-ul">
 <li>The Actor System will restart the Actor yet again, but it will
-<i>not</i> deliver that same message to the Actor.
-</li>
+<i>not</i> deliver that same message to the Actor.</li>
 
 <li>The Actor System will wrap the message in a <code>PoisonMessage</code>
 wrapper and send it back to the Actor which originally sent
 the message.  This originating Actor is free to ignore this
 <code>PoisonMessage</code>, or it can provide operational recovery
-handling.
-</li>
+handling.</li>
 
 <li>The failed Actor will resume processing messages with the next
-message to be delivered.
-</li>
-</ul>
-</li>
+message to be delivered.</li>
+</ul></li>
 </ul>
 
 <p>
@@ -1780,28 +1821,24 @@ interfering with concurrency.
 </div>
 </div>
 
-<div id="outline-container-hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d" class="outline-2">
-<h2 id="hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d"><a id="sec-3" name="sec-3"></a><span class="section-number-2">3</span> Dynamic Source Loading</h2>
+<div id="outline-container-orge63e691" class="outline-2">
+<h2 id="hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d"><a id="orge63e691"></a><span class="section-number-2">3</span> Dynamic Source Loading</h2>
 <div class="outline-text-2" id="text-hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d">
-
 <p>
-Thespian's ability to perform <a href="#sec-2-2">Dynamic Actor Creation</a> can be logically
+Thespian's ability to perform <a href="#hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680">Dynamic Actor Creation</a> can be logically
 extended to be able to dynamically load the sources from which these
 Actors are created.  This can be useful in several ways:
 </p>
 
 <ul class="org-ul">
 <li>Updating source code running in persistent ActorSystem base
-instances (as described in <a href="#hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5">Base Persistence</a>).
-</li>
+instances (as described in <a href="#hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5">Base Persistence</a>).</li>
 
 <li>Ensuring that the same version of Actor sources are running
-throughout the environment.
-</li>
+throughout the environment.</li>
 
 <li>Only loading new code on systems "on-demand"&#x2026; i.e. when an Actor
-is started on that system that uses the associated code.
-</li>
+is started on that system that uses the associated code.</li>
 </ul>
 
 <p>
@@ -1869,30 +1906,29 @@ used each time it is run:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name">hi.py:</label>
-<pre class="src src-python" id="hi.py"><span class="linenr"> 1: </span>from thespian.actors import *
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>hi.py:</label><pre class="src src-python" id="org7f70269"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
-<span class="linenr"> 3: </span>class Hello(Actor):
-<span class="linenr"> 4: </span>    def receiveMessage(self, message, sender):
-<span class="linenr"> 5: </span>        self.send(sender, 'Hello, world!')
+<span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
+<span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
+<span class="linenr"> 5: </span>        <span class="org-keyword">self</span>.send(sender, <span class="org-string">'Hello, world!'</span>)
 <span class="linenr"> 6: </span>
-<span class="linenr"> 7: </span>def zipMyself():
-<span class="linenr"> 8: </span>    zipname = 'hi.zip'
-<span class="linenr"> 9: </span>    import zipfile
-<span class="linenr">10: </span>    zf = zipfile.ZipFile(zipname, 'w')
-<span class="linenr">11: </span>    zf.writestr('hi.py', open('hi.py', 'r').read())
+<span class="linenr"> 7: </span><span class="org-keyword">def</span> <span class="org-function-name">zipMyself</span>():
+<span class="linenr"> 8: </span>    <span class="org-variable-name">zipname</span> = <span class="org-string">'hi.zip'</span>
+<span class="linenr"> 9: </span>    <span class="org-keyword">import</span> zipfile
+<span class="linenr">10: </span>    <span class="org-variable-name">zf</span> = zipfile.ZipFile(zipname, <span class="org-string">'w'</span>)
+<span class="linenr">11: </span>    zf.writestr(<span class="org-string">'hi.py'</span>, <span class="org-builtin">open</span>(<span class="org-string">'hi.py'</span>, <span class="org-string">'r'</span>).read())
 <span class="linenr">12: </span>    zf.close()
-<span class="linenr">13: </span>    return zipname
+<span class="linenr">13: </span>    <span class="org-keyword">return</span> zipname
 <span class="linenr">14: </span>
-<span class="linenr">15: </span>def say_hello():
-<span class="linenr">16: </span>    actorSys = ActorSystem("multiprocTCPBase")
-<span id="coderef-loadSource" class="coderef-off"><span class="linenr">17: </span>    loadHash = actorSys.loadActorSource(zipMyself())</span>
-<span class="linenr">18: </span>    hello = actorSys.createActor('hi.Hello',
+<span class="linenr">15: </span><span class="org-keyword">def</span> <span class="org-function-name">say_hello</span>():
+<span class="linenr">16: </span>    <span class="org-variable-name">actorSys</span> = ActorSystem(<span class="org-string">"multiprocTCPBase"</span>)
+<span id="coderef-loadSource" class="coderef-off"><span class="linenr">17: </span>    <span class="org-variable-name">loadHash</span> = actorSys.loadActorSource(zipMyself())</span>
+<span class="linenr">18: </span>    <span class="org-variable-name">hello</span> = actorSys.createActor(<span class="org-string">'hi.Hello'</span>,
 <span id="coderef-hashCreate" class="coderef-off"><span class="linenr">19: </span>                                 sourceHash = loadHash)</span>
-<span class="linenr">20: </span>    print(actorSys.ask(hello, 'are you there?', 1.5))
+<span class="linenr">20: </span>    <span class="org-keyword">print</span>(actorSys.ask(hello, <span class="org-string">'are you there?'</span>, 1.5))
 <span class="linenr">21: </span>    actorSys.tell(hello, ActorExitRequest)
 <span class="linenr">22: </span>
-<span class="linenr">23: </span>if __name__ == "__main__":
+<span class="linenr">23: </span><span class="org-keyword">if</span> <span class="org-builtin">__name__</span> == <span class="org-string">"__main__"</span>:
 <span class="linenr">24: </span>    say_hello()
 </pre>
 </div>
@@ -1905,7 +1941,7 @@ sdist</code> or something similar.
 </p>
 
 <p>
-The zipfile is loaded into the currently running Actor System in <a href="#coderef-loadSource"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-loadSource');" onmouseout="CodeHighlightOff(this, 'coderef-loadSource');">line 17</a> and then the creation of the Actor in <a href="#coderef-hashCreate"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-hashCreate');" onmouseout="CodeHighlightOff(this, 'coderef-hashCreate');">line 19</a>
+The zipfile is loaded into the currently running Actor System in <a href="#coderef-loadSource" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-loadSource');" onmouseout="CodeHighlightOff(this, 'coderef-loadSource');">line 17</a> and then the creation of the Actor in <a href="#coderef-hashCreate" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-hashCreate');" onmouseout="CodeHighlightOff(this, 'coderef-hashCreate');">line 19</a>
 uses the hash value obtained from loading the source to specify which
 source the Actor should be created from.  Note also that the Actor to
 be created is referred to by name instead of by reference, and that
@@ -1935,10 +1971,9 @@ The sources loaded remain loaded until unloaded via a call to
 </div>
 </div>
 
-<div id="outline-container-hH-058d8939-b973-4270-975b-3afd9c607176" class="outline-2">
-<h2 id="hH-058d8939-b973-4270-975b-3afd9c607176"><a id="sec-4" name="sec-4"></a><span class="section-number-2">4</span> Shell</h2>
+<div id="outline-container-org03802dc" class="outline-2">
+<h2 id="hH-058d8939-b973-4270-975b-3afd9c607176"><a id="org03802dc"></a><span class="section-number-2">4</span> Shell</h2>
 <div class="outline-text-2" id="text-hH-058d8939-b973-4270-975b-3afd9c607176">
-
 <p>
 Thespian comes with a command-line application shell which can be used
 to interact with existing Actor Systems.  This is especially handy to
@@ -1947,10 +1982,9 @@ manual testing.
 </p>
 </div>
 
-<div id="outline-container-hH-654845ce-3c0f-4fe8-892a-5ff5d12f5ca0" class="outline-3">
-<h3 id="hH-654845ce-3c0f-4fe8-892a-5ff5d12f5ca0"><a id="sec-4-1" name="sec-4-1"></a><span class="section-number-3">4.1</span> Starting the Shell</h3>
+<div id="outline-container-org1543559" class="outline-3">
+<h3 id="hH-654845ce-3c0f-4fe8-892a-5ff5d12f5ca0"><a id="org1543559"></a><span class="section-number-3">4.1</span> Starting the Shell</h3>
 <div class="outline-text-3" id="text-hH-654845ce-3c0f-4fe8-892a-5ff5d12f5ca0">
-
 <p>
 At startup, the <code>start</code> command should be used to specify which Actor
 System base and parameters should be used.  This command internally
@@ -1975,10 +2009,9 @@ $
 </div>
 </div>
 
-<div id="outline-container-hH-092b8ae6-ec6c-4729-9505-8dbd32284d02" class="outline-3">
-<h3 id="hH-092b8ae6-ec6c-4729-9505-8dbd32284d02"><a id="sec-4-2" name="sec-4-2"></a><span class="section-number-3">4.2</span> Address Management in the Shell</h3>
+<div id="outline-container-orgab66ad2" class="outline-3">
+<h3 id="hH-092b8ae6-ec6c-4729-9505-8dbd32284d02"><a id="orgab66ad2"></a><span class="section-number-3">4.2</span> Address Management in the Shell</h3>
 <div class="outline-text-3" id="text-hH-092b8ae6-ec6c-4729-9505-8dbd32284d02">
-
 <p>
 The thespian shell provides special handling for Actor Addresses.
 Rather than being required to type the full Actor Address each time,
@@ -1995,15 +2028,14 @@ thespian&gt; start multiprocTCPBase
 Starting multiprocTCPBase ActorSystem
 thespian&gt; address localhost 1900
 Actor Address 0: ActorAddr-(TCP|127.0.0.1:1900)
-thespian&gt;
+thespian&gt; 
 </pre>
 </div>
 </div>
 
-<div id="outline-container-hH-c0bca217-9bbe-4d44-b322-a51b86f2ee93" class="outline-3">
-<h3 id="hH-c0bca217-9bbe-4d44-b322-a51b86f2ee93"><a id="sec-4-3" name="sec-4-3"></a><span class="section-number-3">4.3</span> Shell Test Actor</h3>
+<div id="outline-container-org2f05f04" class="outline-3">
+<h3 id="hH-c0bca217-9bbe-4d44-b322-a51b86f2ee93"><a id="org2f05f04"></a><span class="section-number-3">4.3</span> Shell Test Actor</h3>
 <div class="outline-text-3" id="text-hH-c0bca217-9bbe-4d44-b322-a51b86f2ee93">
-
 <p>
 There is also a test Actor that is part of the shell.  The test Actor
 simply sends back anything it gets with a message that it received it,
@@ -2029,10 +2061,9 @@ Response: TestActor @ ActorAddr-(TCP|10.56.10.5:54991) got: hi
 </div>
 </div>
 
-<div id="outline-container-hH-efd0ab30-ef4e-4105-b4b6-4831afc5d3de" class="outline-3">
-<h3 id="hH-efd0ab30-ef4e-4105-b4b6-4831afc5d3de"><a id="sec-4-4" name="sec-4-4"></a><span class="section-number-3">4.4</span> Actor Status Requests</h3>
+<div id="outline-container-org877e40b" class="outline-3">
+<h3 id="hH-efd0ab30-ef4e-4105-b4b6-4831afc5d3de"><a id="org877e40b"></a><span class="section-number-3">4.4</span> Actor Status Requests</h3>
 <div class="outline-text-3" id="text-hH-efd0ab30-ef4e-4105-b4b6-4831afc5d3de">
-
 <p>
 The shell also supports issuing status queries to Actors.  The status
 query returns various information about the Actor.
@@ -2081,35 +2112,25 @@ programmatically relied upon at this time.
 </div>
 
 
-<div id="outline-container-hH-2827218b-828e-4d59-9b08-153d46b02134" class="outline-2">
-<h2 id="hH-2827218b-828e-4d59-9b08-153d46b02134"><a id="sec-5" name="sec-5"></a><span class="section-number-2">5</span> Conclusion</h2>
+<div id="outline-container-org9d4e81a" class="outline-2">
+<h2 id="hH-2827218b-828e-4d59-9b08-153d46b02134"><a id="org9d4e81a"></a><span class="section-number-2">5</span> Conclusion</h2>
 <div class="outline-text-2" id="text-hH-2827218b-828e-4d59-9b08-153d46b02134">
-
 <p>
 The Actor model is a powerful and yet simple tool for the modern
 software developer.  Actor libraries like Thespian enable the
 development of applications that are:
 </p>
 <ul class="org-ul">
-<li>highly scalable
-</li>
-<li>fault tolerant
-</li>
-<li>concurrent (modifiably, with synchronous reduced cases for debugging)
-</li>
-<li>loosely coupled
-</li>
-<li>modular
-</li>
-<li>extensible (via design, instances, and/or new source loads)
-</li>
-<li>adaptive
-</li>
-<li>location independent
-</li>
+<li>highly scalable</li>
+<li>fault tolerant</li>
+<li>concurrent (modifiably, with synchronous reduced cases for debugging)</li>
+<li>loosely coupled</li>
+<li>modular</li>
+<li>extensible (via design, instances, and/or new source loads)</li>
+<li>adaptive</li>
+<li>location independent</li>
 <li>built around a higher level of abstraction (no lock-in on concurrency or
-transport mechanisms)
-</li>
+transport mechanisms)</li>
 </ul>
 
 <p>
@@ -2122,8 +2143,7 @@ cloud-based applications.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2017-12-22 Fri 14:56</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2018-08-05 Sun 22:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
