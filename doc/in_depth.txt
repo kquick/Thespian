@@ -28,6 +28,9 @@ Table of Contents
 ..... 2.6.2 Multiple Cooperating Actor Systems
 .. 2.7 Fault Tolerance
 3 Dynamic Source Loading
+.. 3.1 Security via the Source Authority
+.. 3.2 Loading Sources
+.. 3.3 Running the example
 4 Shell
 .. 4.1 Starting the Shell
 .. 4.2 Address Management in the Shell
@@ -1320,6 +1323,14 @@ https://docs.python.org/3/library/logging.html?highlight=logging#module-logging
   may be explicitly unloaded from Thespian by calling the
   `ActorSystem.unloadSource()' method.
 
+
+[Dynamic Actor Creation] See section 2.2
+
+[Base Persistence] See section 2.3.1
+
+3.1 Security via the Source Authority
+─────────────────────────────────────
+
   For security purposes, there is a special Actor that can register
   itself as the "Source Authority".  Any loaded image is passed to the
   Source Authority for validation before it is useable for
@@ -1327,6 +1338,40 @@ https://docs.python.org/3/library/logging.html?highlight=logging#module-logging
   validation it chooses on the loaded image (e.g. validating a
   signature); images which are not approved by the Source Authority are
   rejected and cannot be used.
+
+  For the example in the section below, the following script is run
+  first to startup an actor system and load a Source Authority that will
+  accept any loaded sources.
+
+  ┌────
+  │  1  from thespian.actors import ActorSystem, Actor, ValidateSource, ValidatedSource
+  │  2  import sys
+  │  3  
+  │  4  class SimpleSourceAuthority(Actor):
+  │  5      def receiveMessage(self, msg, sender):
+  │  6          if msg is True:
+  │  7              self.registerSourceAuthority()
+  │  8          if isinstance(msg, ValidateSource):
+  │  9              self.send(sender,
+  │ 10                        ValidatedSource(msg.sourceHash,
+  │ 11                                        msg.sourceData,
+  │ 12                                        # Thespian pre 3.2.0 has no sourceInfo
+  │ 13                                        getattr(msg, 'sourceInfo', None)))
+  │ 14  
+  │ 15  
+  │ 16  if __name__ == "__main__":
+  │ 17      if "shutdown" in sys.argv:
+  │ 18          ActorSystem('multiprocTCPBase').shutdown()
+  │ 19          sys.exit(0)
+  │ 20      asys = ActorSystem('multiprocTCPBase')
+  │ 21      sa = asys.createActor(SimpleSourceAuthority)
+  │ 22      asys.tell(sa, True)
+  └────
+  Listing 8: runsys.py:
+
+
+3.2 Loading Sources
+───────────────────
 
   Because the Thespian Actor Systems communicate as part of a
   Convention, the source image only needs to be loaded on the Convention
@@ -1375,7 +1420,7 @@ https://docs.python.org/3/library/logging.html?highlight=logging#module-logging
   │ 23  if __name__ == "__main__":
   │ 24      say_hello()
   └────
-  Listing 8: hi.py:
+  Listing 9: hi.py:
 
   This example creates the zipfile from itself (with a couple of
   assumptions… this is just an example) although normally you would
@@ -1390,10 +1435,15 @@ https://docs.python.org/3/library/logging.html?highlight=logging#module-logging
   qualified by the zipfile name to match standard Python import
   semantics.
 
+
+3.3 Running the example
+───────────────────────
+
   Running this and changing the source in between runs clearly shows
   that the changes are loaded and used in subsequent runs:
 
   ┌────
+  │ $ python runsys.py
   │ $ python hi.py
   │ Hello, world!
   │ $ python hi.py
@@ -1401,15 +1451,11 @@ https://docs.python.org/3/library/logging.html?highlight=logging#module-logging
   │ $ edit hi.py  # <-- change "world" to "universe"
   │ $ python hi.py
   │ Hello, universe!
+  │ $ python runsys.py shutdown
   └────
 
   The sources loaded remain loaded until unloaded via a call to
   `unloadActorSource()' or until the Actor System exits.
-
-
-[Dynamic Actor Creation] See section 2.2
-
-[Base Persistence] See section 2.3.1
 
 
 4 Shell
