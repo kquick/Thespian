@@ -14,6 +14,7 @@ Summary
 .. 2016
 3.x
 .. 3.9
+..... 3.9.5 <2018-12-17 Mon>
 ..... 3.9.4 <2018-08-05 Sun>
 ..... 3.9.3 <2018-07-31 Tue>
 ..... 3.9.2 <2018-01-31 Wed>
@@ -107,6 +108,7 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Release        Date  Significant Bugfixes                              Significant Features             
   ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+     3.9.5  2018-12-17  Fix [Issue #32]: Deadlock in TX backoff                                            
      3.9.4  2018-08-05  Fix [Issue #28]: Enable offline                                                    
      3.9.3  2018-07-31  Log deserialization errors at ERROR level         `THESPLOG_THRESHOLD'             
                         More thread-safety fixes                                                           
@@ -116,6 +118,8 @@ Summary
      3.9.1  2018-01-09  `RunCommand logging fix'                          log message serialization errors 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+
+[Issue #32] https://github.com/kquick/Thespian/issues/32
 
 [Issue #28] https://github.com/kquick/Thespian/issues/28
 
@@ -251,6 +255,17 @@ Summary
 
 3.9
 ───
+
+3.9.5 <2018-12-17 Mon>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Fixed [Issue #32] which caused an actor to hang due to an internal
+    deadlock if the number of queued messages reached the backoff
+    threshold.
+
+
+[Issue #32] https://github.com/kquick/Thespian/issues/32
+
 
 3.9.4 <2018-08-05 Sun>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
