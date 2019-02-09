@@ -9,11 +9,13 @@ Table of Contents
 ─────────────────
 
 Summary
+.. 2019
 .. 2018
 .. 2017
 .. 2016
 3.x
 .. 3.9
+..... 3.9.6 <2019-02-05 Tue>
 ..... 3.9.5 <2018-12-17 Mon>
 ..... 3.9.4 <2018-08-05 Sun>
 ..... 3.9.3 <2018-07-31 Tue>
@@ -101,6 +103,22 @@ not change the API.
 
 Summary
 ═══════
+
+2019
+────
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes                 Significant Features 
+  ────────────────────────────────────────────────────────────────────────────────
+     3.9.6  2019-02-09  Improve [Issue #35]: Windows issues                       
+                        Improve [Issue #38]: system limits                        
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[Issue #35] https://github.com/kquick/Thespian/issues/35
+
+[Issue #38] https://github.com/kquick/Thespian/issues/38
+
 
 2018
 ────
@@ -255,6 +273,24 @@ Summary
 
 3.9
 ───
+
+3.9.6 <2019-02-05 Tue>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Improved [Issue #35] which addressed some issues running under
+    Windows and also with the multiprocUDPBase.  The improvements
+    include [PullReq #36] from TTimo (thanks!).
+  ‣ Improved [Issue #38] which addresses the behavour of Thespian when
+    system limits (e.g. process count or file-descriptor count) are
+    reached.
+
+
+[Issue #35] https://github.com/kquick/Thespian/issues/35
+
+[PullReq #36] https://github.com/kquick/Thespian/pull/36
+
+[Issue #38] https://github.com/kquick/Thespian/issues/38
+
 
 3.9.5 <2018-12-17 Mon>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
