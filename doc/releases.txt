@@ -15,6 +15,7 @@ Summary
 .. 2016
 3.x
 .. 3.9
+..... 3.9.7 <2019-02-11 Mon>
 ..... 3.9.6 <2019-02-05 Tue>
 ..... 3.9.5 <2018-12-17 Mon>
 ..... 3.9.4 <2018-08-05 Sun>
@@ -110,6 +111,7 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Release        Date  Significant Bugfixes                 Significant Features 
   ────────────────────────────────────────────────────────────────────────────────
+     3.9.7  2019-02-11  Further bugfixes and efficiencies                         
      3.9.6  2019-02-09  Improve [Issue #35]: Windows issues                       
                         Improve [Issue #38]: system limits                        
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -273,6 +275,14 @@ Summary
 
 3.9
 ───
+
+3.9.7 <2019-02-11 Mon>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Remove extraneous messages to ActorSystem at Actor shutdown time.
+  ‣ Additional shutdown activity suppression on failed startup.
+  ‣ Update multiprocUDPBase handling of signal interruptions.
+
 
 3.9.6 <2019-02-05 Tue>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
