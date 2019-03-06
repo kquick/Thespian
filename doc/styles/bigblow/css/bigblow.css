@@ -624,7 +624,7 @@ span.todo .selected {
 
 #minitoc a {
     display: block;
-    font-size: 66px;
+    font-size: 66%;
     font-weight: normal;
 }
 
