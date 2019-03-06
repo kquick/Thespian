@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-11-07 Wed 23:39 -->
+<!-- 2019-03-05 Tue 23:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thespian In-Depth Introduction</title>
@@ -195,6 +195,7 @@
 <link href="https://fonts.googleapis.com/css?family=Actor" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 <link href="thespian.css" rel="stylesheet" type="text/css"/>
+<link href="thespian_in_depth.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -312,8 +313,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orge3e7e67" class="outline-2">
-<h2 id="hH-2755875e-6956-405e-8be2-cfc2ea596f63"><a id="orge3e7e67"></a><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-orgb2957e5" class="outline-2">
+<h2 id="hH-2755875e-6956-405e-8be2-cfc2ea596f63"><a id="orgb2957e5"></a><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-hH-2755875e-6956-405e-8be2-cfc2ea596f63">
 <p>
 How do you design an application using Agile methodologies that will
@@ -352,8 +353,8 @@ others to leverage the Actor Model architecture for Python.
 </p>
 </div>
 
-<div id="outline-container-org48dbd8c" class="outline-3">
-<h3 id="hH-53c50716-fdfa-4b6e-91d0-ed0313de1b4a"><a id="org48dbd8c"></a><span class="section-number-3">1.1</span> The Actor Model</h3>
+<div id="outline-container-orgd9efc7d" class="outline-3">
+<h3 id="hH-53c50716-fdfa-4b6e-91d0-ed0313de1b4a"><a id="orgd9efc7d"></a><span class="section-number-3">1.1</span> The Actor Model</h3>
 <div class="outline-text-3" id="text-hH-53c50716-fdfa-4b6e-91d0-ed0313de1b4a">
 <p>
 The Actor Model itself is pretty simple, but it's the way that it
@@ -413,13 +414,13 @@ different Actors.</li>
 </div>
 
 
-<div id="outline-container-orge165956" class="outline-2">
-<h2 id="hH-1b595f63-447b-40d1-ad52-582e4ac7a536"><a id="orge165956"></a><span class="section-number-2">2</span> Thespian Features</h2>
+<div id="outline-container-orgbc15e0e" class="outline-2">
+<h2 id="hH-1b595f63-447b-40d1-ad52-582e4ac7a536"><a id="orgbc15e0e"></a><span class="section-number-2">2</span> Thespian Features</h2>
 <div class="outline-text-2" id="text-hH-1b595f63-447b-40d1-ad52-582e4ac7a536">
 </div>
 
-<div id="outline-container-org4514916" class="outline-3">
-<h3 id="hH-0a2f4dce-a031-4631-8270-267fa1956ead"><a id="org4514916"></a><span class="section-number-3">2.1</span> Thespian Walk-Through</h3>
+<div id="outline-container-org9405185" class="outline-3">
+<h3 id="hH-0a2f4dce-a031-4631-8270-267fa1956ead"><a id="org9405185"></a><span class="section-number-3">2.1</span> Thespian Walk-Through</h3>
 <div class="outline-text-3" id="text-hH-0a2f4dce-a031-4631-8270-267fa1956ead">
 <p>
 One of the first things you'll notice when writing Actor-based code is
@@ -446,8 +447,8 @@ To demonstrate how easy this is, let's look at an example using the
 </p>
 </div>
 
-<div id="outline-container-org280e8ee" class="outline-4">
-<h4 id="hH-b974440c-2d2e-4bc0-be71-1f85ca4d397e"><a id="org280e8ee"></a><span class="section-number-4">2.1.1</span> Installation of Thespian</h4>
+<div id="outline-container-orga8be67c" class="outline-4">
+<h4 id="hH-b974440c-2d2e-4bc0-be71-1f85ca4d397e"><a id="orga8be67c"></a><span class="section-number-4">2.1.1</span> Installation of Thespian</h4>
 <div class="outline-text-4" id="text-hH-b974440c-2d2e-4bc0-be71-1f85ca4d397e">
 <p>
 The Thespian Python library is available on github at
@@ -476,8 +477,8 @@ them in `ps' output.
 </div>
 </div>
 
-<div id="outline-container-org2166e33" class="outline-4">
-<h4 id="hH-2b0d0d3f-4752-4adc-aa3e-db0b46c5739e"><a id="org2166e33"></a><span class="section-number-4">2.1.2</span> Hello World</h4>
+<div id="outline-container-org338c170" class="outline-4">
+<h4 id="hH-2b0d0d3f-4752-4adc-aa3e-db0b46c5739e"><a id="org338c170"></a><span class="section-number-4">2.1.2</span> Hello World</h4>
 <div class="outline-text-4" id="text-hH-2b0d0d3f-4752-4adc-aa3e-db0b46c5739e">
 <p>
 Let's start with the typical example of Hello World.  In this case,
@@ -486,7 +487,7 @@ and print that response:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>hello.py:</label><pre class="src src-python" id="org80990ca"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>hello.py:</label><pre class="src src-python" id="orgc05af2f"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
 <span id="coderef-baseclass" class="coderef-off"><span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):</span>
 <span id="coderef-receiveMessage" class="coderef-off"><span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):</span>
@@ -562,7 +563,7 @@ Actors running, but lets keep it simple for the moment.
 </div>
 
 <ol class="org-ol">
-<li><a id="hH-dcc3fb43-fa1f-47df-9eb0-aff3eaa093aa"></a><a id="org8081b09"></a>Actor System Interaction<br />
+<li><a id="hH-dcc3fb43-fa1f-47df-9eb0-aff3eaa093aa"></a><a id="orga9ffee3"></a>Actor System Interaction<br />
 <div class="outline-text-5" id="text-hH-dcc3fb43-fa1f-47df-9eb0-aff3eaa093aa">
 <p>
 The next couple of lines in the Hello World example are a little
@@ -717,8 +718,8 @@ System is shutdown.
 </div>
 </div>
 
-<div id="outline-container-org280f879" class="outline-3">
-<h3 id="hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680"><a id="org280f879"></a><span class="section-number-3">2.2</span> Dynamic Actor Creation</h3>
+<div id="outline-container-org1525799" class="outline-3">
+<h3 id="hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680"><a id="org1525799"></a><span class="section-number-3">2.2</span> Dynamic Actor Creation</h3>
 <div class="outline-text-3" id="text-hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680">
 <p>
 In the Hello World example above, only a single Actor was created and
@@ -727,7 +728,7 @@ to system limits), and for Actors to create other Actors.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>hellogoodbye.py:</label><pre class="src src-python" id="org821676d"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>hellogoodbye.py:</label><pre class="src src-python" id="org7bc7b9d"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
 <span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
 <span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
@@ -892,8 +893,8 @@ functionality is needed or desired.
 </p>
 </div>
 
-<div id="outline-container-org077ea9a" class="outline-4">
-<h4 id="hH-015afee7-1483-44d0-bb06-f9d464c842a8"><a id="org077ea9a"></a><span class="section-number-4">2.2.1</span> Horizontal Scalability</h4>
+<div id="outline-container-org3245995" class="outline-4">
+<h4 id="hH-015afee7-1483-44d0-bb06-f9d464c842a8"><a id="org3245995"></a><span class="section-number-4">2.2.1</span> Horizontal Scalability</h4>
 <div class="outline-text-4" id="text-hH-015afee7-1483-44d0-bb06-f9d464c842a8">
 <p>
 As the <i>hellogoodbye</i> example above demonstrates, Actors can easily be
@@ -906,8 +907,8 @@ messages across those instances (e.g. round-robin).
 </div>
 </div>
 
-<div id="outline-container-orgd642a45" class="outline-4">
-<h4 id="hH-1ff47ec9-6caa-4a8b-8209-2d75c6214728"><a id="orgd642a45"></a><span class="section-number-4">2.2.2</span> Modularity and Extensibility</h4>
+<div id="outline-container-orgef2aed6" class="outline-4">
+<h4 id="hH-1ff47ec9-6caa-4a8b-8209-2d75c6214728"><a id="orgef2aed6"></a><span class="section-number-4">2.2.2</span> Modularity and Extensibility</h4>
 <div class="outline-text-4" id="text-hH-1ff47ec9-6caa-4a8b-8209-2d75c6214728">
 <p>
 Just as the Actor model supports Horizontal Scalability, it's also
@@ -931,8 +932,8 @@ perturbing the existing Actors and their functionality.
 </div>
 
 
-<div id="outline-container-orga3d7abb" class="outline-3">
-<h3 id="hH-b2414e9c-4cec-46e7-8d53-80008f2c9498"><a id="orga3d7abb"></a><span class="section-number-3">2.3</span> Different ActorSystem Bases</h3>
+<div id="outline-container-org8fdec25" class="outline-3">
+<h3 id="hH-b2414e9c-4cec-46e7-8d53-80008f2c9498"><a id="org8fdec25"></a><span class="section-number-3">2.3</span> Different ActorSystem Bases</h3>
 <div class="outline-text-3" id="text-hH-b2414e9c-4cec-46e7-8d53-80008f2c9498">
 <p>
 The ActorSystem Base determines how the Actor System implements the
@@ -979,7 +980,7 @@ provide the level of concurrency usually desired at production time.
 <p>
 To demonstrate the use of different ActorSystem bases, the Actor
 System <code>shutdown()</code> method call in <a href="#coderef-actorSysShutdown" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-actorSysShutdown');" onmouseout="CodeHighlightOff(this, 'coderef-actorSysShutdown');">line 25</a> of
-<a href="#org821676d">hellogoodbye.py</a> above can be commented out, and different bases can
+<a href="#org7bc7b9d">hellogoodbye.py</a> above can be commented out, and different bases can
 be specified on the command line.  In the following example the
 "<code>multiprocTCPBase</code>" is used; this system base implements Actors with
 multiprocess concurrency and uses TCP as the transport:
@@ -1071,8 +1072,8 @@ similar configurability.
 </p>
 </div>
 
-<div id="outline-container-org426c9e8" class="outline-4">
-<h4 id="hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5"><a id="org426c9e8"></a><span class="section-number-4">2.3.1</span> Base Persistence</h4>
+<div id="outline-container-org85f70f7" class="outline-4">
+<h4 id="hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5"><a id="org85f70f7"></a><span class="section-number-4">2.3.1</span> Base Persistence</h4>
 <div class="outline-text-4" id="text-hH-5edfee1e-c49b-40bf-8fa5-970a0d1ee5f5">
 <p>
 One of the trickiest parts of using Thespian is in properly starting
@@ -1099,7 +1100,7 @@ running Actor System.</li>
 </div>
 
 <ol class="org-ol">
-<li><a id="hH-7dffe41e-27cd-4b56-bc6a-017add7b2c34"></a><a id="orga53e426"></a>Code Updates<br />
+<li><a id="hH-7dffe41e-27cd-4b56-bc6a-017add7b2c34"></a><a id="org141e8c4"></a>Code Updates<br />
 <div class="outline-text-5" id="text-hH-7dffe41e-27cd-4b56-bc6a-017add7b2c34">
 <p>
 Because the persistent base's admin process continues to exist,
@@ -1109,7 +1110,7 @@ return to our original <code>hello.py</code> sample:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>hello.py:</label><pre class="src src-python" id="org9353c93"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>hello.py:</label><pre class="src src-python" id="org31177cd"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
 <span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
 <span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
@@ -1188,8 +1189,8 @@ source code as described in <a href="#hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d">D
 </div>
 </div>
 
-<div id="outline-container-orgab2ed26" class="outline-3">
-<h3 id="hH-ff59a149-101e-4e09-8552-81b155d06d72"><a id="orgab2ed26"></a><span class="section-number-3">2.4</span> Logging</h3>
+<div id="outline-container-org9f85445" class="outline-3">
+<h3 id="hH-ff59a149-101e-4e09-8552-81b155d06d72"><a id="org9f85445"></a><span class="section-number-3">2.4</span> Logging</h3>
 <div class="outline-text-3" id="text-hH-ff59a149-101e-4e09-8552-81b155d06d72">
 <p>
 Thespian supports the standard <code>logging</code> library, but provides some
@@ -1210,7 +1211,7 @@ inserted in one of the actors:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>hellogoodbyelog.py:</label><pre class="src src-python" id="org3d42f8b"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>hellogoodbyelog.py:</label><pre class="src src-python" id="orga87dfbf"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
 <span class="linenr"> 2: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 3: </span>
 <span class="linenr"> 4: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
@@ -1272,7 +1273,7 @@ To customize the logging (for example, to write to a file called
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>hellogoodbyelog2.py:</label><pre class="src src-python" id="orgc384d55"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>hellogoodbyelog2.py:</label><pre class="src src-python" id="org24d4ff2"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
 <span class="linenr"> 2: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 3: </span>
 <span class="linenr"> 4: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
@@ -1345,8 +1346,8 @@ configuration which overrides the default.
 </p>
 </div>
 
-<div id="outline-container-org21cfee8" class="outline-4">
-<h4 id="hH-bb02d15f-a0a3-456f-93df-64ee2712bd89"><a id="org21cfee8"></a><span class="section-number-4">2.4.1</span> Source Actor Address Logging</h4>
+<div id="outline-container-org9daea19" class="outline-4">
+<h4 id="hH-bb02d15f-a0a3-456f-93df-64ee2712bd89"><a id="org9daea19"></a><span class="section-number-4">2.4.1</span> Source Actor Address Logging</h4>
 <div class="outline-text-4" id="text-hH-bb02d15f-a0a3-456f-93df-64ee2712bd89">
 <p>
 Some system bases are capable of specifying the current Actor's
@@ -1359,7 +1360,7 @@ this attribute:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 6: </span>hellogoodbyelog3.py:</label><pre class="src src-python" id="org9aaa794"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>hellogoodbyelog3.py:</label><pre class="src src-python" id="orgd81341d"><span class="linenr"> 1: </span><span class="org-keyword">import</span> logging
 <span class="linenr"> 2: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 3: </span>
 <span class="linenr"> 4: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
@@ -1430,8 +1431,8 @@ this attribute:
 </div>
 </div>
 
-<div id="outline-container-orgf41bce0" class="outline-3">
-<h3 id="hH-e01f8b46-7c4d-4740-a2c5-b74380f18875"><a id="orgf41bce0"></a><span class="section-number-3">2.5</span> Concurrency</h3>
+<div id="outline-container-org0d64aed" class="outline-3">
+<h3 id="hH-e01f8b46-7c4d-4740-a2c5-b74380f18875"><a id="org0d64aed"></a><span class="section-number-3">2.5</span> Concurrency</h3>
 <div class="outline-text-3" id="text-hH-e01f8b46-7c4d-4740-a2c5-b74380f18875">
 <p>
 In the examples shown above, messages were delivered to the
@@ -1501,8 +1502,8 @@ different concurrency type is needed later on.
 </p>
 </div>
 
-<div id="outline-container-org893a569" class="outline-4">
-<h4 id="hH-786634c3-1045-41a3-9354-fe5123fb6508"><a id="org893a569"></a><span class="section-number-4">2.5.1</span> Debugging</h4>
+<div id="outline-container-org9454dae" class="outline-4">
+<h4 id="hH-786634c3-1045-41a3-9354-fe5123fb6508"><a id="org9454dae"></a><span class="section-number-4">2.5.1</span> Debugging</h4>
 <div class="outline-text-4" id="text-hH-786634c3-1045-41a3-9354-fe5123fb6508">
 <p>
 Multi-threaded applications are very difficult to debug, and
@@ -1521,7 +1522,7 @@ Actor's <code>receiveMessage()</code> is executed one after another serially.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 7: </span>test-hellogoodbye.py:</label><pre class="src src-python" id="orga528f28"><span class="linenr">1: </span>  <span class="org-keyword">from</span> hellogoodbye <span class="org-keyword">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>test-hellogoodbye.py:</label><pre class="src src-python" id="org2d33295"><span class="linenr">1: </span>  <span class="org-keyword">from</span> hellogoodbye <span class="org-keyword">import</span> *
 <span class="linenr">2: </span>  <span class="org-keyword">from</span> unitttest <span class="org-keyword">import</span> TestCase
 <span class="linenr">3: </span>
 <span class="linenr">4: </span>  <span class="org-keyword">class</span> <span class="org-type">TestHelloGoodbye</span>(TestCase):
@@ -1559,8 +1560,8 @@ argument will be discussed in the next section.
 </div>
 </div>
 
-<div id="outline-container-org46b44f9" class="outline-3">
-<h3 id="hH-4d0d08fe-d96a-4937-8bca-2a9b2588bb4c"><a id="org46b44f9"></a><span class="section-number-3">2.6</span> Location Independence</h3>
+<div id="outline-container-org99233cd" class="outline-3">
+<h3 id="hH-4d0d08fe-d96a-4937-8bca-2a9b2588bb4c"><a id="org99233cd"></a><span class="section-number-3">2.6</span> Location Independence</h3>
 <div class="outline-text-3" id="text-hH-4d0d08fe-d96a-4937-8bca-2a9b2588bb4c">
 <p>
 When an Actor wishes to send a message to another Actor, it uses the
@@ -1602,8 +1603,8 @@ de-duplicating Actors.
 </p>
 </div>
 
-<div id="outline-container-org0b084a8" class="outline-4">
-<h4 id="hH-b6f32db8-fb0e-4110-95c0-c745ab5b730e"><a id="org0b084a8"></a><span class="section-number-4">2.6.1</span> Capability-based Location Selection</h4>
+<div id="outline-container-org4a0c76f" class="outline-4">
+<h4 id="hH-b6f32db8-fb0e-4110-95c0-c745ab5b730e"><a id="org4a0c76f"></a><span class="section-number-4">2.6.1</span> Capability-based Location Selection</h4>
 <div class="outline-text-4" id="text-hH-b6f32db8-fb0e-4110-95c0-c745ab5b730e">
 <p>
 Thespian allows different Actor Systems to identify what
@@ -1686,8 +1687,8 @@ method:
 </div>
 </div>
 
-<div id="outline-container-org115372f" class="outline-4">
-<h4 id="hH-1ab869b1-c7be-4dce-8346-d4b3a78cb2ba"><a id="org115372f"></a><span class="section-number-4">2.6.2</span> Multiple Cooperating Actor Systems</h4>
+<div id="outline-container-orgc968c77" class="outline-4">
+<h4 id="hH-1ab869b1-c7be-4dce-8346-d4b3a78cb2ba"><a id="orgc968c77"></a><span class="section-number-4">2.6.2</span> Multiple Cooperating Actor Systems</h4>
 <div class="outline-text-4" id="text-hH-1ab869b1-c7be-4dce-8346-d4b3a78cb2ba">
 <p>
 When Thespian Actor Systems are started on each host node, they can
@@ -1764,8 +1765,8 @@ failures.
 </div>
 </div>
 
-<div id="outline-container-orgb4e252b" class="outline-3">
-<h3 id="hH-8835eec5-eb65-4899-ab80-1f861bb5f52c"><a id="orgb4e252b"></a><span class="section-number-3">2.7</span> Fault Tolerance</h3>
+<div id="outline-container-org59b319c" class="outline-3">
+<h3 id="hH-8835eec5-eb65-4899-ab80-1f861bb5f52c"><a id="org59b319c"></a><span class="section-number-3">2.7</span> Fault Tolerance</h3>
 <div class="outline-text-3" id="text-hH-8835eec5-eb65-4899-ab80-1f861bb5f52c">
 <p>
 Any modern application must be capable of dealing with faults, and
@@ -1827,8 +1828,8 @@ interfering with concurrency.
 </div>
 </div>
 
-<div id="outline-container-org75c05c3" class="outline-2">
-<h2 id="hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d"><a id="org75c05c3"></a><span class="section-number-2">3</span> Dynamic Source Loading</h2>
+<div id="outline-container-org61e6f81" class="outline-2">
+<h2 id="hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d"><a id="org61e6f81"></a><span class="section-number-2">3</span> Dynamic Source Loading</h2>
 <div class="outline-text-2" id="text-hH-7b9dbba0-c492-48db-ad43-a94d3e1bef8d">
 <p>
 Thespian's ability to perform <a href="#hH-fc4f8ecb-3a8d-40d9-afbb-2a2a2ff28680">Dynamic Actor Creation</a> can be logically
@@ -1871,8 +1872,8 @@ may be explicitly unloaded from Thespian by calling the
 </p>
 </div>
 
-<div id="outline-container-org9ee98f3" class="outline-3">
-<h3 id="h:83443489-5818-47b4-a8dc-a94764bb6e99"><a id="org9ee98f3"></a><span class="section-number-3">3.1</span> Security via the Source Authority</h3>
+<div id="outline-container-orgd07ccb6" class="outline-3">
+<h3 id="h:83443489-5818-47b4-a8dc-a94764bb6e99"><a id="orgd07ccb6"></a><span class="section-number-3">3.1</span> Security via the Source Authority</h3>
 <div class="outline-text-3" id="text-h:83443489-5818-47b4-a8dc-a94764bb6e99">
 <p>
 For security purposes, there is a special Actor that can register
@@ -1891,7 +1892,7 @@ accept any loaded sources.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 8: </span>runsys.py:</label><pre class="src src-python" id="orgcf5e580"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> ActorSystem, Actor, ValidateSource, ValidatedSource
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>runsys.py:</label><pre class="src src-python" id="org9a7bb91"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> ActorSystem, Actor, ValidateSource, ValidatedSource
 <span class="linenr"> 2: </span><span class="org-keyword">import</span> sys
 <span class="linenr"> 3: </span>
 <span class="linenr"> 4: </span><span class="org-keyword">class</span> <span class="org-type">SimpleSourceAuthority</span>(Actor):
@@ -1918,8 +1919,8 @@ accept any loaded sources.
 </div>
 </div>
 
-<div id="outline-container-orgcf21626" class="outline-3">
-<h3 id="h:d8372ab6-e508-4c4d-94e5-93834936d365"><a id="orgcf21626"></a><span class="section-number-3">3.2</span> Loading Sources</h3>
+<div id="outline-container-orgd9ca224" class="outline-3">
+<h3 id="h:d8372ab6-e508-4c4d-94e5-93834936d365"><a id="orgd9ca224"></a><span class="section-number-3">3.2</span> Loading Sources</h3>
 <div class="outline-text-3" id="text-h:d8372ab6-e508-4c4d-94e5-93834936d365">
 <p>
 Because the Thespian Actor Systems communicate as part of a
@@ -1953,7 +1954,7 @@ used each time it is run:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 9: </span>hi.py:</label><pre class="src src-python" id="org4ab55cb"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>hi.py:</label><pre class="src src-python" id="org439e5d8"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
 <span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
 <span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
@@ -1998,8 +1999,8 @@ semantics.
 </div>
 </div>
 
-<div id="outline-container-orgd84833a" class="outline-3">
-<h3 id="h:94ab2102-4a80-433b-b276-43238ffd9f3d"><a id="orgd84833a"></a><span class="section-number-3">3.3</span> Running the example</h3>
+<div id="outline-container-org33586a0" class="outline-3">
+<h3 id="h:94ab2102-4a80-433b-b276-43238ffd9f3d"><a id="org33586a0"></a><span class="section-number-3">3.3</span> Running the example</h3>
 <div class="outline-text-3" id="text-h:94ab2102-4a80-433b-b276-43238ffd9f3d">
 <p>
 Running this and changing the source in between runs clearly shows
@@ -2026,8 +2027,8 @@ The sources loaded remain loaded until unloaded via a call to
 </div>
 </div>
 
-<div id="outline-container-orga14a854" class="outline-2">
-<h2 id="hH-058d8939-b973-4270-975b-3afd9c607176"><a id="orga14a854"></a><span class="section-number-2">4</span> Shell</h2>
+<div id="outline-container-org706d578" class="outline-2">
+<h2 id="hH-058d8939-b973-4270-975b-3afd9c607176"><a id="org706d578"></a><span class="section-number-2">4</span> Shell</h2>
 <div class="outline-text-2" id="text-hH-058d8939-b973-4270-975b-3afd9c607176">
 <p>
 Thespian comes with a command-line application shell which can be used
@@ -2037,8 +2038,8 @@ manual testing.
 </p>
 </div>
 
-<div id="outline-container-org0e85b53" class="outline-3">
-<h3 id="hH-654845ce-3c0f-4fe8-892a-5ff5d12f5ca0"><a id="org0e85b53"></a><span class="section-number-3">4.1</span> Starting the Shell</h3>
+<div id="outline-container-org98fbf1b" class="outline-3">
+<h3 id="hH-654845ce-3c0f-4fe8-892a-5ff5d12f5ca0"><a id="org98fbf1b"></a><span class="section-number-3">4.1</span> Starting the Shell</h3>
 <div class="outline-text-3" id="text-hH-654845ce-3c0f-4fe8-892a-5ff5d12f5ca0">
 <p>
 At startup, the <code>start</code> command should be used to specify which Actor
@@ -2064,8 +2065,8 @@ $
 </div>
 </div>
 
-<div id="outline-container-org77c05f5" class="outline-3">
-<h3 id="hH-092b8ae6-ec6c-4729-9505-8dbd32284d02"><a id="org77c05f5"></a><span class="section-number-3">4.2</span> Address Management in the Shell</h3>
+<div id="outline-container-org8e035f5" class="outline-3">
+<h3 id="hH-092b8ae6-ec6c-4729-9505-8dbd32284d02"><a id="org8e035f5"></a><span class="section-number-3">4.2</span> Address Management in the Shell</h3>
 <div class="outline-text-3" id="text-hH-092b8ae6-ec6c-4729-9505-8dbd32284d02">
 <p>
 The thespian shell provides special handling for Actor Addresses.
@@ -2088,8 +2089,8 @@ thespian&gt;
 </div>
 </div>
 
-<div id="outline-container-orgd9ed904" class="outline-3">
-<h3 id="hH-c0bca217-9bbe-4d44-b322-a51b86f2ee93"><a id="orgd9ed904"></a><span class="section-number-3">4.3</span> Shell Test Actor</h3>
+<div id="outline-container-org661fdd4" class="outline-3">
+<h3 id="hH-c0bca217-9bbe-4d44-b322-a51b86f2ee93"><a id="org661fdd4"></a><span class="section-number-3">4.3</span> Shell Test Actor</h3>
 <div class="outline-text-3" id="text-hH-c0bca217-9bbe-4d44-b322-a51b86f2ee93">
 <p>
 There is also a test Actor that is part of the shell.  The test Actor
@@ -2116,8 +2117,8 @@ Response: TestActor @ ActorAddr-(TCP|10.56.10.5:54991) got: hi
 </div>
 </div>
 
-<div id="outline-container-org0bb8030" class="outline-3">
-<h3 id="hH-efd0ab30-ef4e-4105-b4b6-4831afc5d3de"><a id="org0bb8030"></a><span class="section-number-3">4.4</span> Actor Status Requests</h3>
+<div id="outline-container-org1f7e4ae" class="outline-3">
+<h3 id="hH-efd0ab30-ef4e-4105-b4b6-4831afc5d3de"><a id="org1f7e4ae"></a><span class="section-number-3">4.4</span> Actor Status Requests</h3>
 <div class="outline-text-3" id="text-hH-efd0ab30-ef4e-4105-b4b6-4831afc5d3de">
 <p>
 The shell also supports issuing status queries to Actors.  The status
@@ -2167,8 +2168,8 @@ programmatically relied upon at this time.
 </div>
 
 
-<div id="outline-container-org5eaaeff" class="outline-2">
-<h2 id="hH-2827218b-828e-4d59-9b08-153d46b02134"><a id="org5eaaeff"></a><span class="section-number-2">5</span> Conclusion</h2>
+<div id="outline-container-orge610609" class="outline-2">
+<h2 id="hH-2827218b-828e-4d59-9b08-153d46b02134"><a id="orge610609"></a><span class="section-number-2">5</span> Conclusion</h2>
 <div class="outline-text-2" id="text-hH-2827218b-828e-4d59-9b08-153d46b02134">
 <p>
 The Actor model is a powerful and yet simple tool for the modern
@@ -2198,7 +2199,7 @@ cloud-based applications.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2018-11-07 Wed 23:39</p>
+<p class="date">Created: 2019-03-05 Tue 23:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
