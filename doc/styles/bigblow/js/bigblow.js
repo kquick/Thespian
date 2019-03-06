@@ -46,7 +46,7 @@ $(function() {
 
 // generate contents of minitoc
 function generateMiniToc(divId) {
-    $('#minitoc').empty().append('<h2>In this section</h2>');
+    $('#minitoc').empty().append('<h2>Table Of Contents</h2>');
     $('#' + divId).find('h3').each(function(i) {
         $("#minitoc").append("<a href='#" + $(this).attr("id") + "'>"
                              + $(this).text() + "</a>");
@@ -300,8 +300,8 @@ function togglePanel(e) {
 }
 
 $(function() {
-    $('<div id="left-panel-wrapper" class="dontprint"><div id="left-panel-contents" style="opacity: 0.9"></div><div id="left-panel-button" class="dontprint"><a href="#">Dashboard</a></div></div>')
-        .appendTo('body');
+    // $('<div id="left-panel-wrapper" class="dontprint"><div id="left-panel-contents" style="opacity: 0.9"></div><div id="left-panel-button" class="dontprint"><a href="#">Dashboard</a></div></div>')
+    //    .appendTo('body');
 
     $('<div id="right-panel-wrapper" class="dontprint"><div id="right-panel-contents" style="opacity: 0.9"></div></div>')
         .appendTo('body');

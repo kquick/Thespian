@@ -624,7 +624,7 @@ span.todo .selected {
 
 #minitoc a {
     display: block;
-    font-size: 10px;
+    font-size: 66px;
     font-weight: normal;
 }
 
@@ -639,7 +639,7 @@ span.todo .selected {
 #minitoc h2 {
     margin: 3px 0px;
     border: none;
-    font-size: 11px;
+    font-size: 70%;
 }
 
 p.verse {
