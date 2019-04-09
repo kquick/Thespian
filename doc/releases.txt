@@ -15,6 +15,7 @@ Summary
 .. 2016
 3.x
 .. 3.9
+..... 3.9.9 <2019-04-08 Mon>
 ..... 3.9.8 <2019-03-05 Tue>
 ..... 3.9.7 <2019-02-11 Mon>
 ..... 3.9.6 <2019-02-05 Tue>
@@ -109,14 +110,15 @@ Summary
 2019
 ────
 
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Release        Date  Significant Bugfixes                           Significant Features      
-  ───────────────────────────────────────────────────────────────────────────────────────────────
-     3.9.8  2019-03-04  Transmit queueing/overrun fixes ([Issue #38])  Troupe worker exit delays 
-     3.9.7  2019-02-11  Further bugfixes and efficiencies                                        
-     3.9.6  2019-02-09  Improve [Issue #35]: Windows issues                                      
-                        Improve [Issue #38]: system limits                                       
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes                           Significant Features              
+  ───────────────────────────────────────────────────────────────────────────────────────────────────────
+     3.9.9  2019-04-08  Fixed message duplication in troupe            Round-robin use of troupe workers 
+     3.9.8  2019-03-04  Transmit queueing/overrun fixes ([Issue #38])  Troupe worker exit delays         
+     3.9.7  2019-02-11  Further bugfixes and efficiencies                                                
+     3.9.6  2019-02-09  Improve [Issue #35]: Windows issues                                              
+                        Improve [Issue #38]: system limits                                               
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 [Issue #38] https://github.com/kquick/Thespian/issues/38
@@ -277,6 +279,20 @@ Summary
 
 3.9
 ───
+
+3.9.9 <2019-04-08 Mon>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Fixed issue in the troupe where a single message might get delivered
+    to multiple troupe members for handling.  This error was revealed
+    during handling of [Issue #43] (thanks, andatt!).
+  ‣ Updated the troupe worker usage to be round-robin, spreading the
+    work more equably across troupe members instead of using a LIFO
+    strategy which focused the work on a single member.
+
+
+[Issue #43] https://github.com/kquick/Thespian/issues/43
+
 
 3.9.8 <2019-03-05 Tue>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
