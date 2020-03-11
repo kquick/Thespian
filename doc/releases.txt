@@ -9,11 +9,14 @@ Table of Contents
 ─────────────────
 
 Summary
+.. 2020
 .. 2019
 .. 2018
 .. 2017
 .. 2016
 3.x
+.. 3.10
+..... 3.10.0 <2020-03-10 Tue>
 .. 3.9
 ..... 3.9.11 <2019-09-10 Tue>
 ..... 3.9.10 <2019-08-30 Fri>
@@ -108,6 +111,16 @@ not change the API.
 
 Summary
 ═══════
+
+2020
+────
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes    Significant Features                             
+  ───────────────────────────────────────────────────────────────────────────────────────────────
+    3.10.0  2020-03-10  transient_idle wakeups  Adjustable Troupe limits, `THESPIAN_BASE_IPADDR' 
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 2019
 ────
@@ -280,6 +293,28 @@ Summary
 
 3.x
 ═══
+
+3.10
+────
+
+3.10.0 <2020-03-10 Tue>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Added ability to dynamically update the Thespian Troupe worker
+    counts (see [the Actor Troupe Support section]).
+  ‣ Added ability to specify the local IP address to use for TCP and UDP
+    actor bases via the `THESPIAN_BASE_IPADDR' environment variable.
+  ‣ Fixed bug in the wakeup scheduling for the `transient_idle' helper.
+  ‣ Updated the introductory documentation to describe using Thespian
+    for distributed application configurations.
+  ‣ Clarify the TLI file contents and usage in the Director
+    documentation.
+  ‣ Other documentation fixes and updates.
+
+
+[the Actor Troupe Support section]
+https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
+
 
 3.9
 ───

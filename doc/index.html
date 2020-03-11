@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-05 Tue 23:55 -->
+<!-- 2020-03-10 Tue 22:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thespian Python Actors</title>
@@ -200,7 +200,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -256,7 +256,9 @@ for the JavaScript code in this tag.
 <li><a href="#hH-c49119ce-dd01-4348-9c2f-df7ecf0e071a">2.2. Starting a Thespian Instance</a></li>
 <li><a href="#hH-ff97e697-52e8-48e5-8682-86a4f90c750b">2.3. Hello World</a></li>
 <li><a href="#hH-30ec58b2-0daa-4700-be9d-c24925b965d3">2.4. Hello World Redux</a></li>
-<li><a href="#hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321">2.5. What Next?</a></li>
+<li><a href="#h:c41b1c37-0203-4a2c-9110-4538524a8530">2.5. Hello World, Distributed</a></li>
+<li><a href="#h:b3f4a939-10af-488b-ab0c-75b7b096ecb2">2.6. Hello World, Semi-Deterministic</a></li>
+<li><a href="#hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321">2.7. What Next?</a></li>
 </ul>
 </li>
 <li><a href="#hH-e8dd9cdc-1a23-4f11-9d4b-017a12b07593">3. Documentation</a>
@@ -277,8 +279,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgb8f566d" class="outline-2">
-<h2 id="hH-5976a936-5f5a-43d9-a5e8-c00cd07d5c13"><a id="orgb8f566d"></a><span class="section-number-2">1</span> Home</h2>
+<div id="outline-container-org45f5f68" class="outline-2">
+<h2 id="hH-5976a936-5f5a-43d9-a5e8-c00cd07d5c13"><a id="org45f5f68"></a><span class="section-number-2">1</span> Home</h2>
 <div class="outline-text-2" id="text-hH-5976a936-5f5a-43d9-a5e8-c00cd07d5c13">
 <div class="org-center">
 <p>
@@ -347,13 +349,13 @@ removed from the environment dynamically.
 </div>
 </div>
 
-<div id="outline-container-org2227833" class="outline-2">
-<h2 id="hH-8fe30933-b8dd-4ac8-a11b-046ed9afe72f"><a id="org2227833"></a><span class="section-number-2">2</span> Quick Start</h2>
+<div id="outline-container-org4745c5f" class="outline-2">
+<h2 id="hH-8fe30933-b8dd-4ac8-a11b-046ed9afe72f"><a id="org4745c5f"></a><span class="section-number-2">2</span> Quick Start</h2>
 <div class="outline-text-2" id="text-hH-8fe30933-b8dd-4ac8-a11b-046ed9afe72f">
 </div>
 
-<div id="outline-container-org627c487" class="outline-3">
-<h3 id="hH-facafcab-1f42-4b4b-b287-1b7ef8f5bdf7"><a id="org627c487"></a><span class="section-number-3">2.1</span> Simple Installation</h3>
+<div id="outline-container-org9e2314a" class="outline-3">
+<h3 id="hH-facafcab-1f42-4b4b-b287-1b7ef8f5bdf7"><a id="org9e2314a"></a><span class="section-number-3">2.1</span> Simple Installation</h3>
 <div class="outline-text-3" id="text-hH-facafcab-1f42-4b4b-b287-1b7ef8f5bdf7">
 <p>
 Install the Thespian library on your local host system using pip:
@@ -365,8 +367,8 @@ $ pip install thespian
 </div>
 </div>
 
-<div id="outline-container-orgff18c17" class="outline-3">
-<h3 id="hH-c49119ce-dd01-4348-9c2f-df7ecf0e071a"><a id="orgff18c17"></a><span class="section-number-3">2.2</span> Starting a Thespian Instance</h3>
+<div id="outline-container-org7a96c61" class="outline-3">
+<h3 id="hH-c49119ce-dd01-4348-9c2f-df7ecf0e071a"><a id="org7a96c61"></a><span class="section-number-3">2.2</span> Starting a Thespian Instance</h3>
 <div class="outline-text-3" id="text-hH-c49119ce-dd01-4348-9c2f-df7ecf0e071a">
 <p>
 Start a default Thespian Actor System on the current host system:
@@ -380,15 +382,15 @@ $ python
 </div>
 </div>
 
-<div id="outline-container-org5e6790c" class="outline-3">
-<h3 id="hH-ff97e697-52e8-48e5-8682-86a4f90c750b"><a id="org5e6790c"></a><span class="section-number-3">2.3</span> Hello World</h3>
+<div id="outline-container-org765751b" class="outline-3">
+<h3 id="hH-ff97e697-52e8-48e5-8682-86a4f90c750b"><a id="org765751b"></a><span class="section-number-3">2.3</span> Hello World</h3>
 <div class="outline-text-3" id="text-hH-ff97e697-52e8-48e5-8682-86a4f90c750b">
 <p>
 A Hello World example:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="orgfe65ea1"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<pre class="src src-python" id="orgded2241"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
 <span class="linenr"> 3: </span><span class="org-keyword">class</span> <span class="org-type">Hello</span>(Actor):
 <span class="linenr"> 4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMessage</span>(<span class="org-keyword">self</span>, message, sender):
@@ -415,17 +417,17 @@ $
 
 <div class="NOTES">
 <p>
-Note that any additional `ActorSystem().ask()` calls following the
-tell of `ActorExitRequest` above will return None because the target
+Note that any additional <code>ActorSystem().ask()</code> calls following the
+tell of <code>ActorExitRequest</code> above will return None because the target
 actor does not exist
 </p>
 
 <p>
-&#x2026; except the first such `ask()` call, because an Actor is always
-called with its `ActorExitRequest` message before being killed; this
+&#x2026; except the first such <code>ask()</code> call, because an Actor is always
+called with its <code>ActorExitRequest</code> message before being killed; this
 allows the Actor to perform shutdown activities, which is just sending
 another greeting back in the case of the Hello Actor, and the tell
-does not read a response, so the next `ask()` will return that queued
+does not read a response, so the next <code>ask()</code> will return that queued
 response.
 </p>
 
@@ -433,8 +435,8 @@ response.
 </div>
 </div>
 
-<div id="outline-container-org763b30e" class="outline-3">
-<h3 id="hH-30ec58b2-0daa-4700-be9d-c24925b965d3"><a id="org763b30e"></a><span class="section-number-3">2.4</span> Hello World Redux</h3>
+<div id="outline-container-orgb5bac78" class="outline-3">
+<h3 id="hH-30ec58b2-0daa-4700-be9d-c24925b965d3"><a id="orgb5bac78"></a><span class="section-number-3">2.4</span> Hello World Redux</h3>
 <div class="outline-text-3" id="text-hH-30ec58b2-0daa-4700-be9d-c24925b965d3">
 <p>
 It's easy to extend the Hello World example to include multiple actors
@@ -451,7 +453,7 @@ be pickled.</li>
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org8f35c71"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
+<pre class="src src-python" id="org14671b8"><span class="linenr"> 1: </span><span class="org-keyword">from</span> thespian.actors <span class="org-keyword">import</span> *
 <span class="linenr"> 2: </span>
 <span class="linenr"> 3: </span><span class="org-keyword">import</span> sys
 <span class="linenr"> 4: </span>
@@ -510,17 +512,117 @@ $ python helloActor.py
 Hello, World!
 $
 </pre>
+</div>
+</div>
+
+<div id="outline-container-orgb0735be" class="outline-3">
+<h3 id="h:c41b1c37-0203-4a2c-9110-4538524a8530"><a id="orgb0735be"></a><span class="section-number-3">2.5</span> Hello World, Distributed</h3>
+<div class="outline-text-3" id="text-h:c41b1c37-0203-4a2c-9110-4538524a8530">
+<p>
+In the previous example, there were three Actors that participated in
+generating the desired result.  One of the key principals of an Actor
+is that while it may maintain internal state, it does not share state
+with other Actors.  This principal allows each Actor to run
+independently&#x2026; in some cases, independently can mean that each Actor
+is run on a different system!
+</p>
 
 <p>
-This is just a quick introduction to getting started with Thespian.
-Please see the examples section for more information.
+Thespian will automatically handle delivery of a message to an Actor
+running on a different system when the <code>self.send()</code>,
+<code>ActorSystem.tell()</code>, or <code>ActorSystem.ask()</code> functions are called.
+There is no change needed to the logic of each Actor, aside from a
+<code>staticmethod</code> that can indicate whether the Actor should run on the
+current system or not.
+</p>
+
+<p>
+Thespian uses a "capabilities"-based methodology, along with the
+notion of a "Convention" of Actor Systems for determining where to run
+an Actor.  On each host system that will potentially run an Actor, an
+instance of Thespian is started, with parameters to indicate the
+Convention that this instance should join, along with a dictionary of
+capabilities for the current ActorSystem instance.
+</p>
+
+<p>
+The capabilities are simply a dictionary of values: the keys and
+values are completely up to the implementer.  When <code>createActor()</code> is
+called to create a new Actor, and if that Actor class has a special
+staticmethod, that staticmethod is called with the current
+ActorSystem's capabilities dictionary as an argument.  The
+staticmethod returns a <code>True</code> or <code>False</code> to indicate whether the Actor
+should be run on the current system, based on examining the dictionary
+of capabilities.  If the staticmethod returns <code>False</code> then Thespian
+will automatically pass the <code>createActor</code> operation to other instances
+in the Convention until one is found where the Actor's staticmethod
+returns <code>True</code>: the Actor will then be created on that system and the
+Actor's address will ensure that messages are routed to that Actor on
+that destination system.
+</p>
+
+<p>
+The distribution of Actors across multiple host systems is thusly
+controlled simply by the capabilities that the Thespian instance on
+each host system is initialized with.  The <code>receiveMessage()</code> of each
+Actor is <b>unchanged</b> for supporting distributed systems, and the
+manner and configuration of the distribution is controlled
+independently of the functioning of each Actor.  It is even possible
+for a Thespian ActorSystem's capabilities to be updated dynamically
+after startup to reflect changes in the distributed system.
+</p>
+
+<p>
+Controlling the distribution configuration independently of the
+business logic is a powerful separation of concerns that makes it
+easier to adapt the Actor-based application to changing needs and to
+scale the application as needed to handle the demand.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec39e8c" class="outline-3">
+<h3 id="h:b3f4a939-10af-488b-ab0c-75b7b096ecb2"><a id="orgec39e8c"></a><span class="section-number-3">2.6</span> Hello World, Semi-Deterministic</h3>
+<div class="outline-text-3" id="text-h:b3f4a939-10af-488b-ab0c-75b7b096ecb2">
+<p>
+Actors are a concurrency mechanism whereby each Actor runs
+independently.  The invocation of each Actor's <code>receiveMessage()</code>
+method is determined by network delivery and the system scheduler and
+may change from one run of the Actor-based application to the next.
+While parallelism is highly useful for efficiency and scalability, it
+can be very difficult to diagnose or even reproduce issues given this
+level of variability.
+</p>
+
+<p>
+It would be much easier to debug problems and write unit tests if the
+behavior was deterministic and predictable.  This can be done easily
+for Thespian actor-based applications simply by using the
+<code>simpleSystemBase</code> when starting the application.  The Actors
+themselves are unchanged: the <code>simpleSystemBase</code> simply executes each
+Actor's <code>receiveMessage()</code> sequentially in the order that messages are
+generated.  When run multiple times, the same scheduling order will be
+followed, and the sequential invocation of <code>receiveMessage()</code> methods
+ensures that only one thing occurs at a time.
+</p>
+
+<p>
+The downside to the <code>simpleSystemBase</code> is that there is no parallelism
+in execution, and that it does not support distributed configurations.
+It is therefore highly useful for certain situations (which could
+include production uses), but it is also very limited in its
+capabilities.  Just as with the distributed Thespian convention
+arrangement however, this re-configuration of the actor-based
+application occurs <b>without</b> any changes to the actor's internal
+logic: it's a separation of concerns that is handled without needing
+to modify code involved in other areas of concern.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org5ae6f65" class="outline-3">
-<h3 id="hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321"><a id="org5ae6f65"></a><span class="section-number-3">2.5</span> What Next?</h3>
+<div id="outline-container-orga3b38ee" class="outline-3">
+<h3 id="hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321"><a id="orga3b38ee"></a><span class="section-number-3">2.7</span> What Next?</h3>
 <div class="outline-text-3" id="text-hH-d35b0d3f-a95e-43e8-ac12-eae9bc49f321">
 <p>
 This has just been a very simple introduction to using Thespian.  A
@@ -540,13 +642,13 @@ hands-on tutorial on using multiple actor systems:
 </div>
 
 
-<div id="outline-container-org8de73c8" class="outline-2">
-<h2 id="hH-e8dd9cdc-1a23-4f11-9d4b-017a12b07593"><a id="org8de73c8"></a><span class="section-number-2">3</span> Documentation</h2>
+<div id="outline-container-org9461c8f" class="outline-2">
+<h2 id="hH-e8dd9cdc-1a23-4f11-9d4b-017a12b07593"><a id="org9461c8f"></a><span class="section-number-2">3</span> Documentation</h2>
 <div class="outline-text-2" id="text-hH-e8dd9cdc-1a23-4f11-9d4b-017a12b07593">
 </div>
 
-<div id="outline-container-orgf3f0479" class="outline-3">
-<h3 id="hH-24e6d4e0-21c2-4731-868a-2f5617a69c21"><a id="orgf3f0479"></a><span class="section-number-3">3.1</span> Thespian Documentation</h3>
+<div id="outline-container-orgb76200a" class="outline-3">
+<h3 id="hH-24e6d4e0-21c2-4731-868a-2f5617a69c21"><a id="orgb76200a"></a><span class="section-number-3">3.1</span> Thespian Documentation</h3>
 <div class="outline-text-3" id="text-hH-24e6d4e0-21c2-4731-868a-2f5617a69c21">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -605,12 +707,18 @@ hands-on tutorial on using multiple actor systems:
 </tr>
 </tbody>
 </table>
+
+<p>
+Examples can be found in the code repository
+(<a href="https://github.com/kquick/Thespian/tree/master/examples">https://github.com/kquick/Thespian/tree/master/examples</a>), including a
+hands-on tutorial on creating a distributed system using multiple actor systems:
+(<a href="https://github.com/kquick/Thespian/tree/master/examples/multi_system">https://github.com/kquick/Thespian/tree/master/examples/multi_system</a>).
+</p>
 </div>
 </div>
 
-
-<div id="outline-container-orgc05ad78" class="outline-3">
-<h3 id="hH-a7419fe2-bdaa-486f-a514-e921fb819e73"><a id="orgc05ad78"></a><span class="section-number-3">3.2</span> Background and Related Efforts</h3>
+<div id="outline-container-orgbd47314" class="outline-3">
+<h3 id="hH-a7419fe2-bdaa-486f-a514-e921fb819e73"><a id="orgbd47314"></a><span class="section-number-3">3.2</span> Background and Related Efforts</h3>
 <div class="outline-text-3" id="text-hH-a7419fe2-bdaa-486f-a514-e921fb819e73">
 <ul class="org-ul">
 <li>The <a href="https://wikipedia.org/wiki/Actor_model">Actor Model</a> at Wikipedia</li>
@@ -630,8 +738,8 @@ but please let us know of others that should be listed here.
 </div>
 </div>
 
-<div id="outline-container-org16eda4f" class="outline-3">
-<h3 id="hH-2c16d670-b74b-4a64-ac23-e0d96111f9f4"><a id="org16eda4f"></a><span class="section-number-3">3.3</span> Unrelated Efforts</h3>
+<div id="outline-container-org46e62e5" class="outline-3">
+<h3 id="hH-2c16d670-b74b-4a64-ac23-e0d96111f9f4"><a id="org46e62e5"></a><span class="section-number-3">3.3</span> Unrelated Efforts</h3>
 <div class="outline-text-3" id="text-hH-2c16d670-b74b-4a64-ac23-e0d96111f9f4">
 <p>
 The following projects or sites are completely unrelated to this
@@ -649,8 +757,8 @@ to provide clarification on this point and avoid confusion.
 </div>
 
 
-<div id="outline-container-orgdd4251e" class="outline-2">
-<h2 id="hH-6f80868a-124a-47b8-a47d-07477dfe88f0"><a id="orgdd4251e"></a><span class="section-number-2">4</span> Download</h2>
+<div id="outline-container-org0af9d1d" class="outline-2">
+<h2 id="hH-6f80868a-124a-47b8-a47d-07477dfe88f0"><a id="org0af9d1d"></a><span class="section-number-2">4</span> Download</h2>
 <div class="outline-text-2" id="text-hH-6f80868a-124a-47b8-a47d-07477dfe88f0">
 <p>
 The recommended way to obtain Thespian is by using <code>pip</code> to download
@@ -678,8 +786,8 @@ Thespian may also be provided by your system's packaging tools
 </div>
 </div>
 
-<div id="outline-container-org8139db1" class="outline-2">
-<h2 id="hH-5d7ec411-a58f-41fa-b05e-c0cec23cfc85"><a id="org8139db1"></a><span class="section-number-2">5</span> Contribute</h2>
+<div id="outline-container-orgd95dc23" class="outline-2">
+<h2 id="hH-5d7ec411-a58f-41fa-b05e-c0cec23cfc85"><a id="orgd95dc23"></a><span class="section-number-2">5</span> Contribute</h2>
 <div class="outline-text-2" id="text-hH-5d7ec411-a58f-41fa-b05e-c0cec23cfc85">
 <p>
 Contributions to and involvement in Thespian development itself is
@@ -695,8 +803,8 @@ details on how to get involved.
 </div>
 </div>
 
-<div id="outline-container-org40287fd" class="outline-2">
-<h2 id="hH-84836e30-faed-40bf-b6ae-7db014bae376"><a id="org40287fd"></a><span class="section-number-2">6</span> News</h2>
+<div id="outline-container-org3b1a4a0" class="outline-2">
+<h2 id="hH-84836e30-faed-40bf-b6ae-7db014bae376"><a id="org3b1a4a0"></a><span class="section-number-2">6</span> News</h2>
 <div class="outline-text-2" id="text-hH-84836e30-faed-40bf-b6ae-7db014bae376">
 <dl class="org-dl">
 <dt>2015-08-31</dt><dd>Thespian Publicly Released</dd>
@@ -709,12 +817,13 @@ the <a href="releases.html">Thespian Release Notes</a>.
 </p>
 </div>
 
-<div id="outline-container-org0bfd088" class="outline-3">
-<h3 id="hH-4c48cbe8-d23b-45e8-a29f-991776c234a2"><a id="org0bfd088"></a><span class="section-number-3">6.1</span> Blogs and Success Stories</h3>
+<div id="outline-container-org7376f38" class="outline-3">
+<h3 id="hH-4c48cbe8-d23b-45e8-a29f-991776c234a2"><a id="org7376f38"></a><span class="section-number-3">6.1</span> Blogs and Success Stories</h3>
 <div class="outline-text-3" id="text-hH-4c48cbe8-d23b-45e8-a29f-991776c234a2">
 <ul class="org-ul">
-<li><a href="https://engineering.godaddy.com/why-godaddy-built-an-actor-system-library">GoDaddy blog article introducing Thespian, 2015 Aug</a></li>
+<li><a href="https://sabaini.at/peterlog/posts/2020/Feb/16/thespian-a-python-actor-system">Thespian overview article by Peter Sabaini, 2020 Feb</a></li>
 <li><a href="blog/async_blog_2016Feb/async_2016Feb.html">Article comparing Actors to Python asyncio/await, 2016 Feb</a></li>
+<li><a href="https://engineering.godaddy.com/why-godaddy-built-an-actor-system-library">GoDaddy blog article introducing Thespian, 2015 Aug</a></li>
 </ul>
 
 <p>
@@ -727,7 +836,7 @@ published here, please contact one of the project administrators.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2019-03-05 Tue 23:55</p>
+<p class="date">Created: 2020-03-10 Tue 22:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

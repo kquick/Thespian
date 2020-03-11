@@ -119,7 +119,9 @@ Table of Contents
 8 Patterns and Helpers
 .. 8.1 Actor Troupe Support
 .. 8.2 Transient Actors
-.. 8.3 Thespian Director
+.. 8.3 Initialization Messages
+.. 8.4 Thespian Director
+.. 8.5 RunCommand support
 9 ActorSystem Implementations
 .. 9.1 Common Capabilities
 .. 9.2 simpleSystemBase
@@ -1467,7 +1469,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   ┌────
   │ newAddress = self.createActor(self, actorClass,
   │                               targetActorRequirements=None,
-  │                               globalName=None)
+  │                               globalName=None,
+  │                               sourceHash=None)
   └────
 
   This method is called by the Actor to create a new Actor represented
@@ -1491,6 +1494,11 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   Actors], this name allows the Actor to be a system-wide singleton and
   to be uniquely identified and referenced in a manner additional to the
   ActorAddress of the actor.
+
+  The `sourceHash' argument, if specified, indicates a loaded source in
+  which the `actorClass' should be found when attempting to load the
+  `actorClass' source and start the Actor.  See [ActorSys.createActor()]
+  for more details.
 
   The context for the created Actor will be the context under which the
   Thespian system was started.  _This means that if the Thespian system
@@ -1540,6 +1548,8 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
 [ActorSystem Capabilities] See section 4.10
 
 [Named Actors] See section 4.6
+
+[ActorSys.createActor()] See section 6.4
 
 [loadActorSource] See section 5.9
 
@@ -3319,6 +3329,12 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   common patterns or helpers that can be used when developing a Thespian
   actor-based application.
 
+  The helpers describe here are all implemented via the Thespian API and
+  do not make use of the Thespian implementation internals.  If the
+  helpers here do not provide the specific functionality needed for a
+  particular use case, please feel free to consider them as examples for
+  creating your own helpers.
+
 
 8.1 Actor Troupe Support
 ────────────────────────
@@ -3360,14 +3376,40 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   sent to it; the actor can be turned into a troupe member with no
   change other than adding the decorator.
 
-  However, an actor which must interact with other actors to process the
-  work requires additional modifications to allow the troupe manager to
-  know when the actor has finished performing the work.  A troupe member
-  that has not fully performed the work and is exchanging messages with
-  other actors to complete the work (or awaiting [WakeupMessages]) must
-  set the `troupe_work_in_progress' attribute on self to `True'.  Once
-  the work is completed by a subsequent message delivery, it should set
-  this attribute to `False', which will cause the troupe manager to be
+  The arguments to the troupe decorator are static and are applied at
+  the time the Actor source is loaded.  However, it is possible to
+  update the `max_count' and `idle_count' for the troupe dynamically at
+  any time using either text strings or the `UpdateTroupeSettings'
+  object:
+
+  ┌────
+  │ r = ActorSystem().ask(troupeActor, "troupe:set_max_count=9")
+  │ assert r == "Set troupe max_count to 9"
+  │ 
+  │ r = ActorSystem().ask(troupeActor, "troupe:set_idle_count=4")
+  │ assert r == "Set troupe idle_count to 4"
+  │ 
+  │ r = ActorSystem().ask(troupeActor, UpdateTroupeSettings(max_count=10, idle_count=4))
+  │ assert isinstance(r, UpdateTroupeSettings)
+  │ assert r.max_count == 10
+  │ assert r.idle_count == 4
+  │ 
+  └────
+
+  Note that the adjustments of the troupe max and idle counts do not
+  necessarily immediately reduce the number of running troupe workers if
+  the counts are adjusted lower; troupe workers are reduced after the
+  worker has successfully completed work.  Increasing either of these
+  counts should make more workers available immediately though.
+
+  An actor which must interact with other actors to process the work
+  requires additional modifications to allow the troupe manager to know
+  when the actor has finished performing the work.  A troupe member that
+  has not fully performed the work and is exchanging messages with other
+  actors to complete the work (or awaiting [WakeupMessages]) must set
+  the `troupe_work_in_progress' attribute on self to `True'.  Once the
+  work is completed by a subsequent message delivery, it should set this
+  attribute to `False', which will cause the troupe manager to be
   notified that the actor is ready for more work.
 
   ‣ Failure to set the `troupe_work_in_progress' attribute to `True' on
@@ -3432,7 +3474,88 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   started after receipt of the actor's first message.
 
 
-8.3 Thespian Director
+8.3 Initialization Messages
+───────────────────────────
+
+  It is common for an Actor to require one or more messages to
+  "initialize" the Actor and prepare it for normal operations.
+
+  The `thespian.initmsgs' module provides a `initializing_messages'
+  decorator that can assist with managing this initialization.
+
+  This pattern is especially useful for Actors which should receive
+  multiple different messages to initialize their state before normal
+  processing begins.  Each message is stored in a corresponding
+  attribute on the Actor class, and (unless init_passthru is True) no
+  messages are delivered to the receiveMessages entrypoint until all of
+  the initialization messages have been received.
+
+  ┌────
+  │ from thespian.initmsgs import initializing_messages
+  │ @initializing_messages(initset, initdone=None, init_passthru=False)
+  └────
+
+  The required argument to the `@initializing_messages' decorator is a
+  list of tuples, where the first tuple value is the name of an
+  attribute to be set on this actor and the second tuple value is the
+  type of the corresponding message.  If the tuple has three entries and
+  the third is True, then when the message type is matched, an attribute
+  corresponding to the first element plus the suffix "_sender" is set to
+  the sender of that message.
+
+  If multiple initialization messages of the same type are received, the
+  corresponding attribute will be set to the last messages received.
+
+  The initdone argument, if set, specifies a method name (as a string)
+  that should be called when all initialization message have been
+  received.
+
+  The init_passthru can be set to True to pass *all* messages received
+  during initialization to the normal Actor handling; the default is
+  false and init messages are discarded and non-init messages are saved
+  and delivered after initialization is completed.  (All
+  ActorSystemMessage messages are treated as if init_passthru was True).
+
+  Example:
+
+  ┌────
+  │     @initializing_messages([('init_m1', Msg1, True),
+  │                             ('init_tgt', ActorAddress),
+  │                             ('frog', str)],
+  │                             initdone='init_completed')
+  │     class FooActor(ActorTypeDispatcher):
+  │         def init_completed(self):
+  │             self.send(self.init_m1_sender, 'Running')
+  │         def receiveMsg_Croak(self, croakmsg, sender):
+  │             self.send(sender, self.frog)
+  │             self.send(self.init_m1_sender, self.init_m1)
+  │             self.send(self.init_tgt, croakmsg)
+  └────
+
+  This actor will wait for three different initialization messages
+  (Msg1, an ActorAddress, and a string) and store each as an attribute,
+  as well as storing the sender address for the Msg1 message.  When all
+  three have been received, the init_completed method is called, and
+  then all Croak messages cause three messages to be sent.  Note that
+  any Croak messages received before all three initialization messages
+  will be stored and delivered after initialization is complete.
+
+  This decorator is incompatible with the `@troupe' decorator.
+
+  This decorator must appear before the `@transient' or
+  `@transient_idle' decorator:
+
+  ┌────
+  │     @initializing_messages([('init_m1', Msg1, True),
+  │                             ('init_tgt', ActorAddress),
+  │                             ('frog', str)],
+  │                             initdone='init_completed')
+  │     @transient(timedelta(seconds=2, milliseconds=250))
+  │     class FooActor(ActorTypeDispatcher): ...
+  └────
+
+
+8.4 Thespian Director
 ─────────────────────
 
   The Thespian Director is a support utility that provides functionality
@@ -3446,6 +3569,19 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
 
 
 [Thespian Director] file:director.org
+
+
+8.5 RunCommand support
+──────────────────────
+
+  The `thespian.runcommand' helper module can be used to execute
+  commands on the local system and collect results.  This effectively
+  encapsulates the Python `subprocess.Popen' functionality into an Actor
+  which isolates the Popen operation, using messages to request the
+  execution of a command and retrieve the results of the command.
+
+  See the docstrings in the `thespian/runcommand.py' file for more
+  details and the `test/test_runcommand.py' file for example usage.
 
 
 9 ActorSystem Implementations
@@ -3942,6 +4078,20 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
               between the other two, but closer to the performance of
               the "spawn" method.
 
+  At startup, the multiprocTCPBase will attempt to determine the local
+  IP address to use for registering Actor Addresses:
+  ‣ If a Convention Leader is specified, then it will be the address on
+    which it can communicate with that Convention Leader.
+  ‣ If no Convention Leader is specified, it attempts to identify a
+    public address (i.e. one that can communicate with IP address
+    8.8.8.8).
+  In a situation where neither of the above is appropriate or yields a
+  useable address, the THESPIAN_BASE_IPADDR environment variable can be
+  set to the IP address to use before starting Thespian; setting this
+  environment variable overrides any address probing above, and setting
+  it to a network address that is not accessible from the local machine
+  will result in the inability to run any Actors.
+
 
 [ActorSystem Capabilities] See section 4.10
 
@@ -4034,6 +4184,11 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
               available under Unix.  The "forkserver" performance is
               between the other two, but closer to the performance of
               the "spawn" method.
+
+
+  The multiprocUDPBase system base selects a local IP address to use for
+  Actor Addresses in the same manner as described for the
+  multiprocTCPBase above.
 
 
 [ActorSystem Capabilities] See section 4.10

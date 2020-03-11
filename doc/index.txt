@@ -14,7 +14,9 @@ Table of Contents
 .. 2.2 Starting a Thespian Instance
 .. 2.3 Hello World
 .. 2.4 Hello World Redux
-.. 2.5 What Next?
+.. 2.5 Hello World, Distributed
+.. 2.6 Hello World, Semi-Deterministic
+.. 2.7 What Next?
 3 Documentation
 .. 3.1 Thespian Documentation
 .. 3.2 Background and Related Efforts
@@ -140,15 +142,15 @@ Table of Contents
   │ $
   └────
 
-  Note that any additional `ActorSystem().ask()` calls following the
-  tell of `ActorExitRequest` above will return None because the target
+  Note that any additional `ActorSystem().ask()' calls following the
+  tell of `ActorExitRequest' above will return None because the target
   actor does not exist
 
-  … except the first such `ask()` call, because an Actor is always
-  called with its `ActorExitRequest` message before being killed; this
+  … except the first such `ask()' call, because an Actor is always
+  called with its `ActorExitRequest' message before being killed; this
   allows the Actor to perform shutdown activities, which is just sending
   another greeting back in the case of the Hello Actor, and the tell
-  does not read a response, so the next `ask()` will return that queued
+  does not read a response, so the next `ask()' will return that queued
   response.
 
 
@@ -221,17 +223,104 @@ Table of Contents
   │ $
   └────
 
-  This is just a quick introduction to getting started with Thespian.
-  Please see the examples section for more information.
+
+2.5 Hello World, Distributed
+────────────────────────────
+
+  In the previous example, there were three Actors that participated in
+  generating the desired result.  One of the key principals of an Actor
+  is that while it may maintain internal state, it does not share state
+  with other Actors.  This principal allows each Actor to run
+  independently… in some cases, independently can mean that each Actor
+  is run on a different system!
+
+  Thespian will automatically handle delivery of a message to an Actor
+  running on a different system when the `self.send()',
+  `ActorSystem.tell()', or `ActorSystem.ask()' functions are called.
+  There is no change needed to the logic of each Actor, aside from a
+  `staticmethod' that can indicate whether the Actor should run on the
+  current system or not.
+
+  Thespian uses a "capabilities"-based methodology, along with the
+  notion of a "Convention" of Actor Systems for determining where to run
+  an Actor.  On each host system that will potentially run an Actor, an
+  instance of Thespian is started, with parameters to indicate the
+  Convention that this instance should join, along with a dictionary of
+  capabilities for the current ActorSystem instance.
+
+  The capabilities are simply a dictionary of values: the keys and
+  values are completely up to the implementer.  When `createActor()' is
+  called to create a new Actor, and if that Actor class has a special
+  staticmethod, that staticmethod is called with the current
+  ActorSystem's capabilities dictionary as an argument.  The
+  staticmethod returns a `True' or `False' to indicate whether the Actor
+  should be run on the current system, based on examining the dictionary
+  of capabilities.  If the staticmethod returns `False' then Thespian
+  will automatically pass the `createActor' operation to other instances
+  in the Convention until one is found where the Actor's staticmethod
+  returns `True': the Actor will then be created on that system and the
+  Actor's address will ensure that messages are routed to that Actor on
+  that destination system.
+
+  The distribution of Actors across multiple host systems is thusly
+  controlled simply by the capabilities that the Thespian instance on
+  each host system is initialized with.  The `receiveMessage()' of each
+  Actor is *unchanged* for supporting distributed systems, and the
+  manner and configuration of the distribution is controlled
+  independently of the functioning of each Actor.  It is even possible
+  for a Thespian ActorSystem's capabilities to be updated dynamically
+  after startup to reflect changes in the distributed system.
+
+  Controlling the distribution configuration independently of the
+  business logic is a powerful separation of concerns that makes it
+  easier to adapt the Actor-based application to changing needs and to
+  scale the application as needed to handle the demand.
 
 
-2.5 What Next?
+2.6 Hello World, Semi-Deterministic
+───────────────────────────────────
+
+  Actors are a concurrency mechanism whereby each Actor runs
+  independently.  The invocation of each Actor's `receiveMessage()'
+  method is determined by network delivery and the system scheduler and
+  may change from one run of the Actor-based application to the next.
+  While parallelism is highly useful for efficiency and scalability, it
+  can be very difficult to diagnose or even reproduce issues given this
+  level of variability.
+
+  It would be much easier to debug problems and write unit tests if the
+  behavior was deterministic and predictable.  This can be done easily
+  for Thespian actor-based applications simply by using the
+  `simpleSystemBase' when starting the application.  The Actors
+  themselves are unchanged: the `simpleSystemBase' simply executes each
+  Actor's `receiveMessage()' sequentially in the order that messages are
+  generated.  When run multiple times, the same scheduling order will be
+  followed, and the sequential invocation of `receiveMessage()' methods
+  ensures that only one thing occurs at a time.
+
+  The downside to the `simpleSystemBase' is that there is no parallelism
+  in execution, and that it does not support distributed configurations.
+  It is therefore highly useful for certain situations (which could
+  include production uses), but it is also very limited in its
+  capabilities.  Just as with the distributed Thespian convention
+  arrangement however, this re-configuration of the actor-based
+  application occurs *without* any changes to the actor's internal
+  logic: it's a separation of concerns that is handled without needing
+  to modify code involved in other areas of concern.
+
+
+2.7 What Next?
 ──────────────
 
   This has just been a very simple introduction to using Thespian.  A
   more detailed introduction can be found in the [Thespian In-Depth
   Introduction] document, and [Using Thespian] is the primary API and
   utilization document.
+
+  There are also a number of examples in the code repository itself
+  ([https://github.com/kquick/Thespian/tree/master/examples]), including
+  a hands-on tutorial on using multiple actor systems:
+  ([https://github.com/kquick/Thespian/tree/master/examples/multi_system]).
 
 
 [Thespian In-Depth Introduction] https://thespianpy.com/doc/in_depth
@@ -254,6 +343,12 @@ Table of Contents
    [TXT]  [PDF]  [HTML]  Release History is maintained in the [Thespian Release Notes].                                                                        
    [TXT]  [PDF]  [HTML]  An [In Depth Introduction to Thespian].                                                                                               
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Examples can be found in the code repository
+  ([https://github.com/kquick/Thespian/tree/master/examples]), including
+  a hands-on tutorial on creating a distributed system using multiple
+  actor systems:
+  ([https://github.com/kquick/Thespian/tree/master/examples/multi_system]).
 
 
 [TXT] file:using.txt
@@ -392,15 +487,19 @@ https://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor
 6.1 Blogs and Success Stories
 ─────────────────────────────
 
-  ‣ [GoDaddy blog article introducing Thespian, 2015 Aug]
+  ‣ [Thespian overview article by Peter Sabaini, 2020 Feb]
   ‣ [Article comparing Actors to Python asyncio/await, 2016 Feb]
+  ‣ [GoDaddy blog article introducing Thespian, 2015 Aug]
 
   If you have a blog, article, or success story you would like published
   here, please contact one of the project administrators.
 
 
-[GoDaddy blog article introducing Thespian, 2015 Aug]
-https://engineering.godaddy.com/why-godaddy-built-an-actor-system-library
+[Thespian overview article by Peter Sabaini, 2020 Feb]
+https://sabaini.at/peterlog/posts/2020/Feb/16/thespian-a-python-actor-system
 
 [Article comparing Actors to Python asyncio/await, 2016 Feb]
 file:blog/async_blog_2016Feb/async_2016Feb.org
+
+[GoDaddy blog article introducing Thespian, 2015 Aug]
+https://engineering.godaddy.com/why-godaddy-built-an-actor-system-library
