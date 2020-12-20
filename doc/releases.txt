@@ -16,6 +16,7 @@ Summary
 .. 2016
 3.x
 .. 3.10
+..... 3.10.3 <2020-12-20 Sun>
 ..... 3.10.2 <2020-11-29 Sun>
 ..... 3.10.1 <2020-07-14 Tue>
 ..... 3.10.0 <2020-03-10 Tue>
@@ -117,17 +118,20 @@ Summary
 2020
 ────
 
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Release        Date  Significant Bugfixes                   Significant Features                             
-  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    3.10.2  2020-11-29  Fix [Issue #69]: Actor.logger()                                                         
-                        Initialize Actor log forwarding level                                                   
-                        Fix for Python 3.8 "is" literals                                                        
-    3.10.1  2020-07-14  Fix [Issue #63]: invalid socket fd     RunCommand buffer limits removed                 
-                        Unset `THESPLOG_THRESHOLD' fix                                                          
-    3.10.0  2020-03-10  transient_idle wakeups                 Adjustable Troupe limits, `THESPIAN_BASE_IPADDR' 
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes                    Significant Features                             
+  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    3.10.3  2020-12-20  Fix [Issue #57]: logdefs use exception                                                   
+    3.10.2  2020-11-29  Fix [Issue #69]: Actor.logger()                                                          
+                        Initialize Actor log forwarding level                                                    
+                        Fix for Python 3.8 "is" literals                                                         
+    3.10.1  2020-07-14  Fix [Issue #63]: invalid socket fd      RunCommand buffer limits removed                 
+                        Unset `THESPLOG_THRESHOLD' fix                                                           
+    3.10.0  2020-03-10  transient_idle wakeups                  Adjustable Troupe limits, `THESPIAN_BASE_IPADDR' 
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+
+[Issue #57] https://github.com/thespianpy/Thespian/issues/57
 
 [Issue #69] https://github.com/kquick/Thespian/issues/69
 
@@ -308,6 +312,18 @@ Summary
 
 3.10
 ────
+
+3.10.3 <2020-12-20 Sun>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Fixed [Issue #57]: a bug in the previous release caused exceptions
+    when using the multiproc bases with explicit logdefs under Python 3.
+    The bug is due to improper consumptive iterator usage Python 3 and
+    has been fixed.
+
+
+[Issue #57] https://github.com/thespianpy/Thespian/issues/57
+
 
 3.10.2 <2020-11-29 Sun>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
