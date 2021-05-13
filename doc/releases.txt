@@ -9,6 +9,7 @@ Table of Contents
 ─────────────────
 
 Summary
+.. 2021
 .. 2020
 .. 2019
 .. 2018
@@ -16,6 +17,7 @@ Summary
 .. 2016
 3.x
 .. 3.10
+..... 3.10.4 <2021-05-12 Wed>
 ..... 3.10.3 <2020-12-20 Sun>
 ..... 3.10.2 <2020-11-29 Sun>
 ..... 3.10.1 <2020-07-14 Tue>
@@ -114,6 +116,19 @@ not change the API.
 
 Summary
 ═══════
+
+2021
+────
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes                          Significant Features 
+  ─────────────────────────────────────────────────────────────────────────────────────────
+    3.10.4  2021-05-12  Fix [Issue #62]: logDefs no `get' for `None'                       
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[Issue #62] https://github.com/thespianpy/Thespian/issues/62
+
 
 2020
 ────
@@ -312,6 +327,33 @@ Summary
 
 3.10
 ────
+
+3.10.4 <2021-05-12 Wed>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Improvements to logging configuration to properly determine the
+    lowest logging level and set the proper logging level.  Fixes [Issue
+    #70].  Contributed by Todd Cook.
+
+  ‣ Fixed [Issue #62]: initialization without logging could get an
+    exception ~AttributeError: 'NoneType' object has not attribute
+    'get'.  Fix contributed by Todd Cook.
+
+  ‣ Misc. fixes for missing imports and update multiproc daemon
+    attribute handling for Python 3 version of the multiprocessing
+    library.  Contributed by Todd Cook.
+
+  ‣ Fixed reference to Windows default path for `thesplogd.cfg' in
+    Thespian Director documentation.  Contributed by Todd Cook.
+
+  ‣ Various wording fixes and clarification in the documentation.
+    Contributed by Hannes Lerchl.
+
+
+[Issue #70] https://github.com/kquick/Thespian/issues/70
+
+[Issue #62] https://github.com/thespianpy/Thespian/issues/62
+
 
 3.10.3 <2020-12-20 Sun>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌

@@ -377,8 +377,9 @@ Table of Contents
 
   Once created, the running ActorSystem is (by default) a singleton
   instance for the current process.  This means that subsequent
-  references can either use the direct reference (e.g. `asys' from the
-  above) or another `ActorSystem()' instantiation with no parameters.
+  references can either use the direct reference (e.g. `asys' in the
+  example above) or another `ActorSystem()' instantiation with no
+  parameters.
 
 
 [ActorSystem] See section 6.2
@@ -435,9 +436,9 @@ Table of Contents
 2.2.2 Creating an Actor
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
-  Within the ActorSystem, and Actor can create another Actor by making
-  the request to the ActorSystem through the [createActor]() method on
-  its own instance:
+  Within the ActorSystem an Actor can create another Actor by making a
+  request to the ActorSystem. This is done by calling the
+  [createActor]() method on its own instance:
 
   ┌────
   │ >>> class Support(Actor):
@@ -451,15 +452,19 @@ Table of Contents
   └────
 
   As with the creation of a Top-Level actor, the `createActor()' method
-  returns an ActorAddress associated with the new Actor.  The creating
-  Actor's sends messages to the new Actor via the creator's [send]()
-  method, passing the ActorAddress of the new Actor as the target
-  address.
+  of class Actor creates a new Actor instance and returns the
+  ActorAddress associated with it.  The creating Actor can then send
+  messages to the new Actor via its own [send]() method while passing
+  the ActorAddress of the new Actor (which is `newActor' in the example
+  above) as the target address.  The creating Actor becomes the [Parent
+  Actor] of the created Actor.
 
 
 [createActor] See section 5.3
 
 [send] See section 5.4
+
+[Parent Actor] See section 2.2.4
 
 
 2.2.3 Killing an Actor
@@ -471,9 +476,8 @@ Table of Contents
 
   The Actor will receive that message directly on its
   `.receiveMessage()' method, which allows the Actor to make any
-  preparations for its demise, but it cannot refuse to exit and it
-  returns from the `.receiveMessage()', the ActorSystem will killed the
-  Actor.
+  preparations for its demise, but it cannot refuse to exit and when it
+  returns from `.receiveMessage()', the ActorSystem will kill the Actor.
 
   A killed Actor's Address is dead-lettered; any subsequent messages
   sent to the Actor's address will be handled as described in [Dead
@@ -496,15 +500,17 @@ Table of Contents
   The ActorSystem notifies the Parent Actor when any of its child Actors
   exit.  Child Actors are killed when the Parent dies unless the Parent
   indicates that the ActorExitRequest should not propagate to the
-  children.
+  children (see method [notRecursive]()).
 
-  Notification of exited children is via the `ChildActorExited' message.
-  This message has the following attributes:
+  Notification of exited children is done via the `ChildActorExited'
+  message.  This message has the following attributes:
 
   ‣ `.childAddress' to specify the ActorAddress of the child
 
 
 [Creating an Actor] See section 2.2.2
+
+[notRecursive] See section 7.4
 
 
 2.2.5 Actor Failure
@@ -528,7 +534,7 @@ Table of Contents
 3 Guidelines for Actors and their messages
 ══════════════════════════════════════════
 
-  • The ActorSystemMessage class is the base class all ActorSystem
+  • The ActorSystemMessage class is the base class of all ActorSystem
     internal messages.  Messages sent by Actors should not subclass
     ActorSystemMessage, but Actors may differentiate their messages from
     Thespian messages by `isinstance()' testing against the
@@ -1366,7 +1372,7 @@ https://docs.python.org/3/library/logging.html#logger-objects
 4.14 Actor Code Distribution
 ────────────────────────────
 
-  The Thespian ActorSystem provides an feature to specify the code used
+  The Thespian ActorSystem provides a feature to specify the code used
   for Actor implementations.
 
   By default, an Actor implementation is obtained by importing from the
@@ -1464,6 +1470,21 @@ https://docs.python.org/3/library/logging.html#logger-objects
 
   Versioning of the Actor API and the ActorSystem are described in
   [ActorSystem Capabilities].
+
+  It is important to note that the Actor is not fully initialized until
+  the `__init__' function completes, so no actor-level operations
+  (e.g. `self.send()', `self.createActor()') should be performed in the
+  class's `__init__' function.  Actor initialization can be handled in
+  the `receiveMessage' in a number of ways, including:
+
+  ‣ detecting `None' values of members and replacing them with the
+    results of initialization at that time
+
+  ‣ Handling a specific initialization message sent by some other
+    entity.
+
+  ‣ A combination of the above, using the `initializing_messages'
+    decorator provided by the `thespian/initmsgs.py' helper.
 
 
 [ActorSystem Capabilities] See section 4.10
@@ -2023,10 +2044,10 @@ https://docs.python.org/3/library/logging.html#logger-objects
 5.13 updateCapability
 ─────────────────────
 
-  The `updateCapability()' method is used update the capabilities of the
-  current ActorSystem this Actor is running in (there is a corresponding
-  method on the ActorSystem for externally-specified updates; see the
-  [ActorSystem API] for that version).
+  The `updateCapability()' method is used to update the capabilities of
+  the current ActorSystem this Actor is running in (there is a
+  corresponding method on the ActorSystem for externally-specified
+  updates; see the [ActorSystem API] for that version).
 
   ┌────
   │ self.updateCapability(capabilityName, capabilityValue=None)
@@ -2164,11 +2185,12 @@ https://docs.python.org/3/library/logging.html#logger-objects
 
   An alternative base class for creating Actors is the
   `ActorTypeDispatcher' which extends the `Actor' base class.  The
-  `ActorTypeDispatcher' automatically determines the type of incoming
-  messages and calls a receive method related to that type instead of
-  the generic `receiveMessage()' called by the Actor base class.  The
-  type-based receive methods are named "receiveMsg_TYPE" where TYPE is
-  the actual type.
+  `ActorTypeDispatcher' defines a `receiveMessage` method that
+  automatically determines the type of incoming messages and calls a
+  receive method related to that type instead of the generic
+  `receiveMessage()' called by the Actor base class.  The type-based
+  receive methods are named "receiveMsg_TYPE" where TYPE is the actual
+  type.
 
   ┌────
   │ class Typer(ActorTypeDispatcher):
@@ -2222,6 +2244,12 @@ https://docs.python.org/3/library/logging.html#logger-objects
   │ Got a message
   │ >>>
   └────
+
+  The `receiveMessage` method is defined by `ActorTypeDispatcher` so the
+  actor subclassing it should not define that method; if the
+  `receiveMessage` is defined in the subclass then it will override the
+  `ActorTypeDispatcher`'s implementation and all message handling will
+  revert to the subclass's `receiveMessage` method.
 
 
 5.17.1 Derived Classes
@@ -3568,13 +3596,13 @@ https://docs.python.org/3/library/logging.html#logger-objects
   It is common for an Actor to require one or more messages to
   "initialize" the Actor and prepare it for normal operations.
 
-  The `thespian.initmsgs' module provides a `initializing_messages'
+  The `thespian.initmsgs' module provides an `initializing_messages'
   decorator that can assist with managing this initialization.
 
-  This pattern is especially useful for Actors which should receive
+  This pattern is especially useful for Actors which need to receive
   multiple different messages to initialize their state before normal
   processing begins.  Each message is stored in a corresponding
-  attribute on the Actor class, and (unless init_passthru is True) no
+  attribute on the Actor class, and (unless `init_passthru' is True) no
   messages are delivered to the receiveMessages entrypoint until all of
   the initialization messages have been received.
 
@@ -3594,15 +3622,16 @@ https://docs.python.org/3/library/logging.html#logger-objects
   If multiple initialization messages of the same type are received, the
   corresponding attribute will be set to the last messages received.
 
-  The initdone argument, if set, specifies a method name (as a string)
+  The `initdone' argument, if set, specifies a method name (as a string)
   that should be called when all initialization message have been
   received.
 
-  The init_passthru can be set to True to pass *all* messages received
+  The `init_passthru' can be set to True to pass *all* messages received
   during initialization to the normal Actor handling; the default is
   false and init messages are discarded and non-init messages are saved
   and delivered after initialization is completed.  (All
-  ActorSystemMessage messages are treated as if init_passthru was True).
+  ActorSystemMessage messages are treated as if `init_passthru' was
+  True).
 
   Example:
 
@@ -3699,8 +3728,8 @@ https://docs.python.org/3/library/logging.html#logger-objects
   ActorSystem is started if one is not already running.
 
   An argument may be passed to the [ActorSystem] constructor to specify
-  the systemBase (a.k.a ActorSystem implementation) that should be used
-  for starting the ActorSystem if one is not already running; if an
+  the `systemBase' (a.k.a ActorSystem implementation) that should be
+  used for starting the ActorSystem if one is not already running; if an
   ActorSystem is already running, this argument is ignored.  If no
   argument is specified and no ActorSystem is running, the default
   [simpleSystemBase] ActorSystem will be started.
