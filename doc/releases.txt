@@ -17,6 +17,7 @@ Summary
 .. 2016
 3.x
 .. 3.10
+..... 3.10.4 <2021-05-26 Wed>
 ..... 3.10.4 <2021-05-12 Wed>
 ..... 3.10.3 <2020-12-20 Sun>
 ..... 3.10.2 <2020-11-29 Sun>
@@ -120,12 +121,15 @@ Summary
 2021
 ────
 
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Release        Date  Significant Bugfixes                          Significant Features 
-  ─────────────────────────────────────────────────────────────────────────────────────────
-    3.10.4  2021-05-12  Fix [Issue #62]: logDefs no `get' for `None'                       
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes                                          Significant Features 
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+    3.10.5  2021-05-26  Admin forwarding; [Issue #75]: idempotent globalName creates                       
+    3.10.4  2021-05-12  Fix [Issue #62]: logDefs no `get' for `None'                                       
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+
+[Issue #75] https://github.com/thespianpy/Thespian/issues/75
 
 [Issue #62] https://github.com/thespianpy/Thespian/issues/62
 
@@ -327,6 +331,28 @@ Summary
 
 3.10
 ────
+
+3.10.4 <2021-05-26 Wed>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Simultaneous create actor requests for a globalName actor could
+    result in duplicates if processing overlapped in the Admin.  This
+    fixes them to ensure they are idempotent. Fixes [Issue #75].
+
+  ‣ Fixed an issue in Admin forwarding where message forwarding could
+    suffer significant delays in the absense of any other traffic.
+
+  ‣ Updates to the documentation of the Thespian Director, as noted in
+    [Issue #77].  Contributed by htarnacki.
+
+  ‣ Additional documentation of potential issues with various system
+    bases in the Using Thespian documentation.
+
+
+[Issue #75] https://github.com/kquick/Thespian/issues/75
+
+[Issue #77] https://github.com/kquick/Thespian/issues/77
+
 
 3.10.4 <2021-05-12 Wed>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌

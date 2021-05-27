@@ -488,7 +488,7 @@ Table of Contents
   │ { 'version': 1,
   │   'formatters': {
   │     'normal': {
-  │       'fmt': '%(asctime)s,%(msecs)d %(actorAddress}s/PID:%(process)d %(name)s %(levelname)s %(message)s',
+  │       'format': '%(asctime)s,%(msecs)d %(actorAddress)s/PID:%(process)d %(name)s %(levelname)s %(message)s',
   │       'datefmt': '%Y-%m-%d %H:%M:%S'
   │     }
   │   },
@@ -505,8 +505,8 @@ Table of Contents
   │        'filters': ['isActorLog'], 
   │        'when': 'midnight'
   │     }
-  │   }
-  │   'filters': {'isActorLog': {'()', 'thespian.director.ActorAddressLogFilter'}}
+  │   },
+  │   'filters': {'isActorLog': {'()': 'thespian.director.ActorAddressLogFilter'}}
   │ }
   │ 
   │ $ cat thesplogd.cfg
