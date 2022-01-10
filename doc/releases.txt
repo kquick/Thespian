@@ -1,5 +1,5 @@
 	       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-		[HTTPS://THESPIANPY.COM/] RELEASE NOTES
+		<HTTPS://THESPIANPY.COM/> RELEASE NOTES
 
 		     Kevin Quick <quick@sparq.org>
 	       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -9,6 +9,7 @@ Table of Contents
 ─────────────────
 
 Summary
+.. 2022
 .. 2021
 .. 2020
 .. 2019
@@ -17,7 +18,8 @@ Summary
 .. 2016
 3.x
 .. 3.10
-..... 3.10.4 <2021-05-26 Wed>
+..... 3.10.6 <2022-01-09 Sun>
+..... 3.10.5 <2021-05-26 Wed>
 ..... 3.10.4 <2021-05-12 Wed>
 ..... 3.10.3 <2020-12-20 Sun>
 ..... 3.10.2 <2020-11-29 Sun>
@@ -112,11 +114,21 @@ added functionality that is backwards compatible, and bugfix changes do
 not change the API.
 
 
-[Semantic Versioning] https://semver.org
+[Semantic Versioning] <https://semver.org>
 
 
 Summary
 ═══════
+
+2022
+────
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes  Significant Features                         
+  ─────────────────────────────────────────────────────────────────────────────────────────
+    3.10.6  2022-01-09                        Beta support for multiple convention leaders 
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 2021
 ────
@@ -129,9 +141,9 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-[Issue #75] https://github.com/thespianpy/Thespian/issues/75
+[Issue #75] <https://github.com/thespianpy/Thespian/issues/75>
 
-[Issue #62] https://github.com/thespianpy/Thespian/issues/62
+[Issue #62] <https://github.com/thespianpy/Thespian/issues/62>
 
 
 2020
@@ -150,11 +162,11 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-[Issue #57] https://github.com/thespianpy/Thespian/issues/57
+[Issue #57] <https://github.com/thespianpy/Thespian/issues/57>
 
-[Issue #69] https://github.com/kquick/Thespian/issues/69
+[Issue #69] <https://github.com/kquick/Thespian/issues/69>
 
-[Issue #63] https://github.com/kquick/Thespian/issues/63
+[Issue #63] <https://github.com/kquick/Thespian/issues/63>
 
 
 2019
@@ -173,9 +185,9 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-[Issue #38] https://github.com/kquick/Thespian/issues/38
+[Issue #38] <https://github.com/kquick/Thespian/issues/38>
 
-[Issue #35] https://github.com/kquick/Thespian/issues/35
+[Issue #35] <https://github.com/kquick/Thespian/issues/35>
 
 
 2018
@@ -195,11 +207,11 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-[Issue #32] https://github.com/kquick/Thespian/issues/32
+[Issue #32] <https://github.com/kquick/Thespian/issues/32>
 
-[Issue #28] https://github.com/kquick/Thespian/issues/28
+[Issue #28] <https://github.com/kquick/Thespian/issues/28>
 
-[Issue #27] https://github.com/kquick/Thespian/issues/27
+[Issue #27] <https://github.com/kquick/Thespian/issues/27>
 
 
 2017
@@ -246,11 +258,11 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-[Issue #9] https://github.com/kquick/Thespian/issues/9
+[Issue #9] <https://github.com/kquick/Thespian/issues/9>
 
-[Issue #5] https://github.com/kquick/Thespian/issues/5
+[Issue #5] <https://github.com/kquick/Thespian/issues/5>
 
-[Issue 32] https://github.com/godaddy/Thespian/issues/32
+[Issue 32] <https://github.com/godaddy/Thespian/issues/32>
 
 
 2016
@@ -323,7 +335,7 @@ Summary
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-[Issue 23] https://github.com/godaddy/Thespian/issues/23
+[Issue 23] <https://github.com/godaddy/Thespian/issues/23>
 
 
 3.x
@@ -332,7 +344,19 @@ Summary
 3.10
 ────
 
-3.10.4 <2021-05-26 Wed>
+3.10.6 <2022-01-09 Sun>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Adds Beta support for convention fault tolerance by allowing the
+    specification of a list of convention leaders.  Failure of a
+    convention leader will no longer disable the entire convention:
+    management of the convention will shift to one of the other leaders
+    specified in the list.  This is currently Beta functionality and
+    should not be used in production environments.  Contributed by Arnab
+    Chanda.
+
+
+3.10.5 <2021-05-26 Wed>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
   ‣ Simultaneous create actor requests for a globalName actor could
@@ -349,9 +373,9 @@ Summary
     bases in the Using Thespian documentation.
 
 
-[Issue #75] https://github.com/kquick/Thespian/issues/75
+[Issue #75] <https://github.com/kquick/Thespian/issues/75>
 
-[Issue #77] https://github.com/kquick/Thespian/issues/77
+[Issue #77] <https://github.com/kquick/Thespian/issues/77>
 
 
 3.10.4 <2021-05-12 Wed>
@@ -376,9 +400,9 @@ Summary
     Contributed by Hannes Lerchl.
 
 
-[Issue #70] https://github.com/kquick/Thespian/issues/70
+[Issue #70] <https://github.com/kquick/Thespian/issues/70>
 
-[Issue #62] https://github.com/thespianpy/Thespian/issues/62
+[Issue #62] <https://github.com/thespianpy/Thespian/issues/62>
 
 
 3.10.3 <2020-12-20 Sun>
@@ -390,7 +414,7 @@ Summary
     has been fixed.
 
 
-[Issue #57] https://github.com/thespianpy/Thespian/issues/57
+[Issue #57] <https://github.com/thespianpy/Thespian/issues/57>
 
 
 3.10.2 <2020-11-29 Sun>
@@ -408,7 +432,7 @@ Summary
     Peter Sabaini).
 
 
-[Issue #69] https://github.com/kquick/Thespian/issues/69
+[Issue #69] <https://github.com/kquick/Thespian/issues/69>
 
 
 3.10.1 <2020-07-14 Tue>
@@ -423,7 +447,7 @@ Summary
   ‣ Misc typing comments and initial mypy.ini file.
 
 
-[Issue #63] https://github.com/kquick/Thespian/issues/63
+[Issue #63] <https://github.com/kquick/Thespian/issues/63>
 
 
 3.10.0 <2020-03-10 Tue>
@@ -442,7 +466,7 @@ Summary
 
 
 [the Actor Troupe Support section]
-https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
+<https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175>
 
 
 3.9
@@ -496,7 +520,7 @@ https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
     strategy which focused the work on a single member.
 
 
-[Issue #43] https://github.com/kquick/Thespian/issues/43
+[Issue #43] <https://github.com/kquick/Thespian/issues/43>
 
 
 3.9.8 <2019-03-05 Tue>
@@ -519,7 +543,7 @@ https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
   ‣ Miscellaneous test warning cleanups.
 
 
-[Issue #38] https://github.com/kquick/Thespian/issues/38
+[Issue #38] <https://github.com/kquick/Thespian/issues/38>
 
 
 3.9.7 <2019-02-11 Mon>
@@ -541,11 +565,11 @@ https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
     reached.
 
 
-[Issue #35] https://github.com/kquick/Thespian/issues/35
+[Issue #35] <https://github.com/kquick/Thespian/issues/35>
 
-[PullReq #36] https://github.com/kquick/Thespian/pull/36
+[PullReq #36] <https://github.com/kquick/Thespian/pull/36>
 
-[Issue #38] https://github.com/kquick/Thespian/issues/38
+[Issue #38] <https://github.com/kquick/Thespian/issues/38>
 
 
 3.9.5 <2018-12-17 Mon>
@@ -556,7 +580,7 @@ https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
     threshold.
 
 
-[Issue #32] https://github.com/kquick/Thespian/issues/32
+[Issue #32] <https://github.com/kquick/Thespian/issues/32>
 
 
 3.9.4 <2018-08-05 Sun>
@@ -567,7 +591,7 @@ https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
     connectivity was unavailable).
 
 
-[Issue #28] https://github.com/kquick/Thespian/issues/28
+[Issue #28] <https://github.com/kquick/Thespian/issues/28>
 
 
 3.9.3 <2018-07-31 Tue>
@@ -592,7 +616,7 @@ https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
   ‣ Increased incoming message buffer size for less re-assembly.
 
 
-[Issue #27] https://github.com/kquick/Thespian/issues/27
+[Issue #27] <https://github.com/kquick/Thespian/issues/27>
 
 
 3.9.2 <2018-01-31 Wed>
@@ -666,16 +690,16 @@ https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175
   ‣ Miscellaneous test and documentation updates.
 
 
-[Waqar Aqeel] https://github.com/waqaraqeel
+[Waqar Aqeel] <https://github.com/waqaraqeel>
 
-[asevans] https://github.com/asevans48
+[asevans] <https://github.com/asevans48>
 
-[Issue #9] https://github.com/kquick/Thespian/issues/9
+[Issue #9] <https://github.com/kquick/Thespian/issues/9>
 
-[documentation for the Thespian Director] file:director.html
+[documentation for the Thespian Director] <file:director.html>
 
 [glob module documentation]
-https://docs.python.org/3.6/library/glob.html
+<https://docs.python.org/3.6/library/glob.html>
 
 
 3.8
@@ -776,7 +800,7 @@ https://docs.python.org/3.6/library/glob.html
   ‣ The tox-based testing will now test the TCP transports as well.
 
 
-[Issue #5] https://github.com/kquick/Thespian/issues/5
+[Issue #5] <https://github.com/kquick/Thespian/issues/5>
 
 
 3.7
@@ -793,7 +817,7 @@ https://docs.python.org/3.6/library/glob.html
   ‣ Enabled Travis CI testing (thanks to David Asabina!).
 
   ‣ Updates for shift of development to
-    [https://github.com/kquick/Thespian].
+    <https://github.com/kquick/Thespian>.
 
   ‣ Miscellaneous test updates to address test-centric instabilities,
     including avoiding the use of ephemeral ports for test admin ports
@@ -869,13 +893,13 @@ https://docs.python.org/3.6/library/glob.html
     article]).
 
 
-[Issue 35] https://github.com/godaddy/Thespian/issues/35
+[Issue 35] <https://github.com/godaddy/Thespian/issues/35>
 
 [the description of the private method in the Using Thespian document]
-https://thespianpy.com/doc/using#actorsystem.private
+<https://thespianpy.com/doc/using#actorsystem.private>
 
 [Lee Hinman's article]
-https://writequit.org/articles/emacs-org-mode-generate-ids.html
+<https://writequit.org/articles/emacs-org-mode-generate-ids.html>
 
 
 3.6
@@ -888,7 +912,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
     dropped or not delivered ([Issue 37]).
 
 
-[Issue 37] https://github.com/godaddy/Thespian/issues/37
+[Issue 37] <https://github.com/godaddy/Thespian/issues/37>
 
 
 3.6.2 <2017-02-19 Sun>
@@ -927,7 +951,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
   ‣ Misc test cleanups.
 
 
-[Issue 34] https://github.com/godaddy/Thespian/issues/34
+[Issue 34] <https://github.com/godaddy/Thespian/issues/34>
 
 
 3.6.1 <2017-01-18 Wed>
@@ -970,7 +994,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
   ‣ Improved status output for pending transmits.
 
 
-[Issue 32] https://github.com/godaddy/Thespian/issues/32
+[Issue 32] <https://github.com/godaddy/Thespian/issues/32>
 
 
 3.6.0 <2017-01-02 Mon>
@@ -1127,7 +1151,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
       multiprocTCPBase.
 
 
-[Issue 24] https://github.com/godaddy/Thespian/issues/24
+[Issue 24] <https://github.com/godaddy/Thespian/issues/24>
 
 
 3.4
@@ -1177,13 +1201,13 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
     removed).
 
 
-[Issue 22] https://github.com/godaddy/Thespian/issues/22
+[Issue 22] <https://github.com/godaddy/Thespian/issues/22>
 
-[Issue 2] https://github.com/godaddy/Thespian/issues/2
+[Issue 2] <https://github.com/godaddy/Thespian/issues/2>
 
-[Issue 23] https://github.com/godaddy/Thespian/issues/23
+[Issue 23] <https://github.com/godaddy/Thespian/issues/23>
 
-[Issue 25] https://github.com/godaddy/Thespian/issues/25
+[Issue 25] <https://github.com/godaddy/Thespian/issues/25>
 
 
 3.3
@@ -1287,7 +1311,7 @@ https://writequit.org/articles/emacs-org-mode-generate-ids.html
 
 
 [Source Loading Issues]
-https://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
+<https://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d>
 
 
 3.2.1 <2016-09-08 Thu>
@@ -1496,7 +1520,7 @@ https://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
     non-zero time duration for transport processing.
 
   ‣ Revert signal handling introduced in version 2.5.8: internal Python
-    issues (e.g. [https://bugs.python.org/issues14976]) made the initial
+    issues (e.g. <https://bugs.python.org/issues14976>) made the initial
     approach buggy.  Newly engineered signals support will be added in a
     forthcoming release.
 
@@ -1639,11 +1663,11 @@ https://thespianpy.com/doc/using#hH-e23490e4-d720-4e84-9b9a-e768fa3e717d
     circular import references in loaded sources.
 
 
-[Issue #5] https://github.com/godaddy/Thespian/issues/5
+[Issue #5] <https://github.com/godaddy/Thespian/issues/5>
 
-[Issue #6] https://github.com/godaddy/Thespian/issues/6
+[Issue #6] <https://github.com/godaddy/Thespian/issues/6>
 
-[Issue #7] https://github.com/godaddy/Thespian/issues/7
+[Issue #7] <https://github.com/godaddy/Thespian/issues/7>
 
 
 2.5.7 <2016-03-14 Mon>

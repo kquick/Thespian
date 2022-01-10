@@ -1,5 +1,5 @@
 	     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-	      [HTTPS://THESPIANPY.COM] ACTORS USER'S GUIDE
+	      <HTTPS://THESPIANPY.COM> ACTORS USER'S GUIDE
 
 		     Kevin Quick <quick@sparq.org>
 	     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -8,133 +8,133 @@
 Table of Contents
 ─────────────────
 
-1 Actor Overview
-.. 1.1 Actors
-.. 1.2 Actor Addresses
-.. 1.3 ActorSystem
-..... 1.3.1 Different Implementations
-..... 1.3.2 Multiple Systems
-.. 1.4 External Communications
-.. 1.5 Effects
-.. 1.6 Comparisons
-..... 1.6.1 Message Bus (Pub/Sub) Architecture
-..... 1.6.2 Logging Systems
-2 Using Thespian
-.. 2.1 Starting an Actor System
-.. 2.2 Actor Lifecycle
-..... 2.2.1 Creating a Top-Level Actor
-..... 2.2.2 Creating an Actor
-..... 2.2.3 Killing an Actor
-..... 2.2.4 Parent Actor
-..... 2.2.5 Actor Failure
-3 Guidelines for Actors and their messages
-4 Thespian Actor Feature Extensions
-.. 4.1 Message Delivery
-..... 4.1.1 Message Mutability
-.. 4.2 Dead Letter Handling
-.. 4.3 Non-startable Actors
-.. 4.4 PoisonMessage Returns
-.. 4.5 Top-Level Actors
-.. 4.6 Named Actors
-.. 4.7 Timer Messages
-.. 4.8 Watching File Descriptors
-..... 4.8.1 Blocking Actors
-.. 4.9 Actor Troupes
-.. 4.10 ActorSystem Capabilities
-.. 4.11 Other Actor Systems
-..... 4.11.1 Convention Establishment
-..... 4.11.2 Convention Administrator Communications
-..... 4.11.3 Multi-system Global Name support
-.. 4.12 Performance
-.. 4.13 Logging
-..... 4.13.1 Logging Level Management
-..... 4.13.2 Logging Transmit Overruns
-..... 4.13.3 Thespian Internals Logging
-.. 4.14 Actor Code Distribution
-5 Actor API
-.. 5.1 myAddress
-.. 5.2 receiveMessage
-..... 5.2.1 Return Value
-.. 5.3 createActor
-..... 5.3.1 globalName
-..... 5.3.2 Actor Creation Gotchas
-.. 5.4 send
-.. 5.5 wakeupAfter
-.. 5.6 handleDeadLetters
-.. 5.7 notifyOnSystemRegistrationChanges
-.. 5.8 registerSourceAuthority
-.. 5.9 loadActorSource
-.. 5.10 unloadActorSource
-.. 5.11 notifyOnSourceAvailability
-.. 5.12 actorSystemCapabilityCheck
-..... 5.12.1 requireCapability decorator
-.. 5.13 updateCapability
-.. 5.14 preRegisterRemoteSystem
-.. 5.15 deRegisterRemoteSystem
-.. 5.16 actorSystemShutdown
-.. 5.17 ActorTypeDispatcher
-..... 5.17.1 Derived Classes
-..... 5.17.2 Unrecognized Messages
-..... 5.17.3 Type Handling Deferral
-6 ActorSystem API
-.. 6.1 Exceptions
-.. 6.2 ActorSystem
-.. 6.3 ActorSystem.shutdown
-.. 6.4 ActorSystem.createActor
-.. 6.5 tell
-.. 6.6 ask
-..... 6.6.1 Gotchas
-.. 6.7 listen
-.. 6.8 private
-.. 6.9 updateCapability
-.. 6.10 loadActorSource
-..... 6.10.1 Source Loading Issues
-..... 6.10.2 Security Considerations
-.. 6.11 unloadActorSource
-7 ActorSystem Messages
-.. 7.1 PoisonMessage
-..... 7.1.1 Attributes
-.. 7.2 WakeupMessage
-..... 7.2.1 Attributes
-.. 7.3 WatchMessage
-..... 7.3.1 Attributes
-.. 7.4 ActorExitRequest
-..... 7.4.1 Attributes
-.. 7.5 ChildActorExited
-..... 7.5.1 Attributes
-.. 7.6 DeadEnvelope
-..... 7.6.1 Attributes
-.. 7.7 ActorSystemConventionUpdate
-..... 7.7.1 Attributes
-.. 7.8 ValidateSource
-..... 7.8.1 Attributes
-.. 7.9 ValidatedSource
-..... 7.9.1 Attributes
-.. 7.10 LoadedSource
-..... 7.10.1 Attributes
-.. 7.11 UnloadedSource
-..... 7.11.1 Attributes
-.. 7.12 Thespian_StatusReq
-..... 7.12.1 Attributes
-.. 7.13 Thespian_SystemStatus
-.. 7.14 Thespian_ActorStatus
-8 Patterns and Helpers
-.. 8.1 Actor Troupe Support
-.. 8.2 Transient Actors
-.. 8.3 Initialization Messages
-.. 8.4 Thespian Director
-.. 8.5 RunCommand support
-9 ActorSystem Implementations
-.. 9.1 Common Capabilities
-.. 9.2 simpleSystemBase
-.. 9.3 multiprocQueueBase
-..... 9.3.1 Potential issues
-.. 9.4 multiprocTCPBase
-.. 9.5 multiprocUDPBase
-10 Potential Concerns
-11 Deploying Actor-based Projects
-.. 11.1 Overall Security Considerations
-..... 11.1.1 Security Scenarios
+1. Actor Overview
+.. 1. Actors
+.. 2. Actor Addresses
+.. 3. ActorSystem
+..... 1. Different Implementations
+..... 2. Multiple Systems
+.. 4. External Communications
+.. 5. Effects
+.. 6. Comparisons
+..... 1. Message Bus (Pub/Sub) Architecture
+..... 2. Logging Systems
+2. Using Thespian
+.. 1. Starting an Actor System
+.. 2. Actor Lifecycle
+..... 1. Creating a Top-Level Actor
+..... 2. Creating an Actor
+..... 3. Killing an Actor
+..... 4. Parent Actor
+..... 5. Actor Failure
+3. Guidelines for Actors and their messages
+4. Thespian Actor Feature Extensions
+.. 1. Message Delivery
+..... 1. Message Mutability
+.. 2. Dead Letter Handling
+.. 3. Non-startable Actors
+.. 4. PoisonMessage Returns
+.. 5. Top-Level Actors
+.. 6. Named Actors
+.. 7. Timer Messages
+.. 8. Watching File Descriptors
+..... 1. Blocking Actors
+.. 9. Actor Troupes
+.. 10. ActorSystem Capabilities
+.. 11. Other Actor Systems
+..... 1. Convention Establishment
+..... 2. Convention Administrator Communications
+..... 3. Multi-system Global Name support
+.. 12. Performance
+.. 13. Logging
+..... 1. Logging Level Management
+..... 2. Logging Transmit Overruns
+..... 3. Thespian Internals Logging
+.. 14. Actor Code Distribution
+5. Actor API
+.. 1. myAddress
+.. 2. receiveMessage
+..... 1. Return Value
+.. 3. createActor
+..... 1. globalName
+..... 2. Actor Creation Gotchas
+.. 4. send
+.. 5. wakeupAfter
+.. 6. handleDeadLetters
+.. 7. notifyOnSystemRegistrationChanges
+.. 8. registerSourceAuthority
+.. 9. loadActorSource
+.. 10. unloadActorSource
+.. 11. notifyOnSourceAvailability
+.. 12. actorSystemCapabilityCheck
+..... 1. requireCapability decorator
+.. 13. updateCapability
+.. 14. preRegisterRemoteSystem
+.. 15. deRegisterRemoteSystem
+.. 16. actorSystemShutdown
+.. 17. ActorTypeDispatcher
+..... 1. Derived Classes
+..... 2. Unrecognized Messages
+..... 3. Type Handling Deferral
+6. ActorSystem API
+.. 1. Exceptions
+.. 2. ActorSystem
+.. 3. ActorSystem.shutdown
+.. 4. ActorSystem.createActor
+.. 5. tell
+.. 6. ask
+..... 1. Gotchas
+.. 7. listen
+.. 8. private
+.. 9. updateCapability
+.. 10. loadActorSource
+..... 1. Source Loading Issues
+..... 2. Security Considerations
+.. 11. unloadActorSource
+7. ActorSystem Messages
+.. 1. PoisonMessage
+..... 1. Attributes
+.. 2. WakeupMessage
+..... 1. Attributes
+.. 3. WatchMessage
+..... 1. Attributes
+.. 4. ActorExitRequest
+..... 1. Attributes
+.. 5. ChildActorExited
+..... 1. Attributes
+.. 6. DeadEnvelope
+..... 1. Attributes
+.. 7. ActorSystemConventionUpdate
+..... 1. Attributes
+.. 8. ValidateSource
+..... 1. Attributes
+.. 9. ValidatedSource
+..... 1. Attributes
+.. 10. LoadedSource
+..... 1. Attributes
+.. 11. UnloadedSource
+..... 1. Attributes
+.. 12. Thespian_StatusReq
+..... 1. Attributes
+.. 13. Thespian_SystemStatus
+.. 14. Thespian_ActorStatus
+8. Patterns and Helpers
+.. 1. Actor Troupe Support
+.. 2. Transient Actors
+.. 3. Initialization Messages
+.. 4. Thespian Director
+.. 5. RunCommand support
+9. ActorSystem Implementations
+.. 1. Common Capabilities
+.. 2. simpleSystemBase
+.. 3. multiprocQueueBase
+..... 1. Potential issues
+.. 4. multiprocTCPBase
+.. 5. multiprocUDPBase
+10. Potential Concerns
+11. Deploying Actor-based Projects
+.. 1. Overall Security Considerations
+..... 1. Security Scenarios
 
 
 
@@ -205,7 +205,7 @@ Table of Contents
   ActorSystem is responsible for Actor lifecycle management (creating
   and terminating Actors) and message delivery functions.
 
-  [file:fig1.png]
+  <file:fig1.png>
 
 
 1.3.1 Different Implementations
@@ -260,7 +260,7 @@ Table of Contents
   either a remote or local Actor but the ActorAddress itself is opaque
   to the Actor.
 
-  [file:fig2.png]
+  <file:fig2.png>
 
   This facility allows for location independence and also provides for
   essentially unlimited scalability of the underlying support
@@ -294,7 +294,7 @@ Table of Contents
   ActorAddress.  The Actor is unaware that these messages originated
   from external code.
 
-  [file:fig3.png]
+  <file:fig3.png>
 
   The [ActorSystem API] section has more details on the ActorSystem
   operations.
@@ -955,10 +955,10 @@ Table of Contents
 
 
 [http_server1.py]
-https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server1.py
+<https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server1.py>
 
 [http_server2.py]
-https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2.py
+<https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2.py>
 
 4.8.1 Blocking Actors
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
@@ -1057,6 +1057,14 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
   [ActorSystemConventionUpdate] message for these events.  Actors
   register for these updates using the
   [notifyOnSystemRegistrationChanges] API call.
+
+  An Actor System Convention is managed by one or more convention
+  leaders, whose job is to help route actor creation and actor messages
+  between different systems with potentially different capabilities.
+  There is currently Beta support for having multiple convention leaders
+  to provide a measure of fault-tolerance in case a convention leader
+  fails or exits the convention; this support is currently in Beta
+  status and should not be used in a production environment.
 
   Not all ActorSystems support multi-system communications, and those
   that do are normally of the multi-process variety.
@@ -1218,7 +1226,7 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
 
   The logging configuration is specified using the standard Python
   Logging dictionary specification (documented in
-  [https://docs.python.org/3/library/logging.config.html]).  For
+  <https://docs.python.org/3/library/logging.config.html>).  For
   example:
 
   ┌────
@@ -1302,10 +1310,10 @@ https://github.com/kquick/Thespian/blobl/master/examples/httpserver/http_server2
 
 
 [Log Handler]
-https://docs.python.org/3/library/logging.html#handler-objects
+<https://docs.python.org/3/library/logging.html#handler-objects>
 
 [Logger object]
-https://docs.python.org/3/library/logging.html#logger-objects
+<https://docs.python.org/3/library/logging.html#logger-objects>
 
 
 4.13.2 Logging Transmit Overruns
@@ -1449,7 +1457,7 @@ https://docs.python.org/3/library/logging.html#logger-objects
 
 [loadActorSource] See section 5.9
 
-[Thespian Director] file:director.org
+[Thespian Director] <file:director.org>
 
 
 5 Actor API
@@ -3042,7 +3050,7 @@ https://docs.python.org/3/library/logging.html#logger-objects
 
   [Common Capabilities] See section 9.1
 
-  [Thespian Director] file:director.org
+  [Thespian Director] <file:director.org>
 
 
 6.11 unloadActorSource
@@ -3687,7 +3695,7 @@ https://docs.python.org/3/library/logging.html#logger-objects
   Director.
 
 
-[Thespian Director] file:director.org
+[Thespian Director] <file:director.org>
 
 
 8.5 RunCommand support
@@ -4094,7 +4102,7 @@ https://docs.python.org/3/library/logging.html#logger-objects
 
 
   *Convention Address.IPv4*
-        tuple or string
+        tuple or string or array of tuples/strings
 
         usage
               /optional settable/
@@ -4114,6 +4122,17 @@ https://docs.python.org/3/library/logging.html#logger-objects
 
               If not specified, then this ActorSystem operates in
               isolation and cannot interact with other Actor Systems.
+
+              BETA
+                    This can be specified as a list of convention leader
+                    addresses.  In this mode, if a leader is shutdown,
+                    the remaining convention will shift to using one of
+                    the other leaders in the list (providing a measure
+                    of fault-tolerance/high-availability for the
+                    convention).  This is currently BETA functionality
+                    and should not be used in production, as there are
+                    likely future code updates needed to handle any
+                    subtle issues that arise from this functionality.
 
   *Admin Routing*
         boolean
@@ -4281,7 +4300,7 @@ https://docs.python.org/3/library/logging.html#logger-objects
               started up.
 
   *Convention Address.IPv4*
-        tuple or string
+        tuple or string or list of tuples/strings
 
         usage
               /optional settable/
@@ -4358,7 +4377,7 @@ https://docs.python.org/3/library/logging.html#logger-objects
   support this latter method.
 
 
-[Thespian Director] file:director.org
+[Thespian Director] <file:director.org>
 
 11.1 Overall Security Considerations
 ────────────────────────────────────
