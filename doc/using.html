@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-09 Sun 18:07 -->
+<!-- 2022-01-18 Tue 07:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thespian Actors User's Guide</title>
@@ -464,7 +464,7 @@
 <li><a href="#hH-25cfa213-13a6-4265-8828-86ffffed0e12">9.5. multiprocUDPBase</a></li>
 </ul>
 </li>
-<li><a href="#orgf5d16fa">10. Potential Concerns</a></li>
+<li><a href="#h:51179a65-61b1-45b2-80df-eddd62e16330">10. Potential Concerns</a></li>
 <li><a href="#hH-23bdc6e2-a5c4-4228-a75c-fb213f537732">11. Deploying Actor-based Projects</a>
 <ul>
 <li><a href="#hH-7e109f00-76ff-49a1-b307-2166154c3921">11.1. Overall Security Considerations</a>
@@ -573,7 +573,7 @@ and terminating Actors) and message delivery functions.
 </p>
 
 
-<div id="orgbf0a282" class="figure">
+<div id="orgf6be004" class="figure">
 <p><img src="fig1.png" alt="fig1.png" />
 </p>
 </div>
@@ -646,7 +646,7 @@ is opaque to the Actor.
 </p>
 
 
-<div id="org75b840f" class="figure">
+<div id="orga4b5229" class="figure">
 <p><img src="fig2.png" alt="fig2.png" />
 </p>
 </div>
@@ -693,7 +693,7 @@ from external code.
 </p>
 
 
-<div id="org96723bf" class="figure">
+<div id="orgdd27258" class="figure">
 <p><img src="fig3.png" alt="fig3.png" />
 </p>
 </div>
@@ -2155,7 +2155,7 @@ ignored.
 </p>
 
 <p>
-The <a id="org4cf16aa"></a> object is initialized with the list of file
+The <a id="orgf96f886"></a> object is initialized with the list of file
 numbers to watch for incoming data from.
 </p>
 
@@ -2951,7 +2951,7 @@ handler is not found.
 </pre>
 </div>
 
-<pre class="example" id="orge9e7355">
+<pre class="example" id="orga8cbd01">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; t = asys.createActor(Typer)
 &gt;&gt;&gt; print(asys.ask(t, 1))
@@ -2988,7 +2988,7 @@ This receive method lookup also works for derived classes:
 </pre>
 </div>
 
-<pre class="example" id="org79730d2">
+<pre class="example" id="org29fecd5">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; a1 = asys.createActor(Typer)
 &gt;&gt;&gt; print(asys.ask(a1, ShortMsg()))
@@ -3013,13 +3013,13 @@ namespace prefix:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org9c0d341"><span class="linenr">1: </span><span class="org-keyword">class</span> <span class="org-type">Message1</span>: ...
+<pre class="src src-python" id="org5f04d6c"><span class="linenr">1: </span><span class="org-keyword">class</span> <span class="org-type">Message1</span>: ...
 <span class="linenr">2: </span><span class="org-keyword">class</span> <span class="org-type">Message2</span>: ...
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org0cd5cca"><span class="linenr">1: </span><span class="org-keyword">import</span> messagedefs
+<pre class="src src-python" id="org23ab313"><span class="linenr">1: </span><span class="org-keyword">import</span> messagedefs
 <span class="linenr">2: </span>
 <span class="linenr">3: </span><span class="org-keyword">class</span> <span class="org-type">SendActor</span>(ActorTypeDispatcher):
 <span class="linenr">4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMsg_Message1</span>(<span class="org-keyword">self</span>, msg, sender):
@@ -3056,7 +3056,7 @@ is not explicitly recognized by defining the
 </pre>
 </div>
 
-<pre class="example" id="orgd8cfbdc">
+<pre class="example" id="org2563e18">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; st = asys.createActor(Subtyper2)
 &gt;&gt;&gt; print(asys.ask(st, ShortMsg()))
@@ -3070,7 +3070,7 @@ Did not recognize the message type: &lt;type 'float'&gt;
 
 <p>
 It is important to note that an Actor based on the
-ActorTypeDispatcher that is also using the <a href="#org4cf16aa">5.2.1</a>
+ActorTypeDispatcher that is also using the <a href="#orgf96f886">5.2.1</a>
 functionality should implement the <code>receiveUnrecognizedMessage</code>
 entrypointto ensure that a proper <code>ThespianWatch</code> message is
 returned when an unrecognized message is received.
@@ -3115,7 +3115,7 @@ operation implemented by <code>ActorTypeDispatcher</code>:
 </pre>
 </div>
 
-<pre class="example" id="org84612cf">
+<pre class="example" id="org29d779e">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; st = asys.createActor(SubTyper3)
 &gt;&gt;&gt; print(asys.ask(st, ShortMsg("This is public")), 2)
@@ -3143,7 +3143,7 @@ return <code>ActorTypeDispatcher.SUPER</code> to instruct the
 </pre>
 </div>
 
-<pre class="example" id="org91e2d74">
+<pre class="example" id="org046b4f9">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; st = asys.createActor(SubTyper4)
 &gt;&gt;&gt; print(asys.ask(st, ShortMsg("This is public"), 2))
@@ -3280,7 +3280,7 @@ application where more specific knowledge regarding the
 creation parameters was available.
 </p>
 
-<pre class="example" id="orgc6f8d08">
+<pre class="example" id="orgacf10ca">
           def start_system():
               cfg = read_config_file()
               ActorSystem(systemBase=cfg.system_base,
@@ -3303,7 +3303,7 @@ requires extra code to pass the actor system to the various
 components needing it:
 </p>
 
-<pre class="example" id="org0f1b955">
+<pre class="example" id="orgc09c862">
           def start_system():
               cfg = read_config_file()
               asys = ActorSystem(systemBase=cfg.system_base,
@@ -3535,6 +3535,16 @@ sent multiple messages to the <code>ask()</code> endpoint, the additional
 messages may either be delivered on subsequent <code>ask()</code> calls, or
 discarded as failed message sends if this endpoint does not issue
 an <code>ask()</code> in a reasonable time period.</li>
+
+<li>If using the <code>simpleSystemBase</code> (currently the default if no base
+is specified on the initial <code>ActorSystem()</code> call) then timeouts
+are unlikely to work as expected.  For example, an actor call that
+sleeps for 5 seconds and then sends a response will block all
+processing and the response will be delivered, even if the <code>ask()</code>
+specified a timeout shorter than the 5 seconds.  Furthermore, if
+there are no actor messages to be propagated and handled, the
+<code>simpleSystemBase</code> call to <code>ask()</code> will return immediately and
+without waiting for any requested time period.</li>
 </ul>
 
 <p>
@@ -3575,6 +3585,14 @@ recommended manner of specifying a timeout period is as an instance
 of the <code>datetime.timedelta</code> class, although an integer or floating
 point value will be accepted as a specification of a number of
 seconds.
+</p>
+
+<p>
+Just as with the <code>ask()</code> timeout, the <code>listen</code> timeout is not
+generally useful when using a <code>simpleSystemBase</code> actor base.  The
+timeout will typically either be ignored while there is active work
+to be done, or the call will return immediately if the actor system
+is quiescent with no messages to be delivered.
 </p>
 </div>
 </div>
@@ -3841,7 +3859,7 @@ a Source Authority similar to the following may be used to
 automatically accept and enable all loaded sources:
 </p>
 
-<pre class="example" id="orgf3d042a">
+<pre class="example" id="org4b2eb05">
 from thespian.actors import *
 class SimpleSourceAuthority(ActorTypeDispatcher):
     def receiveMsg_str(self, msg, sender):
@@ -4049,7 +4067,7 @@ information.
 <li><code>.ready</code> specifies a list of file numbers for which data is
 available.  This will be a subset of the original set of file
 numbers returned from the Actor's <code>receiveMessage()</code> method in the
-<a href="#org4cf16aa">5.2.1</a> return value.</li>
+<a href="#orgf96f886">5.2.1</a> return value.</li>
 </ul>
 </div>
 </div>
@@ -5488,9 +5506,9 @@ multiprocTCPBase above.
 </div>
 </div>
 
-<div id="outline-container-orgf5d16fa" class="outline-2">
-<h2 id="orgf5d16fa"><span class="section-number-2">10</span> Potential Concerns</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-h:51179a65-61b1-45b2-80df-eddd62e16330" class="outline-2">
+<h2 id="h:51179a65-61b1-45b2-80df-eddd62e16330"><span class="section-number-2">10</span> Potential Concerns</h2>
+<div class="outline-text-2" id="text-h:51179a65-61b1-45b2-80df-eddd62e16330">
 <ul class="org-ul">
 <li>Dropped messages</li>
 <li>Message size limitations</li>
@@ -5640,7 +5658,7 @@ difference will remain unaddressed.
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2022-01-09 Sun 18:07</p>
+<p class="date">Created: 2022-01-18 Tue 07:56</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
