@@ -137,7 +137,7 @@ Table of Contents
 ..... 1. Security Scenarios
 
 
-###+LATEX_COMPILER: pdflatex
+
 
 
 1 Actor Overview
