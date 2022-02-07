@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-18 Tue 07:56 -->
+<!-- 2022-02-06 Sun 22:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thespian Actors User's Guide</title>
@@ -477,6 +477,9 @@
 </ul>
 </div>
 </div>
+<p>
+###+LATEX_COMPILER: pdflatex
+</p>
 
 
 <div id="outline-container-hH-f23d674d-ce24-48b4-8ad8-be8eb299e89e" class="outline-2">
@@ -573,7 +576,7 @@ and terminating Actors) and message delivery functions.
 </p>
 
 
-<div id="orgf6be004" class="figure">
+<div id="org60f86b4" class="figure">
 <p><img src="fig1.png" alt="fig1.png" />
 </p>
 </div>
@@ -646,7 +649,7 @@ is opaque to the Actor.
 </p>
 
 
-<div id="orga4b5229" class="figure">
+<div id="org42ee67f" class="figure">
 <p><img src="fig2.png" alt="fig2.png" />
 </p>
 </div>
@@ -693,7 +696,7 @@ from external code.
 </p>
 
 
-<div id="orgdd27258" class="figure">
+<div id="org9b5033f" class="figure">
 <p><img src="fig3.png" alt="fig3.png" />
 </p>
 </div>
@@ -951,11 +954,25 @@ message.  This message has the following attributes:
 <h4 id="hH-fb0eba5e-9d12-4cfe-8e8c-fe77b6658065"><span class="section-number-4">2.2.5</span> Actor Failure</h4>
 <div class="outline-text-4" id="text-hH-fb0eba5e-9d12-4cfe-8e8c-fe77b6658065">
 <p>
-If the Actor code handling a message fails, the ActorSystem will
-automatically handle that failure and restart the Actor.  For this
-reason, Actor-based code is typically much simpler than
+If the Actor code handling a message fails by throwing an
+exception, the ActorSystem will automatically catch that exception.
+The message is automatically re-issued to the Actor to give it a
+second chance to handle the message.  If the second attempt also
+throws an exception, the message is returned via a <code>PoisonMessage</code>
+to the caller and that Actor continues with the next message.  For
+this reason, Actor-based code is typically much simpler than
 conventional code because it does not have the overhead of lots of
 exception checking and error condition handling.
+</p>
+
+<p>
+If a process-based Actor process exits (e.g. via a signal or
+un-catcheable exception) then the Thespian Actor System will
+(eventually) detect the exited process and deliver a
+<code>ChildActorExited</code> message to the parent Actor.  It is up to the
+parent Actor to determine what to do in this situation, but a
+common response is to simply create another instance of that exited
+child Actor.
 </p>
 
 <p>
@@ -2155,7 +2172,7 @@ ignored.
 </p>
 
 <p>
-The <a id="orgf96f886"></a> object is initialized with the list of file
+The <a id="org04643b6"></a> object is initialized with the list of file
 numbers to watch for incoming data from.
 </p>
 
@@ -2951,7 +2968,7 @@ handler is not found.
 </pre>
 </div>
 
-<pre class="example" id="orga8cbd01">
+<pre class="example" id="orgea1cb3e">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; t = asys.createActor(Typer)
 &gt;&gt;&gt; print(asys.ask(t, 1))
@@ -2988,7 +3005,7 @@ This receive method lookup also works for derived classes:
 </pre>
 </div>
 
-<pre class="example" id="org29fecd5">
+<pre class="example" id="org46da564">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; a1 = asys.createActor(Typer)
 &gt;&gt;&gt; print(asys.ask(a1, ShortMsg()))
@@ -3013,13 +3030,13 @@ namespace prefix:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org5f04d6c"><span class="linenr">1: </span><span class="org-keyword">class</span> <span class="org-type">Message1</span>: ...
+<pre class="src src-python" id="org80e9a0f"><span class="linenr">1: </span><span class="org-keyword">class</span> <span class="org-type">Message1</span>: ...
 <span class="linenr">2: </span><span class="org-keyword">class</span> <span class="org-type">Message2</span>: ...
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org23ab313"><span class="linenr">1: </span><span class="org-keyword">import</span> messagedefs
+<pre class="src src-python" id="orgf80c4cb"><span class="linenr">1: </span><span class="org-keyword">import</span> messagedefs
 <span class="linenr">2: </span>
 <span class="linenr">3: </span><span class="org-keyword">class</span> <span class="org-type">SendActor</span>(ActorTypeDispatcher):
 <span class="linenr">4: </span>    <span class="org-keyword">def</span> <span class="org-function-name">receiveMsg_Message1</span>(<span class="org-keyword">self</span>, msg, sender):
@@ -3056,7 +3073,7 @@ is not explicitly recognized by defining the
 </pre>
 </div>
 
-<pre class="example" id="org2563e18">
+<pre class="example" id="orgdf80873">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; st = asys.createActor(Subtyper2)
 &gt;&gt;&gt; print(asys.ask(st, ShortMsg()))
@@ -3070,7 +3087,7 @@ Did not recognize the message type: &lt;type 'float'&gt;
 
 <p>
 It is important to note that an Actor based on the
-ActorTypeDispatcher that is also using the <a href="#orgf96f886">5.2.1</a>
+ActorTypeDispatcher that is also using the <a href="#org04643b6">5.2.1</a>
 functionality should implement the <code>receiveUnrecognizedMessage</code>
 entrypointto ensure that a proper <code>ThespianWatch</code> message is
 returned when an unrecognized message is received.
@@ -3115,7 +3132,7 @@ operation implemented by <code>ActorTypeDispatcher</code>:
 </pre>
 </div>
 
-<pre class="example" id="org29d779e">
+<pre class="example" id="orgfe4229d">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; st = asys.createActor(SubTyper3)
 &gt;&gt;&gt; print(asys.ask(st, ShortMsg("This is public")), 2)
@@ -3143,7 +3160,7 @@ return <code>ActorTypeDispatcher.SUPER</code> to instruct the
 </pre>
 </div>
 
-<pre class="example" id="org046b4f9">
+<pre class="example" id="org6e5e777">
 &gt;&gt;&gt; asys = ActorSystem()
 &gt;&gt;&gt; st = asys.createActor(SubTyper4)
 &gt;&gt;&gt; print(asys.ask(st, ShortMsg("This is public"), 2))
@@ -3280,7 +3297,7 @@ application where more specific knowledge regarding the
 creation parameters was available.
 </p>
 
-<pre class="example" id="orgacf10ca">
+<pre class="example" id="org49a01fd">
           def start_system():
               cfg = read_config_file()
               ActorSystem(systemBase=cfg.system_base,
@@ -3303,7 +3320,7 @@ requires extra code to pass the actor system to the various
 components needing it:
 </p>
 
-<pre class="example" id="orgc09c862">
+<pre class="example" id="orgafebdad">
           def start_system():
               cfg = read_config_file()
               asys = ActorSystem(systemBase=cfg.system_base,
@@ -3859,7 +3876,7 @@ a Source Authority similar to the following may be used to
 automatically accept and enable all loaded sources:
 </p>
 
-<pre class="example" id="org4b2eb05">
+<pre class="example" id="orgc998ceb">
 from thespian.actors import *
 class SimpleSourceAuthority(ActorTypeDispatcher):
     def receiveMsg_str(self, msg, sender):
@@ -4067,7 +4084,7 @@ information.
 <li><code>.ready</code> specifies a list of file numbers for which data is
 available.  This will be a subset of the original set of file
 numbers returned from the Actor's <code>receiveMessage()</code> method in the
-<a href="#orgf96f886">5.2.1</a> return value.</li>
+<a href="#org04643b6">5.2.1</a> return value.</li>
 </ul>
 </div>
 </div>
@@ -5658,7 +5675,7 @@ difference will remain unaddressed.
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2022-01-18 Tue 07:56</p>
+<p class="date">Created: 2022-02-06 Sun 22:10</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

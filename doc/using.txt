@@ -137,7 +137,7 @@ Table of Contents
 ..... 1. Security Scenarios
 
 
-
+###+LATEX_COMPILER: pdflatex
 
 
 1 Actor Overview
@@ -518,11 +518,23 @@ Table of Contents
 2.2.5 Actor Failure
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 
-  If the Actor code handling a message fails, the ActorSystem will
-  automatically handle that failure and restart the Actor.  For this
-  reason, Actor-based code is typically much simpler than conventional
-  code because it does not have the overhead of lots of exception
-  checking and error condition handling.
+  If the Actor code handling a message fails by throwing an exception,
+  the ActorSystem will automatically catch that exception.  The message
+  is automatically re-issued to the Actor to give it a second chance to
+  handle the message.  If the second attempt also throws an exception,
+  the message is returned via a `PoisonMessage' to the caller and that
+  Actor continues with the next message.  For this reason, Actor-based
+  code is typically much simpler than conventional code because it does
+  not have the overhead of lots of exception checking and error
+  condition handling.
+
+  If a process-based Actor process exits (e.g. via a signal or
+  un-catcheable exception) then the Thespian Actor System will
+  (eventually) detect the exited process and deliver a
+  `ChildActorExited' message to the parent Actor.  It is up to the
+  parent Actor to determine what to do in this situation, but a common
+  response is to simply create another instance of that exited child
+  Actor.
 
   When writing Actor code, the general philosophy is "fail early"; the
   ActorSystem itself will restart the Actor in the event of a failure
