@@ -1,7 +1,7 @@
                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 <HTTPS://THESPIANPY.COM/> RELEASE NOTES
 
-                     Kevin Quick <quick@sparq.org>
+                    Kevin Quick <kq1quick@gmail.com>
                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -9,6 +9,7 @@ Table of Contents
 ─────────────────
 
 Summary
+.. 2025
 .. 2023
 .. 2022
 .. 2021
@@ -17,6 +18,9 @@ Summary
 .. 2018
 .. 2017
 .. 2016
+4.x
+.. 4.0
+..... 4.0.0 <2025-02-03 Mon>
 3.x
 .. 3.10
 ..... 3.10.7 <2023-01-15 Sun>
@@ -121,6 +125,21 @@ not change the API.
 
 Summary
 ═══════
+
+2025
+────
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes                        Significant Features                          
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+     4.0.0  2025-02-03  Better fix for [Issue #70] (fixes Windows)  Use `selectors' for socket handling.          
+                        General fixes for socket handling.          Configurable socket management thresholds.    
+                        Dropped support for Python 2.               Multiple convention leaders no longer Beta.   
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[Issue #70] <https://github.com/thespianpy/Thespian/issues/70>
+
 
 2023
 ────
@@ -352,6 +371,46 @@ Summary
 
 
 [Issue 23] <https://github.com/godaddy/Thespian/issues/23>
+
+
+4.x
+═══
+
+4.0
+───
+
+4.0.0 <2025-02-03 Mon>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Updates core multiprocX scheduling to use `selectors' Python library
+    to manage waiting on asynchronous socket readiness.  This is more
+    flexible because it adapts to the optimal support method for each OS
+    and allows a larger number of active sockets on MacOS (where select
+    is limited to 1024 descriptors).  Unfortunately, this does have a
+    small performance penalty.  Contributed by Grzegorz Banasiak.
+  ‣ Fixes Windows support by reverting issue 70.
+  ‣ Adds `ENOTCONN' as a send in-progress status for backoff.
+    Contributed by Grzegorz Banasiak.
+  ‣ Longer timeouts in test_HAConvention.py and test_manyActorSystems.py
+    to support Windows. Contributed by Grzegorz Banasiak.
+  ‣ Adds examples/socketstress.py as another means to perform
+    stress/load testing.  Contributed by Grzegorz Banasiak.
+  ‣ Updates to test_runcommand.py to support Windows and skip
+    test_actorSignals on the same platform since it does not support
+    POSIX signals. Contributed by Grzegorz Banasiak.
+  ‣ Added support for `THESPIAN_MAX_PENDING_TRANSMITS',
+    `THESPIAN_MAX_QUEUED_TRANSMITS',
+    `THESPIAN_QUEUED_TRANSMIT_UNBLOCK_THRESHOLD',
+    `THESPIAN_DROP_TRANSMITS_LEVEL', and
+    `THESPIAN_TRANSMIT_TIMEOUT_MINUTES' environment variables on
+    `ActorSystem' startup. See [Configuration Environment Variables] in
+    "Using Thespian" for details.
+  ‣ Updates to `diagnose.py' for better Windows support and additional
+    TCP socket information.
+
+
+[Configuration Environment Variables]
+<file:using.org::#h:ca576db1-3923-4db4-aaad-e6c41730f552>
 
 
 3.x

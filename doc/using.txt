@@ -1,8 +1,8 @@
-	     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-	      <HTTPS://THESPIANPY.COM> ACTORS USER'S GUIDE
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              <HTTPS://THESPIANPY.COM> ACTORS USER'S GUIDE
 
-		     Kevin Quick <quick@sparq.org>
-	     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    Kevin Quick <kq1quick@gmail.com>
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 Table of Contents
@@ -130,8 +130,9 @@ Table of Contents
 .. 3. multiprocQueueBase
 ..... 1. Potential issues
 .. 4. multiprocTCPBase
+..... 1. Configuration Environment Variables
 .. 5. multiprocUDPBase
-10. Potential Concerns
+10. Potential Concerns and FAQ
 11. Deploying Actor-based Projects
 .. 1. Overall Security Considerations
 ..... 1. Security Scenarios
@@ -2529,7 +2530,7 @@ Table of Contents
         │           def start_system():
         │               cfg = read_config_file()
         │               ActorSystem(systemBase=cfg.system_base,
-        │                           capabilities = { 'foo'=cfg.foo_capability, ...},
+        │                           capabilities = { 'foo': cfg.foo_capability, ...},
         │                           ...)
         │ 
         │           def do_something():
@@ -2550,7 +2551,7 @@ Table of Contents
         │           def start_system():
         │               cfg = read_config_file()
         │               asys = ActorSystem(systemBase=cfg.system_base,
-        │                                  capabilities = { 'foo'=cfg.foo_capability, ...},
+        │                                  capabilities = { 'foo': cfg.foo_capability, ...},
         │                                  ...)
         │               return asys
         │ 
@@ -4151,16 +4152,11 @@ Table of Contents
               If not specified, then this ActorSystem operates in
               isolation and cannot interact with other Actor Systems.
 
-              BETA
-                    This can be specified as a list of convention leader
-                    addresses.  In this mode, if a leader is shutdown,
-                    the remaining convention will shift to using one of
-                    the other leaders in the list (providing a measure
-                    of fault-tolerance/high-availability for the
-                    convention).  This is currently BETA functionality
-                    and should not be used in production, as there are
-                    likely future code updates needed to handle any
-                    subtle issues that arise from this functionality.
+              ‣ This can be specified as a list of convention leader
+                addresses.  In this mode, if a leader is shutdown, the
+                remaining convention will shift to using one of the
+                other leaders in the list (providing a measure of
+                fault-tolerance/high-availability for the convention).
 
   *Admin Routing*
         boolean
@@ -4269,6 +4265,123 @@ Table of Contents
 
 [ActorSystem Capabilities] See section 4.10
 
+9.4.1 Configuration Environment Variables
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  The multiprocTCPBase ActorSystem has various configuration parameters
+  that control the runtime behavior.  These parameters are defaulted to
+  values which are intended to support most standard uses of Thespian,
+  but these values can be adjusted for specific use cases using
+  environment variables.  These environment variables must be set
+  *before* the ActorSystem is started for them to affect the ActorSystem
+  and any Actors started within that ActorSystem.
+
+  `THESPIAN_BASE_IPADDR'
+        specifies the local IP address to use for Actors on this system.
+        This should be an IP address that is reachable by any other
+        ActorSystems that are part of a convention; if no convention is
+        needed, localhost or 0.0.0.0 is probably sufficient, but
+        otherwise this needs to be an address that is reachable from
+        those remote systems.  Thespian will automatically probe on
+        startup and attempt to determine the address to use, but in
+        situations where this automated probing is insufficient or
+        incorrect, this environment variable can be used to override the
+        address.
+
+        ┌────
+        │     $ export THESPIAN_BASE_IPADDR="1.2.3.4"
+        └────
+
+        default
+              locally probed address
+
+  `THESPIAN_MAX_PENDING_TRANSMITS'
+        Specifies the number of transmit messages that can actively be
+        sent from an Actor.  The messages are not required to be
+        directed to the same target.  This threshold should be set to a
+        level that prevents overflowing the system's `socket.send()'
+        limitations.
+
+        ┌────
+        │     $ export THESPIAN_MAX_PENDING_TRANSMITS=10
+        └────
+
+        default
+              20
+
+  `THESPIAN_MAX_QUEUED_TRANSMITS'
+        Actors can transmit messages faster than they can be processed
+        by recipients.  Thespian maintains a limit of the number of
+        pending/in-progress transmits that can be created by a single
+        Actor.  Normally, the `.send()' method is asynchronous, queueing
+        the message for transmit and returning immediately to the
+        Actor's code, but when this theshold is reached, a `.send()'
+        will block (implementing "backoff" or "back pressure"). This
+        environment variable overrides the default threshold value.
+
+        If this value is changed, the
+        `THESPIAN_QUEUED_TRANSMIT_UNBLOCK_THRESHOLD' value may need to
+        be explicitly set as well.
+
+        ┌────
+        │     $ export THESPIAN_MAX_QUEUED_TRANSMITS=500
+        └────
+
+        default
+              950
+
+  `THESPIAN_QUEUED_TRANSMIT_UNBLOCK_THRESHOLD'
+        When an Actor's `.send()' method is blocked due to reaching the
+        THESPIAN_MAX_QUEUED_TRANSMITS threshold (either the explicit or
+        default threshold), the `.send()' will not unblock until the
+        number of queued transmit messages falls below a lower threshold
+        value.  By having the resumption threshold set lower than the
+        blocking threshold, a hysteresis buffer is provided that allows
+        an Actor to run more smoothly overall instead of introducing
+        jitter as it repeatedly moves above and below a single threshold
+        value.  This value can be explicitly set with the
+        `THESPIAN_QUEUED_TRANSMIT_UNBLOCK_THRESHOLD' environment
+        variable.
+
+        This value *should always be less* than the
+        `THESPIAN_MAX_QUEUED_TRANSMITS' value.
+
+        ┌────
+        │     $ export THESPIAN_QUEUED_TRANSMIT_UNBLOCK_THRESHOLD=100
+        └────
+
+        default
+              780
+
+  `THESPIAN_DROP_TRANSMITS_LEVEL'
+        It is possible to configure the Actor to drop transmit requests
+        if there are too many queued.  Message queueing can occur via
+        the Actor's intentional `.send()' call, or implicitly via Actor
+        management requests exchanged between Actors or the Actor and
+        the ActorSystem.  The drop threshold will affect both types of
+        messages, and is a protection against overloading the Actor's
+        system memory.
+
+        If this value is set lower than the
+        `THESPIAN_MAX_QUEUED_TRANSMITS' level then the `.send()' method
+        will never block (exerting back-pressure) but instead drop
+        messages.  Normally this value will be set higher than the
+        `THESPIAN_MAX_QUEUED_TRANSMITS'.
+
+        ┌────
+        │     $ export THESPIAN_DROP_TRANSMITS_LEVEL=600
+        └────
+
+        default
+              100 plus the maximum queued transmits threshold (which can
+              be set via `THESPIAN_MAX_QUEUED_TRANSMITS').
+
+  In addition to the above, the logging environment variables described
+  in [Thespian Internals Logging] may be set.
+
+
+[Thespian Internals Logging] See section 4.13.3
+
 
 9.5 multiprocUDPBase
 ────────────────────
@@ -4370,11 +4483,49 @@ Table of Contents
 [multiprocTCPBase] See section 9.4
 
 
-10 Potential Concerns
-═════════════════════
+10 Potential Concerns and FAQ
+═════════════════════════════
 
-  ‣ Dropped messages
-  ‣ Message size limitations
+  Some items of potential concern when working with Thespian and actor
+  systems in general:
+
+  Dropped messages
+        While Thespian does its best to ensure that messages are
+        delivered, this is fundamentally a distributed model relying on
+        varying levels of network connectivity.  Thespian will
+        retransmit where it is possible to detect a delivery error (this
+        is generally not possible with the UDP-based transports but is
+        provided by the TCP-based transports).  An actor-based
+        application wanting to address this concern may want to add
+        identification information to messages that allow a receipient
+        to detect the absence of expected messages and explicitly
+        re-request them from the originating actor.
+
+  Message size limitations
+        Thespian itself does not impose message size limitations.  Some
+        transports may have limitations (e.g. UDP) that will be
+        encountered.  Extremely large messages may overflow buffers in
+        the network equipment or in the network stack of the local or
+        remote system.  Thespian has been successfully used to exchange
+        messages that are tens or hundreds of kilobytes, but it's
+        recommended that extremely huge messages are split into smaller
+        messages or handled via some other mechanism.
+
+
+        Use of Thespian in conjunction with some other scheduling system
+        (e.g. rabbit-mq, etc.).  Because the scheduling of an actor's
+        receiveMessage handler is one of the primary goals of the
+        Thespian actor system (or any actor system), this is usually
+        incompatible with any *other* scheduling system expecting to
+        determine when portions of the code are run, which frequently
+        includes other message passing frameworks that include schedule
+        handling.  Thespian expects to have the CPU context available
+        for servicing sockets/queues/etc. and to determine when the
+        Actor is called with a message; conversely the Actor may choose
+        to block for as long as it desires within its own receiveMessage
+        handler.  There is no commonly viable mechanism for Thespian to
+        share this management of the CPU context with Other libraries
+        and frameworks that also expecting to manage that context.
 
 
 11 Deploying Actor-based Projects

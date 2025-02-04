@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-15 Sun 23:02 -->
+<!-- 2025-02-03 Mon 18:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>[[https://thespianpy.com/][@@html:&lt;img src="thesplogo2.png" alt="Thespian" width="50%" style="inline" /&gt;@@]] Release Notes</title>
-<meta name="author" content="Kevin Quick &lt;quick@sparq.org&gt;" />
+<meta name="author" content="Kevin Quick &lt;kq1quick@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
@@ -217,166 +217,176 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd60cb7f">Summary</a>
+<li><a href="#org69b8f52">Summary</a>
 <ul>
-<li><a href="#org5a0af1b">2023</a></li>
-<li><a href="#org6a2a13e">2022</a></li>
-<li><a href="#org08efd82">2021</a></li>
-<li><a href="#org52664e2">2020</a></li>
-<li><a href="#orgcf5903c">2019</a></li>
-<li><a href="#org4d5aab8">2018</a></li>
-<li><a href="#org03d229f">2017</a></li>
-<li><a href="#org112ed23">2016</a></li>
+<li><a href="#orgb592995">2025</a></li>
+<li><a href="#orgd4b2636">2023</a></li>
+<li><a href="#orge68610d">2022</a></li>
+<li><a href="#org66b6aa2">2021</a></li>
+<li><a href="#org24c8e3b">2020</a></li>
+<li><a href="#org6b0364d">2019</a></li>
+<li><a href="#orgcbc5297">2018</a></li>
+<li><a href="#orgcafd6a1">2017</a></li>
+<li><a href="#orgec333b6">2016</a></li>
 </ul>
 </li>
-<li><a href="#org64e3443">3.x</a>
+<li><a href="#org1ec5e49">4.x</a>
 <ul>
-<li><a href="#orgf960bbc">3.10</a>
+<li><a href="#org9668106">4.0</a>
 <ul>
-<li><a href="#org59e0f42">3.10.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-01-15 Sun&gt;</span></span></a></li>
-<li><a href="#org692bfa2">3.10.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-01-09 Sun&gt;</span></span></a></li>
-<li><a href="#org2d4620f">3.10.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-05-26 Wed&gt;</span></span></a></li>
-<li><a href="#org7a0d0a4">3.10.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-05-12 Wed&gt;</span></span></a></li>
-<li><a href="#org935d26f">3.10.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-12-20 Sun&gt;</span></span></a></li>
-<li><a href="#org509ec8c">3.10.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-11-29 Sun&gt;</span></span></a></li>
-<li><a href="#org6d8ca1e">3.10.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-14 Tue&gt;</span></span></a></li>
-<li><a href="#orgfe00e14">3.10.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-10 Tue&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orge2fd641">3.9</a>
-<ul>
-<li><a href="#orgf62ed8f">3.9.11 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-10 Tue&gt;</span></span></a></li>
-<li><a href="#org4df3bc0">3.9.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-08-30 Fri&gt;</span></span></a></li>
-<li><a href="#orgfb186eb">3.9.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-04-08 Mon&gt;</span></span></a></li>
-<li><a href="#org0de5989">3.9.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-03-05 Tue&gt;</span></span></a></li>
-<li><a href="#org9438ac9">3.9.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-02-11 Mon&gt;</span></span></a></li>
-<li><a href="#org9083de4">3.9.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-02-05 Tue&gt;</span></span></a></li>
-<li><a href="#org4fe4c88">3.9.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-17 Mon&gt;</span></span></a></li>
-<li><a href="#orgfd7b03b">3.9.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-08-05 Sun&gt;</span></span></a></li>
-<li><a href="#org01638eb">3.9.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-07-31 Tue&gt;</span></span></a></li>
-<li><a href="#org7e6026a">3.9.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-31 Wed&gt;</span></span></a></li>
-<li><a href="#orged48005">3.9.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-09 Tue&gt;</span></span></a></li>
-<li><a href="#org2aa866b">3.9.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-22 Fri&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orgf341914">3.8</a>
-<ul>
-<li><a href="#orga0a5e1c">3.8.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-11-08 Wed&gt;</span></span></a></li>
-<li><a href="#org49ad36a">3.8.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-11-01 Wed&gt;</span></span></a></li>
-<li><a href="#orgd63b4bd">3.8.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-22 Sun&gt;</span></span></a></li>
-<li><a href="#orgb1c4185">3.8.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orgee9729d">3.7</a>
-<ul>
-<li><a href="#orgfaaae24">3.7.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-02 Tue&gt;</span></span></a></li>
-<li><a href="#orgbef9fc9">3.7.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></a></li>
-<li><a href="#org8d64087">3.7.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></a></li>
-<li><a href="#orgeec8a53">3.7.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-19 Sun&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#org4b5ee55">3.6</a>
-<ul>
-<li><a href="#orgc9ac0fa">3.6.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></a></li>
-<li><a href="#orga8a4ce9">3.6.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-19 Sun&gt;</span></span></a></li>
-<li><a href="#org6492a19">3.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-18 Wed&gt;</span></span></a></li>
-<li><a href="#orgedd8ff2">3.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-02 Mon&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orga20754d">3.5</a>
-<ul>
-<li><a href="#orgd709b5d">3.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 Mon&gt;</span></span></a></li>
-<li><a href="#org08a94f9">3.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 Thu&gt;</span></span></a></li>
-<li><a href="#orgafdbcbb">3.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-04 Sun&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orgdb4f439">3.4</a>
-<ul>
-<li><a href="#org97eec3a">3.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-07 Mon&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orgb83dc67">3.3</a>
-<ul>
-<li><a href="#orgdc0eeb1">3.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orga3dde31">3.2</a>
-<ul>
-<li><a href="#org5b316eb">3.2.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></a></li>
-<li><a href="#orgccd8521">3.2.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
-<li><a href="#org1965ea3">3.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#org79fc004">3.1</a>
-<ul>
-<li><a href="#org1268791">3.1.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
-<li><a href="#org19f2d74">3.1.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-29 Mon&gt;</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orgd387859">3.0</a>
-<ul>
-<li><a href="#org05aca93">3.0.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-12 Fri&gt;</span></span></a></li>
-<li><a href="#org53e859e">3.0.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-11 Thu&gt;</span></span></a></li>
-<li><a href="#org614e94b">3.0.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-29 Fri&gt;</span></span></a></li>
-<li><a href="#orgc257e15">3.0.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-26 Tue&gt;</span></span></a></li>
-<li><a href="#orgfd8edc2">3.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-04 Mon&gt;</span></span></a></li>
+<li><a href="#orgd436306">4.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2025-02-03 Mon&gt;</span></span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org2f3ecbb">2.x</a>
+<li><a href="#org954cc8e">3.x</a>
 <ul>
-<li><a href="#orgd1b316c">2.6</a>
+<li><a href="#org0f6d98e">3.10</a>
 <ul>
-<li><a href="#org8bf7b3b">2.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-20 Fri&gt;</span></span></a></li>
-<li><a href="#org33325ba">2.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-18 Wed&gt;</span></span></a></li>
+<li><a href="#org88f4264">3.10.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-01-15 Sun&gt;</span></span></a></li>
+<li><a href="#orge100b20">3.10.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-01-09 Sun&gt;</span></span></a></li>
+<li><a href="#orgbb493d4">3.10.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-05-26 Wed&gt;</span></span></a></li>
+<li><a href="#org97c26ef">3.10.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-05-12 Wed&gt;</span></span></a></li>
+<li><a href="#org4af7a8b">3.10.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-12-20 Sun&gt;</span></span></a></li>
+<li><a href="#orgdaec141">3.10.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-11-29 Sun&gt;</span></span></a></li>
+<li><a href="#org038a734">3.10.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-14 Tue&gt;</span></span></a></li>
+<li><a href="#orge94006f">3.10.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-10 Tue&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgd8f617b">2.5</a>
+<li><a href="#orgdc1dcd3">3.9</a>
 <ul>
-<li><a href="#org12e4276">2.5.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-03 Tue&gt;</span></span></a></li>
-<li><a href="#org502e5a3">2.5.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></a></li>
-<li><a href="#org5d393c3">2.5.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></a></li>
-<li><a href="#org9bd81ec">2.5.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-14 Mon&gt;</span></span></a></li>
-<li><a href="#org4947a35">2.5.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-11 Thu&gt;</span></span></a></li>
-<li><a href="#org0d20cd3">2.5.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-05 Fri&gt;</span></span></a></li>
-<li><a href="#orgb7dae97">2.5.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-01 Mon&gt;</span></span></a></li>
-<li><a href="#org4bff31b">2.5.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-28 Thu&gt;</span></span></a></li>
-<li><a href="#org4a89b31">2.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed&gt;</span></span></a></li>
-<li><a href="#org0dcf3ec">2.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
-<li><a href="#orgc35f147">2.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
+<li><a href="#orgc13cace">3.9.11 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-10 Tue&gt;</span></span></a></li>
+<li><a href="#org8370541">3.9.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-08-30 Fri&gt;</span></span></a></li>
+<li><a href="#org95e9a8b">3.9.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-04-08 Mon&gt;</span></span></a></li>
+<li><a href="#org070c998">3.9.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-03-05 Tue&gt;</span></span></a></li>
+<li><a href="#org6098160">3.9.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-02-11 Mon&gt;</span></span></a></li>
+<li><a href="#org5d05592">3.9.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-02-05 Tue&gt;</span></span></a></li>
+<li><a href="#org9af570f">3.9.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-17 Mon&gt;</span></span></a></li>
+<li><a href="#orgacb56bb">3.9.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-08-05 Sun&gt;</span></span></a></li>
+<li><a href="#orgcebd915">3.9.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-07-31 Tue&gt;</span></span></a></li>
+<li><a href="#orgff43d47">3.9.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-31 Wed&gt;</span></span></a></li>
+<li><a href="#org5e90813">3.9.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-09 Tue&gt;</span></span></a></li>
+<li><a href="#orge9bc15e">3.9.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-22 Fri&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org0ca4f29">2.4</a>
+<li><a href="#org6f06470">3.8</a>
 <ul>
-<li><a href="#orgc3c9a12">2.4.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
-<li><a href="#org2f03c37">2.4.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-18 Wed&gt;</span></span></a></li>
-<li><a href="#org9122a91">2.4.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-26 Mon&gt;</span></span></a></li>
-<li><a href="#org777c84f">2.4.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-20 Tue&gt;</span></span></a></li>
-<li><a href="#orgc27bcc6">2.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-18 Sun&gt;</span></span></a></li>
+<li><a href="#orgcf8108a">3.8.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-11-08 Wed&gt;</span></span></a></li>
+<li><a href="#org5fa7593">3.8.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-11-01 Wed&gt;</span></span></a></li>
+<li><a href="#orgc8b1f6b">3.8.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-22 Sun&gt;</span></span></a></li>
+<li><a href="#org2de9131">3.8.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgc4fa294">2.3</a>
+<li><a href="#orgce527ca">3.7</a>
 <ul>
-<li><a href="#org037b571">2.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt;</span></span></a></li>
+<li><a href="#org2dc89de">3.7.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-02 Tue&gt;</span></span></a></li>
+<li><a href="#org20b4de8">3.7.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></a></li>
+<li><a href="#org3df55e9">3.7.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></a></li>
+<li><a href="#org791ec5e">3.7.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-19 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgba3decb">2.2</a>
+<li><a href="#org919c587">3.6</a>
 <ul>
-<li><a href="#org5ce86ac">2.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></a></li>
+<li><a href="#org7c7a3a0">3.6.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></a></li>
+<li><a href="#org360fc40">3.6.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-19 Sun&gt;</span></span></a></li>
+<li><a href="#org73cdefd">3.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-18 Wed&gt;</span></span></a></li>
+<li><a href="#orgaa885b3">3.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-02 Mon&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org297d2e2">2.1</a>
+<li><a href="#org3509865">3.5</a>
 <ul>
-<li><a href="#org3d7e98d">2.1.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></a></li>
-<li><a href="#org17e8003">2.1.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-20 Sun&gt;</span></span></a></li>
-<li><a href="#orgdf65a47">2.1.4 Initial Public Release <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-31 Mon&gt;</span></span></a></li>
+<li><a href="#orgb2389e7">3.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 Mon&gt;</span></span></a></li>
+<li><a href="#org4cc6796">3.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 Thu&gt;</span></span></a></li>
+<li><a href="#orgfcc2012">3.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-04 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org303aaf1">2.0</a></li>
+<li><a href="#orgfe086d0">3.4</a>
+<ul>
+<li><a href="#org64c4dcf">3.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-07 Mon&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org1078b28">1.x</a></li>
+<li><a href="#org732217f">3.3</a>
+<ul>
+<li><a href="#org0613c8d">3.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org7e38c33">3.2</a>
+<ul>
+<li><a href="#orgb30c1bd">3.2.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></a></li>
+<li><a href="#org0a72d19">3.2.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
+<li><a href="#org7ec9f03">3.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org754714d">3.1</a>
+<ul>
+<li><a href="#org2c02b1c">3.1.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></a></li>
+<li><a href="#org8e6c030">3.1.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-29 Mon&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org99d5d17">3.0</a>
+<ul>
+<li><a href="#orgb8bad7e">3.0.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-12 Fri&gt;</span></span></a></li>
+<li><a href="#org6585203">3.0.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-11 Thu&gt;</span></span></a></li>
+<li><a href="#orgc8af3fb">3.0.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-29 Fri&gt;</span></span></a></li>
+<li><a href="#orgb68d4c2">3.0.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-26 Tue&gt;</span></span></a></li>
+<li><a href="#org4cd231d">3.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-04 Mon&gt;</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org740aeb1">2.x</a>
+<ul>
+<li><a href="#org5bf50cd">2.6</a>
+<ul>
+<li><a href="#org8b73425">2.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-20 Fri&gt;</span></span></a></li>
+<li><a href="#orgabd8b54">2.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-18 Wed&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org77da7fb">2.5</a>
+<ul>
+<li><a href="#orge9d51d3">2.5.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-03 Tue&gt;</span></span></a></li>
+<li><a href="#org46765eb">2.5.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></a></li>
+<li><a href="#org912ef93">2.5.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></a></li>
+<li><a href="#org65d299d">2.5.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-14 Mon&gt;</span></span></a></li>
+<li><a href="#org11e3b16">2.5.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-11 Thu&gt;</span></span></a></li>
+<li><a href="#org293a8f9">2.5.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-05 Fri&gt;</span></span></a></li>
+<li><a href="#org323d4e7">2.5.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-01 Mon&gt;</span></span></a></li>
+<li><a href="#org1c5f049">2.5.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-28 Thu&gt;</span></span></a></li>
+<li><a href="#org9f764ed">2.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed&gt;</span></span></a></li>
+<li><a href="#org90d3e96">2.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
+<li><a href="#orge43e5be">2.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgfa77a90">2.4</a>
+<ul>
+<li><a href="#orgd8ca504">2.4.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></a></li>
+<li><a href="#org37f8ddc">2.4.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-18 Wed&gt;</span></span></a></li>
+<li><a href="#org9a60f7c">2.4.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-26 Mon&gt;</span></span></a></li>
+<li><a href="#org8f58674">2.4.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-20 Tue&gt;</span></span></a></li>
+<li><a href="#org80db34c">2.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-18 Sun&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org7d44396">2.3</a>
+<ul>
+<li><a href="#org2db69a7">2.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgc315207">2.2</a>
+<ul>
+<li><a href="#org78bbef0">2.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgbbe4736">2.1</a>
+<ul>
+<li><a href="#org30325a7">2.1.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></a></li>
+<li><a href="#org1cef2b1">2.1.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-20 Sun&gt;</span></span></a></li>
+<li><a href="#org4152656">2.1.4 Initial Public Release <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-31 Mon&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orga4987e5">2.0</a></li>
+</ul>
+</li>
+<li><a href="#org1fefdd6">1.x</a></li>
 </ul>
 </div>
 </div>
@@ -387,13 +397,69 @@ added functionality that is backwards compatible, and bugfix changes
 do not change the API.
 </p>
 
-<div id="outline-container-orgd60cb7f" class="outline-2">
-<h2 id="orgd60cb7f">Summary</h2>
-<div class="outline-text-2" id="text-orgd60cb7f">
+<div id="outline-container-org69b8f52" class="outline-2">
+<h2 id="org69b8f52">Summary</h2>
+<div class="outline-text-2" id="text-org69b8f52">
 </div>
-<div id="outline-container-org5a0af1b" class="outline-3">
-<h3 id="org5a0af1b">2023</h3>
-<div class="outline-text-3" id="text-org5a0af1b">
+<div id="outline-container-orgb592995" class="outline-3">
+<h3 id="orgb592995">2025</h3>
+<div class="outline-text-3" id="text-orgb592995">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Release</th>
+<th scope="col" class="org-right">Date</th>
+<th scope="col" class="org-left">Significant Bugfixes</th>
+<th scope="col" class="org-left">Significant Features</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">4.0.0</td>
+<td class="org-right">2025-02-03</td>
+<td class="org-left">Better fix for <a href="https://github.com/thespianpy/Thespian/issues/70">Issue #70</a> (fixes Windows)</td>
+<td class="org-left">Use <code>selectors</code> for socket handling.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">General fixes for socket handling.</td>
+<td class="org-left">Configurable socket management thresholds.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">Dropped support for Python 2.</td>
+<td class="org-left">Multiple convention leaders no longer Beta.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgd4b2636" class="outline-3">
+<h3 id="orgd4b2636">2023</h3>
+<div class="outline-text-3" id="text-orgd4b2636">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -434,9 +500,9 @@ do not change the API.
 </div>
 
 
-<div id="outline-container-org6a2a13e" class="outline-3">
-<h3 id="org6a2a13e">2022</h3>
-<div class="outline-text-3" id="text-org6a2a13e">
+<div id="outline-container-orge68610d" class="outline-3">
+<h3 id="orge68610d">2022</h3>
+<div class="outline-text-3" id="text-orge68610d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -469,9 +535,9 @@ do not change the API.
 </div>
 </div>
 
-<div id="outline-container-org08efd82" class="outline-3">
-<h3 id="org08efd82">2021</h3>
-<div class="outline-text-3" id="text-org08efd82">
+<div id="outline-container-org66b6aa2" class="outline-3">
+<h3 id="org66b6aa2">2021</h3>
+<div class="outline-text-3" id="text-org66b6aa2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -511,9 +577,9 @@ do not change the API.
 </div>
 </div>
 
-<div id="outline-container-org52664e2" class="outline-3">
-<h3 id="org52664e2">2020</h3>
-<div class="outline-text-3" id="text-org52664e2">
+<div id="outline-container-org24c8e3b" class="outline-3">
+<h3 id="org24c8e3b">2020</h3>
+<div class="outline-text-3" id="text-org24c8e3b">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -588,9 +654,9 @@ do not change the API.
 </div>
 </div>
 
-<div id="outline-container-orgcf5903c" class="outline-3">
-<h3 id="orgcf5903c">2019</h3>
-<div class="outline-text-3" id="text-orgcf5903c">
+<div id="outline-container-org6b0364d" class="outline-3">
+<h3 id="org6b0364d">2019</h3>
+<div class="outline-text-3" id="text-org6b0364d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -665,9 +731,9 @@ do not change the API.
 </div>
 </div>
 
-<div id="outline-container-org4d5aab8" class="outline-3">
-<h3 id="org4d5aab8">2018</h3>
-<div class="outline-text-3" id="text-org4d5aab8">
+<div id="outline-container-orgcbc5297" class="outline-3">
+<h3 id="orgcbc5297">2018</h3>
+<div class="outline-text-3" id="text-orgcbc5297">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -749,9 +815,9 @@ do not change the API.
 </div>
 </div>
 
-<div id="outline-container-org03d229f" class="outline-3">
-<h3 id="org03d229f">2017</h3>
-<div class="outline-text-3" id="text-org03d229f">
+<div id="outline-container-orgcafd6a1" class="outline-3">
+<h3 id="orgcafd6a1">2017</h3>
+<div class="outline-text-3" id="text-orgcafd6a1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1004,9 +1070,9 @@ do not change the API.
 </div>
 </div>
 
-<div id="outline-container-org112ed23" class="outline-3">
-<h3 id="org112ed23">2016</h3>
-<div class="outline-text-3" id="text-org112ed23">
+<div id="outline-container-orgec333b6" class="outline-3">
+<h3 id="orgec333b6">2016</h3>
+<div class="outline-text-3" id="text-orgec333b6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1425,17 +1491,59 @@ do not change the API.
 </div>
 
 
-<div id="outline-container-org64e3443" class="outline-2">
-<h2 id="org64e3443">3.x</h2>
-<div class="outline-text-2" id="text-org64e3443">
+<div id="outline-container-org1ec5e49" class="outline-2">
+<h2 id="org1ec5e49">4.x</h2>
+<div class="outline-text-2" id="text-org1ec5e49">
 </div>
-<div id="outline-container-orgf960bbc" class="outline-3">
-<h3 id="orgf960bbc">3.10</h3>
-<div class="outline-text-3" id="text-orgf960bbc">
+<div id="outline-container-org9668106" class="outline-3">
+<h3 id="org9668106">4.0</h3>
+<div class="outline-text-3" id="text-org9668106">
 </div>
-<div id="outline-container-org59e0f42" class="outline-4">
-<h4 id="org59e0f42">3.10.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-01-15 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org59e0f42">
+<div id="outline-container-orgd436306" class="outline-4">
+<h4 id="orgd436306">4.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2025-02-03 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgd436306">
+<ul class="org-ul">
+<li>Updates core multiprocX scheduling to use <code>selectors</code> Python library to
+manage waiting on asynchronous socket readiness.  This is more flexible
+because it adapts to the optimal support method for each OS and allows a
+larger number of active sockets on MacOS (where select is limited to 1024
+descriptors).  Unfortunately, this does have a small performance penalty.
+Contributed by Grzegorz Banasiak.</li>
+<li>Fixes Windows support by reverting issue 70.</li>
+<li>Adds <code>ENOTCONN</code> as a send in-progress status for backoff.  Contributed by
+Grzegorz Banasiak.</li>
+<li>Longer timeouts in test_HAConvention.py and test_manyActorSystems.py to
+support Windows. Contributed by Grzegorz Banasiak.</li>
+<li>Adds examples/socketstress.py as another means to perform stress/load
+testing.  Contributed by Grzegorz Banasiak.</li>
+<li>Updates to test_runcommand.py to support Windows and skip test_actorSignals
+on the same platform since it does not support POSIX signals. Contributed
+by Grzegorz Banasiak.</li>
+<li>Added support for <code>THESPIAN_MAX_PENDING_TRANSMITS</code>,
+<code>THESPIAN_MAX_QUEUED_TRANSMITS</code>,
+<code>THESPIAN_QUEUED_TRANSMIT_UNBLOCK_THRESHOLD</code>,
+<code>THESPIAN_DROP_TRANSMITS_LEVEL</code>, and <code>THESPIAN_TRANSMIT_TIMEOUT_MINUTES</code>
+environment variables on <code>ActorSystem</code> startup. See <a href="using.html#h:ca576db1-3923-4db4-aaad-e6c41730f552">Configuration
+Environment Variables</a> in "Using Thespian" for details.</li>
+<li>Updates to <code>diagnose.py</code> for better Windows support and additional TCP
+socket information.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org954cc8e" class="outline-2">
+<h2 id="org954cc8e">3.x</h2>
+<div class="outline-text-2" id="text-org954cc8e">
+</div>
+<div id="outline-container-org0f6d98e" class="outline-3">
+<h3 id="org0f6d98e">3.10</h3>
+<div class="outline-text-3" id="text-org0f6d98e">
+</div>
+<div id="outline-container-org88f4264" class="outline-4">
+<h4 id="org88f4264">3.10.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-01-15 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org88f4264">
 <ul class="org-ul">
 <li>Fixes issue 70 where spurious connections would not allow setting
 <code>TCP_NODELAY</code> on the incoming socket (probably due to non-TCP connection
@@ -1444,9 +1552,9 @@ attempt or Ipv6 alternate headers).</li>
 </div>
 </div>
 
-<div id="outline-container-org692bfa2" class="outline-4">
-<h4 id="org692bfa2">3.10.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-01-09 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org692bfa2">
+<div id="outline-container-orge100b20" class="outline-4">
+<h4 id="orge100b20">3.10.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-01-09 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orge100b20">
 <ul class="org-ul">
 <li>Adds Beta support for convention fault tolerance by allowing the
 specification of a list of convention leaders.  Failure of a
@@ -1459,9 +1567,9 @@ Contributed by Arnab Chanda.</li>
 </div>
 </div>
 
-<div id="outline-container-org2d4620f" class="outline-4">
-<h4 id="org2d4620f">3.10.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-05-26 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org2d4620f">
+<div id="outline-container-orgbb493d4" class="outline-4">
+<h4 id="orgbb493d4">3.10.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-05-26 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgbb493d4">
 <ul class="org-ul">
 <li>Simultaneous create actor requests for a globalName actor could
 result in duplicates if processing overlapped in the Admin.
@@ -1481,9 +1589,9 @@ bases in the Using Thespian documentation.</li>
 </div>
 </div>
 
-<div id="outline-container-org7a0d0a4" class="outline-4">
-<h4 id="org7a0d0a4">3.10.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-05-12 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org7a0d0a4">
+<div id="outline-container-org97c26ef" class="outline-4">
+<h4 id="org97c26ef">3.10.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-05-12 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org97c26ef">
 <ul class="org-ul">
 <li>Improvements to logging configuration to properly determine the
 lowest logging level and set the proper logging level.  Fixes
@@ -1507,9 +1615,9 @@ Contributed by Hannes Lerchl.</li>
 </div>
 
 
-<div id="outline-container-org935d26f" class="outline-4">
-<h4 id="org935d26f">3.10.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-12-20 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org935d26f">
+<div id="outline-container-org4af7a8b" class="outline-4">
+<h4 id="org4af7a8b">3.10.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-12-20 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org4af7a8b">
 <ul class="org-ul">
 <li>Fixed <a href="https://github.com/thespianpy/Thespian/issues/57">Issue #57</a>: a bug in the previous release caused exceptions
 when using the multiproc bases with explicit logdefs under
@@ -1519,9 +1627,9 @@ Python 3 and has been fixed.</li>
 </div>
 </div>
 
-<div id="outline-container-org509ec8c" class="outline-4">
-<h4 id="org509ec8c">3.10.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-11-29 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org509ec8c">
+<div id="outline-container-orgdaec141" class="outline-4">
+<h4 id="orgdaec141">3.10.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-11-29 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgdaec141">
 <ul class="org-ul">
 <li>Fixed <a href="https://github.com/kquick/Thespian/issues/69">Issue #69</a>: ensure the Actor self.logger() works for all
 system bases.  Previously it only worked properly for the
@@ -1537,9 +1645,9 @@ to Peter Sabaini).</li>
 </div>
 </div>
 
-<div id="outline-container-org6d8ca1e" class="outline-4">
-<h4 id="org6d8ca1e">3.10.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-14 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org6d8ca1e">
+<div id="outline-container-org038a734" class="outline-4">
+<h4 id="org038a734">3.10.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-14 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org038a734">
 <ul class="org-ul">
 <li>Fixed <a href="https://github.com/kquick/Thespian/issues/63">Issue #63</a>: properly handle a socket fd that is no longer valid.</li>
 <li>Fixed setting logging threshold level when <code>THESPLOG_THRESHOLD</code> is not set.</li>
@@ -1551,9 +1659,9 @@ output.</li>
 </div>
 </div>
 
-<div id="outline-container-orgfe00e14" class="outline-4">
-<h4 id="orgfe00e14">3.10.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-10 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgfe00e14">
+<div id="outline-container-orge94006f" class="outline-4">
+<h4 id="orge94006f">3.10.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-10 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orge94006f">
 <ul class="org-ul">
 <li>Added ability to dynamically update the Thespian Troupe worker
 counts (see <a href="https://thespianpy.com/doc/using#hH-c796bc0d-a150-4fb9-8918-58f470813175">the Actor Troupe Support section</a>).</li>
@@ -1570,13 +1678,13 @@ Thespian for distributed application configurations.</li>
 </div>
 </div>
 
-<div id="outline-container-orge2fd641" class="outline-3">
-<h3 id="orge2fd641">3.9</h3>
-<div class="outline-text-3" id="text-orge2fd641">
+<div id="outline-container-orgdc1dcd3" class="outline-3">
+<h3 id="orgdc1dcd3">3.9</h3>
+<div class="outline-text-3" id="text-orgdc1dcd3">
 </div>
-<div id="outline-container-orgf62ed8f" class="outline-4">
-<h4 id="orgf62ed8f">3.9.11 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-10 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgf62ed8f">
+<div id="outline-container-orgc13cace" class="outline-4">
+<h4 id="orgc13cace">3.9.11 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-10 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgc13cace">
 <ul class="org-ul">
 <li><p>
 Fixed <code>createActor()</code> calls so that a <code>globalName</code> match is
@@ -1600,9 +1708,9 @@ loading tests.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4df3bc0" class="outline-4">
-<h4 id="org4df3bc0">3.9.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-08-30 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org4df3bc0">
+<div id="outline-container-org8370541" class="outline-4">
+<h4 id="org8370541">3.9.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-08-30 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org8370541">
 <ul class="org-ul">
 <li>Fixed syntax error handling of large output in runcommand that
 would cause a crash when copious amounts of output were
@@ -1619,9 +1727,9 @@ remove already removed items.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfb186eb" class="outline-4">
-<h4 id="orgfb186eb">3.9.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-04-08 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgfb186eb">
+<div id="outline-container-org95e9a8b" class="outline-4">
+<h4 id="org95e9a8b">3.9.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-04-08 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org95e9a8b">
 <ul class="org-ul">
 <li>Fixed issue in the troupe where a single message might get
 delivered to multiple troupe members for handling.  This error
@@ -1632,9 +1740,9 @@ strategy which focused the work on a single member.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0de5989" class="outline-4">
-<h4 id="org0de5989">3.9.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-03-05 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org0de5989">
+<div id="outline-container-org070c998" class="outline-4">
+<h4 id="org070c998">3.9.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-03-05 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org070c998">
 <ul class="org-ul">
 <li>Fixes for transmit handling to prevent excessive recursion.
 This improves the backoff and retry logic in cases where a large
@@ -1654,9 +1762,9 @@ patience from Andrew (andatt) via <a href="https://github.com/kquick/Thespian/is
 </ul>
 </div>
 </div>
-<div id="outline-container-org9438ac9" class="outline-4">
-<h4 id="org9438ac9">3.9.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-02-11 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org9438ac9">
+<div id="outline-container-org6098160" class="outline-4">
+<h4 id="org6098160">3.9.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-02-11 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org6098160">
 <ul class="org-ul">
 <li>Remove extraneous messages to ActorSystem at Actor shutdown time.</li>
 <li>Additional shutdown activity suppression on failed startup.</li>
@@ -1664,9 +1772,9 @@ patience from Andrew (andatt) via <a href="https://github.com/kquick/Thespian/is
 </ul>
 </div>
 </div>
-<div id="outline-container-org9083de4" class="outline-4">
-<h4 id="org9083de4">3.9.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-02-05 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org9083de4">
+<div id="outline-container-org5d05592" class="outline-4">
+<h4 id="org5d05592">3.9.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-02-05 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org5d05592">
 <ul class="org-ul">
 <li>Improved <a href="https://github.com/kquick/Thespian/issues/35">Issue #35</a> which addressed some issues running under
 Windows and also with the multiprocUDPBase.  The improvements
@@ -1677,9 +1785,9 @@ reached.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4fe4c88" class="outline-4">
-<h4 id="org4fe4c88">3.9.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-17 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org4fe4c88">
+<div id="outline-container-org9af570f" class="outline-4">
+<h4 id="org9af570f">3.9.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-17 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org9af570f">
 <ul class="org-ul">
 <li>Fixed <a href="https://github.com/kquick/Thespian/issues/32">Issue #32</a> which caused an actor to hang due to an internal
 deadlock if the number of queued messages reached the backoff
@@ -1687,9 +1795,9 @@ threshold.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfd7b03b" class="outline-4">
-<h4 id="orgfd7b03b">3.9.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-08-05 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgfd7b03b">
+<div id="outline-container-orgacb56bb" class="outline-4">
+<h4 id="orgacb56bb">3.9.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-08-05 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgacb56bb">
 <ul class="org-ul">
 <li>Fixed <a href="https://github.com/kquick/Thespian/issues/28">Issue #28</a> which prevented using the multiprocTCPBase or
 multiprocUDPBase ActorSystem bases offline (i.e. when internet
@@ -1697,9 +1805,9 @@ connectivity was unavailable).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org01638eb" class="outline-4">
-<h4 id="org01638eb">3.9.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-07-31 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org01638eb">
+<div id="outline-container-orgcebd915" class="outline-4">
+<h4 id="orgcebd915">3.9.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-07-31 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgcebd915">
 <ul class="org-ul">
 <li>Added the <code>THESPLOG_THRESHOLD</code> environment variable to allow
 control over thesplog logging levels without editing files, and
@@ -1724,9 +1832,9 @@ messages.</li>
 </div>
 </div>
 
-<div id="outline-container-org7e6026a" class="outline-4">
-<h4 id="org7e6026a">3.9.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-31 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org7e6026a">
+<div id="outline-container-orgff43d47" class="outline-4">
+<h4 id="orgff43d47">3.9.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-31 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgff43d47">
 <ul class="org-ul">
 <li>Fixed an error in the error handling code for the <code>RunCommand</code>
 helper.</li>
@@ -1734,9 +1842,9 @@ helper.</li>
 </div>
 </div>
 
-<div id="outline-container-orged48005" class="outline-4">
-<h4 id="orged48005">3.9.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-09 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orged48005">
+<div id="outline-container-org5e90813" class="outline-4">
+<h4 id="org5e90813">3.9.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-09 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org5e90813">
 <ul class="org-ul">
 <li>Message serialization failures (causing a <code>PoisonMessage</code>
 response) are now logged for easier diagnosis.</li>
@@ -1751,9 +1859,9 @@ actor and keeps RunCommand cleaner.</li>
 </div>
 </div>
 
-<div id="outline-container-org2aa866b" class="outline-4">
-<h4 id="org2aa866b">3.9.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-22 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org2aa866b">
+<div id="outline-container-orge9bc15e" class="outline-4">
+<h4 id="orge9bc15e">3.9.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-22 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orge9bc15e">
 <ul class="org-ul">
 <li>Added <code>self.globalName</code> to Actor objects.  An actor can
 determine its <code>globalName</code> by checking this property: the value
@@ -1807,13 +1915,13 @@ the (growing) contents.</li>
 </div>
 </div>
 
-<div id="outline-container-orgf341914" class="outline-3">
-<h3 id="orgf341914">3.8</h3>
-<div class="outline-text-3" id="text-orgf341914">
+<div id="outline-container-org6f06470" class="outline-3">
+<h3 id="org6f06470">3.8</h3>
+<div class="outline-text-3" id="text-org6f06470">
 </div>
-<div id="outline-container-orga0a5e1c" class="outline-4">
-<h4 id="orga0a5e1c">3.8.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-11-08 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orga0a5e1c">
+<div id="outline-container-orgcf8108a" class="outline-4">
+<h4 id="orgcf8108a">3.8.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-11-08 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgcf8108a">
 <ul class="org-ul">
 <li>Fixed issue preventing use of globalName actors in conjunction
 with a multiple ActorSystem Convention.</li>
@@ -1829,9 +1937,9 @@ ActorSystem relating to the arguments supplied.</li>
 </div>
 </div>
 
-<div id="outline-container-org49ad36a" class="outline-4">
-<h4 id="org49ad36a">3.8.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-11-01 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org49ad36a">
+<div id="outline-container-org5fa7593" class="outline-4">
+<h4 id="org5fa7593">3.8.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-11-01 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org5fa7593">
 <ul class="org-ul">
 <li>Fixed deprecation warnings related to inspect module (with
 thanks to Andrew Evans for the patch).</li>
@@ -1853,9 +1961,9 @@ condition on startup management.</li>
 </div>
 </div>
 
-<div id="outline-container-orgd63b4bd" class="outline-4">
-<h4 id="orgd63b4bd">3.8.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-22 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgd63b4bd">
+<div id="outline-container-orgc8b1f6b" class="outline-4">
+<h4 id="orgc8b1f6b">3.8.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-22 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgc8b1f6b">
 <ul class="org-ul">
 <li>Fix startup of loaded-source Actors on Windows: use string
 classname since Windows spawn does not inherit modified
@@ -1879,9 +1987,9 @@ sampling for logic evaluation.</li>
 </div>
 </div>
 
-<div id="outline-container-orgb1c4185" class="outline-4">
-<h4 id="orgb1c4185">3.8.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgb1c4185">
+<div id="outline-container-org2de9131" class="outline-4">
+<h4 id="org2de9131">3.8.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org2de9131">
 <ul class="org-ul">
 <li><p>
 The Actor <code>__init__()</code> can now specify <code>capabilities</code> and
@@ -1891,9 +1999,9 @@ The Actor <code>__init__()</code> can now specify <code>capabilities</code> and
 <div class="org-src-container">
 <pre class="src src-python">      <span class="org-keyword">class</span> <span class="org-type">MyActor</span>(Actor):
           <span class="org-keyword">def</span> <span class="org-function-name">__init__</span>(<span class="org-keyword">self</span>, requirements, capabilities):
-              <span class="org-keyword">if</span> requirements[<span class="org-string">'key'</span>] == <span class="org-string">'value'</span> <span class="org-keyword">and</span> \
-                  capabilities[<span class="org-string">'key2'</span>] == <span class="org-string">'another value'</span>:
-                  <span class="org-keyword">self</span>.mode = <span class="org-string">'enabled'</span>
+              <span class="org-keyword">if</span> requirements[<span class="org-string">'key'</span>] <span class="org-operator">==</span> <span class="org-string">'value'</span> <span class="org-keyword">and</span> \
+                  capabilities[<span class="org-string">'key2'</span>] <span class="org-operator">==</span> <span class="org-string">'another value'</span>:
+                  <span class="org-keyword">self</span>.<span class="org-variable-name">mode</span> <span class="org-operator">=</span> <span class="org-string">'enabled'</span>
 </pre>
 </div>
 
@@ -1929,13 +2037,13 @@ to Daniel Mitterdorfer).</li>
 </div>
 </div>
 
-<div id="outline-container-orgee9729d" class="outline-3">
-<h3 id="orgee9729d">3.7</h3>
-<div class="outline-text-3" id="text-orgee9729d">
+<div id="outline-container-orgce527ca" class="outline-3">
+<h3 id="orgce527ca">3.7</h3>
+<div class="outline-text-3" id="text-orgce527ca">
 </div>
-<div id="outline-container-orgfaaae24" class="outline-4">
-<h4 id="orgfaaae24">3.7.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-02 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgfaaae24">
+<div id="outline-container-org2dc89de" class="outline-4">
+<h4 id="org2dc89de">3.7.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-02 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org2dc89de">
 <ul class="org-ul">
 <li>Protection against malformed trailing input for TCP transport.</li>
 
@@ -1954,9 +2062,9 @@ test actors for distinction.</li>
 </div>
 </div>
 
-<div id="outline-container-orgbef9fc9" class="outline-4">
-<h4 id="orgbef9fc9">3.7.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgbef9fc9">
+<div id="outline-container-org20b4de8" class="outline-4">
+<h4 id="org20b4de8">3.7.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org20b4de8">
 <ul class="org-ul">
 <li>Removed setup.py and doc references to previously removed
 thespianShell, which is replaced by <code>python -m thespian.shell</code>.</li>
@@ -1964,9 +2072,9 @@ thespianShell, which is replaced by <code>python -m thespian.shell</code>.</li>
 </div>
 </div>
 
-<div id="outline-container-org8d64087" class="outline-4">
-<h4 id="org8d64087">3.7.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org8d64087">
+<div id="outline-container-org3df55e9" class="outline-4">
+<h4 id="org3df55e9">3.7.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-29 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org3df55e9">
 <ul class="org-ul">
 <li>Better internal detection of director reponses to avoid exceptions
 on unexpected messages.</li>
@@ -1978,9 +2086,9 @@ on unexpected messages.</li>
 </div>
 </div>
 
-<div id="outline-container-orgeec8a53" class="outline-4">
-<h4 id="orgeec8a53">3.7.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-19 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgeec8a53">
+<div id="outline-container-org791ec5e" class="outline-4">
+<h4 id="org791ec5e">3.7.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-19 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org791ec5e">
 <ul class="org-ul">
 <li><p>
 The major enhancement in this release is the
@@ -2037,13 +2145,13 @@ explicit exit information.</li>
 </div>
 </div>
 
-<div id="outline-container-org4b5ee55" class="outline-3">
-<h3 id="org4b5ee55">3.6</h3>
-<div class="outline-text-3" id="text-org4b5ee55">
+<div id="outline-container-org919c587" class="outline-3">
+<h3 id="org919c587">3.6</h3>
+<div class="outline-text-3" id="text-org919c587">
 </div>
-<div id="outline-container-orgc9ac0fa" class="outline-4">
-<h4 id="orgc9ac0fa">3.6.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgc9ac0fa">
+<div id="outline-container-org7c7a3a0" class="outline-4">
+<h4 id="org7c7a3a0">3.6.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org7c7a3a0">
 <ul class="org-ul">
 <li>Revert changes causing a regression in 3.6.2 wherein messages are
 dropped or not delivered (<a href="https://github.com/godaddy/Thespian/issues/37">Issue 37</a>).</li>
@@ -2051,9 +2159,9 @@ dropped or not delivered (<a href="https://github.com/godaddy/Thespian/issues/37
 </div>
 </div>
 
-<div id="outline-container-orga8a4ce9" class="outline-4">
-<h4 id="orga8a4ce9">3.6.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-19 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orga8a4ce9">
+<div id="outline-container-org360fc40" class="outline-4">
+<h4 id="org360fc40">3.6.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-19 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org360fc40">
 <ul class="org-ul">
 <li>Use cPickle when running under older python versions for improved
 performance (<a href="https://github.com/godaddy/Thespian/issues/34">Issue 34</a>).</li>
@@ -2090,9 +2198,9 @@ management interrupts and signals from exited children.</li>
 </div>
 </div>
 
-<div id="outline-container-org6492a19" class="outline-4">
-<h4 id="org6492a19">3.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-18 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org6492a19">
+<div id="outline-container-org73cdefd" class="outline-4">
+<h4 id="org73cdefd">3.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-18 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org73cdefd">
 <ul class="org-ul">
 <li>Updated Director to not require root permissions for writing log
 files when no log files need to be written.</li>
@@ -2133,9 +2241,9 @@ queue if address updates are performed post-queueing.</li>
 </div>
 </div>
 
-<div id="outline-container-orgedd8ff2" class="outline-4">
-<h4 id="orgedd8ff2">3.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-02 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgedd8ff2">
+<div id="outline-container-orgaa885b3" class="outline-4">
+<h4 id="orgaa885b3">3.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-02 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgaa885b3">
 <ul class="org-ul">
 <li>Enhancements
 
@@ -2208,13 +2316,13 @@ stated the inverse.</li>
 </div>
 
 
-<div id="outline-container-orga20754d" class="outline-3">
-<h3 id="orga20754d">3.5</h3>
-<div class="outline-text-3" id="text-orga20754d">
+<div id="outline-container-org3509865" class="outline-3">
+<h3 id="org3509865">3.5</h3>
+<div class="outline-text-3" id="text-org3509865">
 </div>
-<div id="outline-container-orgd709b5d" class="outline-4">
-<h4 id="orgd709b5d">3.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgd709b5d">
+<div id="outline-container-orgb2389e7" class="outline-4">
+<h4 id="orgb2389e7">3.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgb2389e7">
 <ul class="org-ul">
 <li>Slow down hysteresis backoff rate for inter-system admin messages.</li>
 
@@ -2225,9 +2333,9 @@ validation of this behavior.</li>
 </div>
 </div>
 
-<div id="outline-container-org08a94f9" class="outline-4">
-<h4 id="org08a94f9">3.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org08a94f9">
+<div id="outline-container-org4cc6796" class="outline-4">
+<h4 id="org4cc6796">3.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org4cc6796">
 <ul class="org-ul">
 <li>Rollback of Admin routing address creation optimization: loses
 important information needed when passing the address to remote
@@ -2241,9 +2349,9 @@ drain the outbound message queues.</li>
 </div>
 
 
-<div id="outline-container-orgafdbcbb" class="outline-4">
-<h4 id="orgafdbcbb">3.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-04 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgafdbcbb">
+<div id="outline-container-orgfcc2012" class="outline-4">
+<h4 id="orgfcc2012">3.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-04 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgfcc2012">
 <ul class="org-ul">
 <li>Enhancements
 
@@ -2315,13 +2423,13 @@ multiprocTCPBase.</li>
 </div>
 </div>
 
-<div id="outline-container-orgdb4f439" class="outline-3">
-<h3 id="orgdb4f439">3.4</h3>
-<div class="outline-text-3" id="text-orgdb4f439">
+<div id="outline-container-orgfe086d0" class="outline-3">
+<h3 id="orgfe086d0">3.4</h3>
+<div class="outline-text-3" id="text-orgfe086d0">
 </div>
-<div id="outline-container-org97eec3a" class="outline-4">
-<h4 id="org97eec3a">3.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-07 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org97eec3a">
+<div id="outline-container-org64c4dcf" class="outline-4">
+<h4 id="org64c4dcf">3.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-07 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org64c4dcf">
 <ul class="org-ul">
 <li>Added <code>notifyOnSourceAvailability()</code> call for an Actor to register
 to receive <code>LoadedSource</code> objects indicating that a new source
@@ -2368,13 +2476,13 @@ removed).</li>
 </div>
 
 
-<div id="outline-container-orgb83dc67" class="outline-3">
-<h3 id="orgb83dc67">3.3</h3>
-<div class="outline-text-3" id="text-orgb83dc67">
+<div id="outline-container-org732217f" class="outline-3">
+<h3 id="org732217f">3.3</h3>
+<div class="outline-text-3" id="text-org732217f">
 </div>
-<div id="outline-container-orgdc0eeb1" class="outline-4">
-<h4 id="orgdc0eeb1">3.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgdc0eeb1">
+<div id="outline-container-org0613c8d" class="outline-4">
+<h4 id="org0613c8d">3.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org0613c8d">
 <ul class="org-ul">
 <li>Allow <code>deRegisterRemoteSystem()</code> to be called with the remote
 admin <code>ActorAddress</code> object (as would be provided via convention
@@ -2426,13 +2534,13 @@ periods of high CPU utilization.</li>
 </div>
 </div>
 
-<div id="outline-container-orga3dde31" class="outline-3">
-<h3 id="orga3dde31">3.2</h3>
-<div class="outline-text-3" id="text-orga3dde31">
+<div id="outline-container-org7e38c33" class="outline-3">
+<h3 id="org7e38c33">3.2</h3>
+<div class="outline-text-3" id="text-org7e38c33">
 </div>
-<div id="outline-container-org5b316eb" class="outline-4">
-<h4 id="org5b316eb">3.2.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org5b316eb">
+<div id="outline-container-orgb30c1bd" class="outline-4">
+<h4 id="orgb30c1bd">3.2.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-15 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgb30c1bd">
 <ul class="org-ul">
 <li>Suppressed notification of pre-registered remotes on
 <code>preRegisterRemoteSystem()</code> call; notification is now only
@@ -2490,9 +2598,9 @@ conventionally serialized (see <a href="https://thespianpy.com/doc/using#hH-e234
 </div>
 
 
-<div id="outline-container-orgccd8521" class="outline-4">
-<h4 id="orgccd8521">3.2.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgccd8521">
+<div id="outline-container-org0a72d19" class="outline-4">
+<h4 id="org0a72d19">3.2.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org0a72d19">
 <ul class="org-ul">
 <li>Added backward compatibility support for interacting with
 pre-3.2.0 Thespian instances without the sourceInfo argument.</li>
@@ -2501,9 +2609,9 @@ pre-3.2.0 Thespian instances without the sourceInfo argument.</li>
 </div>
 
 
-<div id="outline-container-org1965ea3" class="outline-4">
-<h4 id="org1965ea3">3.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org1965ea3">
+<div id="outline-container-org7ec9f03" class="outline-4">
+<h4 id="org7ec9f03">3.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org7ec9f03">
 <ul class="org-ul">
 <li>Added sourceInfo argument to ValidateSource; allows informational
 tag to be associated with a loadable source for logging and status
@@ -2520,13 +2628,13 @@ messages still occurs only on the main thread.</li>
 </div>
 
 
-<div id="outline-container-org79fc004" class="outline-3">
-<h3 id="org79fc004">3.1</h3>
-<div class="outline-text-3" id="text-org79fc004">
+<div id="outline-container-org754714d" class="outline-3">
+<h3 id="org754714d">3.1</h3>
+<div class="outline-text-3" id="text-org754714d">
 </div>
-<div id="outline-container-org1268791" class="outline-4">
-<h4 id="org1268791">3.1.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org1268791">
+<div id="outline-container-org2c02b1c" class="outline-4">
+<h4 id="org2c02b1c">3.1.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-08 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org2c02b1c">
 <ul class="org-ul">
 <li>Better TCPTransport handling of connection attempts.</li>
 
@@ -2540,9 +2648,9 @@ exception failure.</li>
 </div>
 </div>
 
-<div id="outline-container-org19f2d74" class="outline-4">
-<h4 id="org19f2d74">3.1.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-29 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org19f2d74">
+<div id="outline-container-org8e6c030" class="outline-4">
+<h4 id="org8e6c030">3.1.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-29 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org8e6c030">
 <ul class="org-ul">
 <li>API and Public Changes
 
@@ -2608,13 +2716,13 @@ durations during the test.</li>
 </div>
 
 
-<div id="outline-container-orgd387859" class="outline-3">
-<h3 id="orgd387859">3.0</h3>
-<div class="outline-text-3" id="text-orgd387859">
+<div id="outline-container-org99d5d17" class="outline-3">
+<h3 id="org99d5d17">3.0</h3>
+<div class="outline-text-3" id="text-org99d5d17">
 </div>
-<div id="outline-container-org05aca93" class="outline-4">
-<h4 id="org05aca93">3.0.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-12 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org05aca93">
+<div id="outline-container-orgb8bad7e" class="outline-4">
+<h4 id="orgb8bad7e">3.0.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-12 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgb8bad7e">
 <ul class="org-ul">
 <li>Fix for initialization hardening in previous release.</li>
 
@@ -2626,9 +2734,9 @@ remote fetch of large sources.</li>
 </div>
 </div>
 
-<div id="outline-container-org53e859e" class="outline-4">
-<h4 id="org53e859e">3.0.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-11 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org53e859e">
+<div id="outline-container-org6585203" class="outline-4">
+<h4 id="org6585203">3.0.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-11 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org6585203">
 <ul class="org-ul">
 <li>Hardened initialization for environments where the fqdn, hostname,
 or dns lookup could cause gaierror exceptions.</li>
@@ -2641,9 +2749,9 @@ or dns lookup could cause gaierror exceptions.</li>
 </div>
 
 
-<div id="outline-container-org614e94b" class="outline-4">
-<h4 id="org614e94b">3.0.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-29 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org614e94b">
+<div id="outline-container-orgc8af3fb" class="outline-4">
+<h4 id="orgc8af3fb">3.0.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-29 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgc8af3fb">
 <ul class="org-ul">
 <li>More updates to tests for timing issues and adding idempotency of
 assert statements because pytest may re-execute them.</li>
@@ -2659,9 +2767,9 @@ replicate all builtins.</li>
 </div>
 </div>
 
-<div id="outline-container-orgc257e15" class="outline-4">
-<h4 id="orgc257e15">3.0.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-26 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgc257e15">
+<div id="outline-container-orgb68d4c2" class="outline-4">
+<h4 id="orgb68d4c2">3.0.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-26 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgb68d4c2">
 <ul class="org-ul">
 <li>Internal updates to tests for selection of available network ports
 for each test's admin address.</li>
@@ -2686,9 +2794,9 @@ sourceload module is needed instead of per file.</li>
 </div>
 
 
-<div id="outline-container-orgfd8edc2" class="outline-4">
-<h4 id="orgfd8edc2">3.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-04 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgfd8edc2">
+<div id="outline-container-org4cd231d" class="outline-4">
+<h4 id="org4cd231d">3.0.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-04 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org4cd231d">
 <ul class="org-ul">
 <li>Actor Addresses are not hashable.  Previously they were
 incorrectly marked as hashable, but they may be updated internally
@@ -2749,17 +2857,17 @@ ensure the same treatment is given for all cases of handler removal.</li>
 </div>
 </div>
 
-<div id="outline-container-org2f3ecbb" class="outline-2">
-<h2 id="org2f3ecbb">2.x</h2>
-<div class="outline-text-2" id="text-org2f3ecbb">
+<div id="outline-container-org740aeb1" class="outline-2">
+<h2 id="org740aeb1">2.x</h2>
+<div class="outline-text-2" id="text-org740aeb1">
 </div>
-<div id="outline-container-orgd1b316c" class="outline-3">
-<h3 id="orgd1b316c">2.6</h3>
-<div class="outline-text-3" id="text-orgd1b316c">
+<div id="outline-container-org5bf50cd" class="outline-3">
+<h3 id="org5bf50cd">2.6</h3>
+<div class="outline-text-3" id="text-org5bf50cd">
 </div>
-<div id="outline-container-org8bf7b3b" class="outline-4">
-<h4 id="org8bf7b3b">2.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-20 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org8bf7b3b">
+<div id="outline-container-org8b73425" class="outline-4">
+<h4 id="org8b73425">2.6.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-20 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org8b73425">
 <ul class="org-ul">
 <li>Fix simpleSystemBase wrapping of DeadEnvelope for dead letter
 re-routing.</li>
@@ -2770,9 +2878,9 @@ therefore does not support this functionality).</li>
 </div>
 </div>
 
-<div id="outline-container-org33325ba" class="outline-4">
-<h4 id="org33325ba">2.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-18 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org33325ba">
+<div id="outline-container-orgabd8b54" class="outline-4">
+<h4 id="orgabd8b54">2.6.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-18 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgabd8b54">
 <ul class="org-ul">
 <li>Functional Changes
 
@@ -2807,13 +2915,13 @@ inter-test influences.</li>
 </div>
 </div>
 
-<div id="outline-container-orgd8f617b" class="outline-3">
-<h3 id="orgd8f617b">2.5</h3>
-<div class="outline-text-3" id="text-orgd8f617b">
+<div id="outline-container-org77da7fb" class="outline-3">
+<h3 id="org77da7fb">2.5</h3>
+<div class="outline-text-3" id="text-org77da7fb">
 </div>
-<div id="outline-container-org12e4276" class="outline-4">
-<h4 id="org12e4276">2.5.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-03 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org12e4276">
+<div id="outline-container-orge9d51d3" class="outline-4">
+<h4 id="orge9d51d3">2.5.10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-05-03 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orge9d51d3">
 <ul class="org-ul">
 <li>API and Public Changes
 
@@ -2877,9 +2985,9 @@ enter the core transport work loop via the main thread.</li>
 </div>
 
 
-<div id="outline-container-org502e5a3" class="outline-4">
-<h4 id="org502e5a3">2.5.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org502e5a3">
+<div id="outline-container-org46765eb" class="outline-4">
+<h4 id="org46765eb">2.5.9 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org46765eb">
 <ul class="org-ul">
 <li>Fix signal handling introduced in 2.5.8 release to support Windows
 and other operating systems that don't define the full set of
@@ -2888,9 +2996,9 @@ standard Unix signals.</li>
 </div>
 </div>
 
-<div id="outline-container-org5d393c3" class="outline-4">
-<h4 id="org5d393c3">2.5.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org5d393c3">
+<div id="outline-container-org912ef93" class="outline-4">
+<h4 id="org912ef93">2.5.8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-21 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org912ef93">
 <ul class="org-ul">
 <li>Added protection to prevent simpleSystemBase internal addresses
 from being killed (<a href="https://github.com/godaddy/Thespian/issues/5">Issue #5</a>).</li>
@@ -2919,9 +3027,9 @@ of circular import references in loaded sources.</li>
 </div>
 </div>
 
-<div id="outline-container-org9bd81ec" class="outline-4">
-<h4 id="org9bd81ec">2.5.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-14 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org9bd81ec">
+<div id="outline-container-org65d299d" class="outline-4">
+<h4 id="org65d299d">2.5.7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-14 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org65d299d">
 <ul class="org-ul">
 <li>Updated loaded source lookup failure to throw ImportError
 exception instead of BadZipFile exception for compatibility with
@@ -2930,9 +3038,9 @@ importing code handling the former.</li>
 </div>
 </div>
 
-<div id="outline-container-org4947a35" class="outline-4">
-<h4 id="org4947a35">2.5.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-11 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org4947a35">
+<div id="outline-container-org11e3b16" class="outline-4">
+<h4 id="org11e3b16">2.5.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-11 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org11e3b16">
 <ul class="org-ul">
 <li>Fixes for detection of socket closure in the TCPTransport:
 corrected errno reference and add handling of additional errors
@@ -2960,9 +3068,9 @@ children.</li>
 </div>
 </div>
 
-<div id="outline-container-org0d20cd3" class="outline-4">
-<h4 id="org0d20cd3">2.5.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-05 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org0d20cd3">
+<div id="outline-container-org293a8f9" class="outline-4">
+<h4 id="org293a8f9">2.5.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-05 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org293a8f9">
 <ul class="org-ul">
 <li>Added fix for closing open TCPTransport sockets to a remote Admin
 that is known to be unavailable (i.e. on explicit or time-based
@@ -2975,9 +3083,9 @@ for TCPTransport-based communications.</li>
 </div>
 </div>
 
-<div id="outline-container-orgb7dae97" class="outline-4">
-<h4 id="orgb7dae97">2.5.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-01 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgb7dae97">
+<div id="outline-container-org323d4e7" class="outline-4">
+<h4 id="org323d4e7">2.5.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-01 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org323d4e7">
 <ul class="org-ul">
 <li>Calling <code>loadSource()</code> multiple times for the same source does
 nothing instead of unloading and reloading the source.  This
@@ -2992,9 +3100,9 @@ would encounter further problems.</li>
 </div>
 </div>
 
-<div id="outline-container-org4bff31b" class="outline-4">
-<h4 id="org4bff31b">2.5.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-28 Thu&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org4bff31b">
+<div id="outline-container-org1c5f049" class="outline-4">
+<h4 id="org1c5f049">2.5.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-28 Thu&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org1c5f049">
 <ul class="org-ul">
 <li>Fixed hash representation of TCP routed and tx-only addresses to
 provide consistent hash values and match the equality-sense of the
@@ -3008,9 +3116,9 @@ addresses.</li>
 </div>
 </div>
 
-<div id="outline-container-org4a89b31" class="outline-4">
-<h4 id="org4a89b31">2.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org4a89b31">
+<div id="outline-container-org9f764ed" class="outline-4">
+<h4 id="org9f764ed">2.5.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org9f764ed">
 <ul class="org-ul">
 <li>Enhanced and fixed logging messages, including severity indications.</li>
 
@@ -3049,9 +3157,9 @@ addresses.</li>
 </div>
 </div>
 
-<div id="outline-container-org0dcf3ec" class="outline-4">
-<h4 id="org0dcf3ec">2.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org0dcf3ec">
+<div id="outline-container-org90d3e96" class="outline-4">
+<h4 id="org90d3e96">2.5.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org90d3e96">
 <ul class="org-ul">
 <li>Fixed sourceload path handling: zipfiles use posix paths only, but
 running loaded sources on Windows with previous versions attempted
@@ -3063,9 +3171,9 @@ INFO.</li>
 </div>
 </div>
 
-<div id="outline-container-orgc35f147" class="outline-4">
-<h4 id="orgc35f147">2.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgc35f147">
+<div id="outline-container-orge43e5be" class="outline-4">
+<h4 id="orge43e5be">2.5.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orge43e5be">
 <ul class="org-ul">
 <li>Allow value specification with the <code>@requireCapability</code> decorator.</li>
 
@@ -3139,13 +3247,13 @@ Actor System to secure/protected by default.</li>
 </div>
 </div>
 
-<div id="outline-container-org0ca4f29" class="outline-3">
-<h3 id="org0ca4f29">2.4</h3>
-<div class="outline-text-3" id="text-org0ca4f29">
+<div id="outline-container-orgfa77a90" class="outline-3">
+<h3 id="orgfa77a90">2.4</h3>
+<div class="outline-text-3" id="text-orgfa77a90">
 </div>
-<div id="outline-container-orgc3c9a12" class="outline-4">
-<h4 id="orgc3c9a12">2.4.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgc3c9a12">
+<div id="outline-container-orgd8ca504" class="outline-4">
+<h4 id="orgd8ca504">2.4.4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-16 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgd8ca504">
 <ul class="org-ul">
 <li>Removed TCP connect timeout that overrode non-blocking mode.</li>
 
@@ -3165,9 +3273,9 @@ prematurely by leftover responses to previous operations
 </div>
 </div>
 
-<div id="outline-container-org2f03c37" class="outline-4">
-<h4 id="org2f03c37">2.4.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-18 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org2f03c37">
+<div id="outline-container-org37f8ddc" class="outline-4">
+<h4 id="org37f8ddc">2.4.3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-18 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org37f8ddc">
 <ul class="org-ul">
 <li>Ensured that PoisonMessage sending doesn't recurse indefinitely.</li>
 
@@ -3201,9 +3309,9 @@ to avoid defunct loggers.</li>
 </div>
 </div>
 
-<div id="outline-container-org9122a91" class="outline-4">
-<h4 id="org9122a91">2.4.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-26 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org9122a91">
+<div id="outline-container-org9a60f7c" class="outline-4">
+<h4 id="org9a60f7c">2.4.2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-26 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org9a60f7c">
 <ul class="org-ul">
 <li>Delay thesplog location determination until usage to allow startup
 code to adjust location.</li>
@@ -3216,9 +3324,9 @@ iterator when creating multiproc children (bugfix).</li>
 </div>
 </div>
 
-<div id="outline-container-org777c84f" class="outline-4">
-<h4 id="org777c84f">2.4.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-20 Tue&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org777c84f">
+<div id="outline-container-org8f58674" class="outline-4">
+<h4 id="org8f58674">2.4.1 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-20 Tue&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org8f58674">
 <ul class="org-ul">
 <li>Updated to allow packets not blocked on waiting for an address
 resolution to be sent even if previous packets are still waiting
@@ -3229,9 +3337,9 @@ for that resolution.</li>
 </div>
 </div>
 
-<div id="outline-container-orgc27bcc6" class="outline-4">
-<h4 id="orgc27bcc6">2.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-18 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgc27bcc6">
+<div id="outline-container-org80db34c" class="outline-4">
+<h4 id="org80db34c">2.4.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-18 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org80db34c">
 <ul class="org-ul">
 <li>Add loadActorSource() and unloadActorSource() to Actor API
 (duplicating existing Actor System API functionality).</li>
@@ -3251,13 +3359,13 @@ for that resolution.</li>
 </div>
 
 
-<div id="outline-container-orgc4fa294" class="outline-3">
-<h3 id="orgc4fa294">2.3</h3>
-<div class="outline-text-3" id="text-orgc4fa294">
+<div id="outline-container-org7d44396" class="outline-3">
+<h3 id="org7d44396">2.3</h3>
+<div class="outline-text-3" id="text-org7d44396">
 </div>
-<div id="outline-container-org037b571" class="outline-4">
-<h4 id="org037b571">2.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org037b571">
+<div id="outline-container-org2db69a7" class="outline-4">
+<h4 id="org2db69a7">2.3.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org2db69a7">
 <ul class="org-ul">
 <li>Added ActorTypeDispatcher enhanced base class to facilitate
 dispatching of received messages based on message type.</li>
@@ -3278,13 +3386,13 @@ Previous 2.2.0 release erroneously did not update this value.</li>
 </div>
 
 
-<div id="outline-container-orgba3decb" class="outline-3">
-<h3 id="orgba3decb">2.2</h3>
-<div class="outline-text-3" id="text-orgba3decb">
+<div id="outline-container-orgc315207" class="outline-3">
+<h3 id="orgc315207">2.2</h3>
+<div class="outline-text-3" id="text-orgc315207">
 </div>
-<div id="outline-container-org5ce86ac" class="outline-4">
-<h4 id="org5ce86ac">2.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org5ce86ac">
+<div id="outline-container-org78bbef0" class="outline-4">
+<h4 id="org78bbef0">2.2.0 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org78bbef0">
 <ul class="org-ul">
 <li>Fix internal links in Using Thespian document.</li>
 
@@ -3315,13 +3423,13 @@ controls.</li>
 </div>
 
 
-<div id="outline-container-org297d2e2" class="outline-3">
-<h3 id="org297d2e2">2.1</h3>
-<div class="outline-text-3" id="text-org297d2e2">
+<div id="outline-container-orgbbe4736" class="outline-3">
+<h3 id="orgbbe4736">2.1</h3>
+<div class="outline-text-3" id="text-orgbbe4736">
 </div>
-<div id="outline-container-org3d7e98d" class="outline-4">
-<h4 id="org3d7e98d">2.1.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org3d7e98d">
+<div id="outline-container-org30325a7" class="outline-4">
+<h4 id="org30325a7">2.1.6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-27 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org30325a7">
 <ul class="org-ul">
 <li>Fix imports in tests and actors.py for multiple Python versions.</li>
 
@@ -3330,9 +3438,9 @@ controls.</li>
 </div>
 </div>
 
-<div id="outline-container-org17e8003" class="outline-4">
-<h4 id="org17e8003">2.1.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-20 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-org17e8003">
+<div id="outline-container-org1cef2b1" class="outline-4">
+<h4 id="org1cef2b1">2.1.5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-20 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org1cef2b1">
 <ul class="org-ul">
 <li>Adds support for Python 3.3 and Python 3.4 versions, including the
 use of the PyPy interpreter.</li>
@@ -3366,9 +3474,9 @@ avoid impossible retransmits.</li>
 </div>
 
 
-<div id="outline-container-orgdf65a47" class="outline-4">
-<h4 id="orgdf65a47">2.1.4 Initial Public Release <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-31 Mon&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgdf65a47">
+<div id="outline-container-org4152656" class="outline-4">
+<h4 id="org4152656">2.1.4 Initial Public Release <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-31 Mon&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org4152656">
 <p>
 The 2.1.4 Release represents the first publicly available release of
 Thespian.  It includes the following features:
@@ -3382,9 +3490,9 @@ Thespian.  It includes the following features:
 </div>
 </div>
 
-<div id="outline-container-org303aaf1" class="outline-3">
-<h3 id="org303aaf1">2.0</h3>
-<div class="outline-text-3" id="text-org303aaf1">
+<div id="outline-container-orga4987e5" class="outline-3">
+<h3 id="orga4987e5">2.0</h3>
+<div class="outline-text-3" id="text-orga4987e5">
 <p>
 The 2.0 Release was developed and used internally by GoDaddy.
 </p>
@@ -3392,9 +3500,9 @@ The 2.0 Release was developed and used internally by GoDaddy.
 </div>
 </div>
 
-<div id="outline-container-org1078b28" class="outline-2">
-<h2 id="org1078b28">1.x</h2>
-<div class="outline-text-2" id="text-org1078b28">
+<div id="outline-container-org1fefdd6" class="outline-2">
+<h2 id="org1fefdd6">1.x</h2>
+<div class="outline-text-2" id="text-org1fefdd6">
 <p>
 The 1.x Release series was developed and used internally by GoDaddy
 </p>
@@ -3402,8 +3510,8 @@ The 1.x Release series was developed and used internally by GoDaddy
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Kevin Quick &lt;quick@sparq.org&gt;</p>
-<p class="date">Created: 2023-01-15 Sun 23:02</p>
+<p class="author">Author: Kevin Quick &lt;kq1quick@gmail.com&gt;</p>
+<p class="date">Created: 2025-02-03 Mon 18:17</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
