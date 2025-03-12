@@ -20,6 +20,7 @@ Summary
 .. 2016
 4.x
 .. 4.0
+..... 4.0.1 <2025-03-11 Tue>
 ..... 4.0.0 <2025-02-03 Mon>
 3.x
 .. 3.10
@@ -129,13 +130,14 @@ Summary
 2025
 ────
 
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Release        Date  Significant Bugfixes                        Significant Features                          
-  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-     4.0.0  2025-02-03  Better fix for [Issue #70] (fixes Windows)  Use `selectors' for socket handling.          
-                        General fixes for socket handling.          Configurable socket management thresholds.    
-                        Dropped support for Python 2.               Multiple convention leaders no longer Beta.   
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Release        Date  Significant Bugfixes                                                                          Significant Features                          
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+     4.0.1  2025-03-11  Fix  for [[<https://github.com/thespianpy/Thespian/issues/86>][Issue #86] (local IP address)                                                
+     4.0.0  2025-02-03  Better fix for [Issue #70] (fixes Windows)                                                    Use `selectors' for socket handling.          
+                        General fixes for socket handling.                                                            Configurable socket management thresholds.    
+                        Dropped support for Python 2.                                                                 Multiple convention leaders no longer Beta.   
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 [Issue #70] <https://github.com/thespianpy/Thespian/issues/70>
@@ -378,6 +380,17 @@ Summary
 
 4.0
 ───
+
+4.0.1 <2025-03-11 Tue>
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ‣ Fixes issue 86.  This issue was probably introduced in version
+    3.10.6 with support for multiple convention leaders.  The latter
+    changes affected the representation of addresses in a way that broke
+    the determination of the local IP address when not explicitly
+    provided.  This diagnosis and fix was kindly contributed by Grzegorz
+    Banasiak.
+
 
 4.0.0 <2025-02-03 Mon>
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
